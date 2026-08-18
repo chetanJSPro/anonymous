@@ -1,0 +1,15 @@
+google-api-python-client
+google-auth-oauthlib
+requests
+pillow
+
+# Local, free/open TTS (peace_reels_automation's voice engine). Requires
+# espeak-ng installed on the OS (winget install eSpeak-NG.eSpeak-NG on
+# Windows, apt install espeak-ng on Linux).
+kokoro>=0.9.4
+numpy>=1.26.0
+soundfile>=0.12.1
+
+# video assembly is now ffmpeg CLI directly (core/video_builder.py, ported
+# from peace_reels_automation) — moviepy/edge-tts no longer used by the
+# active pipeline, left out on purpose.

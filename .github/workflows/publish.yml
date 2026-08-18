@@ -1,0 +1,109 @@
+name: Publish niche episodes
+
+on:
+  schedule:
+    # 03:00 UTC daily — one episode per channel, uploaded straight to YouTube.
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: "Run only this channel (blank = all 11)"
+        required: false
+      upload:
+        description: "Actually upload to YouTube (true/false)"
+        required: false
+        default: "true"
+
+jobs:
+  publish:
+    if: ${{ github.event.inputs.channel == '' || github.event.inputs.channel == null }}
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        channel:
+          - hp01_betrayal_revenge
+          - hp02_court_drama
+          - hp03_karma_justice
+          - hp04_veteran_kindness
+          - hp05_sleep_soundscapes
+          - hp06_literary_analysis
+          - hp07_senior_longevity
+          - hp08_english_learning
+          - ch01_ai_asmr
+          - ch03_hindu_mythology
+          - ch06_eastern_philosophy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ffmpeg + caption font
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Write secrets to files
+        env:
+          CLIENT_SECRET_A_B64: ${{ secrets.CLIENT_SECRET_A_B64 }}
+          CLIENT_SECRET_B_B64: ${{ secrets.CLIENT_SECRET_B_B64 }}
+          CLIENT_SECRET_C_B64: ${{ secrets.CLIENT_SECRET_C_B64 }}
+          TOKEN_HP01_BETRAYAL_REVENGE_B64: ${{ secrets.TOKEN_HP01_BETRAYAL_REVENGE_B64 }}
+          TOKEN_HP02_COURT_DRAMA_B64: ${{ secrets.TOKEN_HP02_COURT_DRAMA_B64 }}
+          TOKEN_HP03_KARMA_JUSTICE_B64: ${{ secrets.TOKEN_HP03_KARMA_JUSTICE_B64 }}
+          TOKEN_HP04_VETERAN_KINDNESS_B64: ${{ secrets.TOKEN_HP04_VETERAN_KINDNESS_B64 }}
+          TOKEN_HP05_SLEEP_SOUNDSCAPES_B64: ${{ secrets.TOKEN_HP05_SLEEP_SOUNDSCAPES_B64 }}
+          TOKEN_HP06_LITERARY_ANALYSIS_B64: ${{ secrets.TOKEN_HP06_LITERARY_ANALYSIS_B64 }}
+          TOKEN_HP07_SENIOR_LONGEVITY_B64: ${{ secrets.TOKEN_HP07_SENIOR_LONGEVITY_B64 }}
+          TOKEN_HP08_ENGLISH_LEARNING_B64: ${{ secrets.TOKEN_HP08_ENGLISH_LEARNING_B64 }}
+          TOKEN_CH01_AI_ASMR_B64: ${{ secrets.TOKEN_CH01_AI_ASMR_B64 }}
+          TOKEN_CH03_HINDU_MYTHOLOGY_B64: ${{ secrets.TOKEN_CH03_HINDU_MYTHOLOGY_B64 }}
+          TOKEN_CH06_EASTERN_PHILOSOPHY_B64: ${{ secrets.TOKEN_CH06_EASTERN_PHILOSOPHY_B64 }}
+        run: python scripts/write_secrets.py
+      - name: Generate + upload episode
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python scripts/publish.py ${{ matrix.channel }} --upload
+
+  publish-single:
+    if: ${{ github.event.inputs.channel != '' && github.event.inputs.channel != null }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ffmpeg + caption font
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Write secrets to files
+        env:
+          CLIENT_SECRET_A_B64: ${{ secrets.CLIENT_SECRET_A_B64 }}
+          CLIENT_SECRET_B_B64: ${{ secrets.CLIENT_SECRET_B_B64 }}
+          CLIENT_SECRET_C_B64: ${{ secrets.CLIENT_SECRET_C_B64 }}
+          TOKEN_HP01_BETRAYAL_REVENGE_B64: ${{ secrets.TOKEN_HP01_BETRAYAL_REVENGE_B64 }}
+          TOKEN_HP02_COURT_DRAMA_B64: ${{ secrets.TOKEN_HP02_COURT_DRAMA_B64 }}
+          TOKEN_HP03_KARMA_JUSTICE_B64: ${{ secrets.TOKEN_HP03_KARMA_JUSTICE_B64 }}
+          TOKEN_HP04_VETERAN_KINDNESS_B64: ${{ secrets.TOKEN_HP04_VETERAN_KINDNESS_B64 }}
+          TOKEN_HP05_SLEEP_SOUNDSCAPES_B64: ${{ secrets.TOKEN_HP05_SLEEP_SOUNDSCAPES_B64 }}
+          TOKEN_HP06_LITERARY_ANALYSIS_B64: ${{ secrets.TOKEN_HP06_LITERARY_ANALYSIS_B64 }}
+          TOKEN_HP07_SENIOR_LONGEVITY_B64: ${{ secrets.TOKEN_HP07_SENIOR_LONGEVITY_B64 }}
+          TOKEN_HP08_ENGLISH_LEARNING_B64: ${{ secrets.TOKEN_HP08_ENGLISH_LEARNING_B64 }}
+          TOKEN_CH01_AI_ASMR_B64: ${{ secrets.TOKEN_CH01_AI_ASMR_B64 }}
+          TOKEN_CH03_HINDU_MYTHOLOGY_B64: ${{ secrets.TOKEN_CH03_HINDU_MYTHOLOGY_B64 }}
+          TOKEN_CH06_EASTERN_PHILOSOPHY_B64: ${{ secrets.TOKEN_CH06_EASTERN_PHILOSOPHY_B64 }}
+        run: python scripts/write_secrets.py
+      - name: Generate (+ maybe upload) episode
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.upload }}" = "false" ]; then
+            python scripts/publish.py ${{ github.event.inputs.channel }}
+          else
+            python scripts/publish.py ${{ github.event.inputs.channel }} --upload
+          fi

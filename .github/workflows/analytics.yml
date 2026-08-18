@@ -1,0 +1,43 @@
+name: Update dashboard stats
+
+on:
+  schedule:
+    # 05:00 UTC daily — after uploads have had time to accrue same-day views.
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install google-api-python-client google-auth-oauthlib requests
+      - name: Write secrets to files
+        env:
+          CLIENT_SECRET_A_B64: ${{ secrets.CLIENT_SECRET_A_B64 }}
+          CLIENT_SECRET_B_B64: ${{ secrets.CLIENT_SECRET_B_B64 }}
+          TOKEN_HP01_BETRAYAL_REVENGE_B64: ${{ secrets.TOKEN_HP01_BETRAYAL_REVENGE_B64 }}
+          TOKEN_HP02_COURT_DRAMA_B64: ${{ secrets.TOKEN_HP02_COURT_DRAMA_B64 }}
+          TOKEN_HP03_KARMA_JUSTICE_B64: ${{ secrets.TOKEN_HP03_KARMA_JUSTICE_B64 }}
+          TOKEN_HP04_VETERAN_KINDNESS_B64: ${{ secrets.TOKEN_HP04_VETERAN_KINDNESS_B64 }}
+          TOKEN_HP05_SLEEP_SOUNDSCAPES_B64: ${{ secrets.TOKEN_HP05_SLEEP_SOUNDSCAPES_B64 }}
+          TOKEN_HP06_LITERARY_ANALYSIS_B64: ${{ secrets.TOKEN_HP06_LITERARY_ANALYSIS_B64 }}
+          TOKEN_HP07_SENIOR_LONGEVITY_B64: ${{ secrets.TOKEN_HP07_SENIOR_LONGEVITY_B64 }}
+          TOKEN_HP08_ENGLISH_LEARNING_B64: ${{ secrets.TOKEN_HP08_ENGLISH_LEARNING_B64 }}
+        run: python scripts/write_secrets.py
+      - name: Fetch YouTube Analytics for all 8 channels
+        run: python scripts/fetch_analytics.py
+      - name: Commit updated dashboard data
+        run: |
+          git config user.name "niche-dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data/stats.json
+          git diff --cached --quiet && echo "no changes" || git commit -m "Update dashboard stats [skip ci]"
+          git push

@@ -1,0 +1,49 @@
+"""
+config.py for Court Drama Stories (est. RPM $9.03) — edit topic_prompts / voice / query terms here.
+Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
+"""
+
+SYSTEM_PROMPT = "You write a viral first-person 'courtroom story' script — a small claims dispute, a wild legal case, or a judge calling out an obviously dishonest party. Write 180-220 words with a clear conflict, a tense back-and-forth, and a decisive, satisfying ruling. Plausible and specific, never a real identifiable case or person — write it as a fictionalized dramatization."
+
+TOPIC_PROMPTS = ["a small claims case over a neighbor's fence built two feet into the wrong yard", 'a landlord suing a tenant who then produced text messages proving retaliation', 'a dispute over a wedding photographer who never delivered the photos', 'a case where a dog walker was sued after a dog went missing, then video evidence changed everything', 'a contractor sued for a bad renovation who had secretly recorded every conversation']
+
+STOCK_QUERIES = ['courtroom interior', 'judge gavel closeup', 'lawyer with documents',
+                  'witness testifying', 'people shaking hands after agreement']
+AI_PROMPTS = [
+    'cinematic courtroom drama scene, {topic}, dramatic lighting, photorealistic, tense atmosphere',
+    "photorealistic close-up of a judge's gavel, dramatic courtroom lighting, cinematic",
+    'cinematic wide shot of an empty courtroom, dramatic light through windows, photorealistic',
+    'photorealistic tense witness stand scene, cinematic lighting, film still',
+    'cinematic photorealistic scene, relief and justice served, warm light, film still',
+]
+
+def visual_query_fn(topic, script):
+    """Real stock video search terms only — no AI stills."""
+    return STOCK_QUERIES
+
+def title_fn(topic):
+    prefix = ''
+    t = topic[0].upper() + topic[1:]
+    return (prefix + " " + t).strip()[:100] if prefix else t[:100]
+
+def description_fn(topic):
+    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
+    return base + "\n#shorts" if True else base
+
+CONFIG = {
+    "name": 'hp02_court_drama',
+    "system_prompt": SYSTEM_PROMPT,
+    "topic_prompts": TOPIC_PROMPTS,
+    "visual_source": 'mixed',
+    "visual_query_fn": visual_query_fn,
+    "voice": 'en-US-ChristopherNeural',
+    "vertical": True,
+    "category_id": '24',
+    "client_secret_file": "client_secret_a.json",
+    "channel_token_file": "token_hp02_court_drama.json",
+    "title_fn": title_fn,
+    "description_fn": description_fn,
+    "tags": ['court drama', 'courtroom story', 'legal drama', 'storytime'],
+    "niche": "Court drama stories",
+    "est_rpm": 9.03,
+}
