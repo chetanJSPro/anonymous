@@ -41,15 +41,18 @@
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
-      "est_rpm": null
+      "est_rpm": null,
+      "video_count": 1
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
-      "est_rpm": null
+      "est_rpm": null,
+      "video_count": 1
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
-      "est_rpm": null
+      "est_rpm": null,
+      "video_count": 1
     }
   },
   "records": [
@@ -724,8 +727,296 @@
       "watch_minutes": 0,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-05",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-06",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-07",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-08",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-09",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-10",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-11",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-12",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-13",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-14",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-15",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-08-16",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-05",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-06",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-07",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-08",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-09",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-10",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-11",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-12",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-13",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-14",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-15",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-08-16",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-05",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-06",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-07",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-08",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-09",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-10",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-11",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-12",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-13",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-14",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-15",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-08-16",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-08-19T11:54:08.139040Z"
+  "last_updated": "2026-08-19T11:56:02.823240Z"
 }
