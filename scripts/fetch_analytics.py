@@ -72,16 +72,26 @@ def fetch_channel_stats(config, days=14):
     return out
 
 
-def video_count(config):
-    """Total public uploads on this channel, via YouTube Data API (needs
-    youtube.readonly, already in core/auth.py's SCOPES)."""
+def channel_snapshot(config):
+    """Current channel totals via YouTube Data API (needs youtube.readonly,
+    already in core/auth.py's SCOPES) -- videoCount, viewCount,
+    subscriberCount. Unlike the Analytics API's per-day reports (which have
+    a well-documented 24-48h processing lag before "today" shows up), this
+    is close to real-time -- it's the same number YouTube shows on the
+    channel page itself. Used as the dashboard's headline number so it
+    doesn't look like "0 views" right after a fresh upload."""
     creds = get_credentials(config["channel_token_file"], config.get("client_secret_file"))
     yt = googleapiclient.discovery.build("youtube", "v3", credentials=creds)
     resp = yt.channels().list(part="statistics", mine=True).execute()
     items = resp.get("items", [])
     if not items:
         return None
-    return int(items[0]["statistics"].get("videoCount", 0))
+    stats = items[0]["statistics"]
+    return {
+        "video_count": int(stats.get("videoCount", 0)),
+        "current_total_views": int(stats.get("viewCount", 0)),
+        "current_subscribers": int(stats.get("subscriberCount", 0)),
+    }
 
 
 def main():
@@ -109,9 +119,11 @@ def main():
             existing_keys.add(key)
 
         try:
-            data["channels"][name]["video_count"] = video_count(config)
+            snapshot = channel_snapshot(config)
+            if snapshot:
+                data["channels"][name].update(snapshot)
         except Exception as e:
-            print(f"[fetch_analytics] {name} video_count FAILED: {e}")
+            print(f"[fetch_analytics] {name} channel_snapshot FAILED: {e}")
 
     data["last_updated"] = datetime.datetime.utcnow().isoformat() + "Z"
     _save(data)

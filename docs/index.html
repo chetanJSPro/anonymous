@@ -161,12 +161,19 @@ async function main() {
     const c = channels[n];
     const a = agg[n];
     const videoCount = c.video_count || 0;
-    const avgViews = videoCount ? a.views / videoCount : (a.views || 0);
-    const estRevenue = c.est_rpm != null ? (a.views / 1000) * c.est_rpm : null;
+    // current_total_views (YouTube Data API, near-real-time) is the
+    // headline number -- a.views (summed from the Analytics API's per-day
+    // reports) lags 24-48h behind, so right after a fresh upload it reads
+    // 0 even when the video already has real views. Fall back to the
+    // lagged sum only if the live snapshot hasn't been fetched yet.
+    const liveViews = c.current_total_views;
+    const views = liveViews != null ? liveViews : a.views;
+    const avgViews = videoCount ? views / videoCount : (views || 0);
+    const estRevenue = c.est_rpm != null ? (views / 1000) * c.est_rpm : null;
     return {
       name: n, niche: c.niche || n, rpm: c.est_rpm, color: seriesColor(i),
-      views: a.views, watchMinutes: a.watch_minutes, subsGained: a.subs_gained,
-      videoCount, avgViews, estRevenue,
+      views, watchMinutes: a.watch_minutes, subsGained: a.subs_gained,
+      videoCount, avgViews, estRevenue, isLive: liveViews != null,
     };
   }).sort((a,b) => b.views - a.views);
 
@@ -175,7 +182,7 @@ async function main() {
     <div class="card">
       <span class="rank">#${rows.indexOf(r)+1}</span>
       <div class="niche"><span class="dot" style="background:${r.color}"></span>${r.niche}</div>
-      <div class="value">${fmt(r.views)} views</div>
+      <div class="value">${fmt(r.views)} views${r.isLive ? '' : ' <span style="font-size:0.5em;opacity:0.6">(lagged)</span>'}</div>
       <div class="delta">${r.videoCount} video(s) &middot; ${fmt(r.subsGained)} subs &middot; est. ${money(r.estRevenue)}</div>
     </div>`).join('');
 
