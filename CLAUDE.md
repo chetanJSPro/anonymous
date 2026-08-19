@@ -6,6 +6,45 @@ tier) with zero paid tools. A 2-week performance dashboard compares the 11
 niches so the underperformers can be dropped after the trial (aiming to keep
 the top 3 for the long-term "high quality" tier).
 
+## Status as of 2026-08-19 (read this first)
+
+10 of the 11 channels are live and confirmed working end-to-end (script ->
+voice -> visuals -> upload), each with one real published video as proof:
+hp01-hp04, hp06-hp08, ch01, ch03, ch06. **hp05_sleep_soundscapes is paused**
+(pulled from `scripts/registry.py` and the `publish.yml` matrix) — it's a
+"no spoken narration, just a title" channel, but the pipeline has no real
+ambient-audio/duration handling built for that case, so it produced (and
+briefly published, since manually removed) a ~4-second near-empty video.
+Needs real ambient-audio sourcing + an independent duration field before
+re-adding; `core/pipeline.py`'s `min_duration_seconds` guard (default 15s)
+will block a repeat of that specific failure for any channel either way.
+
+Other things worth knowing before touching this again:
+- **Voice engine is Kokoro by default, not Chatterbox** — Chatterbox
+  (`core/tts_chatterbox.py`) is higher-quality but costs ~25 CPU-minutes/
+  video on GitHub Actions' GPU-less runners (confirmed by a real timed run).
+  Opt a channel into it via `config["voice_engine"] = "chatterbox"` only if
+  you've accepted that cost.
+- **Agnes AI clips rarely all land** — `agnes_clip_count` is set to 6, but
+  the free tier's shared ~16 req/min limit means in practice usually only
+  1-2 of those 6 succeed per video (confirmed across the 10 real uploads:
+  most got 0-1 real Agnes clips, rest fell back to stock automatically).
+  This is expected behavior, not a bug — don't be surprised a video looks
+  mostly-stock despite the "6" setting.
+- **`scripts/upload_now.py`** — a local-only manual runner, bypasses GitHub
+  Actions entirely (`python scripts/upload_now.py <channel>` or `--all`).
+  Useful for testing without waiting on a flaky/slow Actions runner. Needs
+  local ffmpeg + espeak-ng + the same Python deps as `requirements.txt`.
+- **`chetanJSPro/anonymous` is private** — GitHub Actions minutes are
+  metered (2,000 free/month), not unlimited. The human explicitly chose to
+  keep the repo private over guaranteed-free unlimited minutes (which only
+  public repos get) — so daily usage is worth monitoring, not assumed safe.
+- Token files generated via `scripts/generate_token.py` can get corrupted by
+  terminal paste artifacts (one channel's token had a stray command string
+  prepended, causing `JSONDecodeError` on every upload attempt until
+  caught) — if a channel's upload fails with a JSON decode error, check
+  `token_<channel>.json` starts with `{` before assuming it's a network issue.
+
 The 11 = the original 8 `channels_highpay/hp0X` story channels (highest
 researched RPM) + 3 kept from the original 10 in `channels/`
 (`ch01_ai_asmr`, `ch03_hindu_mythology`, `ch06_eastern_philosophy` — the
@@ -30,12 +69,15 @@ the parts of SETUP.md that need their login.
   update `GROQ_MODEL` in `core/llm.py`; the free keyless Pollinations
   fallback stopped actually being free — 402 Payment Required as of Aug
   2026 — so `GROQ_API_KEY` is effectively required now), `tts_kokoro.py`
-  (`tts_chatterbox.py`, Chatterbox TTS — MIT license, commercial-safe,
-  primary voice engine; `tts_kokoro.py` is the automatic fallback if
-  Chatterbox fails/times out — the peace_reels_automation voice engine,
-  needs espeak-ng on the OS. Do NOT add XTTS-v2: its weights are CPML,
-  non-commercial-only, and Coqui Inc shut down so there's no commercial
-  license to buy anymore — a real problem for these ad-monetized channels),
+  (primary voice engine — local, free, fast even on CPU, the
+  peace_reels_automation voice engine, needs espeak-ng on the OS).
+  `tts_chatterbox.py` (MIT-licensed, higher-quality/more human-like) is
+  available but opt-in only per channel via `config["voice_engine"] =
+  "chatterbox"` — costs ~25 CPU-minutes/video on GitHub Actions' GPU-less
+  runners, confirmed by a real timed run, so it's not the default. Do NOT
+  add XTTS-v2: its weights are CPML, non-commercial-only, and Coqui Inc
+  shut down so there's no commercial license to buy anymore — a real
+  problem for these ad-monetized channels),
   `visuals.py::fetch_hybrid_stock_agnes_videos`
   (used by pipeline.py: mostly real AI-generated clips via Agnes AI —
   6 of 8 per episode by default, `agnes_clip_count` in pipeline.py — optional,
