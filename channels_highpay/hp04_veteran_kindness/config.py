@@ -3,7 +3,7 @@ config.py for Veteran Kindness Stories (est. RPM $7.13) — edit topic_prompts /
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = 'You write a heartfelt, uplifting true-feeling story about a veteran being shown unexpected kindness, respect, or recognition by a stranger (a free meal, an upgraded flight, a small business honoring them). Write 160-200 words, warm and sincere tone, ending on an emotional, feel-good note. Respectful and dignified — never pitying.'
+SYSTEM_PROMPT = 'You write a heartfelt, uplifting true-feeling story about a veteran being shown unexpected kindness, respect, or recognition by a stranger (a free meal, an upgraded flight, a small business honoring them). Write 85-105 words, warm and sincere tone, ending on an emotional, feel-good note. Set it in the US (American towns, diners, airports, dollar amounts). Respectful and dignified — never pitying.'
 
 TOPIC_PROMPTS = ["a diner owner who quietly comps every veteran's meal on their anniversary", 'a stranger at an airport who gave up a first class seat to a veteran flying home', "a young cashier who noticed a veteran's hat and paid for their groceries", 'a small town that surprises a returning veteran with a welcome home parade', "a mechanic who fixed a veteran's truck for free after hearing their story"]
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new feel-good story every day."
+    return base + "\n#shorts #veteran #feelgood"
 
 CONFIG = {
     "name": 'hp04_veteran_kindness',

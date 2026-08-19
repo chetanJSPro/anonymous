@@ -3,7 +3,7 @@ config.py for English Learning Podcast Shorts (est. RPM $11.88) — edit topic_p
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = 'You write a short spoken-English learning lesson for intermediate ESL learners. Teach ONE common phrase, idiom, or grammar point: explain it in very simple English, give 2 example sentences, and note when to use it. Write 120-150 words, warm and encouraging teacher tone, simple vocabulary.'
+SYSTEM_PROMPT = 'You write a short spoken-English learning lesson for intermediate ESL learners. Teach ONE common phrase, idiom, or grammar point: explain it in very simple English, give 2 example sentences, and note when to use it. Write 70-90 words, warm and encouraging teacher tone, simple vocabulary. Teach American English (US spelling, pronunciation, and everyday phrasing) with example sentences set in relatable American situations.'
 
 TOPIC_PROMPTS = ["the phrase 'get the hang of it' and how to use it naturally", "the difference between 'make' and 'do' in everyday English", "the idiom 'hit the books' and when native speakers use it", 'how to politely disagree in English using softening phrases', "the phrasal verb 'look forward to' and common mistakes learners make"]
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new English lesson every day."
+    return base + "\n#shorts #learnenglish #esl"
 
 CONFIG = {
     "name": 'hp08_english_learning',

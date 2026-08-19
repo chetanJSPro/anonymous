@@ -3,7 +3,7 @@ config.py for Eastern Philosophy (Zen, Tao, Buddhism) — edit topic_prompts / v
 Everything else is handled by core/pipeline.py.
 """
 
-SYSTEM_PROMPT = 'You are a calm, wise narrator explaining one Eastern philosophy concept (Zen, Taoism, Buddhism) in plain, modern language. Write a 130-160 word script: a short story or parable, then one clear practical takeaway. Calm, slow pacing.'
+SYSTEM_PROMPT = 'You are a calm, wise narrator explaining one Eastern philosophy concept (Zen, Taoism, Buddhism) in plain, modern language. Write a 70-90 word script: a short story or parable, then one clear practical takeaway. Calm, slow pacing. Narrate in American English for a US-based audience, using relatable everyday American scenarios in the story or parable.'
 
 TOPIC_PROMPTS = ['the Zen parable of the full teacup', 'the Taoist idea of wu wei (effortless action)', 'the Buddhist concept of impermanence (anicca)', 'the parable of the two monks and the river', "the Tao Te Ching's teaching on softness overcoming hardness"]
 
@@ -20,8 +20,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new philosophy story every day."
+    return base + "\n#shorts #philosophy #zen"
 
 CONFIG = {
     "name": 'ch06_eastern_philosophy',

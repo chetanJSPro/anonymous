@@ -233,7 +233,7 @@ def _agnes_num_frames(seconds, frame_rate=24):
 
 
 def generate_agnes_video(prompt, out_path, seconds=5, frame_rate=24,
-                          width=1080, height=1920, poll_timeout=180, poll_interval=5):
+                          width=1080, height=1920, poll_timeout=75, poll_interval=5):
     """Generate one AI video clip via Agnes AI's free text-to-video API.
     Raises on any failure (missing key, HTTP error, timeout, job failed) —
     callers should catch and fall back to stock video, this is not meant to
@@ -296,6 +296,11 @@ def fetch_agnes_videos(prompts, out_dir, count=3, vertical=True, seconds=5):
     parallel (e.g. GitHub Actions' matrix `max-parallel: 4`) share the same
     AGNES_API_KEY and can still collide into rate limits; any clip that
     does just silently falls back to stock, nothing breaks.
+    generate_agnes_video's poll_timeout was cut from 180s to 75s (2026-08-19)
+    — most requested clips never land anyway (shared free-tier rate limit),
+    so failed jobs used to burn the full 3 minutes before falling back to
+    stock. 75s still gives a real generation time to finish, just stops
+    padding the failure case.
     Returns whatever succeeded (possibly an empty list) — never raises, so
     callers can always safely top up with stock video."""
     import concurrent.futures

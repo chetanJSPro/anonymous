@@ -24,8 +24,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new satisfying ASMR clip every day."
+    return base + "\n#shorts #asmr #satisfying"
 
 CONFIG = {
     "name": 'ch01_ai_asmr',

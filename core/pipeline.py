@@ -27,7 +27,7 @@ for _stream in (sys.stdout, sys.stderr):
     if hasattr(_stream, "reconfigure"):
         _stream.reconfigure(encoding="utf-8", errors="replace")
 
-from core.llm import generate_script
+from core.llm import generate_script, generate_hook_title
 from core.tts_kokoro import synthesize_kokoro
 from core.tts_chatterbox import synthesize_chatterbox
 from core.captions import distribute_segments, write_ass, write_srt
@@ -164,7 +164,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     os.makedirs(visuals_dir, exist_ok=True)
     visual_paths = fetch_hybrid_stock_agnes_videos(
         queries, visuals_dir, count=8, vertical=vertical,
-        agnes_count=int(config.get("agnes_clip_count", 6)))
+        agnes_count=int(config.get("agnes_clip_count", 2)))
     print(f"[pipeline] {len(visual_paths)} video clips ready")
 
     # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.
@@ -175,9 +175,12 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     print(f"[pipeline] video assembled: {final_path}")
 
     if upload:
+        fallback_title = config["title_fn"](topic)
+        title = generate_hook_title(config.get("niche", config["name"]), topic, script, fallback_title)
+        print(f"[pipeline] title: {title}")
         video_id = upload_video(
             video_path=final_path,
-            title=config["title_fn"](topic),
+            title=title,
             description=config["description_fn"](topic),
             tags=config.get("tags", []),
             category_id=config.get("category_id", "27"),

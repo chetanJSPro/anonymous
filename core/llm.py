@@ -116,6 +116,33 @@ def generate_topic(niche_hint, avoid_topics, max_tokens=300):
     return topic.strip().strip('"').strip("'").split("\n")[0].strip()
 
 
+def generate_hook_title(niche_hint, topic, script, fallback, max_tokens=200):
+    """A punchy, curiosity-driven Shorts title generated from the actual
+    finished script (not just the raw topic sentence title_fn's plain
+    capitalize-and-truncate used to produce) — YouTube Shorts titles are a
+    major driver of impressions-to-click, and a flat description-style
+    title ("A maid of honor who stole the wedding date...") reads as a
+    summary, not a hook. Best-effort: falls back to `fallback` (the old
+    title_fn output) on any failure, so a bad LLM response never blocks
+    publishing."""
+    system = (
+        "You write short, high-CTR YouTube Shorts titles for the given story. "
+        "Under 90 characters. Create real curiosity or tension — a question, a "
+        "twist tease, or a bold claim — without spoiling the ending. No emoji "
+        "spam (0-1 max), no clickbait that isn't true to the story, no quotes "
+        "around the title. Reply with ONLY the title text, nothing else."
+    )
+    user = f"Channel style: {niche_hint}\n\nStory:\n{script}\n\nWrite the title."
+    try:
+        title = generate_script(system, user, max_tokens=max_tokens, temperature=0.95)
+        title = title.strip().strip('"').strip("'").split("\n")[0].strip()
+        if 4 <= len(title) <= 100:
+            return title[:100]
+    except Exception as e:
+        print(f"[llm] hook title generation failed ({e}), using fallback title")
+    return fallback
+
+
 if __name__ == "__main__":
     demo = generate_script(
         "You are a concise YouTube Shorts scriptwriter.",

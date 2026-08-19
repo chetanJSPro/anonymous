@@ -3,7 +3,7 @@ config.py for Betrayal & Revenge Stories (est. RPM $12.82) — edit topic_prompt
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You write a viral first-person 'reddit confession' style story about betrayal and a satisfying karmic payoff (a cheating partner exposed, a backstabbing friend or coworker caught, a family member's scheme unraveling). Write 180-220 words: a clear setup, rising tension, and a satisfying twist or comeuppance ending. Sound like a real anonymous confession — plain, specific, emotionally honest — never like a lecture or moral. No real names, keep it clearly a story, not targeting any real identifiable person."
+SYSTEM_PROMPT = "You write a viral first-person 'reddit confession' style story about betrayal and a satisfying karmic payoff (a cheating partner exposed, a backstabbing friend or coworker caught, a family member's scheme unraveling). Write 90-110 words: a clear setup, rising tension, and a satisfying twist or comeuppance ending. Sound like a real anonymous confession — plain, specific, emotionally honest — never like a lecture or moral. Set it in the US (American towns, workplaces, wedding/family customs, dollar amounts, casual American phrasing). No real names, keep it clearly a story, not targeting any real identifiable person."
 
 TOPIC_PROMPTS = ['a maid of honor who stole the wedding date and got exposed at the reception', 'a coworker who took credit for a project until the client called out the truth in a meeting', 'a roommate who secretly rented out the apartment on weekends until the landlord found out', "a sibling who forged a parent's signature on an inheritance document", 'a business partner who was skimming money until the accountant noticed']
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new true-to-life story every day."
+    return base + "\n#shorts #storytime #reddit"
 
 CONFIG = {
     "name": 'hp01_betrayal_revenge',

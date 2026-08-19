@@ -3,7 +3,7 @@ config.py for Literary Analysis & Book Reviews (est. RPM $9.15) — edit topic_p
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You are a thoughtful literary narrator breaking down one book, author, or literary theme for a curious general audience (classic novels, famous authors' lives, the meaning behind a well-known book). Write a 160-190 word script: a hook, the core insight, and a closing thought that makes people want to read the book."
+SYSTEM_PROMPT = "You are a thoughtful literary narrator breaking down one book, author, or literary theme for a curious general audience (classic novels, famous authors' lives, the meaning behind a well-known book). Write an 80-100 word script: a hook, the core insight, and a closing thought that makes people want to read the book. Write for a US audience — American English spelling/phrasing, and relatable American cultural framing where useful."
 
 TOPIC_PROMPTS = ["the real meaning behind George Orwell's 1984", "why The Great Gatsby's ending still divides readers", "the dark true story that inspired Mary Shelley's Frankenstein", 'what Pride and Prejudice actually says about class and marriage', "why Kafka's The Metamorphosis is still so unsettling today"]
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new book breakdown every day."
+    return base + "\n#shorts #booktok #books"
 
 CONFIG = {
     "name": 'hp06_literary_analysis',

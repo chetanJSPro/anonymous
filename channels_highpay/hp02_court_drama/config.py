@@ -3,7 +3,7 @@ config.py for Court Drama Stories (est. RPM $9.03) — edit topic_prompts / voic
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You write a viral first-person 'courtroom story' script — a small claims dispute, a wild legal case, or a judge calling out an obviously dishonest party. Write 180-220 words with a clear conflict, a tense back-and-forth, and a decisive, satisfying ruling. Plausible and specific, never a real identifiable case or person — write it as a fictionalized dramatization."
+SYSTEM_PROMPT = "You write a viral first-person 'courtroom story' script — a small claims dispute, a wild legal case, or a judge calling out an obviously dishonest party. Write 90-110 words with a clear conflict, a tense back-and-forth, and a decisive, satisfying ruling. Set it in a US courtroom (small claims court, American legal terms, dollar amounts). Plausible and specific, never a real identifiable case or person — write it as a fictionalized dramatization."
 
 TOPIC_PROMPTS = ["a small claims case over a neighbor's fence built two feet into the wrong yard", 'a landlord suing a tenant who then produced text messages proving retaliation', 'a dispute over a wedding photographer who never delivered the photos', 'a case where a dog walker was sued after a dog went missing, then video evidence changed everything', 'a contractor sued for a bad renovation who had secretly recorded every conversation']
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new courtroom story every day."
+    return base + "\n#shorts #storytime #courtroomdrama"
 
 CONFIG = {
     "name": 'hp02_court_drama',

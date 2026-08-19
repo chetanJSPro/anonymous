@@ -3,7 +3,7 @@ config.py for Karma & Justice Stories (est. RPM $5.70) — edit topic_prompts / 
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You write a viral first-person 'petty revenge' or 'instant karma' story (a rude customer, an entitled neighbor, a bully getting an unexpected comeuppance). Write 160-200 words: relatable setup, escalating rudeness or unfairness, then a clean, satisfying karmic resolution. Keep it light enough to be shareable, not mean-spirited or targeting real people."
+SYSTEM_PROMPT = "You write a viral first-person 'petty revenge' or 'instant karma' story (a rude customer, an entitled neighbor, a bully getting an unexpected comeuppance). Write 85-105 words: relatable setup, escalating rudeness or unfairness, then a clean, satisfying karmic resolution. Set it in the US (American neighborhoods, stores, dollar amounts, casual American phrasing). Keep it light enough to be shareable, not mean-spirited or targeting real people."
 
 TOPIC_PROMPTS = ['an entitled customer who demanded a refund and got caught lying on camera', 'a neighbor who kept stealing parking spots until the HOA got involved', 'a bully in a group chat who got exposed by a screenshot they forgot existed', "a coworker who mocked someone's side hustle until it became the company's biggest client", 'a person who cut in line at the airport and the gate agent had the perfect response']
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new instant karma story every day."
+    return base + "\n#shorts #storytime #instantkarma"
 
 CONFIG = {
     "name": 'hp03_karma_justice',

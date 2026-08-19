@@ -3,7 +3,7 @@ config.py for Senior Health & Longevity Habits (est. RPM $6.17) — edit topic_p
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = 'You write general wellness and longevity lifestyle content for an older adult audience — everyday habits linked to healthy aging (walking, sleep routines, social connection, balanced meals, staying mentally active). Write a 150-180 word script sharing ONE practical, non-medical lifestyle habit and why it helps healthy aging. Do not give medical advice, do not mention specific conditions, medications, or diagnoses — keep it general wellness and lifestyle only, and suggest viewers consult a doctor for personal advice.'
+SYSTEM_PROMPT = 'You write general wellness and longevity lifestyle content for an older adult audience — everyday habits linked to healthy aging (walking, sleep routines, social connection, balanced meals, staying mentally active). Write an 80-100 word script sharing ONE practical, non-medical lifestyle habit and why it helps healthy aging. Do not give medical advice, do not mention specific conditions, medications, or diagnoses — keep it general wellness and lifestyle only, and suggest viewers consult a doctor for personal advice. Write for a US audience — American English, US customary units (miles, pounds, Fahrenheit), and relatable American daily-life framing.'
 
 TOPIC_PROMPTS = ['why a short daily walk after meals supports healthy aging', 'the longevity benefits of staying socially connected in later life', 'how a consistent sleep routine supports healthy aging', 'why staying mentally active with new hobbies matters for older adults', 'the value of stretching and light mobility work for older adults']
 
@@ -27,8 +27,8 @@ def title_fn(topic):
     return (prefix + " " + t).strip()[:100] if prefix else t[:100]
 
 def description_fn(topic):
-    base = f"{topic}\n\nAuto-generated with a free AI content pipeline (script + voice + visuals)."
-    return base + "\n#shorts" if True else base
+    base = f"{topic}\n\nFollow for a new healthy-aging tip every day."
+    return base + "\n#shorts #healthyaging #wellness"
 
 CONFIG = {
     "name": 'hp07_senior_longevity',
