@@ -25,7 +25,12 @@ CHANNEL_MODULES = [
     "channels_highpay.hp02_court_drama.config",
     "channels_highpay.hp03_karma_justice.config",
     "channels_highpay.hp04_veteran_kindness.config",
-    "channels_highpay.hp05_sleep_soundscapes.config",
+    # hp05_sleep_soundscapes pulled 2026-08-19: it's a "no spoken narration"
+    # ambient channel, but the pipeline has no real ambient-audio/duration
+    # handling built for that case yet -- it produced (and published) a
+    # near-empty 4-second video. Re-add once that's actually built; see the
+    # min_duration_seconds guard in core/pipeline.py for the safety net that
+    # would now block a repeat of that specific failure either way.
     "channels_highpay.hp06_literary_analysis.config",
     "channels_highpay.hp07_senior_longevity.config",
     "channels_highpay.hp08_english_learning.config",

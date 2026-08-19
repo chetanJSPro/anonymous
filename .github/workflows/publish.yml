@@ -27,7 +27,7 @@ jobs:
           - hp02_court_drama
           - hp03_karma_justice
           - hp04_veteran_kindness
-          - hp05_sleep_soundscapes
+          # hp05_sleep_soundscapes pulled 2026-08-19 -- see scripts/registry.py
           - hp06_literary_analysis
           - hp07_senior_longevity
           - hp08_english_learning

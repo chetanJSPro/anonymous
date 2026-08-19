@@ -129,6 +129,22 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
         duration = ffprobe_duration(narration_path) + 0.45
         print(f"[pipeline] voice generated via Kokoro ({duration:.1f}s)")
 
+    # Safety net: a channel whose script produces a near-empty narration
+    # (e.g. a "no spoken narration, just a title" system_prompt like
+    # hp05_sleep_soundscapes's -- Kokoro then just reads the short title
+    # aloud, giving a several-second "video") must never silently publish.
+    # Confirmed 2026-08-19: this exact case produced and PUBLISHED a real
+    # 4-second video before this check existed. Channels genuinely meant to
+    # run without narration need real ambient-audio + duration handling
+    # built first (not implemented yet) -- until then, fail loudly instead.
+    min_duration = float(config.get("min_duration_seconds", 15))
+    if duration < min_duration:
+        raise RuntimeError(
+            f"{config['name']}: narration only {duration:.1f}s (< {min_duration}s minimum) "
+            f"-- refusing to assemble/upload a near-empty video. If this channel is meant "
+            f"to run without spoken narration, it needs real duration/audio handling built "
+            f"in core/pipeline.py first, not just a short title script.")
+
     # 2) Captions — timed to the actual narration length, burned in via ffmpeg later.
     subtitle_lines = _split_into_subtitle_lines(script)
     segments = distribute_segments(subtitle_lines, duration)
