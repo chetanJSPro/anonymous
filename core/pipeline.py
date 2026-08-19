@@ -96,8 +96,20 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     os.makedirs(work_dir, exist_ok=True)
 
     print(f"[pipeline] ({config['name']}) topic: {topic}")
-    script = generate_script(config["system_prompt"], topic)
-    script = sanitize_narration_script(script)
+    # Retry loop: the LLM occasionally refuses a topic outright ("I'm sorry,
+    # but I can't help with that.") -- a content-filter false positive
+    # confirmed 2026-08-19 on an entirely benign topic ("Former Navy SEAL
+    # builds community garden for at-risk youth..."). A refusal produces a
+    # near-empty script that min_duration_seconds correctly rejects below,
+    # but without a retry that just fails the whole episode. Retrying the
+    # same prompt at temperature>0 usually gets a real story on attempt 2.
+    script = ""
+    for attempt in range(3):
+        script = sanitize_narration_script(generate_script(config["system_prompt"], topic))
+        if len(script.split()) >= 20:
+            break
+        print(f"[pipeline] script attempt {attempt+1} too short/refused "
+              f"({len(script.split())} words: {script[:80]!r}) -- retrying")
     print(f"[pipeline] script generated ({len(script.split())} words)")
 
     vertical = config.get("vertical", True)
