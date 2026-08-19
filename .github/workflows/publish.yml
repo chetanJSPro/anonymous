@@ -2,8 +2,22 @@ name: Publish niche episodes
 
 on:
   schedule:
-    # 03:00 UTC daily — one episode per channel, uploaded straight to YouTube.
+    # Two episodes/day/channel per explicit request for faster reach/results.
+    # KNOWN RISK, accepted 2026-08-19: YouTube Data API caps uploads at
+    # ~6/day per Google Cloud project (10,000 units/day, ~1,600/upload).
+    # client_secret_a.json serves 4 channels (hp01-04) -> 8 uploads/day
+    # needed at this cadence, only ~6 fit -> some hp01-04 uploads WILL
+    # start failing with a quota-exceeded error on the second run most
+    # days (fail-fast: false means it only drops those channels' episodes
+    # for the day, doesn't break the others). client_secret_b.json (hp06-08)
+    # and client_secret_c.json (ch01/ch03/ch06) each land exactly at the
+    # 6/day cap, so they're fine unless a retry/rate-limit pushes one over.
+    # Real fix if this becomes a problem: move some hp01-04 channels to
+    # their own additional OAuth project (needs a human to run
+    # scripts/generate_token.py locally, can't be done from here) -- or
+    # drop back to 1x/day for project A specifically.
     - cron: "0 3 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch:
     inputs:
       channel:
