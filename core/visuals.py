@@ -283,20 +283,44 @@ def generate_agnes_video(prompt, out_path, seconds=5, frame_rate=24,
 
 
 def fetch_agnes_videos(prompts, out_dir, count=3, vertical=True, seconds=5):
-    """Best-effort: generate up to `count` AI video clips via Agnes AI.
+    """Best-effort: generate up to `count` AI video clips via Agnes AI, IN
+    PARALLEL (one thread per clip) instead of one full clip at a time.
+    Sequential generation was the dominant cost of the whole pipeline —
+    ~130-150s inference per clip, run one-after-another, meant 6 clips took
+    ~14-15 minutes. In parallel, wall-clock time is roughly one clip's time
+    (~2-3 min) regardless of clip count, since they're all in flight at
+    once. poll_interval is widened to 12s (vs. 5s sequential) to keep the
+    aggregate request rate across all N concurrent jobs under Agnes's free
+    tier's shared ~16 requests/minute limit — a single channel's clips
+    alone won't blow that, but be aware multiple channels publishing in
+    parallel (e.g. GitHub Actions' matrix `max-parallel: 4`) share the same
+    AGNES_API_KEY and can still collide into rate limits; any clip that
+    does just silently falls back to stock, nothing breaks.
     Returns whatever succeeded (possibly an empty list) — never raises, so
     callers can always safely top up with stock video."""
+    import concurrent.futures
+
     size = (1080, 1920) if vertical else (1920, 1080)
-    paths = []
-    for i, prompt in enumerate(prompts[:count]):
-        try:
-            out_path = os.path.join(out_dir, f"agnes_{i}.mp4")
-            paths.append(generate_agnes_video(prompt, out_path, seconds=seconds,
-                                                width=size[0], height=size[1]))
-            print(f"[visuals] Agnes AI clip {i+1}/{min(count, len(prompts))} ready")
-        except Exception as e:
-            print(f"[visuals] Agnes AI failed for {prompt!r} ({e}) — skipping")
-        time.sleep(4)  # stay well under the free tier's ~16 req/min shared limit
+    todo = list(enumerate(prompts[:count]))
+    results = [None] * len(todo)
+
+    def _one(i, prompt):
+        out_path = os.path.join(out_dir, f"agnes_{i}.mp4")
+        return generate_agnes_video(prompt, out_path, seconds=seconds,
+                                     width=size[0], height=size[1], poll_interval=12)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(todo) or 1) as pool:
+        future_to_i = {pool.submit(_one, i, prompt): i for i, prompt in todo}
+        for future in concurrent.futures.as_completed(future_to_i):
+            i = future_to_i[future]
+            prompt = prompts[i]
+            try:
+                results[i] = future.result()
+                print(f"[visuals] Agnes AI clip {i+1}/{len(todo)} ready")
+            except Exception as e:
+                print(f"[visuals] Agnes AI failed for {prompt!r} ({e}) — skipping")
+
+    paths = [p for p in results if p]
     return paths
 
 
