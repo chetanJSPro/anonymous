@@ -1,6 +1,51 @@
 {
-  "channels": {},
+  "channels": {
+    "hp01_betrayal_revenge": {
+      "niche": "Betrayal & revenge stories",
+      "est_rpm": 12.82
+    },
+    "hp02_court_drama": {
+      "niche": "Court drama stories",
+      "est_rpm": 9.03
+    },
+    "hp03_karma_justice": {
+      "niche": "Karma & justice stories",
+      "est_rpm": 5.7
+    },
+    "hp04_veteran_kindness": {
+      "niche": "Veteran kindness stories",
+      "est_rpm": 7.13
+    },
+    "hp05_sleep_soundscapes": {
+      "niche": "Sleep & healing soundscapes",
+      "est_rpm": 10.92
+    },
+    "hp06_literary_analysis": {
+      "niche": "Literary analysis & book reviews",
+      "est_rpm": 9.15
+    },
+    "hp07_senior_longevity": {
+      "niche": "Senior health & longevity",
+      "est_rpm": 6.17
+    },
+    "hp08_english_learning": {
+      "niche": "English learning podcast shorts",
+      "est_rpm": 11.88
+    },
+    "ch01_ai_asmr": {
+      "niche": "ch01_ai_asmr",
+      "est_rpm": null
+    },
+    "ch03_hindu_mythology": {
+      "niche": "ch03_hindu_mythology",
+      "est_rpm": null
+    },
+    "ch06_eastern_philosophy": {
+      "niche": "ch06_eastern_philosophy",
+      "est_rpm": null
+    }
+  },
   "records": [],
   "pilot_start": null,
-  "last_updated": null
+  "last_updated": "2026-08-19T05:26:18.304586Z"
 }
