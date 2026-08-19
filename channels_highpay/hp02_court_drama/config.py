@@ -3,7 +3,7 @@ config.py for Court Drama Stories (est. RPM $9.03) — edit topic_prompts / voic
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You write a viral first-person 'courtroom story' script — a small claims dispute, a wild legal case, or a judge calling out an obviously dishonest party. Write 90-110 words with a clear conflict, a tense back-and-forth, and a decisive, satisfying ruling. Set it in a US courtroom (small claims court, American legal terms, dollar amounts). Plausible and specific, never a real identifiable case or person — write it as a fictionalized dramatization."
+SYSTEM_PROMPT = "You write a viral first-person 'courtroom story' script — a small claims dispute, a wild legal case, or a judge calling out an obviously dishonest party. Write 90-110 words with a clear conflict, a tense back-and-forth, and a decisive, satisfying ruling. Set it in a US courtroom (small claims court, American legal terms, dollar amounts). Plausible and specific, never a real identifiable case or person — write it as a fictionalized dramatization. Output ONLY the spoken narration itself — no stage directions like (gavel bangs), no preamble like 'Here's your script', no generic greeting like 'Hey friends' or 'Welcome back' — start directly with the story's first line, using specific concrete details instead of vague generic phrasing."
 
 TOPIC_PROMPTS = ["a small claims case over a neighbor's fence built two feet into the wrong yard", 'a landlord suing a tenant who then produced text messages proving retaliation', 'a dispute over a wedding photographer who never delivered the photos', 'a case where a dog walker was sued after a dog went missing, then video evidence changed everything', 'a contractor sued for a bad renovation who had secretly recorded every conversation']
 
@@ -18,8 +18,12 @@ AI_PROMPTS = [
 ]
 
 def visual_query_fn(topic, script):
-    """Real stock video search terms only — no AI stills."""
-    return STOCK_QUERIES
+    """Story-specific visual scenes pulled from the actual script (so
+    footage matches what's being narrated instead of generic stock terms),
+    falling back to STOCK_QUERIES on any failure."""
+    from core.llm import generate_visual_queries
+    return generate_visual_queries("Courtroom drama stories",
+                                    topic, script, count=8, fallback=STOCK_QUERIES)
 
 def title_fn(topic):
     prefix = ''

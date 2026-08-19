@@ -14,6 +14,7 @@ Usage:
 """
 
 import os
+import re
 import json
 import time
 import urllib.request
@@ -114,6 +115,82 @@ def generate_topic(niche_hint, avoid_topics, max_tokens=300):
     )
     topic = generate_script(system, user, max_tokens=max_tokens, temperature=1.05)
     return topic.strip().strip('"').strip("'").split("\n")[0].strip()
+
+
+_PREAMBLE_RE = re.compile(
+    r"^\s*(?:sure[,!.\s]+|okay[,!.\s]+|alright[,!.\s]+|certainly[,!.\s]+|"
+    r"here'?s?\s+(?:is\s+)?(?:the|your|a)\s+script\b[^\n]*\n?|"
+    r"title\s*:[^\n]*\n?|script\s*:\s*)",
+    re.IGNORECASE,
+)
+_STAGE_DIRECTION_RE = re.compile(r"\((?:[^()]{0,80})\)|\[(?:[^\[\]]{0,80})\]|\*(?:[^*\n]{1,80})\*")
+_GREETING_OPENER_RE = re.compile(
+    r"^\s*(?:hey|hi|hello|yo|what'?s up|welcome back|welcome)\b[^.!?\n]{0,40}?[.!?,]\s*",
+    re.IGNORECASE,
+)
+
+
+def sanitize_narration_script(text: str) -> str:
+    """Strip common LLM script-generation junk before it ever reaches TTS.
+    Confirmed real failure modes: stage directions like "(laughs)" or
+    "*chuckles*" get read aloud verbatim by Kokoro as literal words, chatty
+    preambles like "Sure, here's your script:" leak into the narration, and
+    generic vlogger-style greeting openers ("Hey friends, you have been...")
+    slip in despite system prompts asking for a first-person confession/
+    story style — all instantly read as AI-generated filler, not a
+    genuine story. This is a best-effort regex safety net on top of the
+    system prompt instruction, not a replacement for it."""
+    t = text.strip()
+    for _ in range(3):  # "Sure, " and "here's your script:" can both lead --
+        new_t = _PREAMBLE_RE.sub("", t).strip()  # strip repeatedly till stable
+        if new_t == t:
+            break
+        t = new_t
+    t = _STAGE_DIRECTION_RE.sub("", t)
+    for _ in range(2):  # chained greetings, e.g. "Hey guys, welcome back!"
+        new_t = _GREETING_OPENER_RE.sub("", t, count=1).strip()
+        if new_t == t:
+            break
+        t = new_t
+    t = re.sub(r"[ \t]{2,}", " ", t)
+    t = re.sub(r"\n{3,}", "\n\n", t)
+    t = re.sub(r"\s+([.,!?])", r"\1", t)
+    t = t.strip()
+    if t:
+        t = t[0].upper() + t[1:]
+    return t
+
+
+def generate_visual_queries(niche_hint, topic, script, count=8, fallback=None):
+    """Derive concrete, story-specific visual search/prompt terms from the
+    actual generated script, instead of a static per-channel query list --
+    a static list produces visuals unrelated to the specific story being
+    told (generic "office meeting" b-roll under a script that never
+    mentions an office), which reads as stock footage bolted on rather
+    than visuals that match what's being narrated. These queries feed both
+    the stock video search (Pexels/Pixabay) and the Agnes AI prompts, so
+    improving them improves whichever source ends up used.
+    Best-effort: falls back to `fallback` (the channel's static query list)
+    on any failure or a too-short response."""
+    system = (
+        f"You extract concrete visual scene descriptions for video footage to "
+        f"accompany a short narrated video. Channel style: {niche_hint}. Reply "
+        f"with exactly {count} short visual scene descriptions, one per line, "
+        f"no numbering, no quotes, no extra commentary -- each a concrete, "
+        f"filmable real-world scene (a place, an action, an object, a mood) "
+        f"tied to specific moments or details in the story below, not generic "
+        f"stock-photo phrases."
+    )
+    user = f"Topic: {topic}\n\nStory:\n{script}\n\nGive {count} visual scene descriptions."
+    try:
+        raw = generate_script(system, user, max_tokens=400, temperature=0.8)
+        lines = [l.strip(" -•\t\"'") for l in raw.strip().split("\n") if l.strip()]
+        lines = [l for l in lines if 3 <= len(l) <= 100]
+        if len(lines) >= 3:
+            return lines[:count]
+    except Exception as e:
+        print(f"[llm] visual query generation failed ({e}), using fallback queries")
+    return fallback or []
 
 
 def generate_hook_title(niche_hint, topic, script, fallback, max_tokens=200):

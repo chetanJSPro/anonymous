@@ -233,7 +233,7 @@ def _agnes_num_frames(seconds, frame_rate=24):
 
 
 def generate_agnes_video(prompt, out_path, seconds=5, frame_rate=24,
-                          width=1080, height=1920, poll_timeout=75, poll_interval=5):
+                          width=1080, height=1920, poll_timeout=110, poll_interval=5):
     """Generate one AI video clip via Agnes AI's free text-to-video API.
     Raises on any failure (missing key, HTTP error, timeout, job failed) —
     callers should catch and fall back to stock video, this is not meant to
@@ -296,11 +296,13 @@ def fetch_agnes_videos(prompts, out_dir, count=3, vertical=True, seconds=5):
     parallel (e.g. GitHub Actions' matrix `max-parallel: 4`) share the same
     AGNES_API_KEY and can still collide into rate limits; any clip that
     does just silently falls back to stock, nothing breaks.
-    generate_agnes_video's poll_timeout was cut from 180s to 75s (2026-08-19)
-    — most requested clips never land anyway (shared free-tier rate limit),
-    so failed jobs used to burn the full 3 minutes before falling back to
-    stock. 75s still gives a real generation time to finish, just stops
-    padding the failure case.
+    generate_agnes_video's poll_timeout was cut from 180s to 75s and back up
+    to 110s (2026-08-19) -- 75s was cutting off real generations too early
+    once visual quality (mostly-AI clips, not stock) became the priority
+    over raw pipeline speed; 110s is a middle ground that still avoids the
+    original full-3-minutes wait on jobs that were never going to land.
+    agnes_clip_count's default also moved 6 -> 2 -> back to 6 in pipeline.py
+    for the same reason: fewer stock fallbacks, more real AI-generated clips.
     Returns whatever succeeded (possibly an empty list) — never raises, so
     callers can always safely top up with stock video."""
     import concurrent.futures

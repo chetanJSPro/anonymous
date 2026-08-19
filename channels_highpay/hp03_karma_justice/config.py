@@ -3,7 +3,7 @@ config.py for Karma & Justice Stories (est. RPM $5.70) — edit topic_prompts / 
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You write a viral first-person 'petty revenge' or 'instant karma' story (a rude customer, an entitled neighbor, a bully getting an unexpected comeuppance). Write 85-105 words: relatable setup, escalating rudeness or unfairness, then a clean, satisfying karmic resolution. Set it in the US (American neighborhoods, stores, dollar amounts, casual American phrasing). Keep it light enough to be shareable, not mean-spirited or targeting real people."
+SYSTEM_PROMPT = "You write a viral first-person 'petty revenge' or 'instant karma' story (a rude customer, an entitled neighbor, a bully getting an unexpected comeuppance). Write 85-105 words: relatable setup, escalating rudeness or unfairness, then a clean, satisfying karmic resolution. Set it in the US (American neighborhoods, stores, dollar amounts, casual American phrasing). Keep it light enough to be shareable, not mean-spirited or targeting real people. Output ONLY the spoken narration itself — no stage directions like (laughs), no preamble like 'Here's your script', no generic greeting like 'Hey friends' or 'Welcome back' — start directly with the story's first line, using specific concrete details instead of vague generic phrasing."
 
 TOPIC_PROMPTS = ['an entitled customer who demanded a refund and got caught lying on camera', 'a neighbor who kept stealing parking spots until the HOA got involved', 'a bully in a group chat who got exposed by a screenshot they forgot existed', "a coworker who mocked someone's side hustle until it became the company's biggest client", 'a person who cut in line at the airport and the gate agent had the perfect response']
 
@@ -18,8 +18,12 @@ AI_PROMPTS = [
 ]
 
 def visual_query_fn(topic, script):
-    """Real stock video search terms only — no AI stills."""
-    return STOCK_QUERIES
+    """Story-specific visual scenes pulled from the actual script (so
+    footage matches what's being narrated instead of generic stock terms),
+    falling back to STOCK_QUERIES on any failure."""
+    from core.llm import generate_visual_queries
+    return generate_visual_queries("Petty revenge / instant karma stories",
+                                    topic, script, count=8, fallback=STOCK_QUERIES)
 
 def title_fn(topic):
     prefix = ''

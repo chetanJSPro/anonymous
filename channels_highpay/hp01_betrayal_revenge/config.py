@@ -3,7 +3,7 @@ config.py for Betrayal & Revenge Stories (est. RPM $12.82) — edit topic_prompt
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You write a viral first-person 'reddit confession' style story about betrayal and a satisfying karmic payoff (a cheating partner exposed, a backstabbing friend or coworker caught, a family member's scheme unraveling). Write 90-110 words: a clear setup, rising tension, and a satisfying twist or comeuppance ending. Sound like a real anonymous confession — plain, specific, emotionally honest — never like a lecture or moral. Set it in the US (American towns, workplaces, wedding/family customs, dollar amounts, casual American phrasing). No real names, keep it clearly a story, not targeting any real identifiable person."
+SYSTEM_PROMPT = "You write a viral first-person 'reddit confession' style story about betrayal and a satisfying karmic payoff (a cheating partner exposed, a backstabbing friend or coworker caught, a family member's scheme unraveling). Write 90-110 words: a clear setup, rising tension, and a satisfying twist or comeuppance ending. Sound like a real anonymous confession — plain, specific, emotionally honest — never like a lecture or moral. Set it in the US (American towns, workplaces, wedding/family customs, dollar amounts, casual American phrasing). No real names, keep it clearly a story, not targeting any real identifiable person. Output ONLY the spoken narration itself — no stage directions like (laughs), no preamble like 'Here's your script', no generic greeting like 'Hey friends' or 'Welcome back' — start directly with the story's first line, using specific concrete details (real-feeling names, places, numbers) instead of vague generic phrasing."
 
 TOPIC_PROMPTS = ['a maid of honor who stole the wedding date and got exposed at the reception', 'a coworker who took credit for a project until the client called out the truth in a meeting', 'a roommate who secretly rented out the apartment on weekends until the landlord found out', "a sibling who forged a parent's signature on an inheritance document", 'a business partner who was skimming money until the accountant noticed']
 
@@ -18,8 +18,12 @@ AI_PROMPTS = [
 ]
 
 def visual_query_fn(topic, script):
-    """Real stock video search terms only — no AI stills."""
-    return STOCK_QUERIES
+    """Story-specific visual scenes pulled from the actual script (so
+    footage matches what's being narrated instead of generic stock terms),
+    falling back to STOCK_QUERIES on any failure."""
+    from core.llm import generate_visual_queries
+    return generate_visual_queries("Betrayal & revenge reddit-confession stories",
+                                    topic, script, count=8, fallback=STOCK_QUERIES)
 
 def title_fn(topic):
     prefix = ''

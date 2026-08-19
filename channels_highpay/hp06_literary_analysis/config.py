@@ -3,7 +3,7 @@ config.py for Literary Analysis & Book Reviews (est. RPM $9.15) — edit topic_p
 Everything else is handled by core/pipeline.py (same shared toolkit as channels/).
 """
 
-SYSTEM_PROMPT = "You are a thoughtful literary narrator breaking down one book, author, or literary theme for a curious general audience (classic novels, famous authors' lives, the meaning behind a well-known book). Write an 80-100 word script: a hook, the core insight, and a closing thought that makes people want to read the book. Write for a US audience — American English spelling/phrasing, and relatable American cultural framing where useful."
+SYSTEM_PROMPT = "You are a thoughtful literary narrator breaking down one book, author, or literary theme for a curious general audience (classic novels, famous authors' lives, the meaning behind a well-known book). Write an 80-100 word script: a hook, the core insight, and a closing thought that makes people want to read the book. Write for a US audience — American English spelling/phrasing, and relatable American cultural framing where useful. Output ONLY the spoken narration itself — no stage directions, no preamble like 'Here's your script', no generic greeting like 'Hey friends' or 'Welcome back' — start directly with the hook line."
 
 TOPIC_PROMPTS = ["the real meaning behind George Orwell's 1984", "why The Great Gatsby's ending still divides readers", "the dark true story that inspired Mary Shelley's Frankenstein", 'what Pride and Prejudice actually says about class and marriage', "why Kafka's The Metamorphosis is still so unsettling today"]
 
@@ -18,8 +18,12 @@ AI_PROMPTS = [
 ]
 
 def visual_query_fn(topic, script):
-    """Real stock video search terms only — no AI stills."""
-    return STOCK_QUERIES
+    """Story-specific visual scenes pulled from the actual script (so
+    footage matches what's being narrated instead of generic stock terms),
+    falling back to STOCK_QUERIES on any failure."""
+    from core.llm import generate_visual_queries
+    return generate_visual_queries("Literary analysis & book reviews",
+                                    topic, script, count=8, fallback=STOCK_QUERIES)
 
 def title_fn(topic):
     prefix = ''

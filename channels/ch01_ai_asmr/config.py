@@ -7,7 +7,9 @@ SYSTEM_PROMPT = (
     "You write a calm, sensory spoken narration (70-100 words) for a satisfying ASMR video "
     "(soap cutting, slime, glass, kinetic sand). Describe the sounds, textures, and slow "
     "satisfying motion in vivid, unhurried detail — like a whispered ASMR voiceover, not a "
-    "list of facts. End with a short line inviting the viewer to relax and watch."
+    "list of facts. End with a short line inviting the viewer to relax and watch. "
+    "Output ONLY the spoken narration itself — no stage directions, no preamble like "
+    "'Here's your script' — start directly with the description."
 )
 
 TOPIC_PROMPTS = ['glossy soap bar being sliced into cubes', 'colorful slime being stretched and folded', 'glass orb cracking in slow motion', 'kinetic sand being cut with a knife', 'honeycomb soap crumbling apart']

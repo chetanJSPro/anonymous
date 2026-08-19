@@ -27,7 +27,7 @@ for _stream in (sys.stdout, sys.stderr):
     if hasattr(_stream, "reconfigure"):
         _stream.reconfigure(encoding="utf-8", errors="replace")
 
-from core.llm import generate_script, generate_hook_title
+from core.llm import generate_script, generate_hook_title, sanitize_narration_script
 from core.tts_kokoro import synthesize_kokoro
 from core.tts_chatterbox import synthesize_chatterbox
 from core.captions import distribute_segments, write_ass, write_srt
@@ -97,6 +97,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
 
     print(f"[pipeline] ({config['name']}) topic: {topic}")
     script = generate_script(config["system_prompt"], topic)
+    script = sanitize_narration_script(script)
     print(f"[pipeline] script generated ({len(script.split())} words)")
 
     vertical = config.get("vertical", True)
@@ -164,7 +165,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     os.makedirs(visuals_dir, exist_ok=True)
     visual_paths = fetch_hybrid_stock_agnes_videos(
         queries, visuals_dir, count=8, vertical=vertical,
-        agnes_count=int(config.get("agnes_clip_count", 2)))
+        agnes_count=int(config.get("agnes_clip_count", 6)))
     print(f"[pipeline] {len(visual_paths)} video clips ready")
 
     # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.
