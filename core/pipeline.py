@@ -29,8 +29,9 @@ for _stream in (sys.stdout, sys.stderr):
 
 from core.llm import generate_script
 from core.tts_kokoro import synthesize_kokoro
+from core.tts_chatterbox import synthesize_chatterbox
 from core.captions import distribute_segments, write_ass, write_srt
-from core.visuals import fetch_stock_videos
+from core.visuals import fetch_hybrid_stock_agnes_videos
 from core.video_builder import build_background, build_final_video, ffprobe_duration
 from core.upload import upload_video
 from core.topics import pick_topic
@@ -101,13 +102,23 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     vertical = config.get("vertical", True)
     width, height = (1080, 1920) if vertical else (1920, 1080)
 
-    # 1) Voiceover — Kokoro (local, free, the peace_reels_automation voice engine).
-    voice_id = KOKORO_VOICE_MAP.get(config.get("voice"), "am_michael")
+    # 1) Voiceover — Chatterbox (MIT-licensed, commercial-safe, rated ahead
+    # of ElevenLabs in blind tests) as primary, falling back to Kokoro if
+    # Chatterbox fails/times out on this run (slower on CPU, no GPU on
+    # GitHub Actions runners) so a bad Chatterbox run never kills a channel.
     narration_path = os.path.join(out_dir, "narration.wav")
-    synthesize_kokoro(script, narration_path, lang_code="a", voice_id=voice_id,
-                       speed=float(config.get("speed", 1.0)))
-    duration = ffprobe_duration(narration_path) + 0.45
-    print(f"[pipeline] voice generated ({duration:.1f}s)")
+    try:
+        _, duration = synthesize_chatterbox(script, narration_path,
+                                             audio_prompt_path=config.get("voice_reference"))
+        duration += 0.45
+        print(f"[pipeline] voice generated via Chatterbox ({duration:.1f}s)")
+    except Exception as e:
+        print(f"[pipeline] Chatterbox failed ({e}) — falling back to Kokoro")
+        voice_id = KOKORO_VOICE_MAP.get(config.get("voice"), "am_michael")
+        synthesize_kokoro(script, narration_path, lang_code="a", voice_id=voice_id,
+                           speed=float(config.get("speed", 1.0)))
+        duration = ffprobe_duration(narration_path) + 0.45
+        print(f"[pipeline] voice generated via Kokoro fallback ({duration:.1f}s)")
 
     # 2) Captions — timed to the actual narration length, burned in via ffmpeg later.
     subtitle_lines = _split_into_subtitle_lines(script)
@@ -118,12 +129,18 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
                location_label=config.get("location_label"))
     write_srt(segments, srt_path)
 
-    # 3) Visuals — real stock video only (Pexels first, Pixabay fallback/top-up).
+    # 3) Visuals — mostly Agnes AI-generated clips (if AGNES_API_KEY is set)
+    # for a consistent human/cinematic look, topped up with real stock video
+    # (Pexels first, Pixabay fallback) for whatever Agnes doesn't cover.
+    # Silently falls back to 100% stock if Agnes is unavailable/fails/rate-
+    # limited on a given run — a channel never fails to produce a video.
     queries = config["visual_query_fn"](topic, script)
     visuals_dir = os.path.join(out_dir, "visuals")
     os.makedirs(visuals_dir, exist_ok=True)
-    visual_paths = fetch_stock_videos(queries, visuals_dir, count=8, vertical=vertical)
-    print(f"[pipeline] {len(visual_paths)} stock video clips ready")
+    visual_paths = fetch_hybrid_stock_agnes_videos(
+        queries, visuals_dir, count=8, vertical=vertical,
+        agnes_count=int(config.get("agnes_clip_count", 6)))
+    print(f"[pipeline] {len(visual_paths)} video clips ready")
 
     # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.
     background = build_background(visual_paths, work_dir, total_duration=duration,

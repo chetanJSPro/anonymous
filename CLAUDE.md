@@ -30,9 +30,18 @@ the parts of SETUP.md that need their login.
   update `GROQ_MODEL` in `core/llm.py`; the free keyless Pollinations
   fallback stopped actually being free — 402 Payment Required as of Aug
   2026 — so `GROQ_API_KEY` is effectively required now), `tts_kokoro.py`
-  (Kokoro, local/free neural TTS — the peace_reels_automation voice engine,
-  ported in; needs espeak-ng on the OS), `visuals.py::fetch_stock_videos`
-  (Pexels first, Pixabay fallback — real video only, no AI stills),
+  (`tts_chatterbox.py`, Chatterbox TTS — MIT license, commercial-safe,
+  primary voice engine; `tts_kokoro.py` is the automatic fallback if
+  Chatterbox fails/times out — the peace_reels_automation voice engine,
+  needs espeak-ng on the OS. Do NOT add XTTS-v2: its weights are CPML,
+  non-commercial-only, and Coqui Inc shut down so there's no commercial
+  license to buy anymore — a real problem for these ad-monetized channels),
+  `visuals.py::fetch_hybrid_stock_agnes_videos`
+  (used by pipeline.py: mostly real AI-generated clips via Agnes AI —
+  6 of 8 per episode by default, `agnes_clip_count` in pipeline.py — optional,
+  needs AGNES_API_KEY, silently falls back to 100% stock if unset or it
+  fails/rate-limits — topped up with `fetch_stock_videos`, Pexels first,
+  Pixabay fallback),
   `captions.py` + `video_builder.py` (ported from peace_reels_automation:
   ffmpeg-based background build with color grading + ASS subtitle burn-in
   via ffmpeg's `ass=` filter), `upload.py` + `auth.py` (YouTube Data +

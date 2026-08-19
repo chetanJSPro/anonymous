@@ -3,9 +3,18 @@ google-auth-oauthlib
 requests
 pillow
 
-# Local, free/open TTS (peace_reels_automation's voice engine). Requires
-# espeak-ng installed on the OS (winget install eSpeak-NG.eSpeak-NG on
-# Windows, apt install espeak-ng on Linux).
+# Primary voiceover: Chatterbox (MIT license, commercial-safe — unlike
+# XTTS-v2's non-commercial-only weights). CPU-only (no GPU on GitHub Actions
+# runners) so it's slower than Kokoro; pulls in torch/torchaudio, a heavy
+# download the first time a workflow run installs dependencies.
+chatterbox-tts
+torch
+torchaudio
+
+# Fallback voiceover if Chatterbox fails/times out on a given run — also
+# used to keep the sibling peace_reels_automation project's voice available.
+# Requires espeak-ng installed on the OS (winget install eSpeak-NG.eSpeak-NG
+# on Windows, apt install espeak-ng on Linux).
 kokoro>=0.9.4
 numpy>=1.26.0
 soundfile>=0.12.1

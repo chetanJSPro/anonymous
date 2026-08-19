@@ -54,6 +54,13 @@ Gmail signups needed.
   values from that project's `.env` instead of registering again** — same
   free-tier key works for both projects, just paste the same value into
   this project's `.env`.
+- **Agnes AI** (optional, real AI-generated video clips, 6 of 8 per episode
+  by default — the majority of each video's visuals): https://agnes-ai.com →
+  sign up → API key. Free tier, ~16 requests/min shared across all callers,
+  so under load (e.g. 4 channels publishing in parallel) some clips will
+  silently fall back to stock video rather than actually hit that limit.
+  Leave the key blank and every channel just runs on 100% stock video —
+  nothing breaks without it.
 
 All 11 channels use `visual_source: "mixed"` (real stock video clips from
 Pexels, falling back to Pixabay, interleaved with a couple of AI-generated
@@ -134,6 +141,7 @@ rm set_secrets.sh
 gh secret set GROQ_API_KEY --body "YOUR_GROQ_KEY_HERE"
 gh secret set PEXELS_API_KEY --body "YOUR_PEXELS_KEY_HERE"
 gh secret set PIXABAY_API_KEY --body "YOUR_PIXABAY_KEY_HERE"
+gh secret set AGNES_API_KEY --body "YOUR_AGNES_KEY_HERE"   # optional
 ```
 
 ## 7. Turn on GitHub Pages for the dashboard (~2 min)

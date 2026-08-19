@@ -19,20 +19,21 @@ Three free sources:
    real stock footage can't match (mythology, dramatic reenactment framing,
    flat-design illustration for the English-learning channel, etc).
 
-There is NOT a comparably free/unlimited/keyless AI *video* generation
-service the way Pollinations covers images — free-tier text-to-video APIs
-that exist (Hugging Face Inference, Replicate free credits, etc.) are slow,
-rate-limited, and often down. Rather than build on something unreliable,
-`visual_source: "mixed"` gets you the next best thing for free: real stock
-*video* clips (actual motion, from Pexels + Pixabay) interleaved with a
-couple of AI *images* (Ken Burns pan/zoom) for shots stock can't cover —
-much more visual variety than any single source alone, and every piece of
-it is 100% free.
+4) Agnes AI (agnes-ai.com, real text-to-video generation) — FREE tier,
+   needs a free API key (enter at agnes-ai.com, signup required unlike
+   Pollinations). ~16 requests/minute. Used as an ACCENT source only, a
+   handful of clips per episode topped up with stock video — reviews flag
+   inconsistent motion quality on complex scenes, so this is layered on top
+   of the stock pipeline, never the sole source. If AGNES_API_KEY isn't set,
+   or a generation fails/rate-limits, `fetch_hybrid_stock_agnes_videos`
+   silently falls back to 100% stock video — never blocks a run.
+   Set env var: AGNES_API_KEY
 
 Usage:
     from core.visuals import fetch_pixabay_videos, fetch_pixabay_images
     from core.visuals import fetch_pexels_videos, fetch_pexels_images
     from core.visuals import generate_ai_image, fetch_mixed_visuals
+    from core.visuals import fetch_agnes_videos, fetch_hybrid_stock_agnes_videos
 """
 
 import os
@@ -51,6 +52,10 @@ PEXELS_VIDEO_URL = "https://api.pexels.com/videos/search"
 PEXELS_IMAGE_URL = "https://api.pexels.com/v1/search"
 
 POLLINATIONS_IMAGE_URL = "https://image.pollinations.ai/prompt/"
+
+AGNES_API_KEY = os.environ.get("AGNES_API_KEY", "")
+AGNES_CREATE_URL = "https://apihub.agnes-ai.com/v1/videos"
+AGNES_STATUS_URL = "https://apihub.agnes-ai.com/agnesapi"
 
 # Neither Pixabay nor Pexels do real semantic matching -- a thin-result niche
 # query (e.g. "ganges river ghat india") falls back to loosely related
@@ -216,6 +221,80 @@ def generate_ai_image_batch(prompts, out_dir, width=1080, height=1920):
     return paths
 
 
+# --------------------------------------------------------------- Agnes AI --
+
+def _agnes_num_frames(seconds, frame_rate=24):
+    """Agnes requires num_frames = 8n+1, max 441. Pick the closest valid
+    value to the requested duration at the given frame rate."""
+    target = round(seconds * frame_rate)
+    n = max(1, round((target - 1) / 8))
+    frames = min(441, 8 * n + 1)
+    return frames
+
+
+def generate_agnes_video(prompt, out_path, seconds=5, frame_rate=24,
+                          width=1080, height=1920, poll_timeout=180, poll_interval=5):
+    """Generate one AI video clip via Agnes AI's free text-to-video API.
+    Raises on any failure (missing key, HTTP error, timeout, job failed) —
+    callers should catch and fall back to stock video, this is not meant to
+    be a hard dependency for any channel."""
+    if not AGNES_API_KEY:
+        raise RuntimeError("Set AGNES_API_KEY env var (free signup at agnes-ai.com)")
+    import requests  # already a project dependency
+
+    headers = {"Authorization": f"Bearer {AGNES_API_KEY}", "Content-Type": "application/json"}
+    body = {
+        "model": "agnes-video-v2.0",
+        "prompt": prompt,
+        "num_frames": _agnes_num_frames(seconds, frame_rate),
+        "frame_rate": frame_rate,
+        "width": width,
+        "height": height,
+    }
+    resp = requests.post(AGNES_CREATE_URL, headers=headers, json=body, timeout=30)
+    resp.raise_for_status()
+    video_id = resp.json().get("video_id") or resp.json().get("id")
+    if not video_id:
+        raise RuntimeError(f"Agnes AI create-job response had no video_id: {resp.text[:300]}")
+
+    waited = 0
+    while waited < poll_timeout:
+        time.sleep(poll_interval)
+        waited += poll_interval
+        status_resp = requests.get(AGNES_STATUS_URL, headers=headers,
+                                    params={"video_id": video_id}, timeout=30)
+        status_resp.raise_for_status()
+        data = status_resp.json()
+        status = data.get("status")
+        if status == "completed":
+            video_url = (data.get("metadata") or {}).get("url")
+            if not video_url:
+                raise RuntimeError(f"Agnes AI job completed but no output url: {data}")
+            return _download(video_url, out_path)
+        if status == "failed":
+            raise RuntimeError(f"Agnes AI job {video_id} failed: {data}")
+        # queued / in_progress -> keep polling
+    raise RuntimeError(f"Agnes AI job {video_id} timed out after {poll_timeout}s")
+
+
+def fetch_agnes_videos(prompts, out_dir, count=3, vertical=True, seconds=5):
+    """Best-effort: generate up to `count` AI video clips via Agnes AI.
+    Returns whatever succeeded (possibly an empty list) — never raises, so
+    callers can always safely top up with stock video."""
+    size = (1080, 1920) if vertical else (1920, 1080)
+    paths = []
+    for i, prompt in enumerate(prompts[:count]):
+        try:
+            out_path = os.path.join(out_dir, f"agnes_{i}.mp4")
+            paths.append(generate_agnes_video(prompt, out_path, seconds=seconds,
+                                                width=size[0], height=size[1]))
+            print(f"[visuals] Agnes AI clip {i+1}/{min(count, len(prompts))} ready")
+        except Exception as e:
+            print(f"[visuals] Agnes AI failed for {prompt!r} ({e}) — skipping")
+        time.sleep(4)  # stay well under the free tier's ~16 req/min shared limit
+    return paths
+
+
 # ------------------------------------------------------------------ Mixed --
 
 def fetch_mixed_visuals(stock_queries, ai_prompts, out_dir, vertical=True,
@@ -302,6 +381,35 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True):
             "fetch_stock_videos produced 0 clips — check PEXELS_API_KEY / "
             "PIXABAY_API_KEY are set in .env.")
 
+    random.shuffle(paths)
+    return paths
+
+
+def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
+                                     agnes_count=6, agnes_seconds=5):
+    """The active default for all 11 channels: mostly real AI-generated video
+    clips (Agnes AI) for a consistent human/cinematic look, topped up with
+    real stock video (Pexels/Pixabay) for whatever Agnes doesn't cover.
+    Falls back to 100% stock if AGNES_API_KEY isn't set or every Agnes
+    attempt fails/rate-limits — a channel never fails to produce a video
+    just because Agnes is down. Same return shape as fetch_stock_videos: a
+    shuffled list of local mp4 paths ready for core.video_builder.build_background."""
+    agnes_paths = []
+    if AGNES_API_KEY and agnes_count > 0:
+        prompts = [f"{q}, cinematic, photorealistic, dramatic lighting" for q in queries]
+        agnes_paths = fetch_agnes_videos(prompts, out_dir, count=agnes_count,
+                                          vertical=vertical, seconds=agnes_seconds)
+
+    stock_needed = max(0, count - len(agnes_paths))
+    stock_paths = []
+    if stock_needed > 0:
+        stock_paths = fetch_stock_videos(queries, out_dir, count=stock_needed, vertical=vertical)
+
+    paths = agnes_paths + stock_paths
+    if not paths:
+        raise RuntimeError(
+            "fetch_hybrid_stock_agnes_videos produced 0 usable clips — check "
+            "AGNES_API_KEY / PEXELS_API_KEY / PIXABAY_API_KEY.")
     random.shuffle(paths)
     return paths
 
