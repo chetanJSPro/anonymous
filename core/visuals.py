@@ -267,7 +267,12 @@ def generate_agnes_video(prompt, out_path, seconds=5, frame_rate=24,
         data = status_resp.json()
         status = data.get("status")
         if status == "completed":
-            video_url = (data.get("metadata") or {}).get("url")
+            # The completed job's output URL is a top-level "url" field, not
+            # nested under "metadata" (confirmed against real API responses
+            # 2026-08-19 -- the metadata.url path was always empty, silently
+            # discarding every successful generation and falling back to
+            # stock for 100% of clips despite Agnes actually succeeding).
+            video_url = data.get("url") or (data.get("metadata") or {}).get("url")
             if not video_url:
                 raise RuntimeError(f"Agnes AI job completed but no output url: {data}")
             return _download(video_url, out_path)
