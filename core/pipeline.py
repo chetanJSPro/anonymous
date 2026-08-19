@@ -102,23 +102,32 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     vertical = config.get("vertical", True)
     width, height = (1080, 1920) if vertical else (1920, 1080)
 
-    # 1) Voiceover — Chatterbox (MIT-licensed, commercial-safe, rated ahead
-    # of ElevenLabs in blind tests) as primary, falling back to Kokoro if
-    # Chatterbox fails/times out on this run (slower on CPU, no GPU on
-    # GitHub Actions runners) so a bad Chatterbox run never kills a channel.
+    # 1) Voiceover — Kokoro (local, free, fast even on CPU) as primary.
+    # Chatterbox (core/tts_chatterbox.py) is higher-quality/more human-like
+    # but costs ~25 CPU-minutes per video on GitHub Actions' GPU-less
+    # runners (confirmed 2026-08-19: 72s of audio took 1500+s to render) —
+    # opt into it per-channel via config["voice_engine"] = "chatterbox" once
+    # you've weighed that runtime/cost against Kokoro's quality.
     narration_path = os.path.join(out_dir, "narration.wav")
-    try:
-        _, duration = synthesize_chatterbox(script, narration_path,
-                                             audio_prompt_path=config.get("voice_reference"))
-        duration += 0.45
-        print(f"[pipeline] voice generated via Chatterbox ({duration:.1f}s)")
-    except Exception as e:
-        print(f"[pipeline] Chatterbox failed ({e}) — falling back to Kokoro")
+    if config.get("voice_engine") == "chatterbox":
+        try:
+            _, duration = synthesize_chatterbox(script, narration_path,
+                                                 audio_prompt_path=config.get("voice_reference"))
+            duration += 0.45
+            print(f"[pipeline] voice generated via Chatterbox ({duration:.1f}s)")
+        except Exception as e:
+            print(f"[pipeline] Chatterbox failed ({e}) — falling back to Kokoro")
+            voice_id = KOKORO_VOICE_MAP.get(config.get("voice"), "am_michael")
+            synthesize_kokoro(script, narration_path, lang_code="a", voice_id=voice_id,
+                               speed=float(config.get("speed", 1.0)))
+            duration = ffprobe_duration(narration_path) + 0.45
+            print(f"[pipeline] voice generated via Kokoro fallback ({duration:.1f}s)")
+    else:
         voice_id = KOKORO_VOICE_MAP.get(config.get("voice"), "am_michael")
         synthesize_kokoro(script, narration_path, lang_code="a", voice_id=voice_id,
                            speed=float(config.get("speed", 1.0)))
         duration = ffprobe_duration(narration_path) + 0.45
-        print(f"[pipeline] voice generated via Kokoro fallback ({duration:.1f}s)")
+        print(f"[pipeline] voice generated via Kokoro ({duration:.1f}s)")
 
     # 2) Captions — timed to the actual narration length, burned in via ffmpeg later.
     subtitle_lines = _split_into_subtitle_lines(script)

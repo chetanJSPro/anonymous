@@ -3,21 +3,22 @@ google-auth-oauthlib
 requests
 pillow
 
-# Primary voiceover: Chatterbox (MIT license, commercial-safe — unlike
-# XTTS-v2's non-commercial-only weights). CPU-only (no GPU on GitHub Actions
-# runners) so it's slower than Kokoro; pulls in torch/torchaudio, a heavy
-# download the first time a workflow run installs dependencies.
-chatterbox-tts
-torch
-torchaudio
-
-# Fallback voiceover if Chatterbox fails/times out on a given run — also
-# used to keep the sibling peace_reels_automation project's voice available.
-# Requires espeak-ng installed on the OS (winget install eSpeak-NG.eSpeak-NG
-# on Windows, apt install espeak-ng on Linux).
+# Primary voiceover: Kokoro (local, free, fast on CPU — the
+# peace_reels_automation voice engine). Requires espeak-ng installed on the
+# OS (winget install eSpeak-NG.eSpeak-NG on Windows, apt install espeak-ng
+# on Linux).
 kokoro>=0.9.4
 numpy>=1.26.0
 soundfile>=0.12.1
+
+# Optional higher-quality voice (core/tts_chatterbox.py, MIT-licensed,
+# commercial-safe) — NOT installed by default. Costs ~25 CPU-minutes/video
+# on GitHub Actions' GPU-less runners (confirmed 2026-08-19), so only add
+# these back and set config["voice_engine"] = "chatterbox" on a channel
+# once you've accepted that runtime/cost tradeoff:
+#   chatterbox-tts
+#   torch
+#   torchaudio
 
 # video assembly is now ffmpeg CLI directly (core/video_builder.py, ported
 # from peace_reels_automation) — moviepy/edge-tts no longer used by the
