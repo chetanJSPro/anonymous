@@ -190,11 +190,19 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # Silently falls back to 100% stock if Agnes is unavailable/fails/rate-
     # limited on a given run — a channel never fails to produce a video.
     queries = config["visual_query_fn"](topic, script)
+    # Optional second query list used ONLY for the stock (Pexels/Pixabay)
+    # top-up -- needed by channels whose best Agnes/story prompts are full
+    # of proper nouns (mythology figures, named places) that real stock
+    # libraries have zero footage of and would otherwise search with,
+    # silently returning unrelated "popular" results. See
+    # core/llm.py::generate_visual_queries(avoid_named_entities=True).
+    stock_queries = config["stock_query_fn"](topic, script) if config.get("stock_query_fn") else None
     visuals_dir = os.path.join(out_dir, "visuals")
     os.makedirs(visuals_dir, exist_ok=True)
     visual_paths = fetch_hybrid_stock_agnes_videos(
         queries, visuals_dir, count=8, vertical=vertical,
-        agnes_count=int(config.get("agnes_clip_count", 6)))
+        agnes_count=int(config.get("agnes_clip_count", 6)),
+        stock_queries=stock_queries)
     print(f"[pipeline] {len(visual_paths)} video clips ready")
 
     # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.

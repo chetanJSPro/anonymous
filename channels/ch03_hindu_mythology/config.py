@@ -11,12 +11,29 @@ STOCK_QUERIES = ['ganges river ghat india', 'temple diya lamps', 'himalaya mount
                   'incense smoke close up', 'indian temple bells', 'sunrise over mountains india']
 
 def visual_query_fn(topic, script):
-    """Story-specific visual scenes pulled from the actual script (so
-    footage matches what's being narrated instead of generic stock terms),
-    falling back to STOCK_QUERIES on any failure."""
+    """Story-specific scenes (named characters like Krishna/Arjuna/Hanuman
+    allowed) fed to Agnes AI generation, which can actually attempt a
+    custom scene from a text prompt -- unlike stock search below, which has
+    zero real footage of named mythological figures/places."""
     from core.llm import generate_visual_queries
-    return generate_visual_queries("Hindu mythology stories",
+    return generate_visual_queries("Hindu mythology stories (Mahabharata, Ramayana)",
                                     topic, script, count=8, fallback=STOCK_QUERIES)
+
+def stock_query_fn(topic, script):
+    """Separate, generic/matchable query list used ONLY for the Pexels/
+    Pixabay stock top-up. Real stock libraries have no footage of Krishna,
+    Arjuna, Rama, Hanuman, etc. -- searching with those (as visual_query_fn's
+    story-specific terms do) silently falls back to unrelated "popular"
+    results (confirmed 2026-08-20: candle/bamboo clips under a Mahabharata
+    narration). avoid_named_entities=True steers the LLM toward generic
+    Indian/mythological-adjacent imagery (temple architecture, fire
+    rituals, warrior silhouettes, rivers, mountains) that actually exists
+    in these libraries and still reads as on-theme."""
+    from core.llm import generate_visual_queries
+    return generate_visual_queries("Hindu mythology stories (Mahabharata, Ramayana) -- "
+                                    "generic scenery/mood b-roll only, no named characters",
+                                    topic, script, count=8, fallback=STOCK_QUERIES,
+                                    avoid_named_entities=True)
 
 def title_fn(topic):
     prefix = ''
@@ -33,6 +50,15 @@ CONFIG = {
     "topic_prompts": TOPIC_PROMPTS,
     "visual_source": 'mixed',
     "visual_query_fn": visual_query_fn,
+    "stock_query_fn": stock_query_fn,
+    # Bumped from the 6-of-8 default: stock (Pexels/Pixabay) genuinely has
+    # no Mahabharata/Ramayana footage, so this channel needs Agnes AI
+    # generation to cover as much of the episode as possible instead of
+    # leaning on a mismatched stock top-up. Still falls back to
+    # stock_query_fn's generic-but-on-theme queries for whatever Agnes
+    # doesn't land (Agnes free tier is rate-limited, most episodes still
+    # get some stock clips regardless of this setting).
+    "agnes_clip_count": 8,
     "voice": 'en-US-ChristopherNeural',
     "vertical": True,
     "category_id": '27',

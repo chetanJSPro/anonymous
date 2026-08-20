@@ -87,23 +87,41 @@ def _download(url, out_path, timeout=60, headers=None):
 
 # ---------------------------------------------------------------- Pixabay --
 
-def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5):
-    """Download up to `count` free stock video clips matching `query`."""
+def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None):
+    """Download up to `count` free stock video clips matching `query`.
+    `page` is randomized by default (instead of always page 1) -- Pixabay
+    ranks hits by relevance, so a fixed page 1 means every episode/channel
+    that searches the same (often generic, e.g. "courtroom interior")
+    query keeps landing on the exact same top clips. Confirmed 2026-08-20:
+    dashboard screenshots showed identical clips repeated across unrelated
+    channels for this reason. Random page spread across the top few pages
+    keeps results on-topic while breaking that determinism."""
     if not PIXABAY_API_KEY:
         raise RuntimeError("Set PIXABAY_API_KEY env var (free signup at pixabay.com)")
+    if page is None:
+        page = random.randint(1, 3)
     params = {
         "key": PIXABAY_API_KEY,
         "q": query,
         "video_type": "film",
         "per_page": max(count * 5, 20),
+        "page": page,
         "safesearch": "true",
     }
     url = PIXABAY_VIDEO_URL + "?" + urllib.parse.urlencode(params)
     with urllib.request.urlopen(url, timeout=30) as resp:
         data = json.loads(resp.read().decode("utf-8"))
 
+    hits = data.get("hits", [])
+    if page > 1 and not hits:
+        # thin-result query (e.g. niche mythology terms) -- page 2/3 came
+        # back empty, retry page 1 rather than returning nothing.
+        return fetch_pixabay_videos(query, out_dir, count=count,
+                                     min_duration=min_duration, page=1)
+    random.shuffle(hits)
+
     paths = []
-    for hit in data.get("hits", []):
+    for hit in hits:
         if len(paths) >= count:
             break
         if not _tags_or_slug_ok(hit.get("tags", "")):
@@ -142,13 +160,18 @@ def fetch_pixabay_images(query, out_dir, count=5):
 
 # ----------------------------------------------------------------- Pexels --
 
-def fetch_pexels_videos(query, out_dir, count=5, orientation=None):
+def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None):
     """Download up to `count` free stock video clips matching `query`.
     orientation: "portrait" for Shorts, "landscape" for long-form (optional
-    filter — Pexels supports it server-side, unlike Pixabay)."""
+    filter — Pexels supports it server-side, unlike Pixabay).
+    `page` is randomized by default -- see fetch_pixabay_videos' docstring
+    for why: a fixed page 1 means the same top-relevance clips get reused
+    across every episode and every channel searching similar terms."""
     if not PEXELS_API_KEY:
         raise RuntimeError("Set PEXELS_API_KEY env var (free signup at pexels.com/api)")
-    params = {"query": query, "per_page": max(count * 5, 20)}
+    if page is None:
+        page = random.randint(1, 3)
+    params = {"query": query, "per_page": max(count * 5, 20), "page": page}
     if orientation:
         params["orientation"] = orientation
     url = PEXELS_VIDEO_URL + "?" + urllib.parse.urlencode(params)
@@ -157,8 +180,14 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None):
             timeout=30) as resp:
         data = json.loads(resp.read().decode("utf-8"))
 
+    videos = data.get("videos", [])
+    if page > 1 and not videos:
+        return fetch_pexels_videos(query, out_dir, count=count,
+                                    orientation=orientation, page=1)
+    random.shuffle(videos)
+
     paths = []
-    for video in data.get("videos", []):
+    for video in videos:
         if len(paths) >= count:
             break
         # Pexels gives no tags — its descriptive page URL slug (e.g.
@@ -422,14 +451,26 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True):
 
 
 def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
-                                     agnes_count=6, agnes_seconds=5):
+                                     agnes_count=6, agnes_seconds=5,
+                                     stock_queries=None):
     """The active default for all 11 channels: mostly real AI-generated video
     clips (Agnes AI) for a consistent human/cinematic look, topped up with
     real stock video (Pexels/Pixabay) for whatever Agnes doesn't cover.
     Falls back to 100% stock if AGNES_API_KEY isn't set or every Agnes
     attempt fails/rate-limits — a channel never fails to produce a video
     just because Agnes is down. Same return shape as fetch_stock_videos: a
-    shuffled list of local mp4 paths ready for core.video_builder.build_background."""
+    shuffled list of local mp4 paths ready for core.video_builder.build_background.
+
+    `stock_queries`: optional separate query list to use ONLY for the stock
+    top-up (falls back to `queries` if not given). Needed for channels whose
+    best Agnes prompts are story-specific and full of proper nouns (e.g.
+    "Krishna and Arjuna on a chariot") that real stock libraries have zero
+    footage of -- searching Pexels/Pixabay with those returns unrelated
+    "popular" results instead (confirmed 2026-08-20 on
+    ch03_hindu_mythology: mismatched candle/bamboo clips). Passing a
+    separate, generic/matchable query list for the stock fallback (e.g.
+    "ancient temple carving", "warrior silhouette") keeps that top-up
+    on-theme even when Agnes can't cover the full count."""
     agnes_paths = []
     if AGNES_API_KEY and agnes_count > 0:
         prompts = [f"{q}, cinematic, photorealistic, dramatic lighting" for q in queries]
@@ -439,7 +480,8 @@ def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
     stock_needed = max(0, count - len(agnes_paths))
     stock_paths = []
     if stock_needed > 0:
-        stock_paths = fetch_stock_videos(queries, out_dir, count=stock_needed, vertical=vertical)
+        stock_paths = fetch_stock_videos(stock_queries or queries, out_dir,
+                                          count=stock_needed, vertical=vertical)
 
     paths = agnes_paths + stock_paths
     if not paths:

@@ -174,7 +174,8 @@ def sanitize_narration_script(text: str) -> str:
     return t
 
 
-def generate_visual_queries(niche_hint, topic, script, count=8, fallback=None):
+def generate_visual_queries(niche_hint, topic, script, count=8, fallback=None,
+                             avoid_named_entities=False):
     """Derive concrete, story-specific visual search/prompt terms from the
     actual generated script, instead of a static per-channel query list --
     a static list produces visuals unrelated to the specific story being
@@ -183,26 +184,76 @@ def generate_visual_queries(niche_hint, topic, script, count=8, fallback=None):
     than visuals that match what's being narrated. These queries feed both
     the stock video search (Pexels/Pixabay) and the Agnes AI prompts, so
     improving them improves whichever source ends up used.
+
+    `avoid_named_entities`: for channels whose stories are full of proper
+    nouns real stock libraries have zero footage of (mythology figures like
+    Krishna/Arjuna/Rama, historical figures, named places) -- set True to
+    get generic-but-on-theme scene descriptions (temple architecture,
+    ritual objects, weather, silhouettes/gestures) that Pexels/Pixabay can
+    actually match, instead of queries that always miss and fall back to
+    unrelated "popular" results. Meant for the STOCK-search query list, not
+    the Agnes AI prompt list -- Agnes can attempt named-character scenes
+    directly, stock search can't.
+
     Best-effort: falls back to `fallback` (the channel's static query list)
     on any failure or a too-short response."""
+    entity_note = (
+        " Do NOT use proper names -- no named characters, deities, or "
+        "specific places (e.g. not \"Krishna\", not \"Arjuna\", not "
+        "\"Ayodhya\"). Stock footage libraries have zero real footage of "
+        "named mythological/historical figures and return unrelated results "
+        "for those queries. Instead describe generic, universally filmable "
+        "visual elements that evoke the same scene: architecture, nature, "
+        "weather, ritual objects, silhouettes, hand gestures, generic human "
+        "actions."
+        if avoid_named_entities else ""
+    )
     system = (
-        f"You extract concrete visual scene descriptions for video footage to "
-        f"accompany a short narrated video. Channel style: {niche_hint}. Reply "
-        f"with exactly {count} short visual scene descriptions, one per line, "
-        f"no numbering, no quotes, no extra commentary -- each a concrete, "
-        f"filmable real-world scene (a place, an action, an object, a mood) "
-        f"tied to specific moments or details in the story below, not generic "
-        f"stock-photo phrases."
+        f"You write short stock-footage SEARCH QUERIES (like something typed "
+        f"into Pexels or Pixabay's search box) for video footage to accompany "
+        f"a short narrated video. Channel style: {niche_hint}. Reply with "
+        f"exactly {count} search queries, one per line, no numbering, no "
+        f"quotes, no extra commentary. Each query must be 3-6 WORDS, under "
+        f"60 characters -- a short keyword phrase (a place + an object/action, "
+        f"e.g. \"stone temple courtyard\" or \"warrior silhouette sunset\"), "
+        f"NEVER a full sentence, and never longer than that limit. Still tie "
+        f"each phrase to specific moments or details in the story below, not "
+        f"generic unrelated stock-photo phrases.{entity_note}"
     )
     user = f"Topic: {topic}\n\nStory:\n{script}\n\nGive {count} visual scene descriptions."
-    try:
-        raw = generate_script(system, user, max_tokens=400, temperature=0.8)
-        lines = [l.strip(" -•\t\"'") for l in raw.strip().split("\n") if l.strip()]
-        lines = [l for l in lines if 3 <= len(l) <= 100]
-        if len(lines) >= 3:
-            return lines[:count]
-    except Exception as e:
-        print(f"[llm] visual query generation failed ({e}), using fallback queries")
+    # Retry twice before giving up to `fallback` -- confirmed 2026-08-20:
+    # GROQ_MODEL (a reasoning model) intermittently returns a genuinely
+    # EMPTY visible response here (same refusal/reasoning-budget flakiness
+    # documented on generate_script's retry loop in core/pipeline.py, not
+    # something a bigger max_tokens alone fixes), which used to fall
+    # straight to the single static `fallback` list on the very first
+    # hiccup -- defeating per-episode/per-channel query variety (and, for
+    # avoid_named_entities callers, the whole point of the fix) far more
+    # often than the underlying failure rate justified.
+    for attempt in range(3):
+        try:
+            # max_tokens bumped 400 -> 700: with the longer
+            # avoid_named_entities system prompt added above, this model
+            # spends part of its token budget on hidden reasoning before
+            # the visible answer, and 400 was too tight to leave anything
+            # for the actual list on longer prompts/stories.
+            raw = generate_script(system, user, max_tokens=700, temperature=0.8)
+            lines = [l.strip(" -•\t\"'") for l in raw.strip().split("\n") if l.strip()]
+            # Kept at <=90 (not the sentence-length 160 tried earlier)
+            # deliberately: Pixabay's search API hard-rejects any `q` over
+            # ~100 chars with HTTP 400 (confirmed 2026-08-20 -- every query
+            # from an earlier "full sentence" version of this prompt failed
+            # Pixabay outright, silently producing 0 stock clips for the
+            # whole episode). The system prompt above now asks for short
+            # 3-6 word phrases directly, so this is just a safety cap.
+            lines = [l for l in lines if 3 <= len(l) <= 90]
+            if len(lines) >= 3:
+                return lines[:count]
+            print(f"[llm] visual query generation attempt {attempt+1} returned too few "
+                  f"usable lines ({len(lines)}) -- retrying. Raw: {raw[:200]!r}")
+        except Exception as e:
+            print(f"[llm] visual query generation attempt {attempt+1} failed ({e}) -- retrying")
+    print("[llm] visual query generation failed all 3 attempts, using fallback queries")
     return fallback or []
 
 
