@@ -17,6 +17,7 @@ import os
 import re
 import json
 import time
+import random
 import urllib.request
 import urllib.error
 
@@ -40,7 +41,12 @@ def _post_json(url, payload, headers, timeout=60, retries=3):
             last_err = e
             body = e.read().decode("utf-8", errors="ignore")
             if e.code == 429:
-                time.sleep(3 * (attempt + 1))
+                # Jittered backoff -- with 4 channels running in parallel
+                # (GitHub Actions matrix max-parallel: 4), all 4 tend to
+                # hit Groq's per-minute free-tier limit at nearly the same
+                # moment and, without jitter, retry in lockstep too,
+                # re-colliding on the same rate limit every round.
+                time.sleep(4 * (attempt + 1) + random.uniform(0, 2))
                 continue
             raise RuntimeError(f"LLM HTTP {e.code}: {body}")
         except Exception as e:
@@ -63,7 +69,14 @@ def _groq_chat(system_prompt, user_prompt, max_tokens=1200, temperature=0.9):
         "max_tokens": max_tokens,
         "temperature": temperature,
     }
-    result = _post_json(GROQ_URL, payload, headers)
+    # retries=6 (up from the 3 default) -- confirmed 2026-08-20: 4 parallel
+    # channel jobs each now make several Groq calls per episode (script,
+    # visual queries, hook title), and free-tier 429s under that load are
+    # common enough that 3 retries wasn't enough headroom before falling
+    # through to the Pollinations fallback, which is itself dead (402
+    # Payment Required as of Aug 2026, see CLAUDE.md) -- so a Groq 429
+    # that outlasts the retry budget currently has nowhere left to go.
+    result = _post_json(GROQ_URL, payload, headers, retries=6)
     return result["choices"][0]["message"]["content"].strip()
 
 

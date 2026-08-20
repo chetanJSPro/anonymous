@@ -16,6 +16,7 @@ styled captions, instead of the old edge-tts + MoviePy-TextClip pipeline.
 import os
 import re
 import sys
+import time
 
 # Windows' console defaults to cp1252/cp437, which can't encode arbitrary
 # Unicode punctuation the LLM sometimes emits in topics/scripts (e.g. a
@@ -103,13 +104,29 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # near-empty script that min_duration_seconds correctly rejects below,
     # but without a retry that just fails the whole episode. Retrying the
     # same prompt at temperature>0 usually gets a real story on attempt 2.
+    # Also retries on a hard failure (e.g. Groq 429 rate-limited AND the
+    # Pollinations fallback failing too, confirmed 2026-08-20 under 4
+    # parallel channel jobs) instead of only on a too-short/refused
+    # response -- an uncaught exception here used to abort the whole
+    # episode on attempt 1 even though attempt 2 often succeeds once a
+    # transient rate limit clears.
     script = ""
+    last_error = None
     for attempt in range(3):
-        script = sanitize_narration_script(generate_script(config["system_prompt"], topic))
+        try:
+            script = sanitize_narration_script(generate_script(config["system_prompt"], topic))
+        except Exception as e:
+            last_error = e
+            print(f"[pipeline] script attempt {attempt+1} raised ({e}) -- retrying")
+            time.sleep(5)
+            continue
         if len(script.split()) >= 20:
             break
         print(f"[pipeline] script attempt {attempt+1} too short/refused "
               f"({len(script.split())} words: {script[:80]!r}) -- retrying")
+    if not script:
+        raise RuntimeError(f"{config['name']}: script generation failed all 3 attempts "
+                            f"(last error: {last_error})")
     print(f"[pipeline] script generated ({len(script.split())} words)")
 
     vertical = config.get("vertical", True)
