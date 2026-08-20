@@ -49,12 +49,17 @@ CONFIG = {
     "title_fn": title_fn,
     "description_fn": description_fn,
     "tags": ['asmr', 'satisfying', 'relaxing', 'shorts'],
-    # All 8 clips attempt Agnes AI generation first (pipeline.py's hybrid
-    # fetch only tops up with stock for whatever Agnes doesn't cover) --
-    # per explicit request to stop this channel repeating the same handful
-    # of stock clips. Free-tier Agnes still won't land 8/8 every run (see
-    # CLAUDE.md's confirmed ~1-2/6 real-world success rate), so some stock
-    # top-up is still likely, but no clip is filled from stock BEFORE
-    # Agnes gets a shot at it, unlike the other channels' agnes_clip_count=6.
+    # All 8 clips attempt Agnes AI generation first, and ai_only_visuals
+    # means whatever Agnes doesn't land falls to Pollinations-generated
+    # AI stills (Ken-Burns'd into clips) instead of real stock -- per
+    # explicit request 2026-08-21: this channel should be AI-generated
+    # visuals only, no stock footage at all. Agnes alone can't guarantee
+    # that (its free tier is shared/rate-limited across every channel
+    # running in parallel, confirmed ~1-2/6 real success rate), but
+    # Pollinations has no such limit, so it's what actually delivers
+    # "no stock" in practice. Real stock is still the last-resort
+    # fallback if Pollinations itself is ever unreachable, so an episode
+    # still can't hard-fail outright.
     "agnes_clip_count": 8,
+    "ai_only_visuals": True,
 }

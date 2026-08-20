@@ -52,13 +52,17 @@ CONFIG = {
     "visual_query_fn": visual_query_fn,
     "stock_query_fn": stock_query_fn,
     # Bumped from the 6-of-8 default: stock (Pexels/Pixabay) genuinely has
-    # no Mahabharata/Ramayana footage, so this channel needs Agnes AI
-    # generation to cover as much of the episode as possible instead of
-    # leaning on a mismatched stock top-up. Still falls back to
-    # stock_query_fn's generic-but-on-theme queries for whatever Agnes
-    # doesn't land (Agnes free tier is rate-limited, most episodes still
-    # get some stock clips regardless of this setting).
+    # no Mahabharata/Ramayana footage. ai_only_visuals (per explicit
+    # request 2026-08-21: "only AI not stock" for this channel) means
+    # whatever Agnes doesn't land falls to Pollinations-generated AI
+    # stills (Ken-Burns'd into clips) BEFORE ever touching real stock --
+    # Agnes alone can't guarantee "no stock" since its free tier is
+    # shared/rate-limited across every channel running in parallel
+    # (confirmed ~1-2/6 real success rate), but Pollinations has no such
+    # limit. stock_query_fn's generic-but-on-theme queries are still the
+    # last-resort fallback if Pollinations itself is ever unreachable.
     "agnes_clip_count": 8,
+    "ai_only_visuals": True,
     "voice": 'en-US-ChristopherNeural',
     "vertical": True,
     "category_id": '27',

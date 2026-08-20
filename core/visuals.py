@@ -39,6 +39,7 @@ Usage:
 import os
 import time
 import random
+import subprocess
 import urllib.request
 import urllib.parse
 import json
@@ -330,6 +331,57 @@ def generate_ai_image_batch(prompts, out_dir, width=1080, height=1920):
     return paths
 
 
+def _image_to_video_clip(image_path, out_path, seconds=6, width=1080, height=1920, fps=30):
+    """Turn a still AI image (Pollinations has no video mode) into a short
+    Ken-Burns (slow zoom) video clip via ffmpeg's zoompan filter, so it's a
+    normal .mp4 input to core/video_builder.build_background like any real
+    stock clip. Upscales 2x before zoompan so the slow zoom-in never runs
+    out of source resolution and goes soft near the end of the clip."""
+    total_frames = max(1, int(seconds * fps))
+    vf = (
+        f"scale={width * 2}:{height * 2},"
+        f"zoompan=z='min(zoom+0.0015,1.3)':d={total_frames}:s={width}x{height}:fps={fps},"
+        "format=yuv420p"
+    )
+    cmd = [
+        "ffmpeg", "-y", "-loop", "1", "-i", str(image_path), "-t", str(seconds),
+        "-vf", vf, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+        str(out_path),
+    ]
+    proc = subprocess.run(cmd, text=True, capture_output=True)
+    if proc.returncode != 0:
+        raise RuntimeError(f"ffmpeg zoompan (image->video) failed: {proc.stderr[-500:]}")
+    return out_path
+
+
+def fetch_ai_image_clips(prompts, out_dir, count=8, vertical=True, seconds=6):
+    """Fully local, unlimited, zero-rate-limit AI visual source: generate a
+    still image per prompt via Pollinations (generate_ai_image -- free, no
+    key, no signup, no per-minute cap) and turn each into a short Ken-Burns
+    video clip. Used as the primary fallback ahead of real stock for
+    channels that explicitly want "AI-generated, not stock" visuals (ASMR,
+    mythology) -- unlike Agnes AI's free tier (~16 req/min SHARED across
+    every channel running in parallel, confirmed ~1-2/6 real success rate),
+    this has no rate-limit ceiling, so it's the reliable way to actually
+    hit "no stock" in practice rather than just in config intent.
+    Best-effort per prompt: one failed image/clip is skipped, never raises,
+    so a Pollinations hiccup can't kill the whole episode -- caller should
+    still have real stock as the final fallback for whatever's left."""
+    width, height = (1080, 1920) if vertical else (1920, 1080)
+    paths = []
+    for i, prompt in enumerate(prompts[:count]):
+        img_path = os.path.join(out_dir, f"ai_still_{i}.jpg")
+        clip_path = os.path.join(out_dir, f"ai_clip_{i}.mp4")
+        try:
+            generate_ai_image(prompt, img_path, width=width, height=height, seed=random.randint(1, 999999))
+            _image_to_video_clip(img_path, clip_path, seconds=seconds, width=width, height=height)
+            paths.append(clip_path)
+        except Exception as e:
+            print(f"[visuals] AI image-to-video clip failed for {prompt!r}: {e}")
+        time.sleep(1)  # be polite to the free endpoint
+    return paths
+
+
 # --------------------------------------------------------------- Agnes AI --
 
 def _agnes_num_frames(seconds, frame_rate=24):
@@ -545,7 +597,8 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=No
 
 def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
                                      agnes_count=6, agnes_seconds=5,
-                                     stock_queries=None, channel_name=None):
+                                     stock_queries=None, channel_name=None,
+                                     ai_only=False):
     """The active default for all 11 channels: mostly real AI-generated video
     clips (Agnes AI) for a consistent human/cinematic look, topped up with
     real stock video (Pexels/Pixabay) for whatever Agnes doesn't cover.
@@ -563,21 +616,40 @@ def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
     ch03_hindu_mythology: mismatched candle/bamboo clips). Passing a
     separate, generic/matchable query list for the stock fallback (e.g.
     "ancient temple carving", "warrior silhouette") keeps that top-up
-    on-theme even when Agnes can't cover the full count."""
+    on-theme even when Agnes can't cover the full count.
+
+    `ai_only`: for channels that explicitly want AI-generated visuals only,
+    never real stock (ASMR, mythology -- both have thin/mismatched real
+    stock coverage, per explicit request 2026-08-21). Inserts
+    fetch_ai_image_clips (Pollinations stills -> Ken-Burns clips) between
+    Agnes and stock: Agnes gets first shot (real video motion when its
+    rate-limited free tier cooperates), then Pollinations covers whatever's
+    left (unlimited/free/no rate limit, so this is what actually delivers
+    "no stock" in practice, unlike agnes_count alone which silently
+    degrades to mostly-stock whenever Agnes is rate-limited). Real stock
+    is still tried as the absolute last resort only if Pollinations itself
+    is unreachable, so an episode still can't hard-fail."""
     agnes_paths = []
     if AGNES_API_KEY and agnes_count > 0:
         prompts = [f"{q}, cinematic, photorealistic, dramatic lighting" for q in queries]
         agnes_paths = fetch_agnes_videos(prompts, out_dir, count=agnes_count,
                                           vertical=vertical, seconds=agnes_seconds)
 
-    stock_needed = max(0, count - len(agnes_paths))
+    remaining = max(0, count - len(agnes_paths))
+    ai_image_paths = []
+    if remaining > 0 and ai_only:
+        prompts = [f"{q}, cinematic, photorealistic, dramatic lighting, vertical portrait composition"
+                   for q in queries]
+        ai_image_paths = fetch_ai_image_clips(prompts, out_dir, count=remaining, vertical=vertical)
+        remaining = max(0, remaining - len(ai_image_paths))
+
     stock_paths = []
-    if stock_needed > 0:
+    if remaining > 0:
         stock_paths = fetch_stock_videos(stock_queries or queries, out_dir,
-                                          count=stock_needed, vertical=vertical,
+                                          count=remaining, vertical=vertical,
                                           channel_name=channel_name)
 
-    paths = agnes_paths + stock_paths
+    paths = agnes_paths + ai_image_paths + stock_paths
     if not paths:
         raise RuntimeError(
             "fetch_hybrid_stock_agnes_videos produced 0 usable clips — check "
