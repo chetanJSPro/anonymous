@@ -17,8 +17,14 @@ TOPIC_PROMPTS = ['glossy soap bar being sliced into cubes', 'colorful slime bein
 QUERY_TERMS = ['soap cutting asmr', 'slime asmr', 'sand cutting', 'satisfying asmr', 'kinetic sand asmr']
 
 def visual_query_fn(topic, script):
-    """Real stock video search terms only — no AI stills."""
-    return [q.format(topic=topic) if "{topic}" in q else q for q in QUERY_TERMS]
+    """Story-specific AI-video prompts derived from the actual script (so
+    Agnes generates a genuinely new scene each episode instead of the same
+    5 static QUERY_TERMS hitting the same top Pixabay/Pexels results every
+    time), falling back to QUERY_TERMS only if generation fails."""
+    from core.llm import generate_visual_queries
+    fallback = [q.format(topic=topic) if "{topic}" in q else q for q in QUERY_TERMS]
+    return generate_visual_queries("Sensory ASMR video (soap/slime/glass/kinetic sand cutting)",
+                                    topic, script, count=8, fallback=fallback)
 
 def title_fn(topic):
     prefix = 'Satisfying ASMR:'
@@ -43,4 +49,12 @@ CONFIG = {
     "title_fn": title_fn,
     "description_fn": description_fn,
     "tags": ['asmr', 'satisfying', 'relaxing', 'shorts'],
+    # All 8 clips attempt Agnes AI generation first (pipeline.py's hybrid
+    # fetch only tops up with stock for whatever Agnes doesn't cover) --
+    # per explicit request to stop this channel repeating the same handful
+    # of stock clips. Free-tier Agnes still won't land 8/8 every run (see
+    # CLAUDE.md's confirmed ~1-2/6 real-world success rate), so some stock
+    # top-up is still likely, but no clip is filled from stock BEFORE
+    # Agnes gets a shot at it, unlike the other channels' agnes_clip_count=6.
+    "agnes_clip_count": 8,
 }
