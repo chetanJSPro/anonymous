@@ -202,7 +202,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     visual_paths = fetch_hybrid_stock_agnes_videos(
         queries, visuals_dir, count=8, vertical=vertical,
         agnes_count=int(config.get("agnes_clip_count", 6)),
-        stock_queries=stock_queries)
+        stock_queries=stock_queries, channel_name=config["name"])
     print(f"[pipeline] {len(visual_paths)} video clips ready")
 
     # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.

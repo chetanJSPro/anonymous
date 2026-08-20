@@ -28,6 +28,9 @@ on:
         required: false
         default: "true"
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     if: ${{ github.event.inputs.channel == '' || github.event.inputs.channel == null }}
@@ -95,6 +98,39 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
         run: python scripts/publish.py ${{ matrix.channel }} --upload
+      - name: Commit updated topic/clip dedup state
+        # Confirmed 2026-08-21: this step didn't exist before, so
+        # core/topics.py's and core/visuals.py's per-channel "already used"
+        # history was only ever written to the ephemeral job workspace and
+        # thrown away when the job ended -- every scheduled run started
+        # from a fresh checkout with no memory of what the last run
+        # actually published, silently defeating both topic AND stock-clip
+        # dedup in production (screenshots showed multiple episodes
+        # publishing the literal same clip run after run despite the code
+        # already trying to avoid that). Commits only this matrix job's own
+        # two files (data/used_topics/<channel>.json,
+        # data/used_clips/<channel>.json), so up to 4 channels running in
+        # parallel never touch the same path -- a rebase+retry loop absorbs
+        # the case where two jobs still race to push around the same time.
+        # if: always() -- pick_topic() records a topic before the script is
+        # even generated, so a later step failing (e.g. the upload) can
+        # still leave real dedup state worth keeping.
+        if: always()
+        run: |
+          git config user.name "niche-dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "data/used_topics/${{ matrix.channel }}.json" "data/used_clips/${{ matrix.channel }}.json" 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "no dedup state changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: update dedup state for ${{ matrix.channel }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin master && git push origin master && exit 0
+            echo "push attempt $i failed (likely a race with another channel's job), retrying..."
+            sleep $(( (RANDOM % 10) + 5 ))
+          done
+          echo "::warning::could not push dedup state for ${{ matrix.channel }} after 5 attempts -- next run just won't have this episode's dedup history yet"
 
   publish-single:
     if: ${{ github.event.inputs.channel != '' && github.event.inputs.channel != null }}
@@ -151,3 +187,23 @@ jobs:
           else
             python scripts/publish.py ${{ github.event.inputs.channel }} --upload
           fi
+      - name: Commit updated topic/clip dedup state
+        # See the same-named step in the `publish` job above for why this
+        # exists -- without it, per-channel topic/stock-clip dedup history
+        # never survives past this single job.
+        if: always()
+        run: |
+          git config user.name "niche-dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "data/used_topics/${{ github.event.inputs.channel }}.json" "data/used_clips/${{ github.event.inputs.channel }}.json" 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "no dedup state changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: update dedup state for ${{ github.event.inputs.channel }} [skip ci]"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin master && git push origin master && exit 0
+            echo "push attempt $i failed, retrying..."
+            sleep $(( (RANDOM % 10) + 5 ))
+          done
+          echo "::warning::could not push dedup state for ${{ github.event.inputs.channel }} after 5 attempts"

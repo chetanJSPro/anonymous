@@ -85,9 +85,59 @@ def _download(url, out_path, timeout=60, headers=None):
     return out_path
 
 
+# ------------------------------------------------------ per-channel clip dedup --
+# Page randomization (below) isn't enough on its own for a thin-result niche
+# (ASMR slime/soap, courtroom b-roll) where the real matching pool for a
+# given query might only be ~10-20 clips total -- confirmed 2026-08-21:
+# multiple channels published several episodes in a row using the literal
+# same clip as episode 1 despite the page/shuffle fix, because random
+# chance on a small pool still collides often. This tracks each
+# channel's actually-downloaded clip ids across runs (data/used_clips/<channel>.json,
+# same pattern as core/topics.py's used-topic tracking) so a fetch
+# explicitly skips anything already used before ever falling back to
+# reusing it. NOTE: this file only actually persists across separate
+# GitHub Actions runs if something commits it back to git after each
+# publish job -- see publish.yml's "Commit updated dedup state" step.
+CLIP_STATE_DIR = os.path.join("data", "used_clips")
+
+
+def _clip_state_path(channel_name):
+    return os.path.join(CLIP_STATE_DIR, f"{channel_name}.json")
+
+
+def _load_used_clip_ids(channel_name):
+    if not channel_name:
+        return set()
+    p = _clip_state_path(channel_name)
+    if os.path.exists(p):
+        try:
+            with open(p, encoding="utf-8") as f:
+                return set(json.load(f))
+        except (json.JSONDecodeError, OSError):
+            return set()
+    return set()
+
+
+def _record_used_clip_ids(channel_name, new_ids, cap=400):
+    """Append newly-used clip ids to this channel's persisted history,
+    capped so the file doesn't grow forever (old entries age out, so a
+    thin-niche channel can eventually reuse its oldest clips rather than
+    ever hard-failing for "no fresh clips left")."""
+    if not channel_name or not new_ids:
+        return
+    os.makedirs(CLIP_STATE_DIR, exist_ok=True)
+    existing = list(_load_used_clip_ids(channel_name))
+    for i in new_ids:
+        if i not in existing:
+            existing.append(i)
+    existing = existing[-cap:]
+    with open(_clip_state_path(channel_name), "w", encoding="utf-8") as f:
+        json.dump(existing, f, ensure_ascii=False, indent=2)
+
+
 # ---------------------------------------------------------------- Pixabay --
 
-def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None):
+def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, used_ids=None):
     """Download up to `count` free stock video clips matching `query`.
     `page` is randomized by default (instead of always page 1) -- Pixabay
     ranks hits by relevance, so a fixed page 1 means every episode/channel
@@ -95,11 +145,20 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None):
     query keeps landing on the exact same top clips. Confirmed 2026-08-20:
     dashboard screenshots showed identical clips repeated across unrelated
     channels for this reason. Random page spread across the top few pages
-    keeps results on-topic while breaking that determinism."""
+    keeps results on-topic while breaking that determinism.
+
+    `used_ids`: optional mutable set of "pixabay:<id>" strings already used
+    by this channel (see _load_used_clip_ids) -- hits already in it are
+    skipped first, and every hit actually downloaded here gets added to it.
+    Needed because on a thin-result niche (ASMR slime/soap, mythology) page
+    randomization alone still collides on the same handful of real matches
+    often enough to publish literal duplicate clips run after run."""
     if not PIXABAY_API_KEY:
         raise RuntimeError("Set PIXABAY_API_KEY env var (free signup at pixabay.com)")
     if page is None:
         page = random.randint(1, 3)
+    if used_ids is None:
+        used_ids = set()
     params = {
         "key": PIXABAY_API_KEY,
         "q": query,
@@ -117,11 +176,17 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None):
         # thin-result query (e.g. niche mythology terms) -- page 2/3 came
         # back empty, retry page 1 rather than returning nothing.
         return fetch_pixabay_videos(query, out_dir, count=count,
-                                     min_duration=min_duration, page=1)
+                                     min_duration=min_duration, page=1, used_ids=used_ids)
     random.shuffle(hits)
 
+    # Two-pass selection: prefer hits this channel hasn't used yet, only
+    # falling back to already-used ones if the fresh pool can't fill count
+    # (a genuinely thin niche eventually runs out of new real matches --
+    # reusing the OLDEST-cycled clip at that point beats hard-failing).
+    ordered = sorted(hits, key=lambda h: f"pixabay:{h.get('id')}" in used_ids)
+
     paths = []
-    for hit in hits:
+    for hit in ordered:
         if len(paths) >= count:
             break
         if not _tags_or_slug_ok(hit.get("tags", "")):
@@ -130,6 +195,9 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None):
         video_url = hit["videos"]["medium"]["url"] if "medium" in hit["videos"] else hit["videos"]["small"]["url"]
         out_path = os.path.join(out_dir, f"pixabay_{query.replace(' ', '_')}_{len(paths)}.mp4")
         paths.append(_download(video_url, out_path))
+        clip_id = hit.get("id")
+        if clip_id is not None:
+            used_ids.add(f"pixabay:{clip_id}")
         time.sleep(0.5)
     return paths
 
@@ -160,17 +228,22 @@ def fetch_pixabay_images(query, out_dir, count=5):
 
 # ----------------------------------------------------------------- Pexels --
 
-def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None):
+def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, used_ids=None):
     """Download up to `count` free stock video clips matching `query`.
     orientation: "portrait" for Shorts, "landscape" for long-form (optional
     filter — Pexels supports it server-side, unlike Pixabay).
     `page` is randomized by default -- see fetch_pixabay_videos' docstring
     for why: a fixed page 1 means the same top-relevance clips get reused
-    across every episode and every channel searching similar terms."""
+    across every episode and every channel searching similar terms.
+
+    `used_ids`: see fetch_pixabay_videos -- same mutable-set cross-run dedup,
+    namespaced "pexels:<id>" so it never collides with Pixabay's ids."""
     if not PEXELS_API_KEY:
         raise RuntimeError("Set PEXELS_API_KEY env var (free signup at pexels.com/api)")
     if page is None:
         page = random.randint(1, 3)
+    if used_ids is None:
+        used_ids = set()
     params = {"query": query, "per_page": max(count * 5, 20), "page": page}
     if orientation:
         params["orientation"] = orientation
@@ -183,11 +256,15 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None):
     videos = data.get("videos", [])
     if page > 1 and not videos:
         return fetch_pexels_videos(query, out_dir, count=count,
-                                    orientation=orientation, page=1)
+                                    orientation=orientation, page=1, used_ids=used_ids)
     random.shuffle(videos)
 
+    # Two-pass selection: prefer clips this channel hasn't used yet -- see
+    # fetch_pixabay_videos' docstring for why this matters on thin niches.
+    ordered = sorted(videos, key=lambda v: f"pexels:{v.get('id')}" in used_ids)
+
     paths = []
-    for video in videos:
+    for video in ordered:
         if len(paths) >= count:
             break
         # Pexels gives no tags — its descriptive page URL slug (e.g.
@@ -205,6 +282,9 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None):
         video_url = candidates[len(candidates) // 2]["link"]
         out_path = os.path.join(out_dir, f"pexels_{query.replace(' ', '_')}_{len(paths)}.mp4")
         paths.append(_download(video_url, out_path))
+        clip_id = video.get("id")
+        if clip_id is not None:
+            used_ids.add(f"pexels:{clip_id}")
         time.sleep(0.5)
     return paths
 
@@ -414,13 +494,22 @@ def fetch_mixed_visuals(stock_queries, ai_prompts, out_dir, vertical=True,
 
 # -------------------------------------------------------------- Video-only --
 
-def fetch_stock_videos(queries, out_dir, count=8, vertical=True):
+def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=None):
     """The active default for all 11 channels: real stock VIDEO clips only —
     no AI stills. Tries Pexels first per query (usually higher production
     value), tops up with Pixabay if Pexels has no key/results or count isn't
     met yet. Matches core/video_builder.build_background's input (a flat
-    list of local video file paths)."""
+    list of local video file paths).
+
+    `channel_name`: when given, loads this channel's persisted used-clip-id
+    history (data/used_clips/<channel>.json) and steers every query away
+    from clips it's already published before, then saves any newly-used
+    ids back. Without it (or on a channel whose CI job never commits that
+    file back to git -- see publish.yml) this degrades gracefully to
+    within-this-run-only dedup, same as before."""
     orientation = "portrait" if vertical else "landscape"
+    used_ids = _load_used_clip_ids(channel_name)
+    before = set(used_ids)
     paths = []
     shuffled = list(queries)
     random.shuffle(shuffled)
@@ -431,12 +520,13 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True):
         clips = []
         if PEXELS_API_KEY:
             try:
-                clips = fetch_pexels_videos(q, out_dir, count=min(2, remaining), orientation=orientation)
+                clips = fetch_pexels_videos(q, out_dir, count=min(2, remaining),
+                                             orientation=orientation, used_ids=used_ids)
             except Exception as e:
                 print(f"[visuals] Pexels failed for {q!r} ({e}), trying Pixabay...")
         if not clips and PIXABAY_API_KEY:
             try:
-                clips = fetch_pixabay_videos(q, out_dir, count=min(2, remaining))
+                clips = fetch_pixabay_videos(q, out_dir, count=min(2, remaining), used_ids=used_ids)
             except Exception as e:
                 print(f"[visuals] Pixabay also failed for {q!r} ({e})")
         paths += clips
@@ -446,13 +536,16 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True):
             "fetch_stock_videos produced 0 clips — check PEXELS_API_KEY / "
             "PIXABAY_API_KEY are set in .env.")
 
+    if channel_name:
+        _record_used_clip_ids(channel_name, used_ids - before)
+
     random.shuffle(paths)
     return paths
 
 
 def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
                                      agnes_count=6, agnes_seconds=5,
-                                     stock_queries=None):
+                                     stock_queries=None, channel_name=None):
     """The active default for all 11 channels: mostly real AI-generated video
     clips (Agnes AI) for a consistent human/cinematic look, topped up with
     real stock video (Pexels/Pixabay) for whatever Agnes doesn't cover.
@@ -481,7 +574,8 @@ def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
     stock_paths = []
     if stock_needed > 0:
         stock_paths = fetch_stock_videos(stock_queries or queries, out_dir,
-                                          count=stock_needed, vertical=vertical)
+                                          count=stock_needed, vertical=vertical,
+                                          channel_name=channel_name)
 
     paths = agnes_paths + stock_paths
     if not paths:
