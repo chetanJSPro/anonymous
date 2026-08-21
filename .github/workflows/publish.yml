@@ -37,7 +37,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25  # job-level backstop -- generation+upload normally takes a few min
     strategy:
-      max-parallel: 4
+      # Lowered from 4 -- confirmed 2026-08-21 that 4 channels hitting
+      # Agnes AI's shared free-tier rate limit simultaneously was enough to
+      # 429 every single clip on every channel in that run. Doesn't cost
+      # extra Actions minutes (billing is per job-minute regardless of
+      # parallelism), just longer wall-clock per scheduled run.
+      max-parallel: 1
       fail-fast: false
       matrix:
         channel:

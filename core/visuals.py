@@ -412,7 +412,18 @@ def generate_agnes_video(prompt, out_path, seconds=5, frame_rate=24,
         "width": width,
         "height": height,
     }
-    resp = requests.post(AGNES_CREATE_URL, headers=headers, json=body, timeout=30)
+    # 429s from the shared free-tier rate limit are common when several
+    # clips (or several channels in the Actions matrix) submit at once --
+    # confirmed 2026-08-21: a run where EVERY clip on EVERY channel hit 429
+    # immediately, not the usual partial hit rate. A couple of short
+    # backoff-retries here recovers from a transient burst instead of
+    # giving up on the very first collision.
+    for attempt in range(3):
+        resp = requests.post(AGNES_CREATE_URL, headers=headers, json=body, timeout=30)
+        if resp.status_code == 429 and attempt < 2:
+            time.sleep(20 * (attempt + 1))
+            continue
+        break
     resp.raise_for_status()
     video_id = resp.json().get("video_id") or resp.json().get("id")
     if not video_id:
@@ -473,6 +484,13 @@ def fetch_agnes_videos(prompts, out_dir, count=3, vertical=True, seconds=5):
     results = [None] * len(todo)
 
     def _one(i, prompt):
+        # Stagger each clip's initial create-job request instead of firing
+        # all N at once -- a single channel with agnes_clip_count=8 was
+        # itself enough to blow the shared ~16 req/min limit in one burst
+        # (confirmed 2026-08-21: every clip on every channel hit 429 in the
+        # same run). 6s apart keeps one channel's own burst under the limit
+        # even before considering other channels/users sharing it.
+        time.sleep(i * 6)
         out_path = os.path.join(out_dir, f"agnes_{i}.mp4")
         return generate_agnes_video(prompt, out_path, seconds=seconds,
                                      width=size[0], height=size[1], poll_interval=12)

@@ -98,7 +98,7 @@ def write_ass(
     duration: float = 30.0,
     caption_font: str = "Arial",
     caption_font_size: int = 76,
-    caption_margin_bottom: int = 240,
+    caption_margin_bottom: int = 340,
     location_label: str | None = None,
     location_font: str = "Arial",
     location_font_size: int = 54,
