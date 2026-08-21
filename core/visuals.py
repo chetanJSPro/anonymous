@@ -193,7 +193,13 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, use
         if not _tags_or_slug_ok(hit.get("tags", "")):
             print(f"[visuals] skipped off-theme Pixabay clip (tags: {hit.get('tags', '')!r})")
             continue
-        video_url = hit["videos"]["medium"]["url"] if "medium" in hit["videos"] else hit["videos"]["small"]["url"]
+        # Prefer the sharpest tier Pixabay offers (large > medium > small >
+        # tiny) -- was hardcoded to medium/small for faster downloads, but
+        # the final canvas is a 1080x1920 burn-in, so a soft source clip
+        # shows on every frame. large/medium are usually only a few hundred
+        # KB apart in practice; worth it for visible sharpness.
+        vids = hit["videos"]
+        video_url = (vids.get("large") or vids.get("medium") or vids.get("small") or vids.get("tiny"))["url"]
         out_path = os.path.join(out_dir, f"pixabay_{query.replace(' ', '_')}_{len(paths)}.mp4")
         paths.append(_download(video_url, out_path))
         clip_id = hit.get("id")
@@ -276,11 +282,16 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, us
             continue
         files = sorted(video.get("video_files", []),
                         key=lambda f: f.get("width", 0) or 0)
-        # prefer a mid-resolution file (smaller/faster download, still crisp on Shorts)
+        # Prefer the sharpest file up to 1080p width -- was picking the
+        # middle candidate (a mid-resolution compromise for faster
+        # downloads), but the final canvas is a 1080x1920 burn-in, so a
+        # soft source clip is visible on every frame. Cap at 1920 width
+        # since nothing above 1080p buys sharpness on a 1080-wide canvas,
+        # just a bigger download.
         candidates = [f for f in files if 720 <= (f.get("width") or 0) <= 1920] or files
         if not candidates:
             continue
-        video_url = candidates[len(candidates) // 2]["link"]
+        video_url = candidates[-1]["link"]
         out_path = os.path.join(out_dir, f"pexels_{query.replace(' ', '_')}_{len(paths)}.mp4")
         paths.append(_download(video_url, out_path))
         clip_id = video.get("id")
