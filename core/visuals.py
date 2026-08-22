@@ -78,6 +78,57 @@ def _tags_or_slug_ok(hit_text: str) -> bool:
     return not any(bad in t for bad in OFF_THEME_BLOCKLIST)
 
 
+# Generic photography/videography descriptor words stripped before relevance
+# checking -- these appear in almost every query (e.g. "courtroom interior",
+# "judge gavel closeup") but match huge swaths of unrelated content on their
+# own (car interior, cafe interior; any close-up of anything), so requiring
+# them specifically to appear in a hit's tags would both under- and over-
+# match. Only the remaining, more specific query word(s) need to appear.
+_GENERIC_QUERY_WORDS = {
+    "closeup", "close-up", "interior", "portrait", "scene", "shot", "wide",
+    "silhouette", "outdoors", "outdoor", "indoor", "aesthetic", "candid",
+    "respectful", "peaceful", "quiet", "gentle", "gratitude", "dramatic",
+    "cinematic", "photorealistic", "warm", "morning", "sunset", "sunrise",
+    "closeup.", "video", "footage", "background", "b-roll", "broll",
+}
+
+
+def _query_key_words(query: str) -> list[str]:
+    import re
+    return [w for w in re.findall(r"[a-z]+", query.lower())
+            if len(w) > 3 and w not in _GENERIC_QUERY_WORDS]
+
+
+def _is_relevant(query: str, hit_text: str, strict: bool = False) -> bool:
+    """Real relevance check -- confirmed 2026-08-22 that neither Pixabay nor
+    Pexels do meaningful semantic search: querying "courtroom interior"
+    returned a BMW car interior and a cafe (their top hits shared no tag
+    with "courtroom" at all), and "soap cutting asmr" / "kinetic sand asmr"
+    returned the literal same top result for both queries. _tags_or_slug_ok
+    above only ever screened OUT a small beauty-content blocklist -- nothing
+    verified a downloaded clip's tags/slug actually relate to what was
+    searched, so a confidently-worded query could (and did) still land a
+    totally unrelated clip as long as it wasn't on that blocklist.
+
+    `strict=True` requires ALL non-generic query words to appear in the
+    hit's tags/slug -- needed because a single shared word can still be
+    ambiguous on its own (confirmed: "kinetic sand asmr" still matched a
+    plain ocean/beach clip tagged only "ocean, waves, rocks, sand, coast"
+    under an any-word check, since "sand" alone doesn't distinguish craft
+    kinetic sand from beach sand). `strict=False` (the default, used as a
+    fallback pass when the strict pass finds nothing) requires only one
+    word to match, which still blocks the fully-unrelated cases (crystal,
+    car interior, cafe) even if it can't disambiguate every case.
+
+    If every query word is generic (rare -- most queries have at least one
+    specific noun), nothing to check against, so don't over-filter."""
+    q_words = _query_key_words(query)
+    if not q_words:
+        return True
+    t_words = set(__import__("re").findall(r"[a-z]+", (hit_text or "").lower()))
+    return all(w in t_words for w in q_words) if strict else any(w in t_words for w in q_words)
+
+
 def _download(url, out_path, timeout=60, headers=None):
     os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0", **(headers or {})})
@@ -187,25 +238,49 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, use
     ordered = sorted(hits, key=lambda h: f"pixabay:{h.get('id')}" in used_ids)
 
     paths = []
-    for hit in ordered:
-        if len(paths) >= count:
-            break
-        if not _tags_or_slug_ok(hit.get("tags", "")):
-            print(f"[visuals] skipped off-theme Pixabay clip (tags: {hit.get('tags', '')!r})")
-            continue
+    downloaded_ids = set()
+
+    def _try_download(hit):
+        vids = hit["videos"]
         # Prefer the sharpest tier Pixabay offers (large > medium > small >
         # tiny) -- was hardcoded to medium/small for faster downloads, but
         # the final canvas is a 1080x1920 burn-in, so a soft source clip
         # shows on every frame. large/medium are usually only a few hundred
         # KB apart in practice; worth it for visible sharpness.
-        vids = hit["videos"]
         video_url = (vids.get("large") or vids.get("medium") or vids.get("small") or vids.get("tiny"))["url"]
         out_path = os.path.join(out_dir, f"pixabay_{query.replace(' ', '_')}_{len(paths)}.mp4")
         paths.append(_download(video_url, out_path))
         clip_id = hit.get("id")
         if clip_id is not None:
             used_ids.add(f"pixabay:{clip_id}")
+            downloaded_ids.add(clip_id)
         time.sleep(0.5)
+
+    # Two-pass relevance: strict (ALL specific query words must appear in
+    # tags) first, only relaxing to "any word" for whatever `count` still
+    # isn't filled -- see _is_relevant's docstring for why a single shared
+    # word (e.g. "sand") isn't reliable enough on its own.
+    for hit in ordered:
+        if len(paths) >= count:
+            break
+        if not _tags_or_slug_ok(hit.get("tags", "")):
+            print(f"[visuals] skipped off-theme Pixabay clip (tags: {hit.get('tags', '')!r})")
+            continue
+        if not _is_relevant(query, hit.get("tags", ""), strict=True):
+            continue
+        _try_download(hit)
+
+    if len(paths) < count:
+        for hit in ordered:
+            if len(paths) >= count:
+                break
+            if hit.get("id") in downloaded_ids or not _tags_or_slug_ok(hit.get("tags", "")):
+                continue
+            if not _is_relevant(query, hit.get("tags", ""), strict=False):
+                print(f"[visuals] skipped irrelevant Pixabay clip for {query!r} (tags: {hit.get('tags', '')!r})")
+                continue
+            _try_download(hit)
+
     return paths
 
 
@@ -271,15 +346,9 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, us
     ordered = sorted(videos, key=lambda v: f"pexels:{v.get('id')}" in used_ids)
 
     paths = []
-    for video in ordered:
-        if len(paths) >= count:
-            break
-        # Pexels gives no tags — its descriptive page URL slug (e.g.
-        # ".../video/woman-applying-lipstick-1234567/") is the only text to
-        # filter on.
-        if not _tags_or_slug_ok(video.get("url", "")):
-            print(f"[visuals] skipped off-theme Pexels clip ({video.get('url', '')!r})")
-            continue
+    downloaded_ids = set()
+
+    def _try_download(video):
         files = sorted(video.get("video_files", []),
                         key=lambda f: f.get("width", 0) or 0)
         # Prefer the sharpest file up to 1080p width -- was picking the
@@ -290,14 +359,41 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, us
         # just a bigger download.
         candidates = [f for f in files if 720 <= (f.get("width") or 0) <= 1920] or files
         if not candidates:
-            continue
+            return
         video_url = candidates[-1]["link"]
         out_path = os.path.join(out_dir, f"pexels_{query.replace(' ', '_')}_{len(paths)}.mp4")
         paths.append(_download(video_url, out_path))
         clip_id = video.get("id")
         if clip_id is not None:
             used_ids.add(f"pexels:{clip_id}")
+            downloaded_ids.add(clip_id)
         time.sleep(0.5)
+
+    # Pexels gives no tags — its descriptive page URL slug (e.g.
+    # ".../video/woman-applying-lipstick-1234567/") is the only text to
+    # filter on. Two-pass relevance (strict then loose) -- see
+    # fetch_pixabay_videos' docstring for why.
+    for video in ordered:
+        if len(paths) >= count:
+            break
+        if not _tags_or_slug_ok(video.get("url", "")):
+            print(f"[visuals] skipped off-theme Pexels clip ({video.get('url', '')!r})")
+            continue
+        if not _is_relevant(query, video.get("url", ""), strict=True):
+            continue
+        _try_download(video)
+
+    if len(paths) < count:
+        for video in ordered:
+            if len(paths) >= count:
+                break
+            if video.get("id") in downloaded_ids or not _tags_or_slug_ok(video.get("url", "")):
+                continue
+            if not _is_relevant(query, video.get("url", ""), strict=False):
+                print(f"[visuals] skipped irrelevant Pexels clip for {query!r} ({video.get('url', '')!r})")
+                continue
+            _try_download(video)
+
     return paths
 
 
