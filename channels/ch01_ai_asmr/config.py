@@ -16,6 +16,15 @@ TOPIC_PROMPTS = ['glossy soap bar being sliced into cubes', 'colorful slime bein
 
 QUERY_TERMS = ['soap cutting asmr', 'slime asmr', 'sand cutting', 'satisfying asmr', 'kinetic sand asmr']
 
+# Real, literal genre search terms -- confirmed against Pixabay/Pexels
+# directly (2026-08-22): "soap cutting asmr" alone returns 400+ real
+# tagged clips on Pixabay, plain "asmr" returns 3,600+ on Pexels. Used for
+# the actual stock top-up instead of QUERY_TERMS/visual_query_fn's more
+# abstract/sensory phrasing (e.g. "velvety honey scent swirl"), which
+# searches poorly since stock libraries tag by genre/object, not mood.
+STOCK_QUERIES = ['soap cutting asmr', 'slime asmr', 'kinetic sand asmr', 'glass cutting asmr',
+                  'oddly satisfying', 'relaxation video', 'asmr']
+
 def visual_query_fn(topic, script):
     """Story-specific AI-video prompts derived from the actual script (so
     Agnes generates a genuinely new scene each episode instead of the same
@@ -25,6 +34,14 @@ def visual_query_fn(topic, script):
     fallback = [q.format(topic=topic) if "{topic}" in q else q for q in QUERY_TERMS]
     return generate_visual_queries("Sensory ASMR video (soap/slime/glass/kinetic sand cutting)",
                                     topic, script, count=8, fallback=fallback)
+
+def stock_query_fn(topic, script):
+    """Real stock (Pexels/Pixabay) search terms -- see hp01's stock_query_fn
+    docstring in channels_highpay for the general reasoning. STOCK_QUERIES
+    here specifically are proven literal ASMR genre terms (confirmed real
+    match counts on both libraries), not visual_query_fn's more abstract
+    sensory phrasing meant for Agnes AI generation."""
+    return STOCK_QUERIES
 
 def title_fn(topic):
     prefix = 'Satisfying ASMR:'
@@ -41,6 +58,7 @@ CONFIG = {
     "topic_prompts": TOPIC_PROMPTS,
     "visual_source": 'pixabay_video',
     "visual_query_fn": visual_query_fn,
+    "stock_query_fn": stock_query_fn,
     "voice": 'en-US-AriaNeural',
     "vertical": True,
     "category_id": '24',

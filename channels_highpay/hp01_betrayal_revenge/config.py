@@ -25,6 +25,16 @@ def visual_query_fn(topic, script):
     return generate_visual_queries("Betrayal & revenge reddit-confession stories",
                                     topic, script, count=8, fallback=STOCK_QUERIES)
 
+def stock_query_fn(topic, script):
+    """Real stock (Pexels/Pixabay) search terms -- was silently reusing
+    visual_query_fn's output above, which the LLM writes as short-but-
+    still-somewhat-abstract scene descriptions for Agnes AI generation,
+    not literal keyword search. STOCK_QUERIES is a plain, human-written
+    literal-keyword list already sitting in this file for exactly this
+    purpose but never actually wired into the stock search path -- doing
+    that now instead of building yet another LLM-generated list."""
+    return STOCK_QUERIES
+
 def title_fn(topic):
     prefix = ''
     t = topic[0].upper() + topic[1:]
@@ -40,6 +50,7 @@ CONFIG = {
     "topic_prompts": TOPIC_PROMPTS,
     "visual_source": 'mixed',
     "visual_query_fn": visual_query_fn,
+    "stock_query_fn": stock_query_fn,
     "voice": 'en-US-GuyNeural',
     "vertical": True,
     "category_id": '24',

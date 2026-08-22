@@ -25,6 +25,13 @@ def visual_query_fn(topic, script):
     return generate_visual_queries("Literary analysis & book reviews",
                                     topic, script, count=8, fallback=STOCK_QUERIES)
 
+def stock_query_fn(topic, script):
+    """Real stock (Pexels/Pixabay) search terms -- see hp01's stock_query_fn
+    docstring: this was silently reusing the LLM's Agnes-prompt-style
+    output above, STOCK_QUERIES is a plain literal-keyword list already
+    written for this exact purpose but never actually wired in."""
+    return STOCK_QUERIES
+
 def title_fn(topic):
     prefix = ''
     t = topic[0].upper() + topic[1:]
@@ -40,6 +47,7 @@ CONFIG = {
     "topic_prompts": TOPIC_PROMPTS,
     "visual_source": 'mixed',
     "visual_query_fn": visual_query_fn,
+    "stock_query_fn": stock_query_fn,
     "voice": 'en-US-ChristopherNeural',
     "vertical": True,
     "category_id": '27',
