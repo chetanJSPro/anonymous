@@ -198,14 +198,19 @@ def generate_visual_queries(niche_hint, topic, script, count=8, fallback=None,
     Best-effort: falls back to `fallback` (the channel's static query list)
     on any failure or a too-short response."""
     entity_note = (
-        " Do NOT use proper names -- no named characters, deities, or "
-        "specific places (e.g. not \"Krishna\", not \"Arjuna\", not "
-        "\"Ayodhya\"). Stock footage libraries have zero real footage of "
-        "named mythological/historical figures and return unrelated results "
-        "for those queries. Instead describe generic, universally filmable "
-        "visual elements that evoke the same scene: architecture, nature, "
-        "weather, ritual objects, silhouettes, hand gestures, generic human "
-        "actions."
+        " Do NOT name individual characters, deities, or specific fictional/"
+        "historical places (e.g. not \"Krishna\", not \"Arjuna\", not "
+        "\"Ayodhya\") -- stock footage libraries have zero real footage of "
+        "named mythological/historical figures or places and return unrelated "
+        "results for those queries. DO still use the work/genre/culture-level "
+        "terms real footage libraries actually have tagged (e.g. "
+        "\"mahabharata\", \"hindu epic drama\", \"indian mythology "
+        "reenactment\", \"sanskrit priest chanting\", \"indian temple "
+        "ritual\") -- these aren't personal names and often match real, "
+        "specific, on-theme footage far better than a fully generic "
+        "description like \"temple architecture\" or \"warrior silhouette\" "
+        "does. Prefer the more specific, real-searchable term whenever one "
+        "exists."
         if avoid_named_entities else ""
     )
     system = (
