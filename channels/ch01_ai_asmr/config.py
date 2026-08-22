@@ -49,17 +49,22 @@ CONFIG = {
     "title_fn": title_fn,
     "description_fn": description_fn,
     "tags": ['asmr', 'satisfying', 'relaxing', 'shorts'],
-    # All 8 clips attempt Agnes AI generation first, and ai_only_visuals
-    # means whatever Agnes doesn't land falls to Pollinations-generated
-    # AI stills (Ken-Burns'd into clips) instead of real stock -- per
-    # explicit request 2026-08-21: this channel should be AI-generated
-    # visuals only, no stock footage at all. Agnes alone can't guarantee
-    # that (its free tier is shared/rate-limited across every channel
-    # running in parallel, confirmed ~1-2/6 real success rate), but
-    # Pollinations has no such limit, so it's what actually delivers
-    # "no stock" in practice. Real stock is still the last-resort
-    # fallback if Pollinations itself is ever unreachable, so an episode
-    # still can't hard-fail outright.
+    # All 8 clips attempt Agnes AI generation first, real stock (Pexels/
+    # Pixabay) tops up whatever Agnes doesn't land.
+    #
+    # ai_only_visuals was True (2026-08-21 request: no stock at all,
+    # Pollinations-generated AI stills instead), reverted 2026-08-22:
+    # confirmed via two consecutive full runs that Agnes AI now fails
+    # ~100% of clips (its free-tier rate limit is shared across ALL Agnes
+    # users globally, not just this project -- no amount of our own
+    # request pacing fixes that), AND Pollinations' free/no-signup tier
+    # quietly dropped to a much lower-quality model (confirmed via its
+    # /models endpoint: only "sana" is served now, model=flux/turbo
+    # requests are silently ignored and served from sana anyway --
+    # byte-identical output either way). With both AI paths effectively
+    # dead, ai_only_visuals meant 100% of clips were low-quality
+    # Pollinations stills. Real stock (now the sharpest tier per
+    # core/visuals.py's fetch_pexels_videos/fetch_pixabay_videos) is the
+    # better available option until Agnes/Pollinations recover.
     "agnes_clip_count": 8,
-    "ai_only_visuals": True,
 }

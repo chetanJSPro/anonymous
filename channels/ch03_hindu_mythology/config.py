@@ -52,17 +52,25 @@ CONFIG = {
     "visual_query_fn": visual_query_fn,
     "stock_query_fn": stock_query_fn,
     # Bumped from the 6-of-8 default: stock (Pexels/Pixabay) genuinely has
-    # no Mahabharata/Ramayana footage. ai_only_visuals (per explicit
-    # request 2026-08-21: "only AI not stock" for this channel) means
-    # whatever Agnes doesn't land falls to Pollinations-generated AI
-    # stills (Ken-Burns'd into clips) BEFORE ever touching real stock --
-    # Agnes alone can't guarantee "no stock" since its free tier is
-    # shared/rate-limited across every channel running in parallel
-    # (confirmed ~1-2/6 real success rate), but Pollinations has no such
-    # limit. stock_query_fn's generic-but-on-theme queries are still the
-    # last-resort fallback if Pollinations itself is ever unreachable.
+    # no Mahabharata/Ramayana footage, so Agnes gets first shot at every
+    # clip and stock_query_fn's generic-but-on-theme queries fill in
+    # whatever Agnes doesn't land.
+    #
+    # ai_only_visuals was True (2026-08-21 request: "only AI not stock"),
+    # routing whatever Agnes missed to Pollinations-generated AI stills
+    # instead of stock. Reverted 2026-08-22: confirmed via two consecutive
+    # full runs that Agnes AI now fails ~100% of clips (its free-tier rate
+    # limit is shared across ALL Agnes users globally, not just this
+    # project -- no amount of our own request pacing fixes that), AND
+    # Pollinations' free/no-signup tier quietly dropped to a much lower-
+    # quality model (confirmed via its /models endpoint: only "sana" is
+    # served now, model=flux/turbo requests are silently ignored and
+    # served from sana anyway -- byte-identical output either way). With
+    # both AI paths effectively dead, ai_only_visuals meant 100% of clips
+    # were low-quality Pollinations stills. Real stock (now the sharpest
+    # tier per core/visuals.py's fetch_pexels_videos/fetch_pixabay_videos)
+    # is the better available option until Agnes/Pollinations recover.
     "agnes_clip_count": 8,
-    "ai_only_visuals": True,
     "voice": 'en-US-ChristopherNeural',
     "vertical": True,
     "category_id": '27',
