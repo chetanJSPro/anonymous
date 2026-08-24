@@ -85,4 +85,21 @@ CONFIG = {
     # core/visuals.py's fetch_pexels_videos/fetch_pixabay_videos) is the
     # better available option until Agnes/Pollinations recover.
     "agnes_clip_count": 8,
+    # Real ASMR trigger audio fix (2026-08-24): every clip's own audio was
+    # previously stripped (-an) at normalize time, so this "ASMR" channel
+    # was actually just a whispered narration over SILENT b-roll -- no
+    # cutting/crunching/tapping sound at all, the exact opposite of what
+    # the genre is watched for (research: the satisfying sound is ~70% of
+    # why people watch ASMR). Agnes AI clips are silent by nature
+    # (generated video has no audio track), but the real Pexels/Pixabay
+    # stock clips this channel mostly falls back to (Agnes's free tier is
+    # ~100% rate-limited currently, see agnes_clip_count comment above) are
+    # tagged "soap cutting asmr" / "slime asmr" etc. precisely because they
+    # carry their own real satisfying audio -- keep_background_audio now
+    # preserves and boosts that instead of discarding it, with narration
+    # ducked well below it so the real trigger sound is what's actually
+    # primary, matching how real ASMR channels are built.
+    "keep_background_audio": True,
+    "background_audio_volume": 1.0,
+    "narration_volume": 0.4,
 }

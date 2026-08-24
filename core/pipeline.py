@@ -203,14 +203,25 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
         queries, visuals_dir, count=8, vertical=vertical,
         agnes_count=int(config.get("agnes_clip_count", 6)),
         stock_queries=stock_queries, channel_name=config["name"],
-        ai_only=bool(config.get("ai_only_visuals", False)))
+        ai_only=bool(config.get("ai_only_visuals", False)),
+        kids_safe=bool(config.get("made_for_kids", False)),
+        ai_style_suffix=config.get("ai_style_suffix"))
     print(f"[pipeline] {len(visual_paths)} video clips ready")
 
     # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.
+    # keep_background_audio: for channels whose content IS a sound (ASMR
+    # trigger sounds: soap cutting, glass, slime) rather than narration over
+    # silent b-roll -- see video_builder.py's normalize_clip/build_final_video
+    # docstrings and the 2026-08-24 ch01_ai_asmr fix this was added for.
+    keep_bg_audio = bool(config.get("keep_background_audio", False))
     background = build_background(visual_paths, work_dir, total_duration=duration,
-                                   width=width, height=height, fps=30, clip_seconds=5)
+                                   width=width, height=height, fps=30, clip_seconds=5,
+                                   keep_audio=keep_bg_audio)
     final_path = os.path.join(out_dir, "final.mp4")
-    build_final_video(background, narration_path, ass_path, final_path, duration=duration)
+    build_final_video(background, narration_path, ass_path, final_path, duration=duration,
+                       background_audio=keep_bg_audio,
+                       background_audio_volume=float(config.get("background_audio_volume", 1.0)),
+                       narration_volume=float(config.get("narration_volume", 1.0)))
     print(f"[pipeline] video assembled: {final_path}")
 
     if upload:

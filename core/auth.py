@@ -20,6 +20,12 @@ SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube.readonly",
     "https://www.googleapis.com/auth/yt-analytics.readonly",
+    # Needed for videos().update()/delete() -- confirmed 2026-08-24 that
+    # youtube.upload alone does NOT cover editing/deleting existing videos
+    # (403 insufficientPermissions on both update and delete with only the
+    # scopes above), despite some docs implying otherwise. Only needed for
+    # manual cleanup scripts, not the normal publish pipeline.
+    "https://www.googleapis.com/auth/youtube",
 ]
 
 

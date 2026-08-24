@@ -72,10 +72,26 @@ OFF_THEME_BLOCKLIST = [
     "hair salon", "haircut tutorial",
 ]
 
+# Confirmed 2026-08-24: a real (non-cartoon) clip showing a rude hand
+# gesture landed as the first frame of a hp09_kids_cartoon_stories upload
+# and triggered a YouTube policy notice -- neither Pixabay's safesearch=true
+# nor the OFF_THEME_BLOCKLIST above catch "not explicit but still
+# inappropriate for kids" content like rude gestures, since that blocklist
+# was only ever built for beauty-content mismatches. Applied globally (not
+# just to made_for_kids channels) since none of this project's 11 niches
+# want this content either way.
+RUDE_GESTURE_BLOCKLIST = [
+    "middle finger", "middle-finger", "flipping the bird", "flip off",
+    "flipping off", "the bird", "rude gesture", "obscene gesture",
+    "offensive gesture", "vulgar gesture", "inappropriate gesture",
+    "insulting gesture", "swearing", "cursing",
+]
+
 
 def _tags_or_slug_ok(hit_text: str) -> bool:
     t = (hit_text or "").lower()
-    return not any(bad in t for bad in OFF_THEME_BLOCKLIST)
+    return not any(bad in t for bad in OFF_THEME_BLOCKLIST) \
+        and not any(bad in t for bad in RUDE_GESTURE_BLOCKLIST)
 
 
 # Generic photography/videography descriptor words stripped before relevance
@@ -189,7 +205,8 @@ def _record_used_clip_ids(channel_name, new_ids, cap=400):
 
 # ---------------------------------------------------------------- Pixabay --
 
-def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, used_ids=None):
+def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, used_ids=None,
+                          kids_safe=False):
     """Download up to `count` free stock video clips matching `query`.
     `page` is randomized by default (instead of always page 1) -- Pixabay
     ranks hits by relevance, so a fixed page 1 means every episode/channel
@@ -228,7 +245,8 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, use
         # thin-result query (e.g. niche mythology terms) -- page 2/3 came
         # back empty, retry page 1 rather than returning nothing.
         return fetch_pixabay_videos(query, out_dir, count=count,
-                                     min_duration=min_duration, page=1, used_ids=used_ids)
+                                     min_duration=min_duration, page=1, used_ids=used_ids,
+                                     kids_safe=kids_safe)
     random.shuffle(hits)
 
     # Two-pass selection: prefer hits this channel hasn't used yet, only
@@ -270,7 +288,13 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, use
             continue
         _try_download(hit)
 
-    if len(paths) < count:
+    # kids_safe channels skip the loose (single-word) fallback pass entirely
+    # -- a generic query word like "funny" or "kids" matching just one tag
+    # is exactly how a real (non-cartoon) clip with inappropriate content
+    # slipped past relevance filtering into a kids channel (2026-08-24
+    # incident). Under-filling `count` here is safer than that; the caller
+    # tops up with whatever real fresh clips exist elsewhere.
+    if len(paths) < count and not kids_safe:
         for hit in ordered:
             if len(paths) >= count:
                 break
@@ -310,7 +334,8 @@ def fetch_pixabay_images(query, out_dir, count=5):
 
 # ----------------------------------------------------------------- Pexels --
 
-def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, used_ids=None):
+def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, used_ids=None,
+                         kids_safe=False):
     """Download up to `count` free stock video clips matching `query`.
     orientation: "portrait" for Shorts, "landscape" for long-form (optional
     filter — Pexels supports it server-side, unlike Pixabay).
@@ -319,7 +344,16 @@ def fetch_pexels_videos(query, out_dir, count=5, orientation=None, page=None, us
     across every episode and every channel searching similar terms.
 
     `used_ids`: see fetch_pixabay_videos -- same mutable-set cross-run dedup,
-    namespaced "pexels:<id>" so it never collides with Pixabay's ids."""
+    namespaced "pexels:<id>" so it never collides with Pixabay's ids.
+
+    `kids_safe`: Pexels' API has no safesearch parameter at all (unlike
+    Pixabay), and its only text signal for relevance/blocklist checking is
+    a URL slug, not real tags -- too weak a signal to trust for a kids
+    channel (see the 2026-08-24 incident this was added for). Returns []
+    immediately so the caller falls through to Pixabay-only, which does
+    support safesearch=true."""
+    if kids_safe:
+        return []
     if not PEXELS_API_KEY:
         raise RuntimeError("Set PEXELS_API_KEY env var (free signup at pexels.com/api)")
     if page is None:
@@ -671,7 +705,7 @@ def fetch_mixed_visuals(stock_queries, ai_prompts, out_dir, vertical=True,
 
 # -------------------------------------------------------------- Video-only --
 
-def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=None):
+def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=None, kids_safe=False):
     """The active default for all 11 channels: real stock VIDEO clips only —
     no AI stills. Tries Pexels first per query (usually higher production
     value), tops up with Pixabay if Pexels has no key/results or count isn't
@@ -683,7 +717,14 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=No
     from clips it's already published before, then saves any newly-used
     ids back. Without it (or on a channel whose CI job never commits that
     file back to git -- see publish.yml) this degrades gracefully to
-    within-this-run-only dedup, same as before."""
+    within-this-run-only dedup, same as before.
+
+    `kids_safe`: for made_for_kids channels -- see fetch_pexels_videos'
+    docstring (Pexels has no safesearch, so it's skipped entirely) and
+    fetch_pixabay_videos' docstring (no loose single-word relevance
+    fallback, strict matches only). Under-filling `count` is the accepted
+    tradeoff over risking another inappropriate real-world clip landing in
+    a kids video -- see the 2026-08-24 incident this was added for."""
     orientation = "portrait" if vertical else "landscape"
     used_ids = _load_used_clip_ids(channel_name)
     before = set(used_ids)
@@ -698,12 +739,14 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=No
         if PEXELS_API_KEY:
             try:
                 clips = fetch_pexels_videos(q, out_dir, count=min(2, remaining),
-                                             orientation=orientation, used_ids=used_ids)
+                                             orientation=orientation, used_ids=used_ids,
+                                             kids_safe=kids_safe)
             except Exception as e:
                 print(f"[visuals] Pexels failed for {q!r} ({e}), trying Pixabay...")
         if not clips and PIXABAY_API_KEY:
             try:
-                clips = fetch_pixabay_videos(q, out_dir, count=min(2, remaining), used_ids=used_ids)
+                clips = fetch_pixabay_videos(q, out_dir, count=min(2, remaining), used_ids=used_ids,
+                                              kids_safe=kids_safe)
             except Exception as e:
                 print(f"[visuals] Pixabay also failed for {q!r} ({e})")
         paths += clips
@@ -723,7 +766,8 @@ def fetch_stock_videos(queries, out_dir, count=8, vertical=True, channel_name=No
 def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
                                      agnes_count=6, agnes_seconds=5,
                                      stock_queries=None, channel_name=None,
-                                     ai_only=False):
+                                     ai_only=False, kids_safe=False,
+                                     ai_style_suffix=None):
     """The active default for all 11 channels: mostly real AI-generated video
     clips (Agnes AI) for a consistent human/cinematic look, topped up with
     real stock video (Pexels/Pixabay) for whatever Agnes doesn't cover.
@@ -753,7 +797,22 @@ def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
     "no stock" in practice, unlike agnes_count alone which silently
     degrades to mostly-stock whenever Agnes is rate-limited). Real stock
     is still tried as the absolute last resort only if Pollinations itself
-    is unreachable, so an episode still can't hard-fail."""
+    is unreachable, so an episode still can't hard-fail.
+
+    `kids_safe`: passed through to fetch_stock_videos for made_for_kids
+    channels (currently only hp09_kids_cartoon_stories) -- skips Pexels
+    (no safesearch API) and disables Pixabay's loose relevance fallback,
+    trading a possibly-under-`count` clip list for never pulling in
+    real-world footage mismatched to a cartoon query. See the 2026-08-24
+    incident this was added for.
+
+    `ai_style_suffix`: style phrase appended to every Pollinations prompt
+    when ai_only=True -- was hardcoded to "cinematic, photorealistic,
+    dramatic lighting" for every channel, which is exactly wrong for a
+    cartoon-style channel (hp09_kids_cartoon_stories). Defaults to the old
+    photorealistic phrasing so every other ai_only_visuals channel (ASMR,
+    mythology) is unaffected; pass a channel-specific style instead for
+    anything that isn't going for a live-action look."""
     agnes_paths = []
     if AGNES_API_KEY and agnes_count > 0:
         prompts = [f"{q}, cinematic, photorealistic, dramatic lighting" for q in queries]
@@ -763,8 +822,8 @@ def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
     remaining = max(0, count - len(agnes_paths))
     ai_image_paths = []
     if remaining > 0 and ai_only:
-        prompts = [f"{q}, cinematic, photorealistic, dramatic lighting, vertical portrait composition"
-                   for q in queries]
+        suffix = ai_style_suffix or "cinematic, photorealistic, dramatic lighting, vertical portrait composition"
+        prompts = [f"{q}, {suffix}" for q in queries]
         ai_image_paths = fetch_ai_image_clips(prompts, out_dir, count=remaining, vertical=vertical)
         remaining = max(0, remaining - len(ai_image_paths))
 
@@ -772,7 +831,7 @@ def fetch_hybrid_stock_agnes_videos(queries, out_dir, count=8, vertical=True,
     if remaining > 0:
         stock_paths = fetch_stock_videos(stock_queries or queries, out_dir,
                                           count=remaining, vertical=vertical,
-                                          channel_name=channel_name)
+                                          channel_name=channel_name, kids_safe=kids_safe)
 
     paths = agnes_paths + ai_image_paths + stock_paths
     if not paths:
