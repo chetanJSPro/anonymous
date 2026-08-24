@@ -37,6 +37,15 @@ CHANNEL_MODULES = [
     "channels.ch01_ai_asmr.config",
     "channels.ch03_hindu_mythology.config",
     "channels.ch06_eastern_philosophy.config",
+    # hp09 added 2026-08-24: original kids cartoon shorts using licensed
+    # Pixabay/Pexels cartoon/animation stock (never ripped studio IP like
+    # Oggy/Tom & Jerry -- see channels_highpay/hp09_kids_cartoon_stories/config.py
+    # for why). Uses its own client_secret_d.json OAuth project since
+    # client_secret_a/b/c are already at or near their 6-uploads/day cap at
+    # this project's 2x/day publish cadence -- needs a human to create that
+    # 4th Google Cloud OAuth project and run scripts/generate_token.py for
+    # it locally (browser-based, can't be done from here).
+    "channels_highpay.hp09_kids_cartoon_stories.config",
 ]
 
 

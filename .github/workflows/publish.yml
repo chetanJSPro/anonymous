@@ -57,6 +57,7 @@ jobs:
           - ch01_ai_asmr
           - ch03_hindu_mythology
           - ch06_eastern_philosophy
+          - hp09_kids_cartoon_stories
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -84,6 +85,7 @@ jobs:
           CLIENT_SECRET_A_B64: ${{ secrets.CLIENT_SECRET_A_B64 }}
           CLIENT_SECRET_B_B64: ${{ secrets.CLIENT_SECRET_B_B64 }}
           CLIENT_SECRET_C_B64: ${{ secrets.CLIENT_SECRET_C_B64 }}
+          CLIENT_SECRET_D_B64: ${{ secrets.CLIENT_SECRET_D_B64 }}
           TOKEN_HP01_BETRAYAL_REVENGE_B64: ${{ secrets.TOKEN_HP01_BETRAYAL_REVENGE_B64 }}
           TOKEN_HP02_COURT_DRAMA_B64: ${{ secrets.TOKEN_HP02_COURT_DRAMA_B64 }}
           TOKEN_HP03_KARMA_JUSTICE_B64: ${{ secrets.TOKEN_HP03_KARMA_JUSTICE_B64 }}
@@ -95,6 +97,7 @@ jobs:
           TOKEN_CH01_AI_ASMR_B64: ${{ secrets.TOKEN_CH01_AI_ASMR_B64 }}
           TOKEN_CH03_HINDU_MYTHOLOGY_B64: ${{ secrets.TOKEN_CH03_HINDU_MYTHOLOGY_B64 }}
           TOKEN_CH06_EASTERN_PHILOSOPHY_B64: ${{ secrets.TOKEN_CH06_EASTERN_PHILOSOPHY_B64 }}
+          TOKEN_HP09_KIDS_CARTOON_STORIES_B64: ${{ secrets.TOKEN_HP09_KIDS_CARTOON_STORIES_B64 }}
         run: python scripts/write_secrets.py
       - name: Generate + upload episode
         env:
@@ -168,6 +171,7 @@ jobs:
           CLIENT_SECRET_A_B64: ${{ secrets.CLIENT_SECRET_A_B64 }}
           CLIENT_SECRET_B_B64: ${{ secrets.CLIENT_SECRET_B_B64 }}
           CLIENT_SECRET_C_B64: ${{ secrets.CLIENT_SECRET_C_B64 }}
+          CLIENT_SECRET_D_B64: ${{ secrets.CLIENT_SECRET_D_B64 }}
           TOKEN_HP01_BETRAYAL_REVENGE_B64: ${{ secrets.TOKEN_HP01_BETRAYAL_REVENGE_B64 }}
           TOKEN_HP02_COURT_DRAMA_B64: ${{ secrets.TOKEN_HP02_COURT_DRAMA_B64 }}
           TOKEN_HP03_KARMA_JUSTICE_B64: ${{ secrets.TOKEN_HP03_KARMA_JUSTICE_B64 }}
@@ -179,6 +183,7 @@ jobs:
           TOKEN_CH01_AI_ASMR_B64: ${{ secrets.TOKEN_CH01_AI_ASMR_B64 }}
           TOKEN_CH03_HINDU_MYTHOLOGY_B64: ${{ secrets.TOKEN_CH03_HINDU_MYTHOLOGY_B64 }}
           TOKEN_CH06_EASTERN_PHILOSOPHY_B64: ${{ secrets.TOKEN_CH06_EASTERN_PHILOSOPHY_B64 }}
+          TOKEN_HP09_KIDS_CARTOON_STORIES_B64: ${{ secrets.TOKEN_HP09_KIDS_CARTOON_STORIES_B64 }}
         run: python scripts/write_secrets.py
       - name: Generate (+ maybe upload) episode
         env:

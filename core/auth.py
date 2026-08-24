@@ -41,7 +41,14 @@ def get_credentials(token_file, client_secret_file=None):
         else:
             flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
                 client_secret_file, SCOPES)
-            creds = flow.run_local_server(port=0)
+            # Port defaults to 0 (any free port) for the usual "Desktop app"
+            # OAuth clients, which Google allows on any localhost port. A
+            # "Web application" type client (fixed registered redirect URIs,
+            # e.g. reused from another project) needs OAUTH_LOCAL_PORT set to
+            # one of its exact registered ports instead, or the callback is
+            # rejected as a redirect_uri mismatch.
+            port = int(os.environ.get("OAUTH_LOCAL_PORT", "0"))
+            creds = flow.run_local_server(port=port)
         with open(token_file, "w") as f:
             f.write(creds.to_json())
 

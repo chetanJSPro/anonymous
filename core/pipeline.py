@@ -226,6 +226,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
             privacy_status=privacy_status,
             channel_token_file=config["channel_token_file"],
             client_secret_file=config.get("client_secret_file"),
+            made_for_kids=config.get("made_for_kids", False),
         )
         return {"topic": topic, "video_path": final_path, "video_id": video_id}
 

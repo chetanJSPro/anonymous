@@ -18,6 +18,7 @@ FILE_ENV_MAP = {
     "client_secret_a.json": "CLIENT_SECRET_A_B64",
     "client_secret_b.json": "CLIENT_SECRET_B_B64",
     "client_secret_c.json": "CLIENT_SECRET_C_B64",
+    "client_secret_d.json": "CLIENT_SECRET_D_B64",
 }
 
 

@@ -38,7 +38,7 @@ from core.auth import get_credentials
 
 def upload_video(video_path, title, description, tags=None, category_id="27",
                   privacy_status="public", channel_token_file="token.json",
-                  client_secret_file=None, thumbnail_path=None):
+                  client_secret_file=None, thumbnail_path=None, made_for_kids=False):
     """Upload a finished MP4 to a specific channel (identified by its own
     token_file, created on first-run OAuth for that channel's Google account).
 
@@ -55,7 +55,7 @@ def upload_video(video_path, title, description, tags=None, category_id="27",
             "tags": tags or [],
             "categoryId": category_id,
         },
-        "status": {"privacyStatus": privacy_status, "selfDeclaredMadeForKids": False},
+        "status": {"privacyStatus": privacy_status, "selfDeclaredMadeForKids": bool(made_for_kids)},
     }
 
     media = MediaFileUpload(video_path, chunksize=-1, resumable=True, mimetype="video/mp4")
