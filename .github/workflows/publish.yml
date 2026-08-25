@@ -2,22 +2,25 @@ name: Publish niche episodes
 
 on:
   schedule:
-    # Two episodes/day/channel per explicit request for faster reach/results.
-    # KNOWN RISK, accepted 2026-08-19: YouTube Data API caps uploads at
-    # ~6/day per Google Cloud project (10,000 units/day, ~1,600/upload).
-    # client_secret_a.json serves 4 channels (hp01-04) -> 8 uploads/day
-    # needed at this cadence, only ~6 fit -> some hp01-04 uploads WILL
-    # start failing with a quota-exceeded error on the second run most
-    # days (fail-fast: false means it only drops those channels' episodes
-    # for the day, doesn't break the others). client_secret_b.json (hp06-08)
-    # and client_secret_c.json (ch01/ch03/ch06) each land exactly at the
-    # 6/day cap, so they're fine unless a retry/rate-limit pushes one over.
-    # Real fix if this becomes a problem: move some hp01-04 channels to
-    # their own additional OAuth project (needs a human to run
-    # scripts/generate_token.py locally, can't be done from here) -- or
-    # drop back to 1x/day for project A specifically.
-    - cron: "0 3 * * *"
-    - cron: "0 15 * * *"
+    # Four episodes/day/channel per explicit request 2026-08-25 (6am/11am/
+    # 4pm/9pm IST -> 00:30/05:30/10:30/15:30 UTC).
+    # KNOWN RISK, worse than the old 2x/day schedule: YouTube Data API caps
+    # uploads at ~6/day per Google Cloud project (10,000 units/day,
+    # ~1,600/upload). client_secret_a.json serves 4 channels (hp01-04) ->
+    # 16 uploads/day needed at this cadence, only ~6 fit -> most hp01-04
+    # runs will fail with quota-exceeded (fail-fast: false means it only
+    # drops those channels' episodes for the day, doesn't break the
+    # others). client_secret_b.json (hp06-08, 3 channels) and
+    # client_secret_c.json (ch01/ch03/ch06, 3 channels) need 12/day each,
+    # same problem. Only client_secret_d.json (hp09 alone, 4/day) actually
+    # fits under the 6/day cap at this cadence. Real fix if this becomes a
+    # problem: split hp01-04/hp06-08/ch01+ch03+ch06 across more Google
+    # Cloud OAuth projects (needs a human to create the projects + run
+    # scripts/generate_token.py locally, can't be done from here).
+    - cron: "30 0 * * *"
+    - cron: "30 5 * * *"
+    - cron: "30 10 * * *"
+    - cron: "30 15 * * *"
   workflow_dispatch:
     inputs:
       channel:
