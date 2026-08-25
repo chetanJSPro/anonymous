@@ -2,31 +2,19 @@
   "channels": {
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
-      "est_rpm": 12.82,
-      "video_count": 14,
-      "current_total_views": 1829,
-      "current_subscribers": 4
+      "est_rpm": 12.82
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
-      "est_rpm": 9.03,
-      "video_count": 16,
-      "current_total_views": 8580,
-      "current_subscribers": 4
+      "est_rpm": 9.03
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
-      "est_rpm": 5.7,
-      "video_count": 14,
-      "current_total_views": 1873,
-      "current_subscribers": 3
+      "est_rpm": 5.7
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
-      "est_rpm": 7.13,
-      "video_count": 13,
-      "current_total_views": 8057,
-      "current_subscribers": 11
+      "est_rpm": 7.13
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -34,38 +22,23 @@
     },
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
-      "est_rpm": 9.15,
-      "video_count": 15,
-      "current_total_views": 1201,
-      "current_subscribers": 3
+      "est_rpm": 9.15
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
-      "est_rpm": 6.17,
-      "video_count": 13,
-      "current_total_views": 341,
-      "current_subscribers": 2
+      "est_rpm": 6.17
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
-      "est_rpm": 11.88,
-      "video_count": 15,
-      "current_total_views": 2271,
-      "current_subscribers": 4
+      "est_rpm": 11.88
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
-      "est_rpm": null,
-      "video_count": 14,
-      "current_total_views": 1196,
-      "current_subscribers": 2
+      "est_rpm": null
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
-      "est_rpm": null,
-      "video_count": 14,
-      "current_total_views": 3775,
-      "current_subscribers": 13
+      "est_rpm": null
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
@@ -1431,5 +1404,5 @@
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-08-24T05:35:16.476544Z"
+  "last_updated": "2026-08-25T05:28:19.243133Z"
 }
