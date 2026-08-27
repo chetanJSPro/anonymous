@@ -2,31 +2,19 @@
   "channels": {
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
-      "est_rpm": 12.82,
-      "video_count": 18,
-      "current_total_views": 2075,
-      "current_subscribers": 4
+      "est_rpm": 12.82
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
-      "est_rpm": 9.03,
-      "video_count": 20,
-      "current_total_views": 8605,
-      "current_subscribers": 4
+      "est_rpm": 9.03
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
-      "est_rpm": 5.7,
-      "video_count": 18,
-      "current_total_views": 2515,
-      "current_subscribers": 3
+      "est_rpm": 5.7
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
-      "est_rpm": 7.13,
-      "video_count": 14,
-      "current_total_views": 10569,
-      "current_subscribers": 12
+      "est_rpm": 7.13
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -34,45 +22,27 @@
     },
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
-      "est_rpm": 9.15,
-      "video_count": 19,
-      "current_total_views": 1415,
-      "current_subscribers": 3
+      "est_rpm": 9.15
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
-      "est_rpm": 6.17,
-      "video_count": 16,
-      "current_total_views": 489,
-      "current_subscribers": 2
+      "est_rpm": 6.17
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
-      "est_rpm": 11.88,
-      "video_count": 19,
-      "current_total_views": 3074,
-      "current_subscribers": 8
+      "est_rpm": 11.88
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
-      "est_rpm": null,
-      "video_count": 18,
-      "current_total_views": 2322,
-      "current_subscribers": 4
+      "est_rpm": null
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
-      "est_rpm": null,
-      "video_count": 18,
-      "current_total_views": 6226,
-      "current_subscribers": 15
+      "est_rpm": null
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
-      "est_rpm": null,
-      "video_count": 18,
-      "current_total_views": 3902,
-      "current_subscribers": 4
+      "est_rpm": null
     },
     "hp09_kids_cartoon_stories": {
       "niche": "Kids cartoon animal stories",
@@ -1602,5 +1572,5 @@
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-08-26T05:31:27.747627Z"
+  "last_updated": "2026-08-27T16:04:26.402326Z"
 }
