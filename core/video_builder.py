@@ -169,39 +169,63 @@ def build_final_video(
     background_audio: bool = False,
     background_audio_volume: float = 1.0,
     narration_volume: float = 1.0,
+    intro_sfx_path: str | Path | None = None,
+    intro_sfx_volume: float = 1.4,
 ) -> Path:
     """background_audio: mix the background clip's own audio track (real
     ASMR trigger sounds -- see build_background's keep_audio) in alongside
     narration, instead of assuming the background is silent. narration_volume
     lets a channel duck narration below the trigger sound (e.g. ch01_ai_asmr)
     so the real satisfying audio -- not the voiceover -- is what's primary,
-    matching how actual ASMR channels are built."""
+    matching how actual ASMR channels are built.
+
+    intro_sfx_path: an optional short (<=3.5s) stinger/hook sound effect
+    (see assets/sfx/) mixed in at t=0 only, on top of everything else --
+    a scroll-stopping attention grab in the first second, the audio
+    equivalent of the "scroll-stopping hook" instruction already in every
+    channel's script prompt. Confirmed by real channel performance data
+    (2026-09-12): the one channel with a genuinely distinct hook (emotional
+    subject matter) massively outperforms the others on otherwise-identical
+    pipeline output, so cheap engagement levers on the other channels are
+    worth adding rather than a wholesale niche rebrand."""
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     vf = f"ass={_ass_filter_path(ass_file)}"
     bg_leg = f"[0:a]volume={background_audio_volume}[b];" if background_audio else ""
     narr_leg = f"[1:a]volume={narration_volume}[n];" if background_audio else "[1:a]volume=1.0[n];"
+
+    inputs = ["-i", str(background), "-i", str(narration)]
+    next_idx = 2
+    filt = f"{bg_leg}{narr_leg}"
+    mix_legs = ["[b]" if background_audio else None, "[n]"]
+    mix_legs = [leg for leg in mix_legs if leg]
+
     if music_path and Path(music_path).exists():
-        mix_inputs = "[b][n][m]" if background_audio else "[n][m]"
-        n_inputs = 3 if background_audio else 2
+        inputs += ["-stream_loop", "-1", "-i", str(music_path)]
+        filt += (f"[{next_idx}:a]volume={music_volume},atrim=0:{duration:.2f},"
+                 f"asetpts=N/SR/TB[m];")
+        mix_legs.append("[m]")
+        next_idx += 1
+
+    use_sfx = bool(intro_sfx_path and Path(intro_sfx_path).exists())
+    if use_sfx:
+        inputs += ["-i", str(intro_sfx_path)]
+        filt += f"[{next_idx}:a]volume={intro_sfx_volume},apad,atrim=0:{duration:.2f}[s];"
+        mix_legs.append("[s]")
+        next_idx += 1
+
+    if len(mix_legs) > 1:
+        filt += f"{''.join(mix_legs)}amix=inputs={len(mix_legs)}:duration=first:dropout_transition=2[a]"
+        audio_map = "[a]"
+    else:
+        filt = filt.rstrip(";")
+        audio_map = mix_legs[0] if filt else None
+
+    if filt:
         cmd = [
-            "ffmpeg", "-y", "-i", str(background), "-i", str(narration),
-            "-stream_loop", "-1", "-i", str(music_path),
-            "-filter_complex",
-            f"{bg_leg}{narr_leg}"
-            f"[2:a]volume={music_volume},atrim=0:{duration:.2f},asetpts=N/SR/TB[m];"
-            f"{mix_inputs}amix=inputs={n_inputs}:duration=first:dropout_transition=2[a]",
-            "-vf", vf, "-map", "0:v:0", "-map", "[a]", "-t", f"{duration:.2f}",
-            "-c:v", "libx264", "-preset", "medium", "-crf", "20",
-            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest",
-            str(out),
-        ]
-    elif background_audio:
-        cmd = [
-            "ffmpeg", "-y", "-i", str(background), "-i", str(narration),
-            "-filter_complex",
-            f"{bg_leg}{narr_leg}[b][n]amix=inputs=2:duration=first:dropout_transition=2[a]",
-            "-vf", vf, "-map", "0:v:0", "-map", "[a]", "-t", f"{duration:.2f}",
+            "ffmpeg", "-y", *inputs,
+            "-filter_complex", filt,
+            "-vf", vf, "-map", "0:v:0", "-map", audio_map, "-t", f"{duration:.2f}",
             "-c:v", "libx264", "-preset", "medium", "-crf", "20",
             "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest",
             str(out),

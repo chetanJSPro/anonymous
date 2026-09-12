@@ -13,7 +13,9 @@ quality bar — real video B-roll (no AI still images) with properly-timed,
 styled captions, instead of the old edge-tts + MoviePy-TextClip pipeline.
 """
 
+import glob
 import os
+import random
 import re
 import sys
 import time
@@ -40,6 +42,20 @@ from core.topics import pick_topic
 # Old edge-tts voice names (still used as config["voice"] values) mapped to
 # Kokoro English voice IDs of a matching gender/tone, so channel configs
 # didn't all need hand-editing to switch TTS engines.
+SFX_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "sfx")
+
+
+def _pick_intro_sfx():
+    """A short (<=3.5s) hook/stinger sound effect (see assets/sfx/README.md
+    for sourcing/licensing) played at t=0 only, layered under the narration
+    -- an audio "scroll-stopping hook" to go with the visual/script one
+    already in every channel's system_prompt. None if assets/sfx has
+    nothing in it (e.g. a fresh checkout before the folder is populated) --
+    a missing intro sfx must never block an episode."""
+    files = glob.glob(os.path.join(SFX_DIR, "*.mp3")) + glob.glob(os.path.join(SFX_DIR, "*.wav"))
+    return random.choice(files) if files else None
+
+
 KOKORO_VOICE_MAP = {
     "en-US-GuyNeural": "am_michael",
     "en-US-AriaNeural": "af_bella",
@@ -218,10 +234,17 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
                                    width=width, height=height, fps=30, clip_seconds=5,
                                    keep_audio=keep_bg_audio)
     final_path = os.path.join(out_dir, "final.mp4")
+    # hook_sfx: opt-out per channel (config["hook_sfx"] = False) -- on by
+    # default everywhere since it's a cheap, harmless engagement lever, but
+    # a channel whose own audio IS the content (keep_background_audio, e.g.
+    # ch01_ai_asmr's trigger sounds) shouldn't have an unrelated stinger
+    # competing with it.
+    intro_sfx = _pick_intro_sfx() if config.get("hook_sfx", not keep_bg_audio) else None
     build_final_video(background, narration_path, ass_path, final_path, duration=duration,
                        background_audio=keep_bg_audio,
                        background_audio_volume=float(config.get("background_audio_volume", 1.0)),
-                       narration_volume=float(config.get("narration_volume", 1.0)))
+                       narration_volume=float(config.get("narration_volume", 1.0)),
+                       intro_sfx_path=intro_sfx)
     print(f"[pipeline] video assembled: {final_path}")
 
     if upload:
