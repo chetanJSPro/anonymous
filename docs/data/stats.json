@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 67,
-      "current_total_views": 6623,
-      "current_subscribers": 9
+      "video_count": 70,
+      "current_total_views": 8480,
+      "current_subscribers": 11
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 71,
-      "current_total_views": 14418,
+      "video_count": 74,
+      "current_total_views": 14814,
       "current_subscribers": 5
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 70,
-      "current_total_views": 8663,
+      "video_count": 73,
+      "current_total_views": 9206,
       "current_subscribers": 15
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 52,
-      "current_total_views": 43341,
+      "video_count": 53,
+      "current_total_views": 44650,
       "current_subscribers": 48
     },
     "hp05_sleep_soundscapes": {
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 71,
-      "current_total_views": 7973,
+      "video_count": 75,
+      "current_total_views": 8455,
       "current_subscribers": 5
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 65,
-      "current_total_views": 5846,
+      "video_count": 68,
+      "current_total_views": 5919,
       "current_subscribers": 7
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 68,
-      "current_total_views": 11073,
+      "video_count": 71,
+      "current_total_views": 11686,
       "current_subscribers": 22
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 70,
-      "current_total_views": 9559,
+      "video_count": 73,
+      "current_total_views": 10052,
       "current_subscribers": 4
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 64,
-      "current_total_views": 17693,
-      "current_subscribers": 26
+      "video_count": 67,
+      "current_total_views": 18212,
+      "current_subscribers": 27
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 68,
-      "current_total_views": 23362,
+      "video_count": 71,
+      "current_total_views": 25112,
       "current_subscribers": 24
     },
     "hp09_kids_cartoon_stories": {
@@ -3119,8 +3119,88 @@
       "watch_minutes": 140,
       "subs_gained": 0,
       "likes": 31
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-09-12",
+      "views": 45,
+      "watch_minutes": 4,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-09-12",
+      "views": 363,
+      "watch_minutes": 74,
+      "subs_gained": 0,
+      "likes": 4
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-09-12",
+      "views": 574,
+      "watch_minutes": 67,
+      "subs_gained": 2,
+      "likes": 5
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-09-12",
+      "views": 2875,
+      "watch_minutes": 778,
+      "subs_gained": 3,
+      "likes": 110
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-09-12",
+      "views": 478,
+      "watch_minutes": 28,
+      "subs_gained": 1,
+      "likes": 3
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-09-12",
+      "views": 264,
+      "watch_minutes": 33,
+      "subs_gained": 0,
+      "likes": 4
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-09-12",
+      "views": 745,
+      "watch_minutes": 56,
+      "subs_gained": 4,
+      "likes": 9
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-09-12",
+      "views": 605,
+      "watch_minutes": 28,
+      "subs_gained": 1,
+      "likes": 2
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-09-12",
+      "views": 1631,
+      "watch_minutes": 314,
+      "subs_gained": 0,
+      "likes": 17
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-09-12",
+      "views": 1611,
+      "watch_minutes": 210,
+      "subs_gained": 2,
+      "likes": 27
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-09-14T10:18:25.248940Z"
+  "last_updated": "2026-09-15T09:45:53.418706Z"
 }
