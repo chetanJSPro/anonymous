@@ -42,6 +42,33 @@ def distribute_segments(lines: list[str], duration: float, *, lead_in: float = 0
     return segs
 
 
+@dataclass
+class _Chunk:
+    start: float
+    end: float
+    text: str
+    highlight: bool
+
+
+def _punch_chunks(segments: list[Segment], max_words: int = 3) -> list[_Chunk]:
+    """Split each sentence segment into <=max_words-word chunks, timed by
+    character length inside the segment's window (close enough to Kokoro's
+    even pacing that captions track the voice without word timestamps)."""
+    out: list[_Chunk] = []
+    n = 0
+    for seg in segments:
+        words = seg.text.split()
+        groups = [" ".join(words[i:i + max_words]) for i in range(0, len(words), max_words)] or [seg.text]
+        total = sum(len(g) + 2 for g in groups)
+        t = seg.start
+        for g in groups:
+            end = t + (seg.end - seg.start) * (len(g) + 2) / total
+            out.append(_Chunk(t, end, g, n % 2 == 1))
+            n += 1
+            t = end
+    return out
+
+
 def ass_time(seconds: float) -> str:
     seconds = max(0, seconds)
     h = int(seconds // 3600)
@@ -103,6 +130,9 @@ def write_ass(
     location_font: str = "Arial",
     location_font_size: int = 54,
     location_margin_top: int = 95,
+    hook_text: str | None = None,
+    hook_seconds: float = 2.6,
+    punchy: bool = True,
 ) -> Path:
     """Burned-in caption track. `location_label` is optional here (unlike the
     India-pin-specific original) — most anonymous-master niches have no
@@ -119,6 +149,8 @@ WrapStyle: 0
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Caption,{caption_font},{caption_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H99000000,-1,0,0,0,100,100,0,0,1,4,2,2,70,70,{caption_margin_bottom},1
+Style: Punch,{caption_font},{int(caption_font_size * 1.35)},&H00FFFFFF,&H0000E5FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7,3,5,60,60,0,1
+Style: Hook,{caption_font},{int(caption_font_size * 1.05)},&H0000E5FF,&H000000FF,&H00000000,&HCC000000,-1,0,0,0,100,100,0,0,3,18,0,8,60,60,{location_margin_top + 140},1
 Style: Location,{location_font},{location_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H85000000,-1,0,0,0,100,100,0,0,3,10,0,8,80,80,{location_margin_top},1
 
 [Events]
@@ -128,6 +160,19 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     if location_label:
         loc_text = escape_ass("📍 " + location_label)
         events.append(f"Dialogue: 2,{ass_time(0)},{ass_time(duration)},Location,,0,0,0,,{{\\fad(400,400)}}{loc_text}\n")
+    if hook_text:
+        hook = escape_ass(wrap_for_ass(hook_text.upper(), max_chars=22))
+        events.append(f"Dialogue: 4,{ass_time(0)},{ass_time(min(hook_seconds, duration))},Hook,,0,0,0,,"
+                      f"{{\\fad(0,200)\\fscx80\\fscy80\\t(0,150,\\fscx100\\fscy100)}}{hook}\n")
+    if punchy:
+        # Viral-Shorts caption style: 1-3 huge words centered on screen,
+        # pop-in scale, every other chunk in yellow for rhythm.
+        for ch in _punch_chunks(segments):
+            txt = escape_ass(wrap_for_ass(ch.text.upper(), max_chars=14))
+            colour = "\\c&H0000E5FF&" if ch.highlight else ""
+            events.append(f"Dialogue: 3,{ass_time(ch.start)},{ass_time(ch.end)},Punch,,0,0,0,,"
+                          f"{{{colour}\\fscx70\\fscy70\\t(0,90,\\fscx105\\fscy105)\\t(90,160,\\fscx100\\fscy100)}}{txt}\n")
+        segments = []
     for seg in segments:
         txt = escape_ass(wrap_for_ass(seg.text))
         events.append(f"Dialogue: 3,{ass_time(seg.start)},{ass_time(seg.end)},Caption,,0,0,0,,{{\\fad(120,120)}}{txt}\n")

@@ -66,8 +66,13 @@ def normalize_clip(
     fps: int = 30,
     offset: float = 0.0,
     keep_audio: bool = False,
+    motion: int | None = None,
 ) -> Path:
-    """keep_audio: preserve the source clip's own audio track (boosted)
+    """motion: if set, apply a slow pan across a slightly over-scaled frame
+    (direction picked by motion % 4) so no shot is ever static -- retention
+    edit for Shorts, where a still frame is what gets swiped away.
+
+    keep_audio: preserve the source clip's own audio track (boosted)
     instead of stripping it with -an -- needed for channels whose trigger
     SOUND is the actual content (ASMR: soap cutting, glass, slime), not
     just narration over silent b-roll (see ch01_ai_asmr's 2026-08-24 fix).
@@ -78,9 +83,17 @@ def normalize_clip(
     pool of real-audio and silent clips."""
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
+    if motion is None:
+        frame = f"scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height},"
+    else:
+        ow, oh = int(width * 1.14) // 2 * 2, int(height * 1.14) // 2 * 2
+        d = max(duration, 0.1)
+        x, y = [("(iw-ow)*t/%.2f" % d, "(ih-oh)/2"), ("(iw-ow)*(1-t/%.2f)" % d, "(ih-oh)/2"),
+                ("(iw-ow)/2", "(ih-oh)*t/%.2f" % d), ("(iw-ow)/2", "(ih-oh)*(1-t/%.2f)" % d)][motion % 4]
+        frame = (f"scale={ow}:{oh}:force_original_aspect_ratio=increase,crop={ow}:{oh},"
+                 f"crop={width}:{height}:'{x}':'{y}',")
     vf = (
-        f"scale={width}:{height}:force_original_aspect_ratio=increase,"
-        f"crop={width}:{height},setsar=1,fps={fps},"
+        f"{frame}setsar=1,fps={fps},"
         "eq=contrast=1.04:saturation=1.08,format=yuv420p"
     )
     if not keep_audio:
@@ -123,6 +136,7 @@ def build_background(
     clip_seconds: float = 5.0,
     seed: int | None = None,
     keep_audio: bool = False,
+    motion: bool = True,
 ) -> Path:
     if not video_paths:
         raise ValueError("No source videos available — check PIXABAY_API_KEY/PEXELS_API_KEY.")
@@ -147,7 +161,7 @@ def build_background(
             offset = rng.uniform(0, max(0.0, src_dur - clip_seconds - 0.5))
         out = work / f"norm_{i:03d}.mp4"
         normalize_clip(src, out, duration=clip_seconds, width=width, height=height, fps=fps,
-                        offset=offset, keep_audio=keep_audio)
+                        offset=offset, keep_audio=keep_audio, motion=i if motion else None)
         normalized.append(out)
 
     concat_list = work / "concat.txt"

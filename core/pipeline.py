@@ -196,8 +196,15 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     segments = distribute_segments(subtitle_lines, duration)
     ass_path = os.path.join(out_dir, "captions_burnin.ass")
     srt_path = os.path.join(out_dir, "captions_upload.srt")
+    # Hook title is generated up front (was upload-only) so it can also be
+    # burned in as an on-screen hook card for the first ~2.5s -- the frame
+    # that decides "viewed vs swiped away" on Shorts.
+    fallback_title = config["title_fn"](topic)
+    title = generate_hook_title(config.get("niche", config["name"]), topic, script, fallback_title)
     write_ass(segments, ass_path, width=width, height=height, duration=duration,
-               location_label=config.get("location_label"))
+               location_label=config.get("location_label"),
+               hook_text=title if (vertical and config.get("hook_card", True)) else None,
+               punchy=bool(vertical and config.get("punchy_captions", True)))
     write_srt(segments, srt_path)
 
     # 3) Visuals — mostly Agnes AI-generated clips (if AGNES_API_KEY is set)
@@ -231,7 +238,8 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # docstrings and the 2026-08-24 ch01_ai_asmr fix this was added for.
     keep_bg_audio = bool(config.get("keep_background_audio", False))
     background = build_background(visual_paths, work_dir, total_duration=duration,
-                                   width=width, height=height, fps=30, clip_seconds=5,
+                                   width=width, height=height, fps=30,
+                                   clip_seconds=float(config.get("clip_seconds", 1.8 if vertical else 5)),
                                    keep_audio=keep_bg_audio)
     final_path = os.path.join(out_dir, "final.mp4")
     # hook_sfx: opt-out per channel (config["hook_sfx"] = False) -- on by
@@ -248,8 +256,6 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     print(f"[pipeline] video assembled: {final_path}")
 
     if upload:
-        fallback_title = config["title_fn"](topic)
-        title = generate_hook_title(config.get("niche", config["name"]), topic, script, fallback_title)
         print(f"[pipeline] title: {title}")
         video_id = upload_video(
             video_path=final_path,
