@@ -41,7 +41,10 @@ def pick_topic(config):
     used = load_used(config["name"])
     niche_hint = config.get("niche") or config["system_prompt"][:300]
     try:
-        topic = generate_topic(niche_hint, used)
+        from core.trending import trending_titles, winning_titles
+        trending, winners = trending_titles(config), winning_titles(config["name"])
+        print(f"[topics] {len(trending)} trending + {len(winners)} winning titles as inspiration")
+        topic = generate_topic(niche_hint, used, trending=trending, winners=winners)
         used_lower = {u.lower() for u in used}
         if topic and topic.lower() not in used_lower:
             record_used(config["name"], topic)

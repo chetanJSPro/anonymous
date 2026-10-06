@@ -104,7 +104,7 @@ def generate_script(system_prompt, user_prompt, max_tokens=1200, temperature=0.9
     return _pollinations_chat(system_prompt, user_prompt)
 
 
-def generate_topic(niche_hint, avoid_topics, max_tokens=300):
+def generate_topic(niche_hint, avoid_topics, max_tokens=300, trending=None, winners=None):
     """One fresh topic idea for a channel's niche, steered away from
     recently-used topics so a channel doesn't need hundreds of hand-written
     topic_prompts to stay unique run over run — see core/topics.py, which
@@ -126,6 +126,15 @@ def generate_topic(niche_hint, avoid_topics, max_tokens=300):
         f"Topics already used recently — do NOT repeat these or anything too similar:\n{avoid_block}\n\n"
         "Give one new topic idea for this channel."
     )
+    # Steer toward proven demand (see core/trending.py): what this channel's
+    # own audience already watched most, and what's hot in the niche this week.
+    if winners:
+        user += ("\n\nThis channel's BEST-performing past videos (make the new topic the same "
+                 "kind of hook/emotion, but a different story):\n" + "\n".join(f"- {w}" for w in winners))
+    if trending:
+        user += ("\n\nTrending real posts in this niche this week (use only as inspiration for "
+                 "the angle - write an ORIGINAL topic, never copy a post):\n"
+                 + "\n".join(f"- {t}" for t in trending))
     topic = generate_script(system, user, max_tokens=max_tokens, temperature=1.05)
     return topic.strip().strip('"').strip("'").split("\n")[0].strip()
 

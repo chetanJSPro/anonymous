@@ -30,7 +30,7 @@ for _stream in (sys.stdout, sys.stderr):
     if hasattr(_stream, "reconfigure"):
         _stream.reconfigure(encoding="utf-8", errors="replace")
 
-from core.llm import generate_script, generate_hook_title, sanitize_narration_script
+from core.llm import generate_visual_queries, generate_script, generate_hook_title, sanitize_narration_script
 from core.tts_kokoro import synthesize_kokoro
 from core.tts_chatterbox import synthesize_chatterbox
 from core.captions import distribute_segments, write_ass, write_srt
@@ -220,6 +220,14 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # silently returning unrelated "popular" results. See
     # core/llm.py::generate_visual_queries(avoid_named_entities=True).
     stock_queries = config["stock_query_fn"](topic, script) if config.get("stock_query_fn") else None
+    # Story-matched stock search: literal, script-derived keywords first so
+    # footage follows what's being narrated; the channel's static list stays
+    # as a tail fallback. Opt out with config["story_stock_queries"] = False
+    # (e.g. ASMR, where fixed trigger-sound queries ARE the content).
+    if config.get("story_stock_queries", True):
+        story_q = generate_visual_queries(config.get("niche", config["name"]), topic, script,
+                                          count=8, fallback=[], avoid_named_entities=True)
+        stock_queries = list(dict.fromkeys((story_q or []) + (stock_queries or queries or [])))
     visuals_dir = os.path.join(out_dir, "visuals")
     os.makedirs(visuals_dir, exist_ok=True)
     visual_paths = fetch_hybrid_stock_agnes_videos(

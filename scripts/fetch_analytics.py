@@ -94,6 +94,26 @@ def channel_snapshot(config):
     }
 
 
+def top_videos(config, days=28, limit=10):
+    """This channel's most-viewed videos over the last `days` days, with
+    titles -- read by core/trending.py to steer new topics toward winners."""
+    creds = get_credentials(config["channel_token_file"], config.get("client_secret_file"))
+    yta = googleapiclient.discovery.build("youtubeAnalytics", "v2", credentials=creds)
+    end = datetime.date.today()
+    resp = yta.reports().query(
+        ids="channel==MINE", startDate=(end - datetime.timedelta(days=days)).isoformat(),
+        endDate=end.isoformat(), metrics="views,averageViewPercentage",
+        dimensions="video", sort="-views", maxResults=limit,
+    ).execute()
+    rows = resp.get("rows", []) or []
+    if not rows:
+        return []
+    yt = googleapiclient.discovery.build("youtube", "v3", credentials=creds)
+    items = yt.videos().list(part="snippet", id=",".join(r[0] for r in rows)).execute().get("items", [])
+    titles = {i["id"]: i["snippet"]["title"] for i in items}
+    return [{"id": r[0], "title": titles.get(r[0], ""), "views": r[1], "avg_view_pct": r[2]} for r in rows]
+
+
 def main():
     data = _load_existing()
     existing_keys = {(r["channel"], r["date"]) for r in data["records"]}
@@ -124,6 +144,14 @@ def main():
                 data["channels"][name].update(snapshot)
         except Exception as e:
             print(f"[fetch_analytics] {name} channel_snapshot FAILED: {e}")
+
+    top = {}
+    for config in all_channels():
+        try:
+            top[config["name"]] = top_videos(config)
+        except Exception as e:
+            print(f"[fetch_analytics] {config['name']} top_videos FAILED: {e}")
+    data["top_videos"] = top  # read by core/trending.py::winning_titles
 
     data["last_updated"] = datetime.datetime.utcnow().isoformat() + "Z"
     _save(data)

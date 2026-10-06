@@ -53,6 +53,7 @@ def description_fn(topic):
     return base + "\n#shorts #asmr #satisfying"
 
 CONFIG = {
+    "story_stock_queries": False,  # fixed ASMR trigger queries are the content
     "name": 'ch01_ai_asmr',
     "system_prompt": SYSTEM_PROMPT,
     "topic_prompts": TOPIC_PROMPTS,
