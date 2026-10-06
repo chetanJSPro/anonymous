@@ -39,9 +39,13 @@ TOPIC_PROMPTS = [
 # phrasing) since that's what these libraries actually index well, same
 # lesson as ch01_ai_asmr's STOCK_QUERIES.
 STOCK_QUERIES = [
-    'cartoon animation kids', 'funny cartoon animal', '2d cartoon animation',
-    'colorful cartoon background', 'cute animated character', 'kids cartoon animation',
-    'animated forest cartoon', 'cartoon animals playing',
+    # Real cute-animal footage, not "cartoon" terms: stock libraries have
+    # almost no cartoon video (0 results -> hp09 failed daily from 2026-09-28),
+    # and Pollinations AI images now return 402 Payment Required.
+    # Single words on purpose: kids_safe Pixabay search requires EVERY
+    # query word in a clip's tags (strict pass only), so phrases match nothing.
+    'puppy', 'kitten', 'duckling', 'rabbit', 'panda', 'butterfly',
+    'hedgehog', 'squirrel', 'lamb', 'penguin', 'balloons', 'foal',
 ]
 
 
@@ -118,6 +122,7 @@ CONFIG = {
     # cartoon style instead of its old hardcoded "photorealistic" default.
     # kids_safe (from made_for_kids above) still governs the rare stock
     # top-up if Pollinations itself is ever unreachable.
-    "ai_only_visuals": True,
+    "ai_only_visuals": False,
+    "story_stock_queries": False,
     "ai_style_suffix": AI_STYLE_SUFFIX,
 }

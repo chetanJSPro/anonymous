@@ -237,7 +237,7 @@ def fetch_pixabay_videos(query, out_dir, count=5, min_duration=5, page=None, use
         "safesearch": "true",
     }
     url = PIXABAY_VIDEO_URL + "?" + urllib.parse.urlencode(params)
-    with urllib.request.urlopen(url, timeout=30) as resp:
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=30) as resp:
         data = json.loads(resp.read().decode("utf-8"))
 
     hits = data.get("hits", [])
@@ -320,7 +320,7 @@ def fetch_pixabay_images(query, out_dir, count=5):
         "safesearch": "true",
     }
     url = PIXABAY_IMAGE_URL + "?" + urllib.parse.urlencode(params)
-    with urllib.request.urlopen(url, timeout=30) as resp:
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=30) as resp:
         data = json.loads(resp.read().decode("utf-8"))
 
     paths = []
