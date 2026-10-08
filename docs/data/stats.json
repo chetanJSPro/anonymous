@@ -3,29 +3,26 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 133,
-      "current_total_views": 16769,
-      "current_subscribers": 21
+      "video_count": 135,
+      "current_total_views": 16866,
+      "current_subscribers": 22
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 136,
-      "current_total_views": 21429,
+      "video_count": 138,
+      "current_total_views": 22234,
       "current_subscribers": 7
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
-      "est_rpm": 5.7,
-      "video_count": 138,
-      "current_total_views": 15709,
-      "current_subscribers": 19
+      "est_rpm": 5.7
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 97,
-      "current_total_views": 69525,
+      "video_count": 99,
+      "current_total_views": 70316,
       "current_subscribers": 86
     },
     "hp05_sleep_soundscapes": {
@@ -35,44 +32,41 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 138,
-      "current_total_views": 15602,
+      "video_count": 141,
+      "current_total_views": 15784,
       "current_subscribers": 14
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 129,
-      "current_total_views": 11673,
-      "current_subscribers": 11
+      "video_count": 132,
+      "current_total_views": 11728,
+      "current_subscribers": 12
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 136,
-      "current_total_views": 26654,
+      "video_count": 138,
+      "current_total_views": 27150,
       "current_subscribers": 49
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 138,
-      "current_total_views": 16346,
+      "video_count": 139,
+      "current_total_views": 16538,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 127,
-      "current_total_views": 26707,
+      "video_count": 128,
+      "current_total_views": 26829,
       "current_subscribers": 35
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
-      "est_rpm": null,
-      "video_count": 138,
-      "current_total_views": 32112,
-      "current_subscribers": 27
+      "est_rpm": null
     },
     "hp09_kids_cartoon_stories": {
       "niche": "Kids cartoon animal stories",
@@ -4959,12 +4953,90 @@
       "watch_minutes": 23,
       "subs_gained": 1,
       "likes": 9
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-05",
+      "views": 1016,
+      "watch_minutes": 266,
+      "subs_gained": 0,
+      "likes": 9
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-05",
+      "views": 364,
+      "watch_minutes": 63,
+      "subs_gained": 0,
+      "likes": 8
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-05",
+      "views": 85,
+      "watch_minutes": 9,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-05",
+      "views": 1412,
+      "watch_minutes": 283,
+      "subs_gained": 0,
+      "likes": 27
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-05",
+      "views": 424,
+      "watch_minutes": 43,
+      "subs_gained": 3,
+      "likes": 9
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-05",
+      "views": 300,
+      "watch_minutes": 22,
+      "subs_gained": 0,
+      "likes": 4
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-05",
+      "views": 384,
+      "watch_minutes": 28,
+      "subs_gained": 1,
+      "likes": 12
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-05",
+      "views": 100,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-05",
+      "views": 252,
+      "watch_minutes": 16,
+      "subs_gained": 1,
+      "likes": 6
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-07T11:30:30.925135Z",
+  "last_updated": "2026-10-08T11:45:47.257153Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
+      {
+        "id": "pagRP11rm1s",
+        "title": "He forged Mom\u2019s signature and lost it all\u2014my revenge",
+        "views": 1035,
+        "avg_view_pct": 65.98
+      },
       {
         "id": "lTyz3NiSxbk",
         "title": "A sibling who forged a parent's signature on an inheritance document",
@@ -4998,7 +5070,7 @@
       {
         "id": "wk_ZCz_OsO0",
         "title": "High\u2011end jewelry designer swaps rival\u2019s diamond with cubic zirconia after losing a royal commission",
-        "views": 558,
+        "views": 559,
         "avg_view_pct": 80.86
       },
       {
@@ -5016,14 +5088,8 @@
       {
         "id": "tTtyvMcMlMg",
         "title": "Luxury perfume creator spikes competitor\u2019s signature scent to ruin their launch after losing a celeb",
-        "views": 371,
+        "views": 372,
         "avg_view_pct": 23.9
-      },
-      {
-        "id": "wZKD1o0aXC0",
-        "title": "A roommate who secretly rented out the apartment on weekends until the landlord found out",
-        "views": 326,
-        "avg_view_pct": 58.9
       }
     ],
     "hp02_court_drama": [
@@ -5036,13 +5102,13 @@
       {
         "id": "6_tsGi0_jCw",
         "title": "The courtroom battle over a home security camera's motion logs revealing a staged break\u2011in",
-        "views": 967,
+        "views": 969,
         "avg_view_pct": 62.46000000000001
       },
       {
         "id": "zrOmgdG699Y",
         "title": "Smart thermostat temperature logs expose false alibi in arson trial",
-        "views": 936,
+        "views": 937,
         "avg_view_pct": 46.93
       },
       {
@@ -5082,72 +5148,10 @@
         "avg_view_pct": 58.09000000000001
       },
       {
-        "id": "VKLG_TDoNQg",
-        "title": "How One Text Obliterated a $2,500 Landlord Lawsuit",
-        "views": 219,
-        "avg_view_pct": 65.08
-      }
-    ],
-    "hp03_karma_justice": [
-      {
-        "id": "ANivH8HQTog",
-        "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 993,
-        "avg_view_pct": 38.47
-      },
-      {
-        "id": "WznUUzHFBao",
-        "title": "Man Tries to Return a $79 Blender\u2026 Caught on Security Camera!",
-        "views": 454,
-        "avg_view_pct": 35.25
-      },
-      {
-        "id": "6SvidRE4rI4",
-        "title": "The fraudulent pet groomer who overcharged owners, then saved a rescued dog from a sudden river floo",
-        "views": 391,
-        "avg_view_pct": 55.22
-      },
-      {
-        "id": "6SFWsathKPQ",
-        "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 352,
-        "avg_view_pct": 38.93
-      },
-      {
-        "id": "bSa0wvXSb6A",
-        "title": "A person who cut in line at the airport and the gate agent had the perfect response",
-        "views": 330,
-        "avg_view_pct": 39.1
-      },
-      {
-        "id": "DLUiDY8xmoI",
-        "title": "The fake pet breeder who sold sick puppies, then rescued the owner's child from a house fire",
-        "views": 314,
-        "avg_view_pct": 36.96
-      },
-      {
-        "id": "v2BeqaGk5lY",
-        "title": "Dishonest landlord who overcharged rent, then saved tenant during a gas leak",
-        "views": 300,
-        "avg_view_pct": 123.15
-      },
-      {
-        "id": "_lyCRA2fV5E",
-        "title": "The dishonest houseplant seller who swindled a collector, then saved them during a kitchen fire",
-        "views": 257,
-        "avg_view_pct": 46.27
-      },
-      {
-        "id": "_365-f268wI",
-        "title": "The fake charity fundraiser who embezzled donations, later rescued a flood\u2011stranded family with his",
+        "id": "Fb9ZRZTMROM",
+        "title": "Judge Halts Livestream When Fraudulent Wedding",
         "views": 217,
-        "avg_view_pct": 47.18
-      },
-      {
-        "id": "1GsN7mlF_I4",
-        "title": "The rogue parking meter hacker who fined drivers, then warned them of an imminent bridge collapse",
-        "views": 207,
-        "avg_view_pct": 30.599999999999998
+        "avg_view_pct": 42.68
       }
     ],
     "hp04_veteran_kindness": [
@@ -5162,12 +5166,6 @@
         "title": "A stranger at an airport who gave up a first class seat to a veteran flying home",
         "views": 1454,
         "avg_view_pct": 85.41
-      },
-      {
-        "id": "MJVKYcx8Q1Q",
-        "title": "Why a free flight upgrade changed a veteran\u2019s whole day",
-        "views": 1197,
-        "avg_view_pct": 63.83
       },
       {
         "id": "HvbKHz3lIM8",
@@ -5188,16 +5186,16 @@
         "avg_view_pct": 61.5
       },
       {
-        "id": "_Ei4lK2L-i8",
-        "title": "Veteran carpenter builds free wheelchair ramps for disabled veterans in a small mountain community",
-        "views": 1045,
-        "avg_view_pct": 80.44
+        "id": "t6sNKsISjcc",
+        "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
+        "views": 1096,
+        "avg_view_pct": 60.27
       },
       {
-        "id": "Vk6jq01hm9o",
-        "title": "A stranger at an airport who gave up a first class seat to a veteran flying home",
-        "views": 1042,
-        "avg_view_pct": 53.6
+        "id": "_Ei4lK2L-i8",
+        "title": "Veteran carpenter builds free wheelchair ramps for disabled veterans in a small mountain community",
+        "views": 1059,
+        "avg_view_pct": 79.89
       },
       {
         "id": "aMx92yYl5eE",
@@ -5210,13 +5208,19 @@
         "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
         "views": 985,
         "avg_view_pct": 57.440000000000005
+      },
+      {
+        "id": "hVlHKIIOXic",
+        "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
+        "views": 982,
+        "avg_view_pct": 57.940000000000005
       }
     ],
     "hp06_literary_analysis": [
       {
         "id": "GbHpy5BljAE",
         "title": "The Symbolic Function of Letters in Stephen King\u2019s\u202fThe\u202fShining",
-        "views": 984,
+        "views": 986,
         "avg_view_pct": 43.23
       },
       {
@@ -5232,16 +5236,22 @@
         "avg_view_pct": 43.13
       },
       {
+        "id": "mzcAL0XxLEk",
+        "title": "What the Cold Walls of Hailsham Reveal About Every Clone\u2019s Identity?",
+        "views": 262,
+        "avg_view_pct": 34.24
+      },
+      {
         "id": "tWqFsBE-J9s",
         "title": "The Handmaid\u2019s Tale\u2019s secret weapon isn\u2019t a gun\u2014it\u2019s a seed \ud83c\udf31",
         "views": 258,
         "avg_view_pct": 61.59
       },
       {
-        "id": "mzcAL0XxLEk",
-        "title": "What the Cold Walls of Hailsham Reveal About Every Clone\u2019s Identity?",
-        "views": 256,
-        "avg_view_pct": 34.24
+        "id": "K9TP6MZ9ntY",
+        "title": "Is Pride & Prejudice Actually a Secret Class Manifesto?",
+        "views": 247,
+        "avg_view_pct": 38.84
       },
       {
         "id": "61gBz4fgcOg",
@@ -5250,35 +5260,29 @@
         "avg_view_pct": 38.96
       },
       {
-        "id": "K9TP6MZ9ntY",
-        "title": "Is Pride & Prejudice Actually a Secret Class Manifesto?",
-        "views": 236,
-        "avg_view_pct": 40.16
-      },
-      {
         "id": "ghyjBNrm4k0",
         "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
-        "views": 220,
-        "avg_view_pct": 53.1
+        "views": 223,
+        "avg_view_pct": 51.84000000000001
       },
       {
-        "id": "tqRpoMPv-Ys",
-        "title": "Why Blood Meridian\u2019s Silence Is More Deadly Than Its Violence",
+        "id": "7LU2kKwQxAM",
+        "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
         "views": 199,
-        "avg_view_pct": 30.769999999999996
+        "avg_view_pct": 34.09
       },
       {
         "id": "y3Dn99IkoTM",
         "title": "The Hidden Political Satire in Jonathan Franzen's The Corrections: Suburban Decline as National Crit",
-        "views": 192,
-        "avg_view_pct": 33.71
+        "views": 195,
+        "avg_view_pct": 35.98
       }
     ],
     "hp07_senior_longevity": [
       {
         "id": "gviD9HTndhg",
         "title": "Optimizing Protein Timing for Muscle Preservation and Longevity in Seniors",
-        "views": 336,
+        "views": 335,
         "avg_view_pct": 34.45
       },
       {
@@ -5338,16 +5342,16 @@
     ],
     "hp08_english_learning": [
       {
-        "id": "2DWopDFDShc",
-        "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
-        "views": 882,
-        "avg_view_pct": 33.86
-      },
-      {
         "id": "HqgY3ZvP3rE",
         "title": "What \u201cbreak the ice\u201d really means\u2014and how to use it instantly!",
         "views": 812,
         "avg_view_pct": 84.81
+      },
+      {
+        "id": "2DWopDFDShc",
+        "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
+        "views": 755,
+        "avg_view_pct": 31.41
       },
       {
         "id": "F088w6APAxg",
@@ -5376,7 +5380,7 @@
       {
         "id": "pIjBpsRJCkA",
         "title": "What Does the Phrase the Ball Is In Your Court Really Mean?",
-        "views": 506,
+        "views": 508,
         "avg_view_pct": 39.49
       },
       {
@@ -5404,12 +5408,6 @@
         "title": "Satisfying ASMR: Fine powdered mica drifting over chilled slate, whispering silvery sighs and delica",
         "views": 490,
         "avg_view_pct": 78.45
-      },
-      {
-        "id": "3HYCf5RGVf8",
-        "title": "Satisfying ASMR: Luminescent pearl sand gently poured over a chilled glass pane, forming slow, spark",
-        "views": 367,
-        "avg_view_pct": 23.55
       },
       {
         "id": "hYNMFTebPsE",
@@ -5458,6 +5456,74 @@
         "title": "Satisfying ASMR: Colorful slime being stretched and folded",
         "views": 203,
         "avg_view_pct": 49.57
+      },
+      {
+        "id": "ZACUB8PIvGM",
+        "title": "Satisfying ASMR: Honeycomb soap crumbling apart",
+        "views": 192,
+        "avg_view_pct": 25.64
+      }
+    ],
+    "ch03_hindu_mythology": [
+      {
+        "id": "z_uddw5NXHA",
+        "title": "The Secret of Panchavati Forest: How Five Sacred Trees Saved the Pandavas during Their Exile",
+        "views": 959,
+        "avg_view_pct": 94.18
+      },
+      {
+        "id": "39GBUIzWZ4U",
+        "title": "Ahalya\u2019s Redemption: From Stone Curse to Liberation",
+        "views": 953,
+        "avg_view_pct": 32.54
+      },
+      {
+        "id": "SxpKqoDFBI0",
+        "title": "Hanuman's leap across the ocean to Lanka",
+        "views": 874,
+        "avg_view_pct": 37.39
+      },
+      {
+        "id": "Er_tWiyK_h8",
+        "title": "The exile of Rama, Sita, and Lakshmana to the forest",
+        "views": 772,
+        "avg_view_pct": 39.19
+      },
+      {
+        "id": "MxsUAeZHSFw",
+        "title": "Can a single prayer really bring a heavenly river down to Earth?",
+        "views": 681,
+        "avg_view_pct": 31.56
+      },
+      {
+        "id": "ZWkt4oAuyLQ",
+        "title": "Ravana's ten heads and his devotion to Shiva",
+        "views": 528,
+        "avg_view_pct": 60.72
+      },
+      {
+        "id": "WU8ad2mEDOw",
+        "title": "Ganesha\u2019s birth and the elephant\u2011head miracle: how Shiva\u2019s son gained his iconic form",
+        "views": 450,
+        "avg_view_pct": 69.67
+      },
+      {
+        "id": "sJ1lUEqF9_w",
+        "title": "Ravana's ten heads: the secret behind Shiva's promise",
+        "views": 374,
+        "avg_view_pct": 59.9
+      },
+      {
+        "id": "iCgwhwoofMs",
+        "title": "Karna\u2019s Birth, Divine Armor, and the Tragic Hero\u2019s Loyalty",
+        "views": 303,
+        "avg_view_pct": 93.82
+      },
+      {
+        "id": "Djc0TXc9-40",
+        "title": "Hanuman's leap across the ocean to Lanka",
+        "views": 274,
+        "avg_view_pct": 61.99
       }
     ],
     "ch06_eastern_philosophy": [
