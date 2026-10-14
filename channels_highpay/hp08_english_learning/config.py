@@ -42,6 +42,9 @@ def description_fn(topic):
     return base + "\n#shorts #learnenglish #esl"
 
 CONFIG = {
+    # Retention-edit opt-out: fast cuts + punch captions dropped this
+    # channel's avg view % (2026-10-14 before/after check); calm style wins.
+    "clip_seconds": 5, "punchy_captions": False, "hook_card": False,
     "name": 'hp08_english_learning',
     "system_prompt": SYSTEM_PROMPT,
     "topic_prompts": TOPIC_PROMPTS,
