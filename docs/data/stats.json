@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 149,
-      "current_total_views": 19626,
+      "video_count": 152,
+      "current_total_views": 20520,
       "current_subscribers": 24
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 153,
-      "current_total_views": 25464,
-      "current_subscribers": 12
+      "video_count": 155,
+      "current_total_views": 25551,
+      "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 156,
-      "current_total_views": 16844,
+      "video_count": 159,
+      "current_total_views": 17162,
       "current_subscribers": 20
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 108,
-      "current_total_views": 75309,
+      "video_count": 110,
+      "current_total_views": 77458,
       "current_subscribers": 88
     },
     "hp05_sleep_soundscapes": {
@@ -35,44 +35,44 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 156,
-      "current_total_views": 17274,
+      "video_count": 159,
+      "current_total_views": 18622,
       "current_subscribers": 18
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 147,
-      "current_total_views": 13587,
-      "current_subscribers": 16
+      "video_count": 149,
+      "current_total_views": 14138,
+      "current_subscribers": 17
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 152,
-      "current_total_views": 29007,
+      "video_count": 155,
+      "current_total_views": 29234,
       "current_subscribers": 51
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 154,
-      "current_total_views": 17114,
+      "video_count": 157,
+      "current_total_views": 17458,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 142,
-      "current_total_views": 28126,
+      "video_count": 144,
+      "current_total_views": 28253,
       "current_subscribers": 35
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 153,
-      "current_total_views": 33465,
-      "current_subscribers": 28
+      "video_count": 156,
+      "current_total_views": 33937,
+      "current_subscribers": 29
     },
     "hp09_kids_cartoon_stories": {
       "niche": "Kids cartoon animal stories",
@@ -5439,10 +5439,90 @@
       "watch_minutes": 25,
       "subs_gained": 0,
       "likes": 1
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-11",
+      "views": 1331,
+      "watch_minutes": 122,
+      "subs_gained": 0,
+      "likes": 13
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-11",
+      "views": 378,
+      "watch_minutes": 51,
+      "subs_gained": 1,
+      "likes": 3
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-11",
+      "views": 318,
+      "watch_minutes": 50,
+      "subs_gained": 0,
+      "likes": 4
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-11",
+      "views": 1733,
+      "watch_minutes": 392,
+      "subs_gained": 0,
+      "likes": 34
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-11",
+      "views": 421,
+      "watch_minutes": 43,
+      "subs_gained": 0,
+      "likes": 9
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-11",
+      "views": 487,
+      "watch_minutes": 40,
+      "subs_gained": 1,
+      "likes": 9
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-11",
+      "views": 11,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": -2
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-11",
+      "views": 51,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-11",
+      "views": 57,
+      "watch_minutes": 4,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-11",
+      "views": 345,
+      "watch_minutes": 25,
+      "subs_gained": 0,
+      "likes": 9
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-13T12:26:56.750805Z",
+  "last_updated": "2026-10-14T09:54:41.875298Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -5450,6 +5530,12 @@
         "title": "He forged Mom\u2019s signature and lost it all\u2014my revenge",
         "views": 1047,
         "avg_view_pct": 65.81
+      },
+      {
+        "id": "Apxd2d9Kk0o",
+        "title": "A maid of honor who stole the wedding date and got exposed at the reception",
+        "views": 898,
+        "avg_view_pct": 40.62
       },
       {
         "id": "G5pJkhUz1EY",
@@ -5498,12 +5584,6 @@
         "title": "Luxury perfume creator spikes competitor\u2019s signature scent to ruin their launch after losing a celeb",
         "views": 372,
         "avg_view_pct": 23.9
-      },
-      {
-        "id": "wZKD1o0aXC0",
-        "title": "A roommate who secretly rented out the apartment on weekends until the landlord found out",
-        "views": 326,
-        "avg_view_pct": 58.9
       }
     ],
     "hp02_court_drama": [
@@ -5528,26 +5608,20 @@
       {
         "id": "ztFrRb-ExVw",
         "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 708,
-        "avg_view_pct": 51.690000000000005
+        "views": 893,
+        "avg_view_pct": 50.24999999999999
       },
       {
         "id": "Ho83JiH534s",
         "title": "A case where a dog walker was sued after a dog went missing, then video evidence changed everything",
-        "views": 580,
-        "avg_view_pct": 51.129999999999995
+        "views": 589,
+        "avg_view_pct": 50.67
       },
       {
         "id": "i9RfgZOIhdg",
         "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
         "views": 543,
         "avg_view_pct": 59.870000000000005
-      },
-      {
-        "id": "JE3mqWlYLag",
-        "title": "A landlord suing a tenant who then produced text messages proving retaliation",
-        "views": 302,
-        "avg_view_pct": 36.59
       },
       {
         "id": "Wv_AAr10gHw",
@@ -5558,14 +5632,20 @@
       {
         "id": "-MYhjQ5zrKg",
         "title": "Judge Throws Out Drone Lawsuit with One Piece of Evidence!",
-        "views": 267,
-        "avg_view_pct": 68.96
+        "views": 272,
+        "avg_view_pct": 68.11
       },
       {
         "id": "c99LjdWGkko",
         "title": "Judge orders neighbor to rip down fence in 48\u202fhours!",
         "views": 255,
         "avg_view_pct": 77.78
+      },
+      {
+        "id": "k-G1fRZP2bk",
+        "title": "A dispute over a wedding photographer who never delivered the photos",
+        "views": 253,
+        "avg_view_pct": 48.4
       }
     ],
     "hp03_karma_justice": [
@@ -5652,20 +5732,20 @@
       {
         "id": "_Ei4lK2L-i8",
         "title": "Veteran carpenter builds free wheelchair ramps for disabled veterans in a small mountain community",
-        "views": 1068,
+        "views": 1069,
         "avg_view_pct": 79.62
+      },
+      {
+        "id": "sEMJYPoxCjc",
+        "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
+        "views": 1051,
+        "avg_view_pct": 54.14
       },
       {
         "id": "aMx92yYl5eE",
         "title": "Veteran carpenter receives a surprise tip that warms his hands",
         "views": 1018,
         "avg_view_pct": 53.65
-      },
-      {
-        "id": "sEMJYPoxCjc",
-        "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
-        "views": 1014,
-        "avg_view_pct": 54.18999999999999
       },
       {
         "id": "hVlHKIIOXic",
@@ -5676,8 +5756,8 @@
       {
         "id": "gWNK_sgVx0A",
         "title": "Veteran pilot gives free soaring rides to kids with disabilities, sharing sky\u2011borne wartime tales",
-        "views": 974,
-        "avg_view_pct": 50.2
+        "views": 975,
+        "avg_view_pct": 50.13000000000001
       },
       {
         "id": "Ax89w1hwrbA",
@@ -5696,14 +5776,14 @@
       {
         "id": "GbHpy5BljAE",
         "title": "The Symbolic Function of Letters in Stephen King\u2019s\u202fThe\u202fShining",
-        "views": 978,
+        "views": 979,
         "avg_view_pct": 42.72
       },
       {
         "id": "4DubdNDGMUo",
         "title": "What Pride and Prejudice actually says about class and marriage",
-        "views": 361,
-        "avg_view_pct": 68.61
+        "views": 397,
+        "avg_view_pct": 67.9
       },
       {
         "id": "LPSDofYT00U",
@@ -5718,16 +5798,16 @@
         "avg_view_pct": 42.5
       },
       {
+        "id": "tWqFsBE-J9s",
+        "title": "The Handmaid\u2019s Tale\u2019s secret weapon isn\u2019t a gun\u2014it\u2019s a seed \ud83c\udf31",
+        "views": 261,
+        "avg_view_pct": 61.59
+      },
+      {
         "id": "mzcAL0XxLEk",
         "title": "What the Cold Walls of Hailsham Reveal About Every Clone\u2019s Identity?",
         "views": 261,
         "avg_view_pct": 34.82
-      },
-      {
-        "id": "tWqFsBE-J9s",
-        "title": "The Handmaid\u2019s Tale\u2019s secret weapon isn\u2019t a gun\u2014it\u2019s a seed \ud83c\udf31",
-        "views": 260,
-        "avg_view_pct": 61.59
       },
       {
         "id": "K9TP6MZ9ntY",
@@ -5738,20 +5818,20 @@
       {
         "id": "ghyjBNrm4k0",
         "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
-        "views": 232,
+        "views": 233,
         "avg_view_pct": 51.39
       },
       {
         "id": "7LU2kKwQxAM",
         "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
-        "views": 227,
+        "views": 230,
         "avg_view_pct": 32.97
       },
       {
-        "id": "TzyROVa2e_I",
-        "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 207,
-        "avg_view_pct": 54.17999999999999
+        "id": "uMcArSJOqRs",
+        "title": "Is Hill House a Living Prison for Your Mind?",
+        "views": 214,
+        "avg_view_pct": 46.57
       }
     ],
     "hp07_senior_longevity": [
@@ -5774,10 +5854,16 @@
         "avg_view_pct": 65.21
       },
       {
+        "id": "4iLmJ716JRA",
+        "title": "The 5\u2011Minute Night Routine That Keeps You Walking Strong for Decades",
+        "views": 296,
+        "avg_view_pct": 54.17999999999999
+      },
+      {
         "id": "uPQkffL-pqM",
         "title": "Can a 5\u2011Minute Daily Breathwork Routine Add Years to Your Life After 60?",
-        "views": 268,
-        "avg_view_pct": 40.06
+        "views": 281,
+        "avg_view_pct": 38.85
       },
       {
         "id": "XC2qrr3vtNk",
@@ -5808,12 +5894,6 @@
         "title": "Can a 10\u2011Minute Walk After Every Meal Add Years to Your Life?",
         "views": 202,
         "avg_view_pct": 58.56
-      },
-      {
-        "id": "WqPUkqFBCZQ",
-        "title": "Posture and Spine Health for Longevity: Simple Daily Practices for Seniors",
-        "views": 187,
-        "avg_view_pct": 102.75000000000001
       }
     ],
     "hp08_english_learning": [
@@ -5826,8 +5906,8 @@
       {
         "id": "F088w6APAxg",
         "title": "Learn English: Take it with a grain of salt: meaning, origin, and natural usage",
-        "views": 739,
-        "avg_view_pct": 123.13000000000001
+        "views": 741,
+        "avg_view_pct": 123.02
       },
       {
         "id": "fdVfBdTQvDc",
@@ -5934,10 +6014,10 @@
         "avg_view_pct": 25.239999999999995
       },
       {
-        "id": "HEmWa4iFF3U",
-        "title": "Satisfying ASMR: Golden honey slowly drizzling onto chilled quartz, whispering silky trails of liqui",
+        "id": "iInzKHhq-kQ",
+        "title": "Satisfying ASMR: Colorful slime being stretched and folded",
         "views": 176,
-        "avg_view_pct": 31.6
+        "avg_view_pct": 33.6
       }
     ],
     "ch03_hindu_mythology": [
@@ -5956,8 +6036,8 @@
       {
         "id": "W4erjxMl8JA",
         "title": "Hanuman's leap across the ocean to Lanka",
-        "views": 654,
-        "avg_view_pct": 43.12
+        "views": 655,
+        "avg_view_pct": 43.47
       },
       {
         "id": "ZWkt4oAuyLQ",
@@ -5974,7 +6054,7 @@
       {
         "id": "flg92KOofhk",
         "title": "The exile of Rama, Sita, and Lakshmana to the forest",
-        "views": 314,
+        "views": 315,
         "avg_view_pct": 53.06999999999999
       },
       {
