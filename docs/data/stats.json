@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 152,
-      "current_total_views": 20520,
+      "video_count": 154,
+      "current_total_views": 21839,
       "current_subscribers": 24
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 155,
-      "current_total_views": 25551,
+      "video_count": 158,
+      "current_total_views": 26341,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 159,
-      "current_total_views": 17162,
+      "video_count": 161,
+      "current_total_views": 17383,
       "current_subscribers": 20
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 110,
-      "current_total_views": 77458,
+      "video_count": 113,
+      "current_total_views": 77735,
       "current_subscribers": 88
     },
     "hp05_sleep_soundscapes": {
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 159,
-      "current_total_views": 18622,
+      "video_count": 161,
+      "current_total_views": 19001,
       "current_subscribers": 18
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 149,
-      "current_total_views": 14138,
-      "current_subscribers": 17
+      "video_count": 151,
+      "current_total_views": 14186,
+      "current_subscribers": 18
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 155,
-      "current_total_views": 29234,
+      "video_count": 158,
+      "current_total_views": 29524,
       "current_subscribers": 51
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 157,
-      "current_total_views": 17458,
+      "video_count": 159,
+      "current_total_views": 17540,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 144,
-      "current_total_views": 28253,
+      "video_count": 146,
+      "current_total_views": 28424,
       "current_subscribers": 35
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 156,
-      "current_total_views": 33937,
+      "video_count": 159,
+      "current_total_views": 34959,
       "current_subscribers": 29
     },
     "hp09_kids_cartoon_stories": {
@@ -5519,23 +5519,103 @@
       "watch_minutes": 25,
       "subs_gained": 0,
       "likes": 9
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-12",
+      "views": 513,
+      "watch_minutes": 52,
+      "subs_gained": 1,
+      "likes": 9
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-12",
+      "views": 64,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-12",
+      "views": 119,
+      "watch_minutes": 20,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-12",
+      "views": 1097,
+      "watch_minutes": 138,
+      "subs_gained": 2,
+      "likes": 15
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-12",
+      "views": 1029,
+      "watch_minutes": 101,
+      "subs_gained": 2,
+      "likes": 11
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-12",
+      "views": 333,
+      "watch_minutes": 34,
+      "subs_gained": 2,
+      "likes": 5
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-12",
+      "views": 123,
+      "watch_minutes": 18,
+      "subs_gained": 0,
+      "likes": 7
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-12",
+      "views": 308,
+      "watch_minutes": 19,
+      "subs_gained": 1,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-12",
+      "views": 99,
+      "watch_minutes": 8,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-12",
+      "views": 221,
+      "watch_minutes": 14,
+      "subs_gained": 0,
+      "likes": 2
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-14T09:54:41.875298Z",
+  "last_updated": "2026-10-15T09:35:43.697902Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
         "id": "pagRP11rm1s",
         "title": "He forged Mom\u2019s signature and lost it all\u2014my revenge",
-        "views": 1047,
+        "views": 1048,
         "avg_view_pct": 65.81
       },
       {
         "id": "Apxd2d9Kk0o",
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
-        "views": 898,
-        "avg_view_pct": 40.62
+        "views": 909,
+        "avg_view_pct": 40.35
       },
       {
         "id": "G5pJkhUz1EY",
@@ -5600,16 +5680,16 @@
         "avg_view_pct": 43.12
       },
       {
+        "id": "ztFrRb-ExVw",
+        "title": "A dispute over a wedding photographer who never delivered the photos",
+        "views": 939,
+        "avg_view_pct": 48.95
+      },
+      {
         "id": "zrOmgdG699Y",
         "title": "Smart thermostat temperature logs expose false alibi in arson trial",
         "views": 936,
         "avg_view_pct": 47
-      },
-      {
-        "id": "ztFrRb-ExVw",
-        "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 893,
-        "avg_view_pct": 50.24999999999999
       },
       {
         "id": "Ho83JiH534s",
@@ -5644,8 +5724,8 @@
       {
         "id": "k-G1fRZP2bk",
         "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 253,
-        "avg_view_pct": 48.4
+        "views": 254,
+        "avg_view_pct": 48.69
       }
     ],
     "hp03_karma_justice": [
@@ -5680,12 +5760,6 @@
         "avg_view_pct": 36.96
       },
       {
-        "id": "_lyCRA2fV5E",
-        "title": "The dishonest houseplant seller who swindled a collector, then saved them during a kitchen fire",
-        "views": 257,
-        "avg_view_pct": 46.27
-      },
-      {
         "id": "1GsN7mlF_I4",
         "title": "The rogue parking meter hacker who fined drivers, then warned them of an imminent bridge collapse",
         "views": 207,
@@ -5696,6 +5770,12 @@
         "title": "A neighbor who kept stealing parking spots until the HOA got involved",
         "views": 179,
         "avg_view_pct": 51.89
+      },
+      {
+        "id": "UMaNcLLNK3I",
+        "title": "A neighbor who kept stealing parking spots until the HOA got involved",
+        "views": 160,
+        "avg_view_pct": 29.080000000000002
       },
       {
         "id": "X52_Rc03Pag",
@@ -5724,22 +5804,16 @@
         "avg_view_pct": 60.209999999999994
       },
       {
-        "id": "HvbKHz3lIM8",
-        "title": "Veteran dog trainer donates free therapy pups to schools, sharing",
-        "views": 1143,
-        "avg_view_pct": 58.26
+        "id": "sEMJYPoxCjc",
+        "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
+        "views": 1075,
+        "avg_view_pct": 54
       },
       {
         "id": "_Ei4lK2L-i8",
         "title": "Veteran carpenter builds free wheelchair ramps for disabled veterans in a small mountain community",
         "views": 1069,
         "avg_view_pct": 79.62
-      },
-      {
-        "id": "sEMJYPoxCjc",
-        "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
-        "views": 1051,
-        "avg_view_pct": 54.14
       },
       {
         "id": "aMx92yYl5eE",
@@ -5770,6 +5844,12 @@
         "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
         "views": 967,
         "avg_view_pct": 53.64
+      },
+      {
+        "id": "NcI3Ij1BLxw",
+        "title": "Veteran chef cooks free meals for disaster",
+        "views": 965,
+        "avg_view_pct": 47.7
       }
     ],
     "hp06_literary_analysis": [
@@ -5780,9 +5860,15 @@
         "avg_view_pct": 42.72
       },
       {
+        "id": "AzhTcTbBTh0",
+        "title": "Why The Great Gatsby's ending still divides readers",
+        "views": 889,
+        "avg_view_pct": 67.99
+      },
+      {
         "id": "4DubdNDGMUo",
         "title": "What Pride and Prejudice actually says about class and marriage",
-        "views": 397,
+        "views": 398,
         "avg_view_pct": 67.9
       },
       {
@@ -5794,14 +5880,8 @@
       {
         "id": "nxLH1LzoLjE",
         "title": "The Hidden Language of Smells: Olfactory Symbolism in Patrick\u202fS\u00fcskind\u2019s\u202fPerfume",
-        "views": 307,
+        "views": 310,
         "avg_view_pct": 42.5
-      },
-      {
-        "id": "tWqFsBE-J9s",
-        "title": "The Handmaid\u2019s Tale\u2019s secret weapon isn\u2019t a gun\u2014it\u2019s a seed \ud83c\udf31",
-        "views": 261,
-        "avg_view_pct": 61.59
       },
       {
         "id": "mzcAL0XxLEk",
@@ -5810,28 +5890,28 @@
         "avg_view_pct": 34.82
       },
       {
+        "id": "tWqFsBE-J9s",
+        "title": "The Handmaid\u2019s Tale\u2019s secret weapon isn\u2019t a gun\u2014it\u2019s a seed \ud83c\udf31",
+        "views": 261,
+        "avg_view_pct": 61.59
+      },
+      {
         "id": "K9TP6MZ9ntY",
         "title": "Is Pride & Prejudice Actually a Secret Class Manifesto?",
         "views": 247,
         "avg_view_pct": 38.13
       },
       {
-        "id": "ghyjBNrm4k0",
-        "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
-        "views": 233,
-        "avg_view_pct": 51.39
-      },
-      {
         "id": "7LU2kKwQxAM",
         "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
-        "views": 230,
-        "avg_view_pct": 32.97
+        "views": 236,
+        "avg_view_pct": 32.9
       },
       {
-        "id": "uMcArSJOqRs",
-        "title": "Is Hill House a Living Prison for Your Mind?",
-        "views": 214,
-        "avg_view_pct": 46.57
+        "id": "ghyjBNrm4k0",
+        "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
+        "views": 234,
+        "avg_view_pct": 51.39
       }
     ],
     "hp07_senior_longevity": [
@@ -5906,8 +5986,8 @@
       {
         "id": "F088w6APAxg",
         "title": "Learn English: Take it with a grain of salt: meaning, origin, and natural usage",
-        "views": 741,
-        "avg_view_pct": 123.02
+        "views": 709,
+        "avg_view_pct": 126.18
       },
       {
         "id": "fdVfBdTQvDc",
@@ -6024,8 +6104,8 @@
       {
         "id": "39GBUIzWZ4U",
         "title": "Ahalya\u2019s Redemption: From Stone Curse to Liberation",
-        "views": 953,
-        "avg_view_pct": 32.54
+        "views": 954,
+        "avg_view_pct": 32.52
       },
       {
         "id": "MxsUAeZHSFw",
@@ -6054,8 +6134,8 @@
       {
         "id": "flg92KOofhk",
         "title": "The exile of Rama, Sita, and Lakshmana to the forest",
-        "views": 315,
-        "avg_view_pct": 53.06999999999999
+        "views": 318,
+        "avg_view_pct": 52.11
       },
       {
         "id": "iCgwhwoofMs",
@@ -6078,7 +6158,7 @@
       {
         "id": "uG86K0LB76c",
         "title": "Samudra Manthan: The Cosmic Churning of the Ocean for the Nectar of Immortality",
-        "views": 252,
+        "views": 253,
         "avg_view_pct": 53.03
       }
     ],
@@ -6126,6 +6206,12 @@
         "avg_view_pct": 52.57000000000001
       },
       {
+        "id": "TBszy4nY4rA",
+        "title": "The Buddhist concept of impermanence (anicca)",
+        "views": 250,
+        "avg_view_pct": 45.82
+      },
+      {
         "id": "66a6g5wAhqA",
         "title": "The Silent Drum: Finding Rhythm in Stillness",
         "views": 246,
@@ -6136,12 +6222,6 @@
         "title": "The Missing Pebble: Learning Zen Patience When the Path Gaps Appear",
         "views": 237,
         "avg_view_pct": 40.81
-      },
-      {
-        "id": "aRuNxdzi_AU",
-        "title": "The Silent Wind: Embracing Non\u2011Attachment Through a Kite's Flight",
-        "views": 224,
-        "avg_view_pct": 46.82
       }
     ]
   }
