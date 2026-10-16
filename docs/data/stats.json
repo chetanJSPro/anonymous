@@ -3,30 +3,30 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 154,
-      "current_total_views": 21839,
-      "current_subscribers": 24
+      "video_count": 155,
+      "current_total_views": 21849,
+      "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 158,
-      "current_total_views": 26341,
+      "video_count": 159,
+      "current_total_views": 26354,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 161,
-      "current_total_views": 17383,
+      "video_count": 162,
+      "current_total_views": 17395,
       "current_subscribers": 20
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 113,
-      "current_total_views": 77735,
-      "current_subscribers": 88
+      "video_count": 115,
+      "current_total_views": 77749,
+      "current_subscribers": 89
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 161,
-      "current_total_views": 19001,
+      "video_count": 164,
+      "current_total_views": 19040,
       "current_subscribers": 18
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 151,
-      "current_total_views": 14186,
+      "video_count": 152,
+      "current_total_views": 14188,
       "current_subscribers": 18
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 158,
-      "current_total_views": 29524,
+      "video_count": 160,
+      "current_total_views": 29530,
       "current_subscribers": 51
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 159,
+      "video_count": 160,
       "current_total_views": 17540,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 146,
-      "current_total_views": 28424,
+      "video_count": 147,
+      "current_total_views": 28435,
       "current_subscribers": 35
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 159,
-      "current_total_views": 34959,
+      "video_count": 162,
+      "current_total_views": 34989,
       "current_subscribers": 29
     },
     "hp09_kids_cartoon_stories": {
@@ -5599,10 +5599,90 @@
       "watch_minutes": 14,
       "subs_gained": 0,
       "likes": 2
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-13",
+      "views": 980,
+      "watch_minutes": 91,
+      "subs_gained": 0,
+      "likes": 11
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-13",
+      "views": 735,
+      "watch_minutes": 101,
+      "subs_gained": 1,
+      "likes": 11
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-13",
+      "views": 175,
+      "watch_minutes": 22,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-13",
+      "views": 323,
+      "watch_minutes": 36,
+      "subs_gained": 0,
+      "likes": 8
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-13",
+      "views": 189,
+      "watch_minutes": 19,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-13",
+      "views": 34,
+      "watch_minutes": 2,
+      "subs_gained": 1,
+      "likes": 1
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-13",
+      "views": 355,
+      "watch_minutes": 24,
+      "subs_gained": 0,
+      "likes": 7
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-13",
+      "views": 65,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-13",
+      "views": 132,
+      "watch_minutes": 12,
+      "subs_gained": 0,
+      "likes": 3
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-13",
+      "views": 902,
+      "watch_minutes": 80,
+      "subs_gained": 0,
+      "likes": 10
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-15T09:35:43.697902Z",
+  "last_updated": "2026-10-16T09:28:35.842796Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -5614,14 +5694,8 @@
       {
         "id": "Apxd2d9Kk0o",
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
-        "views": 909,
-        "avg_view_pct": 40.35
-      },
-      {
-        "id": "G5pJkhUz1EY",
-        "title": "How I Crashed a Billionaire's Dream with One Secret USB",
-        "views": 708,
-        "avg_view_pct": 36.06
+        "views": 899,
+        "avg_view_pct": 40.6
       },
       {
         "id": "df9_GoYKYiA",
@@ -5664,6 +5738,12 @@
         "title": "Luxury perfume creator spikes competitor\u2019s signature scent to ruin their launch after losing a celeb",
         "views": 372,
         "avg_view_pct": 23.9
+      },
+      {
+        "id": "wZKD1o0aXC0",
+        "title": "A roommate who secretly rented out the apartment on weekends until the landlord found out",
+        "views": 326,
+        "avg_view_pct": 58.9
       }
     ],
     "hp02_court_drama": [
@@ -5680,22 +5760,28 @@
         "avg_view_pct": 43.12
       },
       {
-        "id": "ztFrRb-ExVw",
-        "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 939,
-        "avg_view_pct": 48.95
-      },
-      {
         "id": "zrOmgdG699Y",
         "title": "Smart thermostat temperature logs expose false alibi in arson trial",
         "views": 936,
         "avg_view_pct": 47
       },
       {
+        "id": "ztFrRb-ExVw",
+        "title": "A dispute over a wedding photographer who never delivered the photos",
+        "views": 924,
+        "avg_view_pct": 49.26
+      },
+      {
         "id": "Ho83JiH534s",
         "title": "A case where a dog walker was sued after a dog went missing, then video evidence changed everything",
-        "views": 589,
+        "views": 587,
         "avg_view_pct": 50.67
+      },
+      {
+        "id": "U_YTkFPguHs",
+        "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
+        "views": 547,
+        "avg_view_pct": 71.67
       },
       {
         "id": "i9RfgZOIhdg",
@@ -5720,12 +5806,6 @@
         "title": "Judge orders neighbor to rip down fence in 48\u202fhours!",
         "views": 255,
         "avg_view_pct": 77.78
-      },
-      {
-        "id": "k-G1fRZP2bk",
-        "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 254,
-        "avg_view_pct": 48.69
       }
     ],
     "hp03_karma_justice": [
@@ -5748,16 +5828,16 @@
         "avg_view_pct": 39.1
       },
       {
-        "id": "CZVo4DCKYtY",
-        "title": "The pretentious valet who stole cars, then saved a driver from a sudden garage fire",
-        "views": 315,
-        "avg_view_pct": 46.21
-      },
-      {
         "id": "DLUiDY8xmoI",
         "title": "The fake pet breeder who sold sick puppies, then rescued the owner's child from a house fire",
         "views": 314,
         "avg_view_pct": 36.96
+      },
+      {
+        "id": "CZVo4DCKYtY",
+        "title": "The pretentious valet who stole cars, then saved a driver from a sudden garage fire",
+        "views": 308,
+        "avg_view_pct": 46.21
       },
       {
         "id": "1GsN7mlF_I4",
@@ -5792,12 +5872,6 @@
     ],
     "hp04_veteran_kindness": [
       {
-        "id": "GyeyE6CJs3A",
-        "title": "A stranger at an airport who gave up a first class seat to a veteran flying home",
-        "views": 1454,
-        "avg_view_pct": 85.41
-      },
-      {
         "id": "t6sNKsISjcc",
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
         "views": 1148,
@@ -5806,8 +5880,8 @@
       {
         "id": "sEMJYPoxCjc",
         "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
-        "views": 1075,
-        "avg_view_pct": 54
+        "views": 1076,
+        "avg_view_pct": 53.94
       },
       {
         "id": "_Ei4lK2L-i8",
@@ -5822,6 +5896,12 @@
         "avg_view_pct": 53.65
       },
       {
+        "id": "T2hGZ3JlLbo",
+        "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
+        "views": 1010,
+        "avg_view_pct": 58.87
+      },
+      {
         "id": "hVlHKIIOXic",
         "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
         "views": 982,
@@ -5834,12 +5914,6 @@
         "avg_view_pct": 50.13000000000001
       },
       {
-        "id": "Ax89w1hwrbA",
-        "title": "Why did an airline give a $2,400 upgrade to a veteran?",
-        "views": 968,
-        "avg_view_pct": 52.38
-      },
-      {
         "id": "PqiGqHhI4sI",
         "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
         "views": 967,
@@ -5850,6 +5924,12 @@
         "title": "Veteran chef cooks free meals for disaster",
         "views": 965,
         "avg_view_pct": 47.7
+      },
+      {
+        "id": "Ax89w1hwrbA",
+        "title": "Why did an airline give a $2,400 upgrade to a veteran?",
+        "views": 964,
+        "avg_view_pct": 52.28
       }
     ],
     "hp06_literary_analysis": [
@@ -5862,14 +5942,14 @@
       {
         "id": "AzhTcTbBTh0",
         "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 889,
-        "avg_view_pct": 67.99
+        "views": 898,
+        "avg_view_pct": 68.32
       },
       {
         "id": "4DubdNDGMUo",
         "title": "What Pride and Prejudice actually says about class and marriage",
-        "views": 398,
-        "avg_view_pct": 67.9
+        "views": 399,
+        "avg_view_pct": 67.69
       },
       {
         "id": "LPSDofYT00U",
@@ -5910,70 +5990,8 @@
       {
         "id": "ghyjBNrm4k0",
         "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
-        "views": 234,
-        "avg_view_pct": 51.39
-      }
-    ],
-    "hp07_senior_longevity": [
-      {
-        "id": "gviD9HTndhg",
-        "title": "Optimizing Protein Timing for Muscle Preservation and Longevity in Seniors",
-        "views": 335,
-        "avg_view_pct": 34.45
-      },
-      {
-        "id": "Uys5aRWZs8Q",
-        "title": "The value of stretching and light mobility work for older adults",
-        "views": 329,
-        "avg_view_pct": 38.85
-      },
-      {
-        "id": "h3CahA3YkB8",
-        "title": "Can 7 Minutes of Daily Tai Chi Boost Longevity After 60?",
-        "views": 317,
-        "avg_view_pct": 65.21
-      },
-      {
-        "id": "4iLmJ716JRA",
-        "title": "The 5\u2011Minute Night Routine That Keeps You Walking Strong for Decades",
-        "views": 296,
-        "avg_view_pct": 54.17999999999999
-      },
-      {
-        "id": "uPQkffL-pqM",
-        "title": "Can a 5\u2011Minute Daily Breathwork Routine Add Years to Your Life After 60?",
-        "views": 281,
-        "avg_view_pct": 38.85
-      },
-      {
-        "id": "XC2qrr3vtNk",
-        "title": "Can a 10\u2011Minute Walk After Every Meal Add Years to Your Life?",
-        "views": 254,
-        "avg_view_pct": 52.47999999999999
-      },
-      {
-        "id": "GyCL2Tx60W4",
-        "title": "Can learning a language after 60 boost your brain in just weeks?",
         "views": 235,
-        "avg_view_pct": 28.83
-      },
-      {
-        "id": "0cLuWDieEkA",
-        "title": "Why a short daily walk after meals supports healthy aging",
-        "views": 231,
-        "avg_view_pct": 37.88
-      },
-      {
-        "id": "HuxoCZjQ0Y4",
-        "title": "Why a 10\u2011Minute Walk After Every Meal Could Transform Your Aging?",
-        "views": 229,
-        "avg_view_pct": 43.71
-      },
-      {
-        "id": "YJLRI7MXQTo",
-        "title": "Can a 10\u2011Minute Walk After Every Meal Add Years to Your Life?",
-        "views": 202,
-        "avg_view_pct": 58.56
+        "avg_view_pct": 51.39
       }
     ],
     "hp08_english_learning": [
@@ -5982,12 +6000,6 @@
         "title": "What \u201cbreak the ice\u201d really means\u2014and how to use it instantly!",
         "views": 812,
         "avg_view_pct": 84.81
-      },
-      {
-        "id": "F088w6APAxg",
-        "title": "Learn English: Take it with a grain of salt: meaning, origin, and natural usage",
-        "views": 709,
-        "avg_view_pct": 126.18
       },
       {
         "id": "fdVfBdTQvDc",
@@ -6000,12 +6012,6 @@
         "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
         "views": 633,
         "avg_view_pct": 39.85
-      },
-      {
-        "id": "1RXz7ufDMmw",
-        "title": "Learn English: How to use \u201cin a nutshell\u201d: meaning, origin, and natural examples",
-        "views": 526,
-        "avg_view_pct": 38.54
       },
       {
         "id": "pIjBpsRJCkA",
@@ -6028,14 +6034,26 @@
       {
         "id": "YnY9JhLcks4",
         "title": "Learn English: How to use \u201cburn the midnight oil\u201d naturally in conversation",
-        "views": 479,
-        "avg_view_pct": 70.9
+        "views": 468,
+        "avg_view_pct": 71.94
       },
       {
         "id": "5T_n7RYOgFs",
         "title": "What does \u201cthe ball is in your court\u201d really mean? Find out now!",
         "views": 430,
         "avg_view_pct": 30.15
+      },
+      {
+        "id": "3vz__t1A_qI",
+        "title": "Learn English: How to use \u2018hit the nail on the head\u2019 naturally in conversation",
+        "views": 386,
+        "avg_view_pct": 33.04
+      },
+      {
+        "id": "coyKbtP5zC4",
+        "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
+        "views": 376,
+        "avg_view_pct": 53.39
       }
     ],
     "ch01_ai_asmr": [
@@ -6082,16 +6100,16 @@
         "avg_view_pct": 49.57
       },
       {
-        "id": "ZACUB8PIvGM",
-        "title": "Satisfying ASMR: Honeycomb soap crumbling apart",
-        "views": 192,
-        "avg_view_pct": 25.64
-      },
-      {
         "id": "G5aVEwhcgZw",
         "title": "Satisfying ASMR: Pastel polymer clay rolled and sliced on chilled glass, gentle creaks and smooth wh",
         "views": 177,
         "avg_view_pct": 25.239999999999995
+      },
+      {
+        "id": "WI5nLImijl4",
+        "title": "Satisfying ASMR: Colorful slime being stretched and folded",
+        "views": 177,
+        "avg_view_pct": 30.36
       },
       {
         "id": "iInzKHhq-kQ",
@@ -6128,13 +6146,13 @@
       {
         "id": "WU8ad2mEDOw",
         "title": "Ganesha\u2019s birth and the elephant\u2011head miracle: how Shiva\u2019s son gained his iconic form",
-        "views": 451,
+        "views": 453,
         "avg_view_pct": 69.67
       },
       {
         "id": "flg92KOofhk",
         "title": "The exile of Rama, Sita, and Lakshmana to the forest",
-        "views": 318,
+        "views": 317,
         "avg_view_pct": 52.11
       },
       {
@@ -6164,16 +6182,16 @@
     ],
     "ch06_eastern_philosophy": [
       {
+        "id": "dcEnONQB_LM",
+        "title": "The Tao Te Ching's teaching on softness overcoming hardness",
+        "views": 618,
+        "avg_view_pct": 37.64
+      },
+      {
         "id": "EXlZB06lndw",
         "title": "When the wind stopped, why did Maya\u2019s kite keep soaring?",
         "views": 472,
         "avg_view_pct": 37.51
-      },
-      {
-        "id": "svKZSpZDflA",
-        "title": "The Empty Bowl: Savoring Simplicity in a Hungry Monk\u2019s Meal",
-        "views": 468,
-        "avg_view_pct": 141.27
       },
       {
         "id": "JNYi7cO2NL4",
@@ -6200,16 +6218,16 @@
         "avg_view_pct": 65.26
       },
       {
-        "id": "noFN-siCWhM",
-        "title": "The Missing Shadow: A Zen Parable of Self\u2011Loss and True Presence",
-        "views": 256,
-        "avg_view_pct": 52.57000000000001
-      },
-      {
         "id": "TBszy4nY4rA",
         "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 250,
-        "avg_view_pct": 45.82
+        "views": 259,
+        "avg_view_pct": 44.65
+      },
+      {
+        "id": "noFN-siCWhM",
+        "title": "The Missing Shadow: A Zen Parable of Self\u2011Loss and True Presence",
+        "views": 252,
+        "avg_view_pct": 52.57000000000001
       },
       {
         "id": "66a6g5wAhqA",
@@ -6218,10 +6236,10 @@
         "avg_view_pct": 63.01
       },
       {
-        "id": "IXyOXZ6iQ5I",
-        "title": "The Missing Pebble: Learning Zen Patience When the Path Gaps Appear",
-        "views": 237,
-        "avg_view_pct": 40.81
+        "id": "aRuNxdzi_AU",
+        "title": "The Silent Wind: Embracing Non\u2011Attachment Through a Kite's Flight",
+        "views": 224,
+        "avg_view_pct": 46.82
       }
     ]
   }
