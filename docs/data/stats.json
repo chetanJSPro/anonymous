@@ -3,30 +3,30 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 156,
-      "current_total_views": 22345,
+      "video_count": 157,
+      "current_total_views": 22580,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 160,
-      "current_total_views": 26433,
+      "video_count": 161,
+      "current_total_views": 26501,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 163,
-      "current_total_views": 17533,
+      "video_count": 164,
+      "current_total_views": 17573,
       "current_subscribers": 20
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 118,
-      "current_total_views": 81086,
-      "current_subscribers": 90
+      "video_count": 121,
+      "current_total_views": 82074,
+      "current_subscribers": 92
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 167,
-      "current_total_views": 19967,
+      "video_count": 170,
+      "current_total_views": 20080,
       "current_subscribers": 18
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 153,
-      "current_total_views": 14297,
+      "video_count": 155,
+      "current_total_views": 14339,
       "current_subscribers": 18
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 161,
-      "current_total_views": 29642,
-      "current_subscribers": 51
+      "video_count": 163,
+      "current_total_views": 29783,
+      "current_subscribers": 53
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 161,
-      "current_total_views": 17980,
+      "video_count": 162,
+      "current_total_views": 18020,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 148,
-      "current_total_views": 28574,
+      "video_count": 150,
+      "current_total_views": 28847,
       "current_subscribers": 35
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 165,
-      "current_total_views": 35783,
+      "video_count": 168,
+      "current_total_views": 36079,
       "current_subscribers": 29
     },
     "hp09_kids_cartoon_stories": {
@@ -5759,10 +5759,90 @@
       "watch_minutes": 78,
       "subs_gained": 1,
       "likes": 10
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-15",
+      "views": 281,
+      "watch_minutes": 20,
+      "subs_gained": 1,
+      "likes": 2
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-15",
+      "views": 59,
+      "watch_minutes": 5,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-15",
+      "views": 84,
+      "watch_minutes": 6,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-15",
+      "views": 1757,
+      "watch_minutes": 295,
+      "subs_gained": 2,
+      "likes": 29
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-15",
+      "views": 573,
+      "watch_minutes": 68,
+      "subs_gained": 0,
+      "likes": 3
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-15",
+      "views": 91,
+      "watch_minutes": 16,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-15",
+      "views": 108,
+      "watch_minutes": 11,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-15",
+      "views": 48,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-15",
+      "views": 193,
+      "watch_minutes": 18,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-15",
+      "views": 453,
+      "watch_minutes": 148,
+      "subs_gained": 0,
+      "likes": 3
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-17T08:59:44.959855Z",
+  "last_updated": "2026-10-18T09:19:02.601425Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -5822,7 +5902,7 @@
       {
         "id": "epIf3LndqqY",
         "title": "Luxury yacht designer rigs rival\u2019s maiden voyage after losing billionaire charter\u2014watch the sabotage",
-        "views": 326,
+        "views": 330,
         "avg_view_pct": 44.76
       }
     ],
@@ -5848,14 +5928,14 @@
       {
         "id": "ztFrRb-ExVw",
         "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 924,
+        "views": 925,
         "avg_view_pct": 49.26
       },
       {
         "id": "U_YTkFPguHs",
         "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
-        "views": 596,
-        "avg_view_pct": 69.12
+        "views": 598,
+        "avg_view_pct": 68.95
       },
       {
         "id": "Ho83JiH534s",
@@ -5872,8 +5952,8 @@
       {
         "id": "-MYhjQ5zrKg",
         "title": "Judge Throws Out Drone Lawsuit with One Piece of Evidence!",
-        "views": 272,
-        "avg_view_pct": 68.11
+        "views": 273,
+        "avg_view_pct": 67.8
       },
       {
         "id": "c99LjdWGkko",
@@ -5958,6 +6038,12 @@
         "avg_view_pct": 60.209999999999994
       },
       {
+        "id": "pKLCGzmWpEs",
+        "title": "Why a Small Diner Surprised a Veteran with a Free Meal on His 20\u2011Year Anniversary",
+        "views": 1107,
+        "avg_view_pct": 44.48
+      },
+      {
         "id": "sEMJYPoxCjc",
         "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
         "views": 1076,
@@ -6004,12 +6090,6 @@
         "title": "Veteran chef cooks free meals for disaster",
         "views": 965,
         "avg_view_pct": 47.7
-      },
-      {
-        "id": "Ax89w1hwrbA",
-        "title": "Why did an airline give a $2,400 upgrade to a veteran?",
-        "views": 964,
-        "avg_view_pct": 52.28
       }
     ],
     "hp06_literary_analysis": [
@@ -6022,26 +6102,32 @@
       {
         "id": "AzhTcTbBTh0",
         "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 900,
+        "views": 901,
         "avg_view_pct": 68.46
+      },
+      {
+        "id": "DL-JMVbxrGM",
+        "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
+        "views": 544,
+        "avg_view_pct": 41.84
       },
       {
         "id": "4DubdNDGMUo",
         "title": "What Pride and Prejudice actually says about class and marriage",
-        "views": 399,
+        "views": 400,
         "avg_view_pct": 67.69
       },
       {
         "id": "nxLH1LzoLjE",
         "title": "The Hidden Language of Smells: Olfactory Symbolism in Patrick\u202fS\u00fcskind\u2019s\u202fPerfume",
-        "views": 310,
+        "views": 312,
         "avg_view_pct": 42.5
       },
       {
-        "id": "DL-JMVbxrGM",
-        "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 266,
-        "avg_view_pct": 39.43
+        "id": "vzvyTTxANHw",
+        "title": "The real meaning behind George Orwell's 1984",
+        "views": 292,
+        "avg_view_pct": 60.84
       },
       {
         "id": "mzcAL0XxLEk",
@@ -6064,14 +6150,8 @@
       {
         "id": "7LU2kKwQxAM",
         "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
-        "views": 238,
+        "views": 241,
         "avg_view_pct": 32.9
-      },
-      {
-        "id": "ghyjBNrm4k0",
-        "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
-        "views": 236,
-        "avg_view_pct": 51.39
       }
     ],
     "hp07_senior_longevity": [
@@ -6158,7 +6238,7 @@
       {
         "id": "pIjBpsRJCkA",
         "title": "What Does the Phrase the Ball Is In Your Court Really Mean?",
-        "views": 511,
+        "views": 513,
         "avg_view_pct": 39.33
       },
       {
@@ -6192,10 +6272,10 @@
         "avg_view_pct": 53.39
       },
       {
-        "id": "CcHK9U0KuE8",
-        "title": "Are You Using Look Forward To Wrong? Find Out!",
+        "id": "EVub6mclEFg",
+        "title": "Learn English: Why native speakers say \u2018bite the bullet\u2019 and how to use it naturally",
         "views": 360,
-        "avg_view_pct": 52.59
+        "avg_view_pct": 46.63
       }
     ],
     "ch01_ai_asmr": [
@@ -6224,6 +6304,12 @@
         "avg_view_pct": 20.7
       },
       {
+        "id": "IsYy9ZUOHLQ",
+        "title": "Watch Wax Melt on Basalt & ASMR Sand Shifts \u2013 Unexpected Sound Twist",
+        "views": 211,
+        "avg_view_pct": 27
+      },
+      {
         "id": "dfsynvV-ttY",
         "title": "Satisfying ASMR: Silky aloe vera gel slowly sliced on a chilled jade slab",
         "views": 207,
@@ -6246,12 +6332,6 @@
         "title": "Satisfying ASMR: Colorful slime being stretched and folded",
         "views": 203,
         "avg_view_pct": 49.57
-      },
-      {
-        "id": "IsYy9ZUOHLQ",
-        "title": "Watch Wax Melt on Basalt & ASMR Sand Shifts \u2013 Unexpected Sound Twist",
-        "views": 198,
-        "avg_view_pct": 27
       },
       {
         "id": "G5aVEwhcgZw",
@@ -6318,16 +6398,16 @@
       {
         "id": "uG86K0LB76c",
         "title": "Samudra Manthan: The Cosmic Churning of the Ocean for the Nectar of Immortality",
-        "views": 253,
-        "avg_view_pct": 53.03
+        "views": 254,
+        "avg_view_pct": 52.77
       }
     ],
     "ch06_eastern_philosophy": [
       {
         "id": "dcEnONQB_LM",
         "title": "The Tao Te Ching's teaching on softness overcoming hardness",
-        "views": 760,
-        "avg_view_pct": 57.92
+        "views": 776,
+        "avg_view_pct": 57.59000000000001
       },
       {
         "id": "EXlZB06lndw",
@@ -6344,8 +6424,8 @@
       {
         "id": "3vD99zcTFVk",
         "title": "The parable of the two monks and the river",
-        "views": 324,
-        "avg_view_pct": 67.06
+        "views": 312,
+        "avg_view_pct": 67.7
       },
       {
         "id": "0K0rPSxHJyw",
@@ -6356,8 +6436,8 @@
       {
         "id": "TBszy4nY4rA",
         "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 259,
-        "avg_view_pct": 44.65
+        "views": 261,
+        "avg_view_pct": 45.41
       },
       {
         "id": "noFN-siCWhM",
