@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 158,
-      "current_total_views": 22730,
+      "video_count": 159,
+      "current_total_views": 23249,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 161,
-      "current_total_views": 26817,
+      "video_count": 162,
+      "current_total_views": 26825,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 165,
-      "current_total_views": 18378,
+      "video_count": 166,
+      "current_total_views": 18408,
       "current_subscribers": 20
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 124,
-      "current_total_views": 84817,
+      "video_count": 127,
+      "current_total_views": 85275,
       "current_subscribers": 92
     },
     "hp05_sleep_soundscapes": {
@@ -35,44 +35,44 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 173,
-      "current_total_views": 20534,
+      "video_count": 176,
+      "current_total_views": 21116,
       "current_subscribers": 18
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 157,
-      "current_total_views": 14516,
+      "video_count": 158,
+      "current_total_views": 14708,
       "current_subscribers": 18
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 164,
-      "current_total_views": 30501,
+      "video_count": 165,
+      "current_total_views": 30782,
       "current_subscribers": 53
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 163,
-      "current_total_views": 18131,
+      "video_count": 164,
+      "current_total_views": 18191,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 152,
-      "current_total_views": 30112,
+      "video_count": 153,
+      "current_total_views": 30206,
       "current_subscribers": 35
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 171,
-      "current_total_views": 36914,
-      "current_subscribers": 30
+      "video_count": 173,
+      "current_total_views": 37118,
+      "current_subscribers": 31
     },
     "hp09_kids_cartoon_stories": {
       "niche": "Kids cartoon animal stories",
@@ -5919,10 +5919,90 @@
       "watch_minutes": 34,
       "subs_gained": 0,
       "likes": 3
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-17",
+      "views": 256,
+      "watch_minutes": 24,
+      "subs_gained": 0,
+      "likes": 3
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-17",
+      "views": 81,
+      "watch_minutes": 5,
+      "subs_gained": 0,
+      "likes": -5
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-17",
+      "views": 662,
+      "watch_minutes": 66,
+      "subs_gained": 0,
+      "likes": 2
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-17",
+      "views": 1511,
+      "watch_minutes": 226,
+      "subs_gained": 2,
+      "likes": 25
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-17",
+      "views": 355,
+      "watch_minutes": 48,
+      "subs_gained": 0,
+      "likes": 7
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-17",
+      "views": 94,
+      "watch_minutes": 10,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-17",
+      "views": 462,
+      "watch_minutes": 26,
+      "subs_gained": 2,
+      "likes": 4
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-17",
+      "views": 23,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-17",
+      "views": 785,
+      "watch_minutes": 96,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-17",
+      "views": 597,
+      "watch_minutes": 53,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-19T10:29:17.894112Z",
+  "last_updated": "2026-10-20T09:47:46.598988Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -5934,7 +6014,7 @@
       {
         "id": "Apxd2d9Kk0o",
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
-        "views": 898,
+        "views": 899,
         "avg_view_pct": 40.6
       },
       {
@@ -5952,7 +6032,7 @@
       {
         "id": "wk_ZCz_OsO0",
         "title": "High\u2011end jewelry designer swaps rival\u2019s diamond with cubic zirconia after losing a royal commission",
-        "views": 555,
+        "views": 556,
         "avg_view_pct": 80.86
       },
       {
@@ -6008,7 +6088,7 @@
       {
         "id": "ztFrRb-ExVw",
         "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 925,
+        "views": 926,
         "avg_view_pct": 49.26
       },
       {
@@ -6044,7 +6124,7 @@
       {
         "id": "k-G1fRZP2bk",
         "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 246,
+        "views": 247,
         "avg_view_pct": 48.2
       }
     ],
@@ -6054,6 +6134,12 @@
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
         "views": 995,
         "avg_view_pct": 38.46
+      },
+      {
+        "id": "fe44PNZvqmE",
+        "title": "A person who cut in line at the airport and the gate agent had the perfect response",
+        "views": 679,
+        "avg_view_pct": 37.44
       },
       {
         "id": "DLUiDY8xmoI",
@@ -6068,22 +6154,10 @@
         "avg_view_pct": 46.21
       },
       {
-        "id": "bSa0wvXSb6A",
-        "title": "A person who cut in line at the airport and the gate agent had the perfect response",
-        "views": 214,
-        "avg_view_pct": 37.79
-      },
-      {
         "id": "1GsN7mlF_I4",
         "title": "The rogue parking meter hacker who fined drivers, then warned them of an imminent bridge collapse",
         "views": 207,
         "avg_view_pct": 30.599999999999998
-      },
-      {
-        "id": "9EehJVNfN34",
-        "title": "A neighbor who kept stealing parking spots until the HOA got involved",
-        "views": 179,
-        "avg_view_pct": 51.89
       },
       {
         "id": "UMaNcLLNK3I",
@@ -6098,16 +6172,22 @@
         "avg_view_pct": 60.52000000000001
       },
       {
-        "id": "mCpR3MAR3-I",
-        "title": "The crooked home renovation contractor who overcharged a family, then rescued them from a gas explos",
-        "views": 140,
-        "avg_view_pct": 31.19
+        "id": "iMuQhtiXoEA",
+        "title": "The fake online tutor who stole tuition, then helped a student uncover a cheating ring at school",
+        "views": 133,
+        "avg_view_pct": 45.69
       },
       {
-        "id": "ryyAzjQ11jk",
-        "title": "Gate Agent Snaps Line\u2011Cutter\u2019s Ticket\u2014Watch Karma Strike!",
-        "views": 134,
-        "avg_view_pct": 32.1
+        "id": "Kbi3zAt5aNI",
+        "title": "An entitled customer who demanded a refund and got caught lying on camera",
+        "views": 131,
+        "avg_view_pct": 30.11
+      },
+      {
+        "id": "VjRubjI621g",
+        "title": "Caught on Camera: The Refund Scam That Got Him Kicked Out",
+        "views": 125,
+        "avg_view_pct": 36.12
       }
     ],
     "hp04_veteran_kindness": [
@@ -6148,6 +6228,12 @@
         "avg_view_pct": 58.93999999999999
       },
       {
+        "id": "1FFIVjjpJOw",
+        "title": "What happened when a librarian found a veteran\u2019s secret medals?",
+        "views": 1010,
+        "avg_view_pct": 64.24
+      },
+      {
         "id": "hVlHKIIOXic",
         "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
         "views": 982,
@@ -6164,12 +6250,6 @@
         "title": "Why did an airline give a $2,400 upgrade to a veteran?",
         "views": 964,
         "avg_view_pct": 52.28
-      },
-      {
-        "id": "-SBVOFrITlU",
-        "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
-        "views": 946,
-        "avg_view_pct": 52.18000000000001
       }
     ],
     "hp06_literary_analysis": [
@@ -6188,14 +6268,20 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 556,
-        "avg_view_pct": 42.04
+        "views": 553,
+        "avg_view_pct": 41.86
       },
       {
         "id": "4DubdNDGMUo",
         "title": "What Pride and Prejudice actually says about class and marriage",
-        "views": 400,
+        "views": 402,
         "avg_view_pct": 67.69
+      },
+      {
+        "id": "vzvyTTxANHw",
+        "title": "The real meaning behind George Orwell's 1984",
+        "views": 318,
+        "avg_view_pct": 134.87
       },
       {
         "id": "nxLH1LzoLjE",
@@ -6204,15 +6290,9 @@
         "avg_view_pct": 42.5
       },
       {
-        "id": "vzvyTTxANHw",
-        "title": "The real meaning behind George Orwell's 1984",
-        "views": 312,
-        "avg_view_pct": 136.18
-      },
-      {
         "id": "mzcAL0XxLEk",
         "title": "What the Cold Walls of Hailsham Reveal About Every Clone\u2019s Identity?",
-        "views": 261,
+        "views": 262,
         "avg_view_pct": 34.82
       },
       {
@@ -6224,13 +6304,13 @@
       {
         "id": "7LU2kKwQxAM",
         "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
-        "views": 244,
+        "views": 245,
         "avg_view_pct": 32.9
       },
       {
         "id": "ghyjBNrm4k0",
         "title": "What the Endless Road Reveals About Humanity in Cormac McCarthy's The Road",
-        "views": 237,
+        "views": 238,
         "avg_view_pct": 51.39
       }
     ],
@@ -6322,16 +6402,16 @@
         "avg_view_pct": 39.33
       },
       {
-        "id": "PZFEFt7CsNM",
-        "title": "Learn English: The phrasal verb 'look forward to' and common mistakes learners make",
-        "views": 503,
-        "avg_view_pct": 29.38
-      },
-      {
         "id": "TepqleCco3c",
         "title": "The Secret Phrase That Lets You Disagree Without Being Rude",
         "views": 490,
         "avg_view_pct": 41.4
+      },
+      {
+        "id": "rSjrAu0RNgE",
+        "title": "What does \u201chit the books\u201d really mean? Learn the slang in 30 seconds!",
+        "views": 467,
+        "avg_view_pct": 36.5
       },
       {
         "id": "5T_n7RYOgFs",
@@ -6396,6 +6476,12 @@
         "avg_view_pct": 42.57
       },
       {
+        "id": "IsYy9ZUOHLQ",
+        "title": "Watch Wax Melt on Basalt & ASMR Sand Shifts \u2013 Unexpected Sound Twist",
+        "views": 206,
+        "avg_view_pct": 22.52
+      },
+      {
         "id": "Wvxk9RhYfaw",
         "title": "Soap, Slime, Frosted Glass & Sand\u2014Which Texture Is the Most Satisfying?",
         "views": 205,
@@ -6406,12 +6492,6 @@
         "title": "Satisfying ASMR: Colorful slime being stretched and folded",
         "views": 203,
         "avg_view_pct": 49.57
-      },
-      {
-        "id": "IsYy9ZUOHLQ",
-        "title": "Watch Wax Melt on Basalt & ASMR Sand Shifts \u2013 Unexpected Sound Twist",
-        "views": 200,
-        "avg_view_pct": 22.52
       },
       {
         "id": "G5aVEwhcgZw",
@@ -6426,6 +6506,12 @@
         "title": "Ahalya\u2019s Redemption: From Stone Curse to Liberation",
         "views": 954,
         "avg_view_pct": 32.52
+      },
+      {
+        "id": "zq7vIb8_rPU",
+        "title": "Hanuman's leap across the ocean to Lanka",
+        "views": 754,
+        "avg_view_pct": 66.96
       },
       {
         "id": "MxsUAeZHSFw",
@@ -6458,28 +6544,22 @@
         "avg_view_pct": 93.82
       },
       {
+        "id": "Qf382JvFlkg",
+        "title": "The moment Arjuna receives the Bhagavad Gita's wisdom from Krishna before the war",
+        "views": 291,
+        "avg_view_pct": 41.88
+      },
+      {
         "id": "Djc0TXc9-40",
         "title": "Hanuman's leap across the ocean to Lanka",
         "views": 274,
         "avg_view_pct": 61.99
       },
       {
-        "id": "Qf382JvFlkg",
-        "title": "The moment Arjuna receives the Bhagavad Gita's wisdom from Krishna before the war",
-        "views": 268,
-        "avg_view_pct": 38.77
-      },
-      {
         "id": "fq0LErxCOYo",
         "title": "The Miracle of Hanuman\u2019s Leap to Lanka: Faith and Strength in the Ramayana",
         "views": 267,
         "avg_view_pct": 33.26
-      },
-      {
-        "id": "uG86K0LB76c",
-        "title": "Samudra Manthan: The Cosmic Churning of the Ocean for the Nectar of Immortality",
-        "views": 254,
-        "avg_view_pct": 52.77
       }
     ],
     "ch06_eastern_philosophy": [
@@ -6508,16 +6588,22 @@
         "avg_view_pct": 37.26
       },
       {
-        "id": "8o802hDVN1g",
-        "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 262,
-        "avg_view_pct": 133.2
+        "id": "EYxdhQE1VsY",
+        "title": "When the mountain whispered, why did the climber hear silence?",
+        "views": 287,
+        "avg_view_pct": 49.42
       },
       {
         "id": "TBszy4nY4rA",
         "title": "The Buddhist concept of impermanence (anicca)",
         "views": 261,
         "avg_view_pct": 45.41
+      },
+      {
+        "id": "8o802hDVN1g",
+        "title": "The Buddhist concept of impermanence (anicca)",
+        "views": 259,
+        "avg_view_pct": 133.2
       },
       {
         "id": "noFN-siCWhM",
@@ -6536,12 +6622,6 @@
         "title": "The Silent Wind: Embracing Non\u2011Attachment Through a Kite's Flight",
         "views": 224,
         "avg_view_pct": 46.82
-      },
-      {
-        "id": "IXyOXZ6iQ5I",
-        "title": "The Missing Pebble: Learning Zen Patience When the Path Gaps Appear",
-        "views": 219,
-        "avg_view_pct": 40.81
       }
     ]
   }
