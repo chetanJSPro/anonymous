@@ -3,30 +3,30 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 161,
-      "current_total_views": 23833,
+      "video_count": 162,
+      "current_total_views": 24157,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 166,
-      "current_total_views": 26966,
+      "video_count": 167,
+      "current_total_views": 27093,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 168,
-      "current_total_views": 19977,
+      "video_count": 169,
+      "current_total_views": 20231,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 135,
-      "current_total_views": 89713,
-      "current_subscribers": 95
+      "video_count": 137,
+      "current_total_views": 91026,
+      "current_subscribers": 97
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 184,
-      "current_total_views": 22349,
+      "video_count": 186,
+      "current_total_views": 22571,
       "current_subscribers": 18
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 161,
-      "current_total_views": 15004,
+      "video_count": 162,
+      "current_total_views": 15113,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 170,
-      "current_total_views": 31767,
+      "video_count": 172,
+      "current_total_views": 32224,
       "current_subscribers": 54
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
       "video_count": 166,
-      "current_total_views": 18312,
+      "current_total_views": 18317,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 159,
-      "current_total_views": 31677,
+      "video_count": 160,
+      "current_total_views": 31908,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 183,
-      "current_total_views": 39608,
+      "video_count": 186,
+      "current_total_views": 39703,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -6239,10 +6239,90 @@
       "watch_minutes": 86,
       "subs_gained": 0,
       "likes": 5
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-21",
+      "views": 176,
+      "watch_minutes": 13,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-21",
+      "views": 43,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-21",
+      "views": 123,
+      "watch_minutes": 14,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-21",
+      "views": 921,
+      "watch_minutes": 175,
+      "subs_gained": 1,
+      "likes": 15
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-21",
+      "views": 369,
+      "watch_minutes": 41,
+      "subs_gained": 0,
+      "likes": 5
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-21",
+      "views": 135,
+      "watch_minutes": 19,
+      "subs_gained": 1,
+      "likes": 1
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-21",
+      "views": 566,
+      "watch_minutes": 33,
+      "subs_gained": 0,
+      "likes": 5
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-21",
+      "views": 27,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-21",
+      "views": 813,
+      "watch_minutes": 151,
+      "subs_gained": 1,
+      "likes": 6
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-21",
+      "views": 613,
+      "watch_minutes": 53,
+      "subs_gained": 2,
+      "likes": 8
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-23T09:44:07.692958Z",
+  "last_updated": "2026-10-24T09:17:21.113108Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -6358,7 +6438,7 @@
       {
         "id": "z4KkuCKzZq8",
         "title": "A small claims case over a neighbor's fence built two feet into the wrong yard",
-        "views": 256,
+        "views": 255,
         "avg_view_pct": 58.51
       },
       {
@@ -6370,16 +6450,10 @@
     ],
     "hp03_karma_justice": [
       {
-        "id": "ANivH8HQTog",
-        "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 996,
-        "avg_view_pct": 38.45
-      },
-      {
         "id": "2iFaKwqYIuo",
         "title": "He tried to refund a blender he never bought\u2014watch karma strike!",
-        "views": 835,
-        "avg_view_pct": 51.84000000000001
+        "views": 829,
+        "avg_view_pct": 51.95000000000001
       },
       {
         "id": "fe44PNZvqmE",
@@ -6394,16 +6468,22 @@
         "avg_view_pct": 46.21
       },
       {
-        "id": "1GsN7mlF_I4",
-        "title": "The rogue parking meter hacker who fined drivers, then warned them of an imminent bridge collapse",
-        "views": 204,
-        "avg_view_pct": 29.189999999999998
+        "id": "ANivH8HQTog",
+        "title": "An entitled customer who demanded a refund and got caught lying on camera",
+        "views": 212,
+        "avg_view_pct": 34.85
       },
       {
         "id": "01Ks9ktQg94",
         "title": "A person who cut in line at the airport and the gate agent had the perfect response",
-        "views": 203,
+        "views": 199,
         "avg_view_pct": 44.61
+      },
+      {
+        "id": "sq7WrOeN5nM",
+        "title": "A neighbor who kept stealing parking spots until the HOA got involved",
+        "views": 162,
+        "avg_view_pct": 60.06
       },
       {
         "id": "UMaNcLLNK3I",
@@ -6418,16 +6498,16 @@
         "avg_view_pct": 60.52000000000001
       },
       {
-        "id": "DLUiDY8xmoI",
-        "title": "The fake pet breeder who sold sick puppies, then rescued the owner's child from a house fire",
-        "views": 154,
-        "avg_view_pct": 28.6
+        "id": "iMuQhtiXoEA",
+        "title": "The fake online tutor who stole tuition, then helped a student uncover a cheating ring at school",
+        "views": 133,
+        "avg_view_pct": 45.69
       },
       {
-        "id": "sq7WrOeN5nM",
-        "title": "A neighbor who kept stealing parking spots until the HOA got involved",
-        "views": 151,
-        "avg_view_pct": 60.94
+        "id": "Kbi3zAt5aNI",
+        "title": "An entitled customer who demanded a refund and got caught lying on camera",
+        "views": 131,
+        "avg_view_pct": 30.11
       }
     ],
     "hp04_veteran_kindness": [
@@ -6462,6 +6542,12 @@
         "avg_view_pct": 51
       },
       {
+        "id": "aElGL1Ckmto",
+        "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
+        "views": 1011,
+        "avg_view_pct": 64.85
+      },
+      {
         "id": "T2hGZ3JlLbo",
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
         "views": 1011,
@@ -6477,19 +6563,13 @@
         "id": "DCiujCgugls",
         "title": "He walked in for gas, left with a surprise donation for his VFW",
         "views": 998,
-        "avg_view_pct": 47.03
+        "avg_view_pct": 47.11
       },
       {
-        "id": "aElGL1Ckmto",
+        "id": "l4bmcfRXs6c",
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
-        "views": 986,
-        "avg_view_pct": 64.79
-      },
-      {
-        "id": "PqiGqHhI4sI",
-        "title": "A diner owner who quietly comps every veteran's meal on their anniversary",
-        "views": 967,
-        "avg_view_pct": 53.64
+        "views": 970,
+        "avg_view_pct": 62.86999999999999
       }
     ],
     "hp06_literary_analysis": [
@@ -6508,8 +6588,8 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 556,
-        "avg_view_pct": 41.79
+        "views": 558,
+        "avg_view_pct": 41.76
       },
       {
         "id": "4DubdNDGMUo",
@@ -6520,13 +6600,13 @@
       {
         "id": "CIMeS2kZbkM",
         "title": "The Secret Power of Tattoos in Neil Gaiman\u2019s\u202fAmerican\u202fGods: Identity, Myth, and Transformation",
-        "views": 339,
-        "avg_view_pct": 43.96
+        "views": 386,
+        "avg_view_pct": 44.27
       },
       {
         "id": "vzvyTTxANHw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 320,
+        "views": 321,
         "avg_view_pct": 134.87
       },
       {
@@ -6538,20 +6618,20 @@
       {
         "id": "mzcAL0XxLEk",
         "title": "What the Cold Walls of Hailsham Reveal About Every Clone\u2019s Identity?",
-        "views": 264,
+        "views": 267,
         "avg_view_pct": 35.64
       },
       {
         "id": "utI_9M7ShFs",
         "title": "The dark true story that inspired Mary Shelley's Frankenstein",
-        "views": 263,
+        "views": 265,
         "avg_view_pct": 36.69
       },
       {
-        "id": "7LU2kKwQxAM",
-        "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
-        "views": 254,
-        "avg_view_pct": 33.1
+        "id": "Tqcx-C3vgbk",
+        "title": "The Secret Power of Seeds in Margaret Atwood\u2019s\u202fThe\u202fYear\u202fof\u202fthe",
+        "views": 263,
+        "avg_view_pct": 161.32
       }
     ],
     "hp07_senior_longevity": [
@@ -6618,15 +6698,9 @@
     ],
     "hp08_english_learning": [
       {
-        "id": "HqgY3ZvP3rE",
-        "title": "What \u201cbreak the ice\u201d really means\u2014and how to use it instantly!",
-        "views": 812,
-        "avg_view_pct": 84.81
-      },
-      {
         "id": "rSjrAu0RNgE",
         "title": "What does \u201chit the books\u201d really mean? Learn the slang in 30 seconds!",
-        "views": 781,
+        "views": 780,
         "avg_view_pct": 29.99
       },
       {
@@ -6636,22 +6710,22 @@
         "avg_view_pct": 39.85
       },
       {
+        "id": "bRwSus7_H2o",
+        "title": "Learn English: How to politely disagree in English using softening phrases",
+        "views": 549,
+        "avg_view_pct": 31.95
+      },
+      {
         "id": "pIjBpsRJCkA",
         "title": "What Does the Phrase the Ball Is In Your Court Really Mean?",
         "views": 513,
         "avg_view_pct": 39.33
       },
       {
-        "id": "fdVfBdTQvDc",
-        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
-        "views": 484,
-        "avg_view_pct": 35.51
-      },
-      {
-        "id": "TepqleCco3c",
-        "title": "The Secret Phrase That Lets You Disagree Without Being Rude",
-        "views": 472,
-        "avg_view_pct": 42.12
+        "id": "HqgY3ZvP3rE",
+        "title": "What \u201cbreak the ice\u201d really means\u2014and how to use it instantly!",
+        "views": 496,
+        "avg_view_pct": 92.97
       },
       {
         "id": "3vz__t1A_qI",
@@ -6674,8 +6748,14 @@
       {
         "id": "hD0kQgg0LCw",
         "title": "The Secret Phrase That Lets You Disagree Politely",
-        "views": 350,
+        "views": 349,
         "avg_view_pct": 39.55
+      },
+      {
+        "id": "kzKZguDl4RU",
+        "title": "Stuck Between Choices? Master \u201cOn the Fence\u201d in 30 Seconds!",
+        "views": 342,
+        "avg_view_pct": 36.1
       }
     ],
     "ch01_ai_asmr": [
@@ -6688,7 +6768,7 @@
       {
         "id": "17fnc9hXulI",
         "title": "Satisfying ASMR: Glossy soap bar being sliced into cubes",
-        "views": 272,
+        "views": 271,
         "avg_view_pct": 43.27
       },
       {
@@ -6722,16 +6802,16 @@
         "avg_view_pct": 22.52
       },
       {
-        "id": "G5aVEwhcgZw",
-        "title": "Satisfying ASMR: Pastel polymer clay rolled and sliced on chilled glass, gentle creaks and smooth wh",
-        "views": 177,
-        "avg_view_pct": 25.239999999999995
-      },
-      {
         "id": "WI5nLImijl4",
         "title": "Satisfying ASMR: Colorful slime being stretched and folded",
         "views": 177,
         "avg_view_pct": 30.36
+      },
+      {
+        "id": "G5aVEwhcgZw",
+        "title": "Satisfying ASMR: Pastel polymer clay rolled and sliced on chilled glass, gentle creaks and smooth wh",
+        "views": 177,
+        "avg_view_pct": 25.239999999999995
       },
       {
         "id": "iInzKHhq-kQ",
@@ -6744,14 +6824,20 @@
       {
         "id": "39GBUIzWZ4U",
         "title": "Ahalya\u2019s Redemption: From Stone Curse to Liberation",
-        "views": 954,
-        "avg_view_pct": 32.52
+        "views": 934,
+        "avg_view_pct": 32.33
       },
       {
         "id": "zq7vIb8_rPU",
         "title": "Hanuman's leap across the ocean to Lanka",
-        "views": 786,
+        "views": 785,
         "avg_view_pct": 64.98
+      },
+      {
+        "id": "8xzmTPKpYn4",
+        "title": "The birth and strength of Bhima",
+        "views": 776,
+        "avg_view_pct": 57.63
       },
       {
         "id": "MxsUAeZHSFw",
@@ -6774,7 +6860,7 @@
       {
         "id": "86QET8UmVSM",
         "title": "Ravana's ten heads and his devotion to Shiva",
-        "views": 401,
+        "views": 400,
         "avg_view_pct": 37.47
       },
       {
@@ -6794,12 +6880,6 @@
         "title": "The moment Arjuna receives the Bhagavad Gita's wisdom from Krishna before the war",
         "views": 295,
         "avg_view_pct": 41.88
-      },
-      {
-        "id": "fq0LErxCOYo",
-        "title": "The Miracle of Hanuman\u2019s Leap to Lanka: Faith and Strength in the Ramayana",
-        "views": 267,
-        "avg_view_pct": 33.26
       }
     ],
     "ch06_eastern_philosophy": [
@@ -6810,40 +6890,46 @@
         "avg_view_pct": 57.440000000000005
       },
       {
-        "id": "EXlZB06lndw",
-        "title": "When the wind stopped, why did Maya\u2019s kite keep soaring?",
-        "views": 472,
-        "avg_view_pct": 37.51
-      },
-      {
         "id": "UeHxz9Jnw0g",
         "title": "When the rain fell upward, why did the garden bloom in silence?",
-        "views": 445,
-        "avg_view_pct": 127.01
+        "views": 456,
+        "avg_view_pct": 124.88999999999999
       },
       {
         "id": "xN4N0FDlKDs",
         "title": "When the cracked mirror reflected nothing, why did the pilgrim discover his true self?",
-        "views": 421,
-        "avg_view_pct": 181.84
+        "views": 443,
+        "avg_view_pct": 173.35
       },
       {
-        "id": "0K0rPSxHJyw",
-        "title": "The Broken Clock: Accepting Unpredictable Timing in Life",
-        "views": 305,
-        "avg_view_pct": 37.26
+        "id": "iRcYJKDMGzc",
+        "title": "When the incense vanished, why did the monk hear the garden\u2019s heartbeat?",
+        "views": 367,
+        "avg_view_pct": 69.13
       },
       {
         "id": "hHzKPqPFBEo",
         "title": "When the silent bell rang, why did the monk hear his own breath?",
-        "views": 302,
-        "avg_view_pct": 43.18
+        "views": 360,
+        "avg_view_pct": 44.3
+      },
+      {
+        "id": "EXlZB06lndw",
+        "title": "When the wind stopped, why did Maya\u2019s kite keep soaring?",
+        "views": 316,
+        "avg_view_pct": 38.24
       },
       {
         "id": "EYxdhQE1VsY",
         "title": "When the mountain whispered, why did the climber hear silence?",
         "views": 298,
         "avg_view_pct": 48.91
+      },
+      {
+        "id": "0K0rPSxHJyw",
+        "title": "The Broken Clock: Accepting Unpredictable Timing in Life",
+        "views": 277,
+        "avg_view_pct": 40
       },
       {
         "id": "TBszy4nY4rA",
@@ -6854,14 +6940,8 @@
       {
         "id": "8o802hDVN1g",
         "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 259,
-        "avg_view_pct": 133.2
-      },
-      {
-        "id": "noFN-siCWhM",
-        "title": "The Missing Shadow: A Zen Parable of Self\u2011Loss and True Presence",
-        "views": 252,
-        "avg_view_pct": 52.57000000000001
+        "views": 260,
+        "avg_view_pct": 132.73
       }
     ]
   }
