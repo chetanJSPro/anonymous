@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 162,
-      "current_total_views": 24363,
+      "video_count": 163,
+      "current_total_views": 24398,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 167,
-      "current_total_views": 27135,
+      "video_count": 168,
+      "current_total_views": 27197,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 169,
-      "current_total_views": 20281,
+      "video_count": 170,
+      "current_total_views": 20317,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 139,
-      "current_total_views": 92495,
+      "video_count": 140,
+      "current_total_views": 94378,
       "current_subscribers": 97
     },
     "hp05_sleep_soundscapes": {
@@ -36,42 +36,42 @@
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
       "video_count": 188,
-      "current_total_views": 22938,
+      "current_total_views": 23118,
       "current_subscribers": 19
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 162,
-      "current_total_views": 15162,
+      "video_count": 163,
+      "current_total_views": 15170,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 173,
-      "current_total_views": 32449,
+      "video_count": 174,
+      "current_total_views": 32893,
       "current_subscribers": 55
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
       "video_count": 167,
-      "current_total_views": 18355,
+      "current_total_views": 18360,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 161,
-      "current_total_views": 32072,
+      "video_count": 162,
+      "current_total_views": 32294,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 188,
-      "current_total_views": 39756,
+      "video_count": 189,
+      "current_total_views": 39846,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -6399,10 +6399,90 @@
       "watch_minutes": 11,
       "subs_gained": 0,
       "likes": 2
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-23",
+      "views": 450,
+      "watch_minutes": 26,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-23",
+      "views": 87,
+      "watch_minutes": 9,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-23",
+      "views": 220,
+      "watch_minutes": 18,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-23",
+      "views": 1629,
+      "watch_minutes": 219,
+      "subs_gained": 2,
+      "likes": 16
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-23",
+      "views": 218,
+      "watch_minutes": 21,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-23",
+      "views": 84,
+      "watch_minutes": 9,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-23",
+      "views": 428,
+      "watch_minutes": 18,
+      "subs_gained": 0,
+      "likes": 3
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-23",
+      "views": 35,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-23",
+      "views": 189,
+      "watch_minutes": 13,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-23",
+      "views": 112,
+      "watch_minutes": 8,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-25T09:33:38.647978Z",
+  "last_updated": "2026-10-26T10:44:55.311619Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -6418,10 +6498,10 @@
         "avg_view_pct": 40.6
       },
       {
-        "id": "xP0BvvNvD8o",
-        "title": "Luxury wedding photographer replaces bride\u2019s album with scandalous candid shots after being rejected",
-        "views": 605,
-        "avg_view_pct": 30.17
+        "id": "HyPtdgscXlI",
+        "title": "Luxury event planner swaps rival\u2019s VIP guest list with scammers after being denied a celebrity contr",
+        "views": 582,
+        "avg_view_pct": 46.71
       },
       {
         "id": "wk_ZCz_OsO0",
@@ -6442,6 +6522,12 @@
         "avg_view_pct": 62.69
       },
       {
+        "id": "xP0BvvNvD8o",
+        "title": "Luxury wedding photographer replaces bride\u2019s album with scandalous candid shots after being rejected",
+        "views": 340,
+        "avg_view_pct": 29.39
+      },
+      {
         "id": "epIf3LndqqY",
         "title": "Luxury yacht designer rigs rival\u2019s maiden voyage after losing billionaire charter\u2014watch the sabotage",
         "views": 330,
@@ -6458,12 +6544,6 @@
         "title": "Elite fashion designer ruins rival\u2019s runway with hidden dye after losing celebrity endorsement contr",
         "views": 312,
         "avg_view_pct": 83.55
-      },
-      {
-        "id": "pl5lswOhhNo",
-        "title": "I discovered my best friend was selling my designs to a rival brand\u2014my sabotage plan",
-        "views": 302,
-        "avg_view_pct": 29.64
       }
     ],
     "hp02_court_drama": [
@@ -6544,8 +6624,8 @@
       {
         "id": "4EqcOE8XYxQ",
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 341,
-        "avg_view_pct": 47.61
+        "views": 559,
+        "avg_view_pct": 45.27
       },
       {
         "id": "CZVo4DCKYtY",
@@ -6618,8 +6698,8 @@
       {
         "id": "aElGL1Ckmto",
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
-        "views": 1025,
-        "avg_view_pct": 65.12
+        "views": 1045,
+        "avg_view_pct": 64.91
       },
       {
         "id": "0Ul9Z0YnznM",
@@ -6668,8 +6748,8 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 558,
-        "avg_view_pct": 41.76
+        "views": 561,
+        "avg_view_pct": 41.83
       },
       {
         "id": "4DubdNDGMUo",
@@ -6680,25 +6760,25 @@
       {
         "id": "CIMeS2kZbkM",
         "title": "The Secret Power of Tattoos in Neil Gaiman\u2019s\u202fAmerican\u202fGods: Identity, Myth, and Transformation",
-        "views": 387,
+        "views": 388,
         "avg_view_pct": 44.14
       },
       {
         "id": "vzvyTTxANHw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 323,
+        "views": 325,
         "avg_view_pct": 134.87
       },
       {
         "id": "nxLH1LzoLjE",
         "title": "The Hidden Language of Smells: Olfactory Symbolism in Patrick\u202fS\u00fcskind\u2019s\u202fPerfume",
-        "views": 315,
+        "views": 316,
         "avg_view_pct": 42.23
       },
       {
         "id": "Tqcx-C3vgbk",
         "title": "The Secret Power of Seeds in Margaret Atwood\u2019s\u202fThe\u202fYear\u202fof\u202fthe",
-        "views": 269,
+        "views": 271,
         "avg_view_pct": 161.21
       },
       {
@@ -6858,22 +6938,10 @@
         "avg_view_pct": 31.370000000000005
       },
       {
-        "id": "PLQuG97oVxo",
-        "title": "Satisfying ASMR: Colorful slime being stretched and folded",
-        "views": 203,
-        "avg_view_pct": 49.57
-      },
-      {
         "id": "IsYy9ZUOHLQ",
         "title": "Watch Wax Melt on Basalt & ASMR Sand Shifts \u2013 Unexpected Sound Twist",
         "views": 196,
         "avg_view_pct": 22.52
-      },
-      {
-        "id": "G5aVEwhcgZw",
-        "title": "Satisfying ASMR: Pastel polymer clay rolled and sliced on chilled glass, gentle creaks and smooth wh",
-        "views": 177,
-        "avg_view_pct": 25.239999999999995
       },
       {
         "id": "WI5nLImijl4",
@@ -6882,10 +6950,10 @@
         "avg_view_pct": 30.36
       },
       {
-        "id": "iInzKHhq-kQ",
-        "title": "Satisfying ASMR: Colorful slime being stretched and folded",
-        "views": 176,
-        "avg_view_pct": 33.6
+        "id": "G5aVEwhcgZw",
+        "title": "Satisfying ASMR: Pastel polymer clay rolled and sliced on chilled glass, gentle creaks and smooth wh",
+        "views": 177,
+        "avg_view_pct": 25.239999999999995
       },
       {
         "id": "WF9rrVL9u7Y",
@@ -6898,26 +6966,38 @@
         "title": "Satisfying ASMR: Iridescent butter soap gliding across frosted glass, slow smooth slices and soft si",
         "views": 170,
         "avg_view_pct": 64.11
+      },
+      {
+        "id": "pzpiaY74W1s",
+        "title": "What Happens When",
+        "views": 165,
+        "avg_view_pct": 48.02
+      },
+      {
+        "id": "44n41WJLkhw",
+        "title": "Satisfying ASMR: Honeycomb soap crumbling apart",
+        "views": 164,
+        "avg_view_pct": 38.46
       }
     ],
     "ch03_hindu_mythology": [
       {
         "id": "8xzmTPKpYn4",
         "title": "The birth and strength of Bhima",
-        "views": 909,
+        "views": 910,
         "avg_view_pct": 54.510000000000005
       },
       {
         "id": "zq7vIb8_rPU",
         "title": "Hanuman's leap across the ocean to Lanka",
-        "views": 785,
-        "avg_view_pct": 64.98
+        "views": 787,
+        "avg_view_pct": 64.86
       },
       {
         "id": "MxsUAeZHSFw",
         "title": "Can a single prayer really bring a heavenly river down to Earth?",
-        "views": 681,
-        "avg_view_pct": 31.56
+        "views": 679,
+        "avg_view_pct": 31.66
       },
       {
         "id": "W4erjxMl8JA",
@@ -6944,12 +7024,6 @@
         "avg_view_pct": 51.080000000000005
       },
       {
-        "id": "iCgwhwoofMs",
-        "title": "Karna\u2019s Birth, Divine Armor, and the Tragic Hero\u2019s Loyalty",
-        "views": 303,
-        "avg_view_pct": 93.82
-      },
-      {
         "id": "Qf382JvFlkg",
         "title": "The moment Arjuna receives the Bhagavad Gita's wisdom from Krishna before the war",
         "views": 295,
@@ -6960,6 +7034,12 @@
         "title": "The Miracle of Hanuman\u2019s Leap to Lanka: Faith and Strength in the Ramayana",
         "views": 267,
         "avg_view_pct": 33.26
+      },
+      {
+        "id": "uG86K0LB76c",
+        "title": "Samudra Manthan: The Cosmic Churning of the Ocean for the Nectar of Immortality",
+        "views": 256,
+        "avg_view_pct": 52.59
       }
     ],
     "ch06_eastern_philosophy": [
@@ -6985,7 +7065,7 @@
         "id": "iRcYJKDMGzc",
         "title": "When the incense vanished, why did the monk hear the garden\u2019s heartbeat?",
         "views": 375,
-        "avg_view_pct": 68.41
+        "avg_view_pct": 68.61
       },
       {
         "id": "hHzKPqPFBEo",
