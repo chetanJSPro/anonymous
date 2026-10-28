@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 164,
-      "current_total_views": 24540,
+      "video_count": 165,
+      "current_total_views": 24618,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 169,
-      "current_total_views": 27281,
+      "video_count": 170,
+      "current_total_views": 27287,
       "current_subscribers": 13
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 171,
-      "current_total_views": 20689,
+      "video_count": 172,
+      "current_total_views": 20832,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 143,
-      "current_total_views": 94816,
+      "video_count": 146,
+      "current_total_views": 95832,
       "current_subscribers": 97
     },
     "hp05_sleep_soundscapes": {
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 190,
-      "current_total_views": 23263,
-      "current_subscribers": 19
+      "video_count": 192,
+      "current_total_views": 23372,
+      "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Senior health & longevity",
       "est_rpm": 6.17,
-      "video_count": 164,
-      "current_total_views": 15177,
+      "video_count": 165,
+      "current_total_views": 15289,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 174,
-      "current_total_views": 33194,
+      "video_count": 175,
+      "current_total_views": 33198,
       "current_subscribers": 55
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 167,
-      "current_total_views": 18362,
+      "video_count": 168,
+      "current_total_views": 18363,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 163,
-      "current_total_views": 32410,
+      "video_count": 165,
+      "current_total_views": 32439,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 192,
-      "current_total_views": 39899,
+      "video_count": 194,
+      "current_total_views": 40108,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -6559,10 +6559,90 @@
       "watch_minutes": 10,
       "subs_gained": 0,
       "likes": 2
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-25",
+      "views": 142,
+      "watch_minutes": 35,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-25",
+      "views": 55,
+      "watch_minutes": 5,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-25",
+      "views": 55,
+      "watch_minutes": 9,
+      "subs_gained": 0,
+      "likes": 2
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-25",
+      "views": 273,
+      "watch_minutes": 43,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-25",
+      "views": 88,
+      "watch_minutes": 6,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-25",
+      "views": 4,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-25",
+      "views": 285,
+      "watch_minutes": 16,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-25",
+      "views": 1,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-25",
+      "views": 49,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-25",
+      "views": 24,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-10-27T10:11:19.256403Z",
+  "last_updated": "2026-10-28T10:57:13.183018Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -6580,7 +6660,7 @@
       {
         "id": "HyPtdgscXlI",
         "title": "Luxury event planner swaps rival\u2019s VIP guest list with scammers after being denied a celebrity contr",
-        "views": 579,
+        "views": 578,
         "avg_view_pct": 46.48
       },
       {
@@ -6704,8 +6784,8 @@
       {
         "id": "4EqcOE8XYxQ",
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 557,
-        "avg_view_pct": 45.27
+        "views": 558,
+        "avg_view_pct": 45.57
       },
       {
         "id": "CZVo4DCKYtY",
@@ -6732,16 +6812,16 @@
         "avg_view_pct": 60.99
       },
       {
-        "id": "iMuQhtiXoEA",
-        "title": "The fake online tutor who stole tuition, then helped a student uncover a cheating ring at school",
-        "views": 133,
-        "avg_view_pct": 45.69
-      },
-      {
         "id": "Kbi3zAt5aNI",
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
         "views": 131,
         "avg_view_pct": 30.11
+      },
+      {
+        "id": "iMuQhtiXoEA",
+        "title": "The fake online tutor who stole tuition, then helped a student uncover a cheating ring at school",
+        "views": 128,
+        "avg_view_pct": 47.88
       },
       {
         "id": "VjRubjI621g",
@@ -6782,16 +6862,22 @@
         "avg_view_pct": 64.96
       },
       {
+        "id": "sMw5Df13Fpc",
+        "title": "Stranger Gives Veteran a First\u2011Class Seat \u2013 What Happens Next?",
+        "views": 1034,
+        "avg_view_pct": 65.03
+      },
+      {
+        "id": "VZ53u0LP_Rg",
+        "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
+        "views": 1019,
+        "avg_view_pct": 67.73
+      },
+      {
         "id": "0Ul9Z0YnznM",
         "title": "Barista spots veteran\u2019s dog tags, covers his rent for a month and leaves an emotional thank\u2011you note",
         "views": 1014,
         "avg_view_pct": 51
-      },
-      {
-        "id": "ZlZKGV5NQrY",
-        "title": "When a veteran's truck dies, a mechanic offers more than help",
-        "views": 1014,
-        "avg_view_pct": 63.53
       },
       {
         "id": "1FFIVjjpJOw",
@@ -6804,12 +6890,6 @@
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
         "views": 1011,
         "avg_view_pct": 58.93999999999999
-      },
-      {
-        "id": "DCiujCgugls",
-        "title": "He walked in for gas, left with a surprise donation for his VFW",
-        "views": 999,
-        "avg_view_pct": 47.11
       }
     ],
     "hp06_literary_analysis": [
@@ -6822,7 +6902,7 @@
       {
         "id": "AzhTcTbBTh0",
         "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 905,
+        "views": 907,
         "avg_view_pct": 68.46
       },
       {
@@ -6840,26 +6920,26 @@
       {
         "id": "CIMeS2kZbkM",
         "title": "The Secret Power of Tattoos in Neil Gaiman\u2019s\u202fAmerican\u202fGods: Identity, Myth, and Transformation",
-        "views": 389,
-        "avg_view_pct": 44.14
+        "views": 391,
+        "avg_view_pct": 44.01
       },
       {
         "id": "vzvyTTxANHw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 326,
+        "views": 327,
         "avg_view_pct": 134.27
       },
       {
         "id": "nxLH1LzoLjE",
         "title": "The Hidden Language of Smells: Olfactory Symbolism in Patrick\u202fS\u00fcskind\u2019s\u202fPerfume",
-        "views": 316,
+        "views": 318,
         "avg_view_pct": 42.23
       },
       {
         "id": "anoQfMEefLw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 291,
-        "avg_view_pct": 36.16
+        "views": 297,
+        "avg_view_pct": 36.45
       },
       {
         "id": "Tqcx-C3vgbk",
@@ -6884,8 +6964,8 @@
       {
         "id": "Uys5aRWZs8Q",
         "title": "The value of stretching and light mobility work for older adults",
-        "views": 329,
-        "avg_view_pct": 38.85
+        "views": 325,
+        "avg_view_pct": 39.01
       },
       {
         "id": "h3CahA3YkB8",
@@ -6950,21 +7030,21 @@
         "avg_view_pct": 38.15
       },
       {
-        "id": "Jo2KUPyJK1k",
-        "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
-        "views": 633,
-        "avg_view_pct": 39.85
-      },
-      {
         "id": "pIjBpsRJCkA",
         "title": "What Does the Phrase the Ball Is In Your Court Really Mean?",
         "views": 513,
         "avg_view_pct": 39.33
       },
       {
+        "id": "Gpu8tSFaLec",
+        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
+        "views": 503,
+        "avg_view_pct": 42.12
+      },
+      {
         "id": "3vz__t1A_qI",
         "title": "Learn English: How to use \u2018hit the nail on the head\u2019 naturally in conversation",
-        "views": 386,
+        "views": 385,
         "avg_view_pct": 33.04
       },
       {
@@ -7012,15 +7092,9 @@
         "avg_view_pct": 20.7
       },
       {
-        "id": "dfsynvV-ttY",
-        "title": "Satisfying ASMR: Silky aloe vera gel slowly sliced on a chilled jade slab",
-        "views": 207,
-        "avg_view_pct": 31.370000000000005
-      },
-      {
         "id": "IsYy9ZUOHLQ",
         "title": "Watch Wax Melt on Basalt & ASMR Sand Shifts \u2013 Unexpected Sound Twist",
-        "views": 196,
+        "views": 197,
         "avg_view_pct": 22.52
       },
       {
@@ -7056,8 +7130,14 @@
       {
         "id": "4UFF1Je-aKk",
         "title": "Can a blade turn kinetic sand into a hypnotic sunrise?",
-        "views": 155,
+        "views": 151,
         "avg_view_pct": 118.33
+      },
+      {
+        "id": "YUemk0fJyMs",
+        "title": "Satisfying ASMR: Glass orb cracking in slow motion",
+        "views": 143,
+        "avg_view_pct": 28.62
       }
     ],
     "ch03_hindu_mythology": [
@@ -7110,10 +7190,10 @@
         "avg_view_pct": 33.26
       },
       {
-        "id": "uG86K0LB76c",
-        "title": "Samudra Manthan: The Cosmic Churning of the Ocean for the Nectar of Immortality",
-        "views": 256,
-        "avg_view_pct": 52.59
+        "id": "aIGUD8t6URY",
+        "title": "Kunti\u2019s secret: Karna discovers his true mother on the battlefield",
+        "views": 253,
+        "avg_view_pct": 93
       },
       {
         "id": "I2slyvCo054",
@@ -7138,7 +7218,7 @@
       {
         "id": "xN4N0FDlKDs",
         "title": "When the cracked mirror reflected nothing, why did the pilgrim discover his true self?",
-        "views": 432,
+        "views": 433,
         "avg_view_pct": 173.55
       },
       {
