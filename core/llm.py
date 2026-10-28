@@ -27,6 +27,10 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 POLLINATIONS_TEXT_URL = "https://text.pollinations.ai/openai"
 
+# gemini-2.5-flash is closed to new API keys as of Oct 2026.
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+
 
 def _post_json(url, payload, headers, timeout=60, retries=3):
     data = json.dumps(payload).encode("utf-8")
@@ -93,14 +97,41 @@ def _pollinations_chat(system_prompt, user_prompt):
     return result["choices"][0]["message"]["content"].strip()
 
 
+def _gemini_chat(system_prompt, user_prompt, max_tokens=1200, temperature=0.9):
+    url = (f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}"
+           f":generateContent?key={GEMINI_API_KEY}")
+    payload = {
+        "systemInstruction": {"parts": [{"text": system_prompt}]},
+        "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
+        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": temperature},
+    }
+    # Gemini's free tier returns 503 "high demand" fairly often (confirmed
+    # 2026-10-28 on the first test call) -- _post_json only backs off on
+    # 429, so retry 503s here.
+    for attempt in range(4):
+        try:
+            result = _post_json(url, payload, {"Content-Type": "application/json"})
+            return "".join(p.get("text", "") for p in
+                           result["candidates"][0]["content"]["parts"]).strip()
+        except RuntimeError as e:
+            if "HTTP 503" not in str(e) or attempt == 3:
+                raise
+            time.sleep(8 * (attempt + 1))
+
+
 def generate_script(system_prompt, user_prompt, max_tokens=1200, temperature=0.9):
-    """Generate a script. Uses Groq if GROQ_API_KEY is set, else falls back
-    to the keyless Pollinations endpoint (less reliable, use as backup)."""
+    """Generate a script: Groq -> Gemini (free tier) -> keyless Pollinations
+    (402 since Aug 2026, kept only as a last resort)."""
     if GROQ_API_KEY:
         try:
             return _groq_chat(system_prompt, user_prompt, max_tokens, temperature)
         except Exception as e:
-            print(f"[llm] Groq failed ({e}), falling back to Pollinations...")
+            print(f"[llm] Groq failed ({e}), falling back to Gemini...")
+    if GEMINI_API_KEY:
+        try:
+            return _gemini_chat(system_prompt, user_prompt, max_tokens, temperature)
+        except Exception as e:
+            print(f"[llm] Gemini failed ({e}), falling back to Pollinations...")
     return _pollinations_chat(system_prompt, user_prompt)
 
 

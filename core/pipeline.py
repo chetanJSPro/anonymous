@@ -35,6 +35,7 @@ from core.tts_kokoro import synthesize_kokoro
 from core.tts_chatterbox import synthesize_chatterbox
 from core.captions import distribute_segments, write_ass, write_srt
 from core.visuals import fetch_hybrid_stock_agnes_videos
+from core.story import build_story_background
 from core.video_builder import build_background, build_final_video, ffprobe_duration
 from core.upload import upload_video
 from core.topics import pick_topic
@@ -230,25 +231,28 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
         stock_queries = list(dict.fromkeys((story_q or []) + (stock_queries or queries or [])))
     visuals_dir = os.path.join(out_dir, "visuals")
     os.makedirs(visuals_dir, exist_ok=True)
-    visual_paths = fetch_hybrid_stock_agnes_videos(
-        queries, visuals_dir, count=8, vertical=vertical,
-        agnes_count=int(config.get("agnes_clip_count", 6)),
-        stock_queries=stock_queries, channel_name=config["name"],
-        ai_only=bool(config.get("ai_only_visuals", False)),
-        kids_safe=bool(config.get("made_for_kids", False)),
-        ai_style_suffix=config.get("ai_style_suffix"))
-    print(f"[pipeline] {len(visual_paths)} video clips ready")
-
-    # 4) Assemble — ffmpeg background (normalized/color-graded/concatenated) + ASS burn-in.
-    # keep_background_audio: for channels whose content IS a sound (ASMR
-    # trigger sounds: soap cutting, glass, slime) rather than narration over
-    # silent b-roll -- see video_builder.py's normalize_clip/build_final_video
-    # docstrings and the 2026-08-24 ch01_ai_asmr fix this was added for.
     keep_bg_audio = bool(config.get("keep_background_audio", False))
-    background = build_background(visual_paths, work_dir, total_duration=duration,
-                                   width=width, height=height, fps=30,
-                                   clip_seconds=float(config.get("clip_seconds", 1.8 if vertical else 5)),
-                                   keep_audio=keep_bg_audio)
+
+    # Story mode: an AI-generated scene per narration beat, in order (see
+    # core/story.py). None means it couldn't run -> stock pipeline below.
+    background = None
+    # Default on for every narrated channel; ASMR-style channels whose
+    # source audio IS the content keep real footage.
+    if config.get("visual_mode", "stock" if keep_bg_audio else "story") == "story":
+        background = build_story_background(config, script, segments, duration,
+                                            os.path.join(work_dir, "story"), width, height, fps=30)
+    if background is not None:
+        visual_paths = []
+    else:
+        visual_paths = _fetch_stock_visuals(config, topic, script, queries, stock_queries,
+                                            visuals_dir, vertical)
+        print(f"[pipeline] {len(visual_paths)} video clips ready")
+        background = build_background(visual_paths, work_dir, total_duration=duration,
+                                       width=width, height=height, fps=30,
+                                       clip_seconds=float(config.get("clip_seconds", 1.8 if vertical else 5)),
+                                       keep_audio=keep_bg_audio)
+
+    # 4) Assemble — background + ASS burn-in.
     final_path = os.path.join(out_dir, "final.mp4")
     # hook_sfx: opt-out per channel (config["hook_sfx"] = False) -- on by
     # default everywhere since it's a cheap, harmless engagement lever, but
@@ -262,7 +266,20 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
                        narration_volume=float(config.get("narration_volume", 1.0)),
                        intro_sfx_path=intro_sfx)
     print(f"[pipeline] video assembled: {final_path}")
+    return _maybe_upload(config, topic, title, final_path, upload, privacy_status)
 
+
+def _fetch_stock_visuals(config, topic, script, queries, stock_queries, visuals_dir, vertical):
+    return fetch_hybrid_stock_agnes_videos(
+        queries, visuals_dir, count=8, vertical=vertical,
+        agnes_count=int(config.get("agnes_clip_count", 6)),
+        stock_queries=stock_queries, channel_name=config["name"],
+        ai_only=bool(config.get("ai_only_visuals", False)),
+        kids_safe=bool(config.get("made_for_kids", False)),
+        ai_style_suffix=config.get("ai_style_suffix"))
+
+
+def _maybe_upload(config, topic, title, final_path, upload, privacy_status):
     if upload:
         print(f"[pipeline] title: {title}")
         video_id = upload_video(
