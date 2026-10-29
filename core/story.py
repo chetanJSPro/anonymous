@@ -61,8 +61,8 @@ def _cf_run(model, payload, timeout=120):
 
 
 def generate_scene_image(prompt, out_path, width, height, seed=None):
-    """Lucid Origin first (exact aspect ratio), FLUX schnell as fallback
-    (always 1024x1024 -- the motion step pans across it). Returns
+    """FLUX schnell first (cheapest; always 1024x1024 -- the motion step
+    pans across it), Lucid Origin as fallback, then Modal. Returns
     (path, is_square). Retries once per model on transient errors."""
     full = f"{prompt}, {NO_TEXT}"
     # Lucid Origin caps each side; keep the aspect ratio, scale down.
