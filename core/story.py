@@ -31,6 +31,9 @@ from core.llm import generate_script
 CF_ACCOUNT_ID = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "")
 CF_API_TOKEN = os.environ.get("CLOUDFLARE_API_TOKEN", "")
 CF_URL = "https://api.cloudflare.com/client/v4/accounts/{acct}/ai/run/{model}"
+MODAL_ENABLED = bool(os.environ.get("MODAL_TOKEN_ID") and os.environ.get("MODAL_TOKEN_SECRET"))
+_cf_exhausted = False
+_modal_cls = None
 
 # Appended to every prompt -- image models love to paint fake signage/patch
 # lettering, which reads as obvious AI garbage on screen.
@@ -71,18 +74,50 @@ def generate_scene_image(prompt, out_path, width, height, seed=None):
         ("@cf/black-forest-labs/flux-1-schnell", {"prompt": full, "steps": 6,
                                                    **({"seed": seed} if seed is not None else {})}, True),
     ]
+    global _cf_exhausted
     last = None
-    for model, payload, square in attempts:
+    cf_ok = CF_ACCOUNT_ID and CF_API_TOKEN and not _cf_exhausted
+    for model, payload, square in (attempts if cf_ok else []):
         for _ in range(2):
             try:
                 data = _cf_run(model, payload)
                 with open(out_path, "wb") as f:
                     f.write(data)
                 return out_path, square
+            except urllib.error.HTTPError as e:
+                last = e
+                # 429 = the account's free 10k neurons/day are spent; that is
+                # shared by both models and won't recover until 00:00 UTC.
+                if e.code == 429:
+                    _cf_exhausted = True
+                    print("[story] Cloudflare free daily allocation used up -- using Modal")
+                    break
+                time.sleep(3)
             except (urllib.error.URLError, RuntimeError, TimeoutError) as e:
                 last = e
                 time.sleep(3)
+        if _cf_exhausted:
+            break
+    if MODAL_ENABLED:
+        try:
+            data = _modal_flux().generate.remote(full, 768, 1344, seed)
+            with open(out_path, "wb") as f:
+                f.write(data)
+            return out_path, False
+        except Exception as e:
+            last = e
     raise RuntimeError(f"all image models failed: {last}")
+
+
+def _modal_flux():
+    """FLUX.1-schnell on Modal (modal_apps/flux_images.py, deployed as
+    "story-images"). Paid from Modal credits, so it's the fallback after
+    Cloudflare's free tier."""
+    global _modal_cls
+    if _modal_cls is None:
+        import modal
+        _modal_cls = modal.Cls.from_name("story-images", "Flux")()
+    return _modal_cls
 
 
 def plan_storyboard(niche, script, beats, art_style):
@@ -178,8 +213,8 @@ def build_story_background(config, script, segments, duration, out_dir,
                            width, height, fps=30):
     """Full story visual track for one episode, or None if image generation
     isn't available/working (caller then uses the stock pipeline)."""
-    if not (CF_ACCOUNT_ID and CF_API_TOKEN):
-        print("[story] CLOUDFLARE_ACCOUNT_ID/CLOUDFLARE_API_TOKEN not set -- skipping story mode")
+    if not (CF_ACCOUNT_ID and CF_API_TOKEN) and not MODAL_ENABLED:
+        print("[story] no Cloudflare or Modal credentials set -- skipping story mode")
         return None
     beats = group_beats(segments, float(config.get("beat_seconds", 3.2)))
     try:

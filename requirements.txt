@@ -23,3 +23,6 @@ soundfile>=0.12.1
 # video assembly is now ffmpeg CLI directly (core/video_builder.py, ported
 # from peace_reels_automation) — moviepy/edge-tts no longer used by the
 # active pipeline, left out on purpose.
+
+# Story-scene images after Cloudflare free tier runs out (modal_apps/flux_images.py)
+modal==1.6.3

@@ -241,6 +241,13 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     if config.get("visual_mode", "stock" if keep_bg_audio else "story") == "story":
         background = build_story_background(config, script, segments, duration,
                                             os.path.join(work_dir, "story"), width, height, fps=30)
+        # Skip the episode rather than publish narration over unrelated
+        # stock b-roll (e.g. a diner story over sushi footage) -- that
+        # mismatch is what kept these channels at ~200 views. Opt out with
+        # config["story_stock_fallback"] = True.
+        if background is None and not config.get("story_stock_fallback", False):
+            raise RuntimeError(f"{config['name']}: story scenes unavailable -- "
+                               "skipping instead of publishing stock b-roll")
     if background is not None:
         visual_paths = []
     else:
