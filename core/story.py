@@ -6,9 +6,9 @@ with its own camera move. Replaces random shuffled stock b-roll (the
 targets) for channels that set config["visual_mode"] = "story".
 
 Image sources (all free):
-  1) Cloudflare Workers AI @cf/leonardo/lucid-origin -- native 9:16/16:9
-  2) Cloudflare Workers AI @cf/black-forest-labs/flux-1-schnell -- square
-     only, so it's panned across inside the vertical frame
+  1) Cloudflare Workers AI @cf/black-forest-labs/flux-1-schnell -- cheapest
+  2) Cloudflare Workers AI @cf/leonardo/lucid-origin -- 9:16 but ~45x the
+     neurons per image (square FLUX output is panned inside the frame)
   Env: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN (Workers AI token)
 
 Returns None from build_story_background when no image source works, so the
@@ -68,11 +68,14 @@ def generate_scene_image(prompt, out_path, width, height, seed=None):
     # Lucid Origin caps each side; keep the aspect ratio, scale down.
     scale = min(1.0, 1344 / max(width, height))
     w, h = int(width * scale) // 16 * 16, int(height * scale) // 16 * 16
+    # FLUX schnell first: ~58 neurons/image (4 tiles x 4.8 + 4 steps x 9.6)
+    # vs ~2,640 for Lucid Origin at this size, so the free 10k/day covers
+    # ~170 scenes instead of ~3. Lucid Origin stays only as a last resort.
     attempts = [
+        ("@cf/black-forest-labs/flux-1-schnell", {"prompt": full, "steps": 4,
+                                                   **({"seed": seed} if seed is not None else {})}, True),
         ("@cf/leonardo/lucid-origin", {"prompt": full, "width": w, "height": h, "steps": 8,
                                         **({"seed": seed} if seed is not None else {})}, False),
-        ("@cf/black-forest-labs/flux-1-schnell", {"prompt": full, "steps": 6,
-                                                   **({"seed": seed} if seed is not None else {})}, True),
     ]
     global _cf_exhausted
     last = None
