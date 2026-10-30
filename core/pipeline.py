@@ -33,7 +33,8 @@ for _stream in (sys.stdout, sys.stderr):
 from core.llm import generate_visual_queries, generate_script, generate_hook_title, sanitize_narration_script
 from core.tts_kokoro import synthesize_kokoro
 from core.tts_chatterbox import synthesize_chatterbox
-from core.captions import distribute_segments, write_ass, write_srt
+from core.captions import distribute_segments, segments_from_words, write_ass, write_srt
+from core.music import channel_mood, write_music_bed
 from core.visuals import fetch_hybrid_stock_agnes_videos
 from core.story import build_story_background
 from core.video_builder import build_background, build_final_video, ffprobe_duration
@@ -46,7 +47,19 @@ from core.topics import pick_topic
 SFX_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "sfx")
 
 
-def _pick_intro_sfx():
+# A boing on a veteran's story or a court verdict undoes the mood, so the
+# stinger is chosen from the ones that suit the channel's music mood.
+SFX_BY_MOOD = {
+    "tense": ("hook_whoosh_impact", "hook_whoosh_fast"),
+    "warm": ("hook_sparkle_whoosh", "hook_ding_reveal"),
+    "calm": ("hook_sparkle_whoosh",),
+    "epic": ("hook_whoosh_impact",),
+    "light": ("hook_pop", "hook_tech_affirm", "hook_ding_reveal"),
+    "playful": ("hook_boing", "hook_pop", "hook_sparkle_whoosh"),
+}
+
+
+def _pick_intro_sfx(mood=None):
     """A short (<=3.5s) hook/stinger sound effect (see assets/sfx/README.md
     for sourcing/licensing) played at t=0 only, layered under the narration
     -- an audio "scroll-stopping hook" to go with the visual/script one
@@ -54,6 +67,8 @@ def _pick_intro_sfx():
     nothing in it (e.g. a fresh checkout before the folder is populated) --
     a missing intro sfx must never block an episode."""
     files = glob.glob(os.path.join(SFX_DIR, "*.mp3")) + glob.glob(os.path.join(SFX_DIR, "*.wav"))
+    suited = [f for f in files if os.path.splitext(os.path.basename(f))[0] in SFX_BY_MOOD.get(mood, ())]
+    files = suited or files
     return random.choice(files) if files else None
 
 
@@ -156,6 +171,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # opt into it per-channel via config["voice_engine"] = "chatterbox" once
     # you've weighed that runtime/cost against Kokoro's quality.
     narration_path = os.path.join(out_dir, "narration.wav")
+    words = []  # (word, start, end) from Kokoro; stays empty on Chatterbox
     if config.get("voice_engine") == "chatterbox":
         try:
             _, duration = synthesize_chatterbox(script, narration_path,
@@ -166,15 +182,15 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
             print(f"[pipeline] Chatterbox failed ({e}) — falling back to Kokoro")
             voice_id = KOKORO_VOICE_MAP.get(config.get("voice"), "am_michael")
             synthesize_kokoro(script, narration_path, lang_code="a", voice_id=voice_id,
-                               speed=float(config.get("speed", 1.0)))
+                               speed=float(config.get("speed", 1.0)), word_timings=words)
             duration = ffprobe_duration(narration_path) + 0.45
             print(f"[pipeline] voice generated via Kokoro fallback ({duration:.1f}s)")
     else:
         voice_id = KOKORO_VOICE_MAP.get(config.get("voice"), "am_michael")
         synthesize_kokoro(script, narration_path, lang_code="a", voice_id=voice_id,
-                           speed=float(config.get("speed", 1.0)))
+                           speed=float(config.get("speed", 1.0)), word_timings=words)
         duration = ffprobe_duration(narration_path) + 0.45
-        print(f"[pipeline] voice generated via Kokoro ({duration:.1f}s)")
+        print(f"[pipeline] voice generated via Kokoro ({duration:.1f}s, {len(words)} timed words)")
 
     # Safety net: a channel whose script produces a near-empty narration
     # (e.g. a "no spoken narration, just a title" system_prompt like
@@ -192,9 +208,10 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
             f"to run without spoken narration, it needs real duration/audio handling built "
             f"in core/pipeline.py first, not just a short title script.")
 
-    # 2) Captions — timed to the actual narration length, burned in via ffmpeg later.
+    # 2) Captions — timed from the voice's own word timestamps when available
+    # (estimated from line length otherwise), burned in via ffmpeg later.
     subtitle_lines = _split_into_subtitle_lines(script)
-    segments = distribute_segments(subtitle_lines, duration)
+    segments = segments_from_words(subtitle_lines, words) if words else distribute_segments(subtitle_lines, duration)
     ass_path = os.path.join(out_dir, "captions_burnin.ass")
     srt_path = os.path.join(out_dir, "captions_upload.srt")
     # Hook title is generated up front (was upload-only) so it can also be
@@ -205,7 +222,8 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     write_ass(segments, ass_path, width=width, height=height, duration=duration,
                location_label=config.get("location_label"),
                hook_text=title if (vertical and config.get("hook_card", True)) else None,
-               punchy=bool(vertical and config.get("punchy_captions", True)))
+               punchy=bool(vertical and config.get("punchy_captions", True)),
+               words=words)
     write_srt(segments, srt_path)
 
     # 3) Visuals — mostly Agnes AI-generated clips (if AGNES_API_KEY is set)
@@ -266,12 +284,18 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # a channel whose own audio IS the content (keep_background_audio, e.g.
     # ch01_ai_asmr's trigger sounds) shouldn't have an unrelated stinger
     # competing with it.
-    intro_sfx = _pick_intro_sfx() if config.get("hook_sfx", not keep_bg_audio) else None
+    mood = channel_mood(config)
+    intro_sfx = _pick_intro_sfx(mood) if config.get("hook_sfx", not keep_bg_audio) else None
+    # Original bed synthesized per episode, so no Content ID claims. Off where
+    # the source audio is the content (ASMR), or with config["music"] = False.
+    music_path = None
+    if config.get("music", not keep_bg_audio):
+        music_path = write_music_bed(os.path.join(work_dir, "music.wav"), duration, mood)
     build_final_video(background, narration_path, ass_path, final_path, duration=duration,
                        background_audio=keep_bg_audio,
                        background_audio_volume=float(config.get("background_audio_volume", 1.0)),
                        narration_volume=float(config.get("narration_volume", 1.0)),
-                       intro_sfx_path=intro_sfx)
+                       intro_sfx_path=intro_sfx, music_path=music_path)
     print(f"[pipeline] video assembled: {final_path}")
     return _maybe_upload(config, topic, title, final_path, upload, privacy_status)
 

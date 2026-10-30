@@ -18,6 +18,9 @@ import subprocess
 from pathlib import Path
 
 
+FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
+
+
 def ensure_dir(path: str | Path) -> Path:
     p = Path(path)
     p.mkdir(parents=True, exist_ok=True)
@@ -179,12 +182,12 @@ def build_final_video(
     *,
     duration: float,
     music_path: str | Path | None = None,
-    music_volume: float = 0.10,
+    music_volume: float = 0.20,
     background_audio: bool = False,
     background_audio_volume: float = 1.0,
     narration_volume: float = 1.0,
     intro_sfx_path: str | Path | None = None,
-    intro_sfx_volume: float = 1.4,
+    intro_sfx_volume: float = 0.6,
 ) -> Path:
     """background_audio: mix the background clip's own audio track (real
     ASMR trigger sounds -- see build_background's keep_audio) in alongside
@@ -204,53 +207,49 @@ def build_final_video(
     worth adding rather than a wholesale niche rebrand."""
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
-    vf = f"ass={_ass_filter_path(ass_file)}"
-    bg_leg = f"[0:a]volume={background_audio_volume}[b];" if background_audio else ""
-    narr_leg = f"[1:a]volume={narration_volume}[n];" if background_audio else "[1:a]volume=1.0[n];"
+    vf = f"ass={_ass_filter_path(ass_file)}:fontsdir={_ass_filter_path(FONTS_DIR)}"
 
     inputs = ["-i", str(background), "-i", str(narration)]
     next_idx = 2
-    filt = f"{bg_leg}{narr_leg}"
-    mix_legs = ["[b]" if background_audio else None, "[n]"]
-    mix_legs = [leg for leg in mix_legs if leg]
+    # Voice: rumble cut + gentle compression so it sits clearly on phones. The
+    # tail pad keeps the audio as long as the picture.
+    filt = (f"[1:a]highpass=f=70,acompressor=threshold=-20dB:ratio=2.5:attack=15:release=200,"
+            f"aformat=sample_rates=48000:channel_layouts=stereo,apad,atrim=0:{duration:.2f},"
+            f"volume={narration_volume},asplit=2[n][key];")
+    mix_legs = ["[n]"]
+    if background_audio:
+        filt += f"[0:a]volume={background_audio_volume},aformat=sample_rates=48000:channel_layouts=stereo[b];"
+        mix_legs.insert(0, "[b]")
 
     if music_path and Path(music_path).exists():
-        inputs += ["-stream_loop", "-1", "-i", str(music_path)]
-        filt += (f"[{next_idx}:a]volume={music_volume},atrim=0:{duration:.2f},"
-                 f"asetpts=N/SR/TB[m];")
+        inputs += ["-i", str(music_path)]
+        # Duck the bed under the voice so words stay clear and it swells in pauses.
+        filt += (f"[{next_idx}:a]volume={music_volume},aformat=sample_rates=48000:channel_layouts=stereo,"
+                 f"atrim=0:{duration:.2f},asetpts=N/SR/TB[mraw];"
+                 f"[mraw][key]sidechaincompress=threshold=0.04:ratio=6:attack=40:release=500[m];")
         mix_legs.append("[m]")
         next_idx += 1
+    else:
+        filt += "[key]anullsink;"
 
-    use_sfx = bool(intro_sfx_path and Path(intro_sfx_path).exists())
-    if use_sfx:
+    if intro_sfx_path and Path(intro_sfx_path).exists():
         inputs += ["-i", str(intro_sfx_path)]
-        filt += f"[{next_idx}:a]volume={intro_sfx_volume},apad,atrim=0:{duration:.2f}[s];"
+        filt += (f"[{next_idx}:a]volume={intro_sfx_volume},aformat=sample_rates=48000:channel_layouts=stereo,"
+                 f"apad,atrim=0:{duration:.2f}[s];")
         mix_legs.append("[s]")
         next_idx += 1
 
-    if len(mix_legs) > 1:
-        filt += f"{''.join(mix_legs)}amix=inputs={len(mix_legs)}:duration=first:dropout_transition=2[a]"
-        audio_map = "[a]"
-    else:
-        filt = filt.rstrip(";")
-        audio_map = mix_legs[0] if filt else None
-
-    if filt:
-        cmd = [
-            "ffmpeg", "-y", *inputs,
-            "-filter_complex", filt,
-            "-vf", vf, "-map", "0:v:0", "-map", audio_map, "-t", f"{duration:.2f}",
-            "-c:v", "libx264", "-preset", "medium", "-crf", "20",
-            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest",
-            str(out),
-        ]
-    else:
-        cmd = [
-            "ffmpeg", "-y", "-i", str(background), "-i", str(narration),
-            "-vf", vf, "-map", "0:v:0", "-map", "1:a:0", "-t", f"{duration:.2f}",
-            "-c:v", "libx264", "-preset", "medium", "-crf", "20",
-            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-shortest",
-            str(out),
-        ]
+    # normalize=0: amix otherwise lowers every leg as legs are added. loudnorm
+    # lands on YouTube's -14 LUFS so episodes don't get turned down or sound weak.
+    filt += (f"{''.join(mix_legs)}amix=inputs={len(mix_legs)}:duration=longest:normalize=0,"
+             f"loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]")
+    cmd = [
+        "ffmpeg", "-y", *inputs,
+        "-filter_complex", filt,
+        "-vf", vf, "-map", "0:v:0", "-map", "[a]", "-t", f"{duration:.2f}",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
+        str(out),
+    ]
     run(cmd)
     return out

@@ -19,6 +19,24 @@ import random
 from pathlib import Path
 
 
+def _words_from_tokens(tokens, offset: float) -> list[tuple[str, float, float]]:
+    """Kokoro tokens split punctuation and hyphens off words; a word only ends
+    at a token followed by whitespace."""
+    words, text, start, end = [], "", None, None
+    for tok in tokens:
+        text += tok.text
+        if tok.start_ts is not None:
+            start = tok.start_ts if start is None else start
+            end = tok.end_ts if tok.end_ts is not None else end
+        if tok.whitespace:
+            if text.strip() and start is not None:
+                words.append((text.strip(), offset + start, offset + (end or start)))
+            text, start, end = "", None, None
+    if text.strip() and start is not None:
+        words.append((text.strip(), offset + start, offset + (end or start)))
+    return words
+
+
 def synthesize_kokoro(
     text: str,
     out_path: str | Path,
@@ -27,11 +45,16 @@ def synthesize_kokoro(
     voice_id: str = "am_michael",
     speed: float = 1.0,
     pause_seconds: float = 0.45,
+    word_timings: list | None = None,
 ) -> Path:
     """Generate local TTS with Kokoro. `pause_seconds` is the *average*
     silence inserted between lines, jittered per-gap with a short fade
     in/out at each splice to avoid a metronomic/robotic cadence and
-    audible clicks — pacing/delivery only, doesn't clone anyone's voice."""
+    audible clicks — pacing/delivery only, doesn't clone anyone's voice.
+
+    word_timings: if given, filled with (word, start, end) seconds into the
+    final audio, from Kokoro's own token timestamps -- captions and scene cuts
+    then follow the real speech instead of an estimate."""
     try:
         import numpy as np
         import soundfile as sf
@@ -58,12 +81,18 @@ def synthesize_kokoro(
         return audio
 
     chunks = []
+    offset = 0.0
     generator = pipeline(text, voice=voice_id, speed=speed, split_pattern=r"\n+")
-    for _graphemes, _phonemes, audio in generator:
+    for result in generator:
+        audio = result.audio
         if chunks:
             gap = random.uniform(pause_seconds * 0.6, pause_seconds * 1.5)
             chunks.append(np.zeros(int(gap * sample_rate), dtype=np.float32))
+            offset += gap
         chunks.append(_faded(audio))
+        if word_timings is not None:
+            word_timings.extend(_words_from_tokens(result.tokens or [], offset))
+        offset += len(audio) / sample_rate
     if not chunks:
         raise RuntimeError("Kokoro returned no audio chunks")
     audio_all = np.concatenate(chunks)

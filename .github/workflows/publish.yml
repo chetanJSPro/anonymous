@@ -2,25 +2,13 @@ name: Publish niche episodes
 
 on:
   schedule:
-    # Three episodes/day/channel per explicit request 2026-08-28 (6am/2pm/
-    # 10pm IST -> 00:30/08:30/16:30 UTC).
-    # KNOWN RISK, accepted 2026-08-28: YouTube Data API caps uploads at
-    # ~6/day per Google Cloud project (10,000 units/day, ~1,600/upload).
-    # client_secret_a.json serves 4 channels (hp01-04) -> 12 uploads/day
-    # needed at this cadence, only ~6 fit -> hp01-04 WILL start failing
-    # with quota-exceeded on the 3rd run most days (fail-fast: false means
-    # it only drops those channels' episodes for the day, doesn't break
-    # the others). client_secret_b.json (hp06-08, 3 channels) and
-    # client_secret_c.json (ch01/ch03/ch06, 3 channels) need 9/day each,
-    # same problem. Only client_secret_d.json (hp09 alone, 3/day) actually
-    # fits under the 6/day cap at this cadence. Real fix if this becomes a
-    # problem: split hp01-04/hp06-08/ch01+ch03+ch06 across more Google
-    # Cloud OAuth projects (needs a human to create the projects + run
-    # scripts/generate_token.py locally, can't be done from here) -- or
-    # drop back to 1x/day (see the 2026-08-28 revert commit before this one).
+    # One episode/day/channel (was 3/day until 2026-10-30). The budget is what
+    # sets this: Cloudflare's free 10k neurons/day cover about 100 scenes, i.e.
+    # one run of the 10 story channels, and 11 jobs x ~5 min x 30 days only
+    # just fits the private repo's 2,000 free Actions minutes -- 3/day used them
+    # up by 2026-10-29 and every later job was refused. 00:30 UTC is right after
+    # the neuron quota resets at 00:00 UTC.
     - cron: "30 0 * * *"
-    - cron: "30 8 * * *"
-    - cron: "30 16 * * *"
   workflow_dispatch:
     inputs:
       channel:
@@ -49,10 +37,12 @@ jobs:
       fail-fast: false
       matrix:
         channel:
+          # Runs in this order (max-parallel: 1): best performer first, so it
+          # gets scenes even if the day's image quota runs short.
+          - hp04_veteran_kindness
           - hp01_betrayal_revenge
           - hp02_court_drama
           - hp03_karma_justice
-          - hp04_veteran_kindness
           # hp05_sleep_soundscapes pulled 2026-08-19 -- see scripts/registry.py
           - hp06_literary_analysis
           - hp07_senior_longevity
@@ -66,6 +56,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
+      - name: Cache Kokoro voice model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-kokoro-v1
       - name: Install ffmpeg + caption font
         # Confirmed 2026-08-19: this step can hang indefinitely (30-45+ min,
         # burning Actions minutes for nothing) on a slow/dead apt mirror --
@@ -157,6 +153,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
+      - name: Cache Kokoro voice model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-kokoro-v1
       - name: Install ffmpeg + caption font
         # Confirmed 2026-08-19: this step can hang indefinitely (30-45+ min,
         # burning Actions minutes for nothing) on a slow/dead apt mirror --

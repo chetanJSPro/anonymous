@@ -193,7 +193,8 @@ def sanitize_narration_script(text: str) -> str:
     story style — all instantly read as AI-generated filler, not a
     genuine story. This is a best-effort regex safety net on top of the
     system prompt instruction, not a replacement for it."""
-    t = text.strip()
+    # Non-breaking hyphens/spaces from the LLM break Kokoro's word lookup.
+    t = text.strip().replace("\u2011", "-").replace("\u202f", " ").replace("\u00a0", " ")
     for _ in range(3):  # "Sure, " and "here's your script:" can both lead --
         new_t = _PREAMBLE_RE.sub("", t).strip()  # strip repeatedly till stable
         if new_t == t:
