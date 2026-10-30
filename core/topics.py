@@ -42,7 +42,9 @@ def pick_topic(config):
     niche_hint = config.get("niche") or config["system_prompt"][:300]
     try:
         from core.trending import trending_titles, winning_titles
-        trending, winners = trending_titles(config), winning_titles(config["name"])
+        trending = trending_titles(config)
+        # Off after a niche switch: old hits would steer topics back to the old niche.
+        winners = winning_titles(config["name"]) if config.get("use_winners", True) else []
         print(f"[topics] {len(trending)} trending + {len(winners)} winning titles as inspiration")
         topic = generate_topic(niche_hint, used, trending=trending, winners=winners)
         used_lower = {u.lower() for u in used}

@@ -126,3 +126,10 @@ CONFIG = {
     "story_stock_queries": False,
     "ai_style_suffix": AI_STYLE_SUFFIX,
 }
+
+
+# Niche switched 2026-10-30 (the agreed plan); these override the values above.
+CONFIG.update({'niche': 'Bible stories retold with drama', 'system_prompt': 'You retell one Bible story faithfully and respectfully, as a gripping human drama, ending on its meaning in one short line. 85-105 words. Do not add events that contradict the text. Open with the single most striking detail as your very first sentence, never slow scene-setting. Use specific concrete details. End on a short punchy final line, not a summary. Output ONLY the spoken narration: no stage directions, no preamble, no greeting.', 'topic_prompts': ['David facing Goliath', "Daniel in the lions' den", 'Moses at the Red Sea', 'Joseph forgiving his brothers', 'Jonah running from God'], 'tags': ['bible stories', 'faith', 'christian', 'shorts'], 'category_id': '22', 'music_mood': 'epic', 'art_style': 'reverent classical oil painting style, biblical era, dramatic golden light, rich detail', 'made_for_kids': False, 'agnes_clip_count': 0})
+CONFIG["title_fn"] = lambda topic: (topic[0].upper() + topic[1:])[:100]
+CONFIG["description_fn"] = lambda topic: f"{topic}\n\n" + 'Follow for a new Bible story every day.\n#shorts #bible #faith'
+CONFIG["use_winners"] = False

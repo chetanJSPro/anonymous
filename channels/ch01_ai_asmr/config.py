@@ -107,3 +107,10 @@ CONFIG = {
     "background_audio_volume": 1.0,
     "narration_volume": 0.4,
 }
+
+
+# Niche switched 2026-10-30 (the agreed plan); these override the values above.
+CONFIG.update({'niche': 'Original short horror stories', 'system_prompt': 'You write an original fictional two-minute-campfire style horror story in first person, with a chilling twist in the final line. 85-105 words. Psychological dread, no gore. Open with the single most striking detail as your very first sentence, never slow scene-setting. Use specific concrete details. End on a short punchy final line, not a summary. Output ONLY the spoken narration: no stage directions, no preamble, no greeting.', 'topic_prompts': ['the voice on the baby monitor', 'the extra door in my new apartment', 'the neighbor who waves at 3am', 'my reflection blinked first', 'the last bus that was never on the schedule'], 'tags': ['horror stories', 'scary stories', 'creepy', 'shorts'], 'category_id': '24', 'music_mood': 'tense', 'art_style': 'dark atmospheric horror film still, 35mm, deep shadows, single light source, unsettling composition', 'keep_background_audio': False, 'visual_mode': 'story', 'punchy_captions': True, 'hook_card': True, 'narration_volume': 1.0, 'voice': 'en-US-GuyNeural'})
+CONFIG["title_fn"] = lambda topic: (topic[0].upper() + topic[1:])[:100]
+CONFIG["description_fn"] = lambda topic: f"{topic}\n\n" + 'Fictional story. Follow for a new scary story every day.\n#shorts #horror #scarystories'
+CONFIG["use_winners"] = False
