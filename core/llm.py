@@ -73,6 +73,10 @@ def _groq_chat(system_prompt, user_prompt, max_tokens=1200, temperature=0.9):
         "max_tokens": max_tokens,
         "temperature": temperature,
     }
+    # gpt-oss spends max_tokens on hidden reasoning first: at the default effort
+    # it used 600-1100 of 1200 tokens, cutting scripts off or leaving them empty.
+    if "gpt-oss" in GROQ_MODEL:
+        payload["reasoning_effort"] = "low"
     # retries=6 (up from the 3 default) -- confirmed 2026-08-20: 4 parallel
     # channel jobs each now make several Groq calls per episode (script,
     # visual queries, hook title), and free-tier 429s under that load are
@@ -81,7 +85,10 @@ def _groq_chat(system_prompt, user_prompt, max_tokens=1200, temperature=0.9):
     # Payment Required as of Aug 2026, see CLAUDE.md) -- so a Groq 429
     # that outlasts the retry budget currently has nowhere left to go.
     result = _post_json(GROQ_URL, payload, headers, retries=6)
-    return result["choices"][0]["message"]["content"].strip()
+    choice = result["choices"][0]
+    if choice.get("finish_reason") == "length":
+        raise RuntimeError("Groq reply cut off at max_tokens")
+    return choice["message"]["content"].strip()
 
 
 def _pollinations_chat(system_prompt, user_prompt):

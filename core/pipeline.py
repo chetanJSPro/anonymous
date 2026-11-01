@@ -152,7 +152,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
             print(f"[pipeline] script attempt {attempt+1} raised ({e}) -- retrying")
             time.sleep(5)
             continue
-        if len(script.split()) >= 20:
+        if len(script.split()) >= 50:  # every channel targets 60+ words; less means cut off
             break
         print(f"[pipeline] script attempt {attempt+1} too short/refused "
               f"({len(script.split())} words: {script[:80]!r}) -- retrying")
