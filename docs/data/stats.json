@@ -3,30 +3,30 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 168,
-      "current_total_views": 24667,
+      "video_count": 169,
+      "current_total_views": 24679,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 173,
-      "current_total_views": 27720,
+      "video_count": 174,
+      "current_total_views": 27743,
       "current_subscribers": 14
     },
     "hp03_karma_justice": {
       "niche": "Unsolved mysteries and strange true events",
       "est_rpm": 5.7,
-      "video_count": 174,
-      "current_total_views": 21098,
+      "video_count": 175,
+      "current_total_views": 21101,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 150,
-      "current_total_views": 98740,
-      "current_subscribers": 98
+      "video_count": 152,
+      "current_total_views": 98747,
+      "current_subscribers": 99
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -36,42 +36,42 @@
       "niche": "AI and technology explained simply",
       "est_rpm": 9.15,
       "video_count": 196,
-      "current_total_views": 23910,
+      "current_total_views": 23979,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
       "video_count": 167,
-      "current_total_views": 15791,
+      "current_total_views": 15793,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 179,
-      "current_total_views": 33647,
+      "video_count": 180,
+      "current_total_views": 33684,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "Original short horror stories",
       "est_rpm": null,
-      "video_count": 170,
-      "current_total_views": 18382,
+      "video_count": 171,
+      "current_total_views": 18393,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 167,
-      "current_total_views": 32586,
+      "video_count": 168,
+      "current_total_views": 32624,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 197,
-      "current_total_views": 40539,
+      "video_count": 199,
+      "current_total_views": 40571,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -6959,17 +6959,97 @@
       "watch_minutes": 5,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-30",
+      "views": 6,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-30",
+      "views": 1,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-30",
+      "views": 3,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-30",
+      "views": 132,
+      "watch_minutes": 15,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-30",
+      "views": 74,
+      "watch_minutes": 7,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-30",
+      "views": 46,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-30",
+      "views": 2,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-30",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-30",
+      "views": 11,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-30",
+      "views": 7,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-01T11:39:21.571480Z",
+  "last_updated": "2026-11-02T13:04:06.141788Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
         "id": "pagRP11rm1s",
         "title": "He forged Mom\u2019s signature and lost it all\u2014my revenge",
-        "views": 1048,
-        "avg_view_pct": 65.81
+        "views": 998,
+        "avg_view_pct": 66.01
       },
       {
         "id": "Apxd2d9Kk0o",
@@ -7028,12 +7108,6 @@
     ],
     "hp02_court_drama": [
       {
-        "id": "6_tsGi0_jCw",
-        "title": "The courtroom battle over a home security camera's motion logs revealing a staged break\u2011in",
-        "views": 981,
-        "avg_view_pct": 62.2
-      },
-      {
         "id": "ztFrRb-ExVw",
         "title": "A dispute over a wedding photographer who never delivered the photos",
         "views": 928,
@@ -7060,7 +7134,7 @@
       {
         "id": "tTAZP3awiLg",
         "title": "Courtroom showdown where a smart irrigation system's water usage logs bust a false sprinkler\u2011damage",
-        "views": 358,
+        "views": 352,
         "avg_view_pct": 73.63
       },
       {
@@ -7086,6 +7160,12 @@
         "title": "The trial where a smartwatch\u2019s GPS trail exposed a fraudulent alimony claim",
         "views": 231,
         "avg_view_pct": 54.78000000000001
+      },
+      {
+        "id": "zrptm3C4XXE",
+        "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
+        "views": 205,
+        "avg_view_pct": 77.2
       }
     ],
     "hp03_karma_justice": [
@@ -7140,7 +7220,7 @@
       {
         "id": "THYiQ059Qf0",
         "title": "She Charged $3,000 for a Wedding Arch\u2014Then the Sky Fell!",
-        "views": 150,
+        "views": 143,
         "avg_view_pct": 19.4
       },
       {
@@ -7200,25 +7280,19 @@
         "avg_view_pct": 64.19
       },
       {
+        "id": "ZlZKGV5NQrY",
+        "title": "When a veteran's truck dies, a mechanic offers more than help",
+        "views": 1011,
+        "avg_view_pct": 64.08
+      },
+      {
         "id": "T2hGZ3JlLbo",
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
         "views": 1011,
         "avg_view_pct": 58.93999999999999
-      },
-      {
-        "id": "ZlZKGV5NQrY",
-        "title": "When a veteran's truck dies, a mechanic offers more than help",
-        "views": 1009,
-        "avg_view_pct": 63.85999999999999
       }
     ],
     "hp06_literary_analysis": [
-      {
-        "id": "GbHpy5BljAE",
-        "title": "The Symbolic Function of Letters in Stephen King\u2019s\u202fThe\u202fShining",
-        "views": 980,
-        "avg_view_pct": 42.56
-      },
       {
         "id": "AzhTcTbBTh0",
         "title": "Why The Great Gatsby's ending still divides readers",
@@ -7228,8 +7302,8 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 567,
-        "avg_view_pct": 44.5
+        "views": 571,
+        "avg_view_pct": 44.52
       },
       {
         "id": "4DubdNDGMUo",
@@ -7252,7 +7326,7 @@
       {
         "id": "anoQfMEefLw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 312,
+        "views": 313,
         "avg_view_pct": 36.08
       },
       {
@@ -7268,10 +7342,16 @@
         "avg_view_pct": 36.69
       },
       {
-        "id": "7LU2kKwQxAM",
-        "title": "The Role of Silence as Character in Kazuo Ishiguro\u2019s\u202fThe\u202fRemains\u202fof\u202fthe\u202fDay",
-        "views": 252,
-        "avg_view_pct": 32.57
+        "id": "uMcArSJOqRs",
+        "title": "Is Hill House a Living Prison for Your Mind?",
+        "views": 236,
+        "avg_view_pct": 46.51
+      },
+      {
+        "id": "TzyROVa2e_I",
+        "title": "Why The Great Gatsby's ending still divides readers",
+        "views": 210,
+        "avg_view_pct": 55.09
       }
     ],
     "hp07_senior_longevity": [
@@ -7296,7 +7376,7 @@
       {
         "id": "bymHy5_OEYU",
         "title": "Why a short daily walk after meals supports healthy aging",
-        "views": 272,
+        "views": 271,
         "avg_view_pct": 33.97
       },
       {
@@ -7310,6 +7390,12 @@
         "title": "Can 5\u2011Minute Daily Ankle Mobility Routine Add Years to Your Life",
         "views": 194,
         "avg_view_pct": 96.12
+      },
+      {
+        "id": "yPTDoVDhcIs",
+        "title": "Can a 5\u2011Minute Daily",
+        "views": 158,
+        "avg_view_pct": 61.47
       },
       {
         "id": "0RLfcFk0q4I",
@@ -7328,12 +7414,6 @@
         "title": "Why a short daily walk after meals supports healthy aging",
         "views": 138,
         "avg_view_pct": 44.89
-      },
-      {
-        "id": "9fzU-gSYQvY",
-        "title": "Can 6 Minutes of Neck Rolls Make You Steadier on Your Feet?",
-        "views": 129,
-        "avg_view_pct": 40.81
       }
     ],
     "hp08_english_learning": [
@@ -7395,7 +7475,7 @@
         "id": "_ybihsm_N_8",
         "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
         "views": 262,
-        "avg_view_pct": 27.860000000000003
+        "avg_view_pct": 27.500000000000004
       }
     ],
     "ch01_ai_asmr": [
@@ -7404,12 +7484,6 @@
         "title": "Satisfying ASMR: Honeycomb soap crumbling apart",
         "views": 280,
         "avg_view_pct": 24.68
-      },
-      {
-        "id": "q7SzVZOVw4E",
-        "title": "Satisfying ASMR: Crystal-clear gelatin layers sliced on frosted glass, slow ripples and gentle sighs",
-        "views": 219,
-        "avg_view_pct": 20.7
       },
       {
         "id": "IsYy9ZUOHLQ",
@@ -7458,6 +7532,12 @@
         "title": "What Happens When Honey\u2011Comb Soap Crumbles in Slow Motion?",
         "views": 77,
         "avg_view_pct": 17.23
+      },
+      {
+        "id": "JjY7grAuhEM",
+        "title": "Satisfying ASMR: Satisfying ASMR:",
+        "views": 74,
+        "avg_view_pct": 55.97
       }
     ],
     "ch03_hindu_mythology": [
@@ -7504,22 +7584,22 @@
         "avg_view_pct": 87.24
       },
       {
-        "id": "I2slyvCo054",
-        "title": "Durvasa\u2019s Fury: The Curse that Summoned the Sacred River Saraswati",
-        "views": 231,
-        "avg_view_pct": 59.68
-      },
-      {
         "id": "XPnoOUW3Bbs",
         "title": "Uttara\u2019s Vow: How a Young Princess Saved the Pandavas and Shaped the Mahabharata\u2019s End",
         "views": 206,
         "avg_view_pct": 34.28
       },
       {
-        "id": "1nDyZKKUks0",
-        "title": "The Tale of Draupadi's Swayamvara and the Challenge of the Kuru Princes",
-        "views": 184,
-        "avg_view_pct": 39.4
+        "id": "g13CdcAJ-6U",
+        "title": "Kunti Confesses to Dying Karna: The Mother He Never Knew",
+        "views": 138,
+        "avg_view_pct": 32.12
+      },
+      {
+        "id": "JwRR5JuvqGM",
+        "title": "The moment Arjuna receives the Bhagavad Gita's wisdom from Krishna before the war",
+        "views": 113,
+        "avg_view_pct": 33.77
       }
     ],
     "ch06_eastern_philosophy": [
@@ -7568,7 +7648,7 @@
       {
         "id": "8o802hDVN1g",
         "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 260,
+        "views": 261,
         "avg_view_pct": 132.73
       },
       {
