@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 169,
-      "current_total_views": 24679,
-      "current_subscribers": 25
+      "video_count": 170,
+      "current_total_views": 24685,
+      "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
       "video_count": 174,
-      "current_total_views": 27743,
+      "current_total_views": 27746,
       "current_subscribers": 14
     },
     "hp03_karma_justice": {
       "niche": "Unsolved mysteries and strange true events",
       "est_rpm": 5.7,
-      "video_count": 175,
-      "current_total_views": 21101,
+      "video_count": 176,
+      "current_total_views": 21103,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 152,
-      "current_total_views": 98747,
+      "video_count": 153,
+      "current_total_views": 98933,
       "current_subscribers": 99
     },
     "hp05_sleep_soundscapes": {
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "AI and technology explained simply",
       "est_rpm": 9.15,
-      "video_count": 196,
-      "current_total_views": 23979,
+      "video_count": 197,
+      "current_total_views": 24056,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
-      "video_count": 167,
-      "current_total_views": 15793,
+      "video_count": 168,
+      "current_total_views": 15796,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 180,
-      "current_total_views": 33684,
+      "video_count": 181,
+      "current_total_views": 33688,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "Original short horror stories",
       "est_rpm": null,
-      "video_count": 171,
-      "current_total_views": 18393,
+      "video_count": 172,
+      "current_total_views": 18397,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 168,
-      "current_total_views": 32624,
+      "video_count": 169,
+      "current_total_views": 32650,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 199,
-      "current_total_views": 40571,
+      "video_count": 200,
+      "current_total_views": 40582,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -7039,18 +7039,92 @@
       "watch_minutes": 0,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-10-31",
+      "views": 8,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-10-31",
+      "views": 3,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-10-31",
+      "views": 1,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-10-31",
+      "views": 15,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-10-31",
+      "views": 45,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-10-31",
+      "views": 1,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-10-31",
+      "views": 1,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-10-31",
+      "views": 5,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-10-31",
+      "views": 4,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-10-31",
+      "views": 3,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-02T13:04:06.141788Z",
+  "last_updated": "2026-11-03T12:36:15.732833Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
-      {
-        "id": "pagRP11rm1s",
-        "title": "He forged Mom\u2019s signature and lost it all\u2014my revenge",
-        "views": 998,
-        "avg_view_pct": 66.01
-      },
       {
         "id": "Apxd2d9Kk0o",
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
@@ -7104,6 +7178,12 @@
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
         "views": 278,
         "avg_view_pct": 46.99
+      },
+      {
+        "id": "izf7Eqj14z0",
+        "title": "A maid of honor who stole the wedding date and got exposed at the reception",
+        "views": 266,
+        "avg_view_pct": 50.09
       }
     ],
     "hp02_court_drama": [
@@ -7134,7 +7214,7 @@
       {
         "id": "tTAZP3awiLg",
         "title": "Courtroom showdown where a smart irrigation system's water usage logs bust a false sprinkler\u2011damage",
-        "views": 352,
+        "views": 354,
         "avg_view_pct": 73.63
       },
       {
@@ -7232,15 +7312,9 @@
     ],
     "hp04_veteran_kindness": [
       {
-        "id": "t6sNKsISjcc",
-        "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
-        "views": 1150,
-        "avg_view_pct": 60.29
-      },
-      {
         "id": "pKLCGzmWpEs",
         "title": "Why a Small Diner Surprised a Veteran with a Free Meal on His 20\u2011Year Anniversary",
-        "views": 1100,
+        "views": 1101,
         "avg_view_pct": 44.54
       },
       {
@@ -7290,6 +7364,12 @@
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
         "views": 1011,
         "avg_view_pct": 58.93999999999999
+      },
+      {
+        "id": "CTaKR12uHVA",
+        "title": "A stranger at an airport who gave up a first class seat to a veteran flying home",
+        "views": 1010,
+        "avg_view_pct": 97.52
       }
     ],
     "hp06_literary_analysis": [
@@ -7302,7 +7382,7 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 571,
+        "views": 572,
         "avg_view_pct": 44.52
       },
       {
@@ -7314,8 +7394,8 @@
       {
         "id": "CIMeS2kZbkM",
         "title": "The Secret Power of Tattoos in Neil Gaiman\u2019s\u202fAmerican\u202fGods: Identity, Myth, and Transformation",
-        "views": 398,
-        "avg_view_pct": 44.49
+        "views": 399,
+        "avg_view_pct": 44.71
       },
       {
         "id": "vzvyTTxANHw",
@@ -7332,7 +7412,7 @@
       {
         "id": "Tqcx-C3vgbk",
         "title": "The Secret Power of Seeds in Margaret Atwood\u2019s\u202fThe\u202fYear\u202fof\u202fthe",
-        "views": 273,
+        "views": 274,
         "avg_view_pct": 160.43
       },
       {
@@ -7348,10 +7428,10 @@
         "avg_view_pct": 46.51
       },
       {
-        "id": "TzyROVa2e_I",
-        "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 210,
-        "avg_view_pct": 55.09
+        "id": "1VyfuJGqXcM",
+        "title": "How Color Symbolism Shapes Identity and Fate in Toni Morrison\u2019s Song of Solomon",
+        "views": 163,
+        "avg_view_pct": 47.43
       }
     ],
     "hp07_senior_longevity": [
@@ -7394,7 +7474,7 @@
       {
         "id": "yPTDoVDhcIs",
         "title": "Can a 5\u2011Minute Daily",
-        "views": 158,
+        "views": 159,
         "avg_view_pct": 61.47
       },
       {
@@ -7410,10 +7490,10 @@
         "avg_view_pct": 65.36
       },
       {
-        "id": "QdBz7pAXq5o",
-        "title": "Why a short daily walk after meals supports healthy aging",
-        "views": 138,
-        "avg_view_pct": 44.89
+        "id": "9fzU-gSYQvY",
+        "title": "Can 6 Minutes of Neck Rolls Make You Steadier on Your Feet?",
+        "views": 129,
+        "avg_view_pct": 40.81
       }
     ],
     "hp08_english_learning": [
@@ -7466,16 +7546,16 @@
         "avg_view_pct": 91.03
       },
       {
-        "id": "nbFq4eHD5ZU",
-        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
-        "views": 262,
-        "avg_view_pct": 23.64
-      },
-      {
         "id": "_ybihsm_N_8",
         "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
         "views": 262,
         "avg_view_pct": 27.500000000000004
+      },
+      {
+        "id": "nbFq4eHD5ZU",
+        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
+        "views": 262,
+        "avg_view_pct": 23.64
       }
     ],
     "ch01_ai_asmr": [
@@ -7512,7 +7592,7 @@
       {
         "id": "bgzqnHF9dp8",
         "title": "Satisfying ASMR: Glass orb cracking in slow motion",
-        "views": 98,
+        "views": 99,
         "avg_view_pct": 57.15
       },
       {
@@ -7580,7 +7660,7 @@
       {
         "id": "aIGUD8t6URY",
         "title": "Kunti\u2019s secret: Karna discovers his true mother on the battlefield",
-        "views": 266,
+        "views": 269,
         "avg_view_pct": 87.24
       },
       {
@@ -7642,7 +7722,7 @@
       {
         "id": "TBszy4nY4rA",
         "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 268,
+        "views": 270,
         "avg_view_pct": 45.9
       },
       {
