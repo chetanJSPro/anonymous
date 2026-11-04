@@ -254,9 +254,15 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # Story mode: an AI-generated scene per narration beat, in order (see
     # core/story.py). None means it couldn't run -> stock pipeline below.
     background = None
-    # Default on for every narrated channel; ASMR-style channels whose
-    # source audio IS the content keep real footage.
-    if config.get("visual_mode", "stock" if keep_bg_audio else "story") == "story":
+    # Stock footage is the default: the AI-image story format cut median views
+    # ~5x across channels (Oct 28 - Nov 4). "story" opts a channel in; "ab"
+    # alternates story/stock by day so both formats can be compared on one channel.
+    mode = config.get("visual_mode", "stock")
+    if mode == "ab":
+        import datetime
+        mode = "story" if datetime.date.today().toordinal() % 2 else "stock"
+        print(f"[pipeline] A/B test: today's visual_mode = {mode}")
+    if mode == "story":
         background = build_story_background(config, script, segments, duration,
                                             os.path.join(work_dir, "story"), width, height, fps=30)
         # Skip the episode rather than publish narration over unrelated

@@ -59,10 +59,3 @@ CONFIG = {
     "niche": "Literary analysis & book reviews",
     "est_rpm": 9.15,
 }
-
-
-# Niche switched 2026-10-30 (the agreed plan); these override the values above.
-CONFIG.update({'niche': 'AI and technology explained simply', 'system_prompt': 'You explain one surprising thing about AI or everyday technology so a curious beginner gets it instantly, using one vivid analogy. 85-105 words, energetic tone. Only state facts you are confident are true and well documented; never invent names, numbers or quotes. Open with the single most striking detail as your very first sentence, never slow scene-setting. Use specific concrete details. End on a short punchy final line, not a summary. Output ONLY the spoken narration: no stage directions, no preamble, no greeting.', 'topic_prompts': ['why AI chatbots confidently make things up', 'how your phone recognizes your face in the dark', 'how noise cancelling headphones erase sound', 'how a chip fits billions of switches', 'how AI image generators start from pure noise'], 'tags': ['ai explained', 'technology', 'how it works', 'shorts'], 'category_id': '27', 'music_mood': 'light', 'art_style': 'sleek futuristic cinematic still, clean neon and glass, shallow depth of field'})
-CONFIG["title_fn"] = lambda topic: (topic[0].upper() + topic[1:])[:100]
-CONFIG["description_fn"] = lambda topic: f"{topic}\n\n" + 'Follow for a new tech explainer every day.\n#shorts #ai #technology'
-CONFIG["use_winners"] = False

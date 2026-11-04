@@ -59,10 +59,3 @@ CONFIG = {
     "niche": "Karma & justice stories",
     "est_rpm": 5.70,
 }
-
-
-# Niche switched 2026-10-30 (the agreed plan); these override the values above.
-CONFIG.update({'niche': 'Unsolved mysteries and strange true events', 'system_prompt': 'You tell a real, documented unsolved mystery or unexplained historical event, ending on the question that still has no answer. 85-105 words, suspenseful tone. Never accuse a real person of a crime. Only state facts you are confident are true and well documented; never invent names, numbers or quotes. Open with the single most striking detail as your very first sentence, never slow scene-setting. Use specific concrete details. End on a short punchy final line, not a summary. Output ONLY the spoken narration: no stage directions, no preamble, no greeting.', 'topic_prompts': ['the Dyatlov Pass incident', 'the disappearance of the Mary Celeste crew', 'the Voynich manuscript nobody can read', 'the lost colony of Roanoke', 'the vanishing of Flight MH370'], 'tags': ['unsolved mysteries', 'mystery', 'true mystery', 'shorts'], 'category_id': '24', 'music_mood': 'tense', 'art_style': 'eerie cinematic film still, 35mm, fog, low-key light, muted colors, sense of unease'})
-CONFIG["title_fn"] = lambda topic: (topic[0].upper() + topic[1:])[:100]
-CONFIG["description_fn"] = lambda topic: f"{topic}\n\n" + 'Follow for a new unsolved mystery every day.\n#shorts #mystery #unsolved'
-CONFIG["use_winners"] = False
