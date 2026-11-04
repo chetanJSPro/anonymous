@@ -4,29 +4,29 @@
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
       "video_count": 170,
-      "current_total_views": 24685,
+      "current_total_views": 24693,
       "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 174,
-      "current_total_views": 27746,
+      "video_count": 175,
+      "current_total_views": 27754,
       "current_subscribers": 14
     },
     "hp03_karma_justice": {
       "niche": "Unsolved mysteries and strange true events",
       "est_rpm": 5.7,
       "video_count": 176,
-      "current_total_views": 21103,
+      "current_total_views": 21112,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 153,
-      "current_total_views": 98933,
-      "current_subscribers": 99
+      "video_count": 154,
+      "current_total_views": 99058,
+      "current_subscribers": 98
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -36,42 +36,42 @@
       "niche": "AI and technology explained simply",
       "est_rpm": 9.15,
       "video_count": 197,
-      "current_total_views": 24056,
+      "current_total_views": 24111,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
       "video_count": 168,
-      "current_total_views": 15796,
+      "current_total_views": 15798,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
       "video_count": 181,
-      "current_total_views": 33688,
+      "current_total_views": 33698,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "Original short horror stories",
       "est_rpm": null,
-      "video_count": 172,
+      "video_count": 173,
       "current_total_views": 18397,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 169,
-      "current_total_views": 32650,
+      "video_count": 170,
+      "current_total_views": 32685,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
       "video_count": 200,
-      "current_total_views": 40582,
+      "current_total_views": 40592,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -7119,10 +7119,90 @@
       "watch_minutes": 0,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-01",
+      "views": 11,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-01",
+      "views": 21,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-01",
+      "views": 4,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-01",
+      "views": 137,
+      "watch_minutes": 33,
+      "subs_gained": 0,
+      "likes": 10
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-01",
+      "views": 78,
+      "watch_minutes": 7,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-01",
+      "views": 4,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-01",
+      "views": 36,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-01",
+      "views": 10,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-01",
+      "views": 38,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-01",
+      "views": 32,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-03T12:36:15.732833Z",
+  "last_updated": "2026-11-04T12:45:42.498836Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -7206,12 +7286,6 @@
         "avg_view_pct": 50.67
       },
       {
-        "id": "i9RfgZOIhdg",
-        "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
-        "views": 543,
-        "avg_view_pct": 59.870000000000005
-      },
-      {
         "id": "tTAZP3awiLg",
         "title": "Courtroom showdown where a smart irrigation system's water usage logs bust a false sprinkler\u2011damage",
         "views": 354,
@@ -7246,6 +7320,12 @@
         "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
         "views": 205,
         "avg_view_pct": 77.2
+      },
+      {
+        "id": "7qWgl4QmDSk",
+        "title": "Did a $300 Offer Stop a Fence War? Judge Says No!",
+        "views": 204,
+        "avg_view_pct": 66.94
       }
     ],
     "hp03_karma_justice": [
@@ -7276,7 +7356,7 @@
       {
         "id": "CZVo4DCKYtY",
         "title": "The pretentious valet who stole cars, then saved a driver from a sudden garage fire",
-        "views": 308,
+        "views": 309,
         "avg_view_pct": 46.21
       },
       {
@@ -7369,7 +7449,7 @@
         "id": "CTaKR12uHVA",
         "title": "A stranger at an airport who gave up a first class seat to a veteran flying home",
         "views": 1010,
-        "avg_view_pct": 97.52
+        "avg_view_pct": 97.68
       }
     ],
     "hp06_literary_analysis": [
@@ -7394,14 +7474,14 @@
       {
         "id": "CIMeS2kZbkM",
         "title": "The Secret Power of Tattoos in Neil Gaiman\u2019s\u202fAmerican\u202fGods: Identity, Myth, and Transformation",
-        "views": 399,
+        "views": 402,
         "avg_view_pct": 44.71
       },
       {
         "id": "vzvyTTxANHw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 332,
-        "avg_view_pct": 134.04
+        "views": 333,
+        "avg_view_pct": 133.61
       },
       {
         "id": "anoQfMEefLw",
@@ -7430,7 +7510,7 @@
       {
         "id": "1VyfuJGqXcM",
         "title": "How Color Symbolism Shapes Identity and Fate in Toni Morrison\u2019s Song of Solomon",
-        "views": 163,
+        "views": 164,
         "avg_view_pct": 47.43
       }
     ],
@@ -7516,12 +7596,6 @@
         "avg_view_pct": 44.26
       },
       {
-        "id": "EVub6mclEFg",
-        "title": "Learn English: Why native speakers say \u2018bite the bullet\u2019 and how to use it naturally",
-        "views": 360,
-        "avg_view_pct": 46.63
-      },
-      {
         "id": "hD0kQgg0LCw",
         "title": "The Secret Phrase That Lets You Disagree Politely",
         "views": 348,
@@ -7534,10 +7608,10 @@
         "avg_view_pct": 45.98
       },
       {
-        "id": "NYlGjlZ3xpE",
-        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
-        "views": 325,
-        "avg_view_pct": 54.26
+        "id": "EVub6mclEFg",
+        "title": "Learn English: Why native speakers say \u2018bite the bullet\u2019 and how to use it naturally",
+        "views": 298,
+        "avg_view_pct": 47.34
       },
       {
         "id": "qZPQV4nEgtc",
@@ -7546,16 +7620,22 @@
         "avg_view_pct": 91.03
       },
       {
-        "id": "_ybihsm_N_8",
-        "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
-        "views": 262,
-        "avg_view_pct": 27.500000000000004
-      },
-      {
         "id": "nbFq4eHD5ZU",
         "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
         "views": 262,
         "avg_view_pct": 23.64
+      },
+      {
+        "id": "_ybihsm_N_8",
+        "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
+        "views": 262,
+        "avg_view_pct": 26.57
+      },
+      {
+        "id": "Zf2NJNpoTL4",
+        "title": "Learn English: The difference between 'make' and 'do' in everyday English",
+        "views": 243,
+        "avg_view_pct": 70.52
       }
     ],
     "ch01_ai_asmr": [
@@ -7582,12 +7662,6 @@
         "title": "Satisfying ASMR: Glossy soap bar being sliced into cubes",
         "views": 175,
         "avg_view_pct": 34.33
-      },
-      {
-        "id": "YUemk0fJyMs",
-        "title": "Satisfying ASMR: Glass orb cracking in slow motion",
-        "views": 143,
-        "avg_view_pct": 28.62
       },
       {
         "id": "bgzqnHF9dp8",
@@ -7618,6 +7692,12 @@
         "title": "Satisfying ASMR: Satisfying ASMR:",
         "views": 74,
         "avg_view_pct": 55.97
+      },
+      {
+        "id": "mtg1usoLN-0",
+        "title": "Satisfying ASMR: Glass orb cracking in slow motion",
+        "views": 71,
+        "avg_view_pct": 21.37
       }
     ],
     "ch03_hindu_mythology": [
@@ -7660,7 +7740,7 @@
       {
         "id": "aIGUD8t6URY",
         "title": "Kunti\u2019s secret: Karna discovers his true mother on the battlefield",
-        "views": 269,
+        "views": 270,
         "avg_view_pct": 87.24
       },
       {
@@ -7722,7 +7802,7 @@
       {
         "id": "TBszy4nY4rA",
         "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 270,
+        "views": 271,
         "avg_view_pct": 45.9
       },
       {
