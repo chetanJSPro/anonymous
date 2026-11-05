@@ -3,79 +3,79 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 170,
-      "current_total_views": 24693,
+      "video_count": 171,
+      "current_total_views": 24696,
       "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 175,
-      "current_total_views": 27754,
+      "video_count": 176,
+      "current_total_views": 27764,
       "current_subscribers": 14
     },
     "hp03_karma_justice": {
-      "niche": "Unsolved mysteries and strange true events",
+      "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 176,
-      "current_total_views": 21112,
+      "video_count": 177,
+      "current_total_views": 21113,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 154,
-      "current_total_views": 99058,
-      "current_subscribers": 98
+      "video_count": 156,
+      "current_total_views": 99261,
+      "current_subscribers": 101
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
       "est_rpm": 10.92
     },
     "hp06_literary_analysis": {
-      "niche": "AI and technology explained simply",
+      "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 197,
-      "current_total_views": 24111,
+      "video_count": 198,
+      "current_total_views": 24180,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
       "video_count": 168,
-      "current_total_views": 15798,
+      "current_total_views": 15801,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 181,
-      "current_total_views": 33698,
+      "video_count": 182,
+      "current_total_views": 33705,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
-      "niche": "Original short horror stories",
+      "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 173,
-      "current_total_views": 18397,
+      "video_count": 174,
+      "current_total_views": 18399,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 170,
-      "current_total_views": 32685,
+      "video_count": 171,
+      "current_total_views": 32760,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 200,
-      "current_total_views": 40592,
+      "video_count": 202,
+      "current_total_views": 40598,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
-      "niche": "Bible stories retold with drama",
+      "niche": "Kids cartoon animal stories",
       "est_rpm": 2.5
     }
   },
@@ -7199,10 +7199,90 @@
       "watch_minutes": 2,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-02",
+      "views": 5,
+      "watch_minutes": 0,
+      "subs_gained": 1,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-02",
+      "views": 7,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-02",
+      "views": 7,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-02",
+      "views": 118,
+      "watch_minutes": 26,
+      "subs_gained": 1,
+      "likes": 5
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-02",
+      "views": 66,
+      "watch_minutes": 6,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-02",
+      "views": 2,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-02",
+      "views": 7,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-02",
+      "views": 1,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-02",
+      "views": 31,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-02",
+      "views": 10,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-04T12:45:42.498836Z",
+  "last_updated": "2026-11-05T12:55:15.182120Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -7248,12 +7328,6 @@
         "avg_view_pct": 29.64
       },
       {
-        "id": "G1DgVPK4pIc",
-        "title": "How I stole a $75,000 tourbillon and got away with it",
-        "views": 299,
-        "avg_view_pct": 54.76
-      },
-      {
         "id": "VsCe0RdAMAc",
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
         "views": 278,
@@ -7264,14 +7338,20 @@
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
         "views": 266,
         "avg_view_pct": 50.09
+      },
+      {
+        "id": "3Ep_xpPsK9Y",
+        "title": "A sibling who forged a parent's signature on an inheritance document",
+        "views": 245,
+        "avg_view_pct": 43.73
       }
     ],
     "hp02_court_drama": [
       {
         "id": "ztFrRb-ExVw",
         "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 928,
-        "avg_view_pct": 49.26
+        "views": 929,
+        "avg_view_pct": 49.24
       },
       {
         "id": "U_YTkFPguHs",
@@ -7310,22 +7390,22 @@
         "avg_view_pct": 48.2
       },
       {
-        "id": "DsQKfAnFFpY",
-        "title": "The trial where a smartwatch\u2019s GPS trail exposed a fraudulent alimony claim",
-        "views": 231,
-        "avg_view_pct": 54.78000000000001
-      },
-      {
         "id": "zrptm3C4XXE",
         "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
         "views": 205,
         "avg_view_pct": 77.2
       },
       {
-        "id": "7qWgl4QmDSk",
-        "title": "Did a $300 Offer Stop a Fence War? Judge Says No!",
-        "views": 204,
-        "avg_view_pct": 66.94
+        "id": "hXAtmIXwac0",
+        "title": "A dispute over a wedding photographer who never delivered the photos",
+        "views": 182,
+        "avg_view_pct": 58.47
+      },
+      {
+        "id": "NY-JXwsxpBs",
+        "title": "Smart Fridge Saves Me From $12,500 Lawsuit\u2014Watch the Verdict!",
+        "views": 164,
+        "avg_view_pct": 29.2
       }
     ],
     "hp03_karma_justice": [
@@ -7356,8 +7436,8 @@
       {
         "id": "CZVo4DCKYtY",
         "title": "The pretentious valet who stole cars, then saved a driver from a sudden garage fire",
-        "views": 309,
-        "avg_view_pct": 46.21
+        "views": 307,
+        "avg_view_pct": 46.6
       },
       {
         "id": "01Ks9ktQg94",
@@ -7384,10 +7464,10 @@
         "avg_view_pct": 19.4
       },
       {
-        "id": "Kbi3zAt5aNI",
+        "id": "9l6cxkirFkk",
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 131,
-        "avg_view_pct": 30.11
+        "views": 121,
+        "avg_view_pct": 46.79
       }
     ],
     "hp04_veteran_kindness": [
@@ -7400,8 +7480,8 @@
       {
         "id": "sMw5Df13Fpc",
         "title": "Stranger Gives Veteran a First\u2011Class Seat \u2013 What Happens Next?",
-        "views": 1081,
-        "avg_view_pct": 64.52
+        "views": 1083,
+        "avg_view_pct": 64.65
       },
       {
         "id": "sEMJYPoxCjc",
@@ -7418,8 +7498,8 @@
       {
         "id": "VZ53u0LP_Rg",
         "title": "A mechanic who fixed a veteran's truck for free after hearing their story",
-        "views": 1027,
-        "avg_view_pct": 67.62
+        "views": 1029,
+        "avg_view_pct": 67.75
       },
       {
         "id": "0Ul9Z0YnznM",
@@ -7434,16 +7514,16 @@
         "avg_view_pct": 64.19
       },
       {
-        "id": "ZlZKGV5NQrY",
-        "title": "When a veteran's truck dies, a mechanic offers more than help",
-        "views": 1011,
-        "avg_view_pct": 64.08
-      },
-      {
         "id": "T2hGZ3JlLbo",
         "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
         "views": 1011,
         "avg_view_pct": 58.93999999999999
+      },
+      {
+        "id": "ZlZKGV5NQrY",
+        "title": "When a veteran's truck dies, a mechanic offers more than help",
+        "views": 1011,
+        "avg_view_pct": 64.08
       },
       {
         "id": "CTaKR12uHVA",
@@ -7462,7 +7542,7 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 572,
+        "views": 574,
         "avg_view_pct": 44.52
       },
       {
@@ -7516,12 +7596,6 @@
     ],
     "hp07_senior_longevity": [
       {
-        "id": "h3CahA3YkB8",
-        "title": "Can 7 Minutes of Daily Tai Chi Boost Longevity After 60?",
-        "views": 317,
-        "avg_view_pct": 65.21
-      },
-      {
         "id": "4iLmJ716JRA",
         "title": "The 5\u2011Minute Night Routine That Keeps You Walking Strong for Decades",
         "views": 292,
@@ -7574,6 +7648,12 @@
         "title": "Can 6 Minutes of Neck Rolls Make You Steadier on Your Feet?",
         "views": 129,
         "avg_view_pct": 40.81
+      },
+      {
+        "id": "tfcyafPfZgY",
+        "title": "How a consistent sleep routine supports healthy aging",
+        "views": 114,
+        "avg_view_pct": 38.93
       }
     ],
     "hp08_english_learning": [
@@ -7602,24 +7682,6 @@
         "avg_view_pct": 39.55
       },
       {
-        "id": "TXloHCQ1aiY",
-        "title": "Why \u201cGet the Hang of It\u201d is the secret to mastering any skill",
-        "views": 330,
-        "avg_view_pct": 45.98
-      },
-      {
-        "id": "EVub6mclEFg",
-        "title": "Learn English: Why native speakers say \u2018bite the bullet\u2019 and how to use it naturally",
-        "views": 298,
-        "avg_view_pct": 47.34
-      },
-      {
-        "id": "qZPQV4nEgtc",
-        "title": "Learn English: Learn English: The idiom \u201chit the jackpot\u201d \u2013 meaning, origin, and everyday use",
-        "views": 285,
-        "avg_view_pct": 91.03
-      },
-      {
         "id": "nbFq4eHD5ZU",
         "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
         "views": 262,
@@ -7636,6 +7698,24 @@
         "title": "Learn English: The difference between 'make' and 'do' in everyday English",
         "views": 243,
         "avg_view_pct": 70.52
+      },
+      {
+        "id": "qZPQV4nEgtc",
+        "title": "Learn English: Learn English: The idiom \u201chit the jackpot\u201d \u2013 meaning, origin, and everyday use",
+        "views": 242,
+        "avg_view_pct": 99.95
+      },
+      {
+        "id": "BBmaY_P6NhA",
+        "title": "How to Disagree Politely in English \u2013 The Secret Phrase You Need",
+        "views": 242,
+        "avg_view_pct": 37.01
+      },
+      {
+        "id": "-B3sysoYNdk",
+        "title": "Learn English: How to politely disagree in English using softening phrases",
+        "views": 211,
+        "avg_view_pct": 61.480000000000004
       }
     ],
     "ch01_ai_asmr": [
@@ -7746,8 +7826,8 @@
       {
         "id": "XPnoOUW3Bbs",
         "title": "Uttara\u2019s Vow: How a Young Princess Saved the Pandavas and Shaped the Mahabharata\u2019s End",
-        "views": 206,
-        "avg_view_pct": 34.28
+        "views": 208,
+        "avg_view_pct": 34.45
       },
       {
         "id": "g13CdcAJ-6U",
