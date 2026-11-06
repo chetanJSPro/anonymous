@@ -3,30 +3,30 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 171,
-      "current_total_views": 24696,
+      "video_count": 172,
+      "current_total_views": 24716,
       "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
       "video_count": 176,
-      "current_total_views": 27764,
+      "current_total_views": 27772,
       "current_subscribers": 14
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
       "video_count": 177,
-      "current_total_views": 21113,
+      "current_total_views": 21134,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 156,
-      "current_total_views": 99261,
-      "current_subscribers": 101
+      "video_count": 157,
+      "current_total_views": 100183,
+      "current_subscribers": 102
     },
     "hp05_sleep_soundscapes": {
       "niche": "Sleep & healing soundscapes",
@@ -36,7 +36,7 @@
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
       "video_count": 198,
-      "current_total_views": 24180,
+      "current_total_views": 24248,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
@@ -49,29 +49,29 @@
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 182,
-      "current_total_views": 33705,
+      "video_count": 183,
+      "current_total_views": 33717,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 174,
-      "current_total_views": 18399,
+      "video_count": 175,
+      "current_total_views": 18406,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
       "video_count": 171,
-      "current_total_views": 32760,
+      "current_total_views": 32786,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 202,
-      "current_total_views": 40598,
+      "video_count": 203,
+      "current_total_views": 40608,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -7279,10 +7279,90 @@
       "watch_minutes": 1,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-03",
+      "views": 6,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-03",
+      "views": 8,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-03",
+      "views": 3,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-03",
+      "views": 98,
+      "watch_minutes": 18,
+      "subs_gained": 0,
+      "likes": 7
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-03",
+      "views": 69,
+      "watch_minutes": 6,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-03",
+      "views": 3,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-03",
+      "views": 10,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-03",
+      "views": 0,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-03",
+      "views": 40,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-03",
+      "views": 10,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-05T12:55:15.182120Z",
+  "last_updated": "2026-11-06T12:42:06.574169Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -7306,7 +7386,7 @@
       {
         "id": "epIf3LndqqY",
         "title": "Luxury yacht designer rigs rival\u2019s maiden voyage after losing billionaire charter\u2014watch the sabotage",
-        "views": 330,
+        "views": 332,
         "avg_view_pct": 44.76
       },
       {
@@ -7396,16 +7476,16 @@
         "avg_view_pct": 77.2
       },
       {
-        "id": "hXAtmIXwac0",
-        "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 182,
-        "avg_view_pct": 58.47
-      },
-      {
         "id": "NY-JXwsxpBs",
         "title": "Smart Fridge Saves Me From $12,500 Lawsuit\u2014Watch the Verdict!",
         "views": 164,
         "avg_view_pct": 29.2
+      },
+      {
+        "id": "0UCcGMTxWlE",
+        "title": "A small claims case over a neighbor's fence built two feet into the wrong yard",
+        "views": 158,
+        "avg_view_pct": 67.39
       }
     ],
     "hp03_karma_justice": [
@@ -7432,12 +7512,6 @@
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
         "views": 465,
         "avg_view_pct": 55.31
-      },
-      {
-        "id": "CZVo4DCKYtY",
-        "title": "The pretentious valet who stole cars, then saved a driver from a sudden garage fire",
-        "views": 307,
-        "avg_view_pct": 46.6
       },
       {
         "id": "01Ks9ktQg94",
@@ -7468,6 +7542,12 @@
         "title": "An entitled customer who demanded a refund and got caught lying on camera",
         "views": 121,
         "avg_view_pct": 46.79
+      },
+      {
+        "id": "S0_HXMIHt4M",
+        "title": "The snobbish sushi chef who overcharged diners, then saved them from a kitchen grease fire",
+        "views": 120,
+        "avg_view_pct": 47.18
       }
     ],
     "hp04_veteran_kindness": [
@@ -7536,7 +7616,7 @@
       {
         "id": "AzhTcTbBTh0",
         "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 908,
+        "views": 909,
         "avg_view_pct": 68.46
       },
       {
@@ -7578,7 +7658,7 @@
       {
         "id": "utI_9M7ShFs",
         "title": "The dark true story that inspired Mary Shelley's Frankenstein",
-        "views": 265,
+        "views": 266,
         "avg_view_pct": 36.69
       },
       {
@@ -7612,12 +7692,6 @@
         "title": "Why a short daily walk after meals supports healthy aging",
         "views": 271,
         "avg_view_pct": 33.97
-      },
-      {
-        "id": "YJLRI7MXQTo",
-        "title": "Can a 10\u2011Minute Walk After Every Meal Add Years to Your Life?",
-        "views": 201,
-        "avg_view_pct": 58.56
       },
       {
         "id": "U46xriAlkpo",
@@ -7654,6 +7728,12 @@
         "title": "How a consistent sleep routine supports healthy aging",
         "views": 114,
         "avg_view_pct": 38.93
+      },
+      {
+        "id": "ZgrCasyw21E",
+        "title": "3\u2011Minute Balance Drill That",
+        "views": 113,
+        "avg_view_pct": 53.459999999999994
       }
     ],
     "hp08_english_learning": [
@@ -7700,22 +7780,22 @@
         "avg_view_pct": 70.52
       },
       {
-        "id": "qZPQV4nEgtc",
-        "title": "Learn English: Learn English: The idiom \u201chit the jackpot\u201d \u2013 meaning, origin, and everyday use",
-        "views": 242,
-        "avg_view_pct": 99.95
-      },
-      {
         "id": "BBmaY_P6NhA",
         "title": "How to Disagree Politely in English \u2013 The Secret Phrase You Need",
         "views": 242,
         "avg_view_pct": 37.01
       },
       {
-        "id": "-B3sysoYNdk",
-        "title": "Learn English: How to politely disagree in English using softening phrases",
-        "views": 211,
-        "avg_view_pct": 61.480000000000004
+        "id": "wW1KPXLisLw",
+        "title": "Learn English: What \u201conce in a blue moon\u201d really means\u2014and how to use it naturally",
+        "views": 190,
+        "avg_view_pct": 41
+      },
+      {
+        "id": "xSogvQOyIPk",
+        "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
+        "views": 150,
+        "avg_view_pct": 26.74
       }
     ],
     "ch01_ai_asmr": [
@@ -7790,13 +7870,13 @@
       {
         "id": "zq7vIb8_rPU",
         "title": "Hanuman's leap across the ocean to Lanka",
-        "views": 787,
+        "views": 788,
         "avg_view_pct": 64.86
       },
       {
         "id": "W4erjxMl8JA",
         "title": "Hanuman's leap across the ocean to Lanka",
-        "views": 655,
+        "views": 656,
         "avg_view_pct": 43.47
       },
       {
@@ -7832,7 +7912,7 @@
       {
         "id": "g13CdcAJ-6U",
         "title": "Kunti Confesses to Dying Karna: The Mother He Never Knew",
-        "views": 138,
+        "views": 139,
         "avg_view_pct": 32.12
       },
       {
@@ -7892,16 +7972,16 @@
         "avg_view_pct": 132.73
       },
       {
-        "id": "noFN-siCWhM",
-        "title": "The Missing Shadow: A Zen Parable of Self\u2011Loss and True Presence",
-        "views": 252,
-        "avg_view_pct": 52.57000000000001
-      },
-      {
         "id": "pgGO5aziqGA",
         "title": "When the echo vanished, why did the mountain still speak?",
         "views": 247,
         "avg_view_pct": 42.09
+      },
+      {
+        "id": "d95ppvriSkI",
+        "title": "When the shadow refused to follow, why did the monk discover his own light?",
+        "views": 232,
+        "avg_view_pct": 81.23
       }
     ]
   }
