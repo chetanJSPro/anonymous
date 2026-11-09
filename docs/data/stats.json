@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 174,
-      "current_total_views": 24784,
+      "video_count": 175,
+      "current_total_views": 25373,
       "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 178,
-      "current_total_views": 28752,
+      "video_count": 179,
+      "current_total_views": 28774,
       "current_subscribers": 15
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 179,
-      "current_total_views": 21264,
+      "video_count": 180,
+      "current_total_views": 21282,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 159,
-      "current_total_views": 100667,
+      "video_count": 160,
+      "current_total_views": 100985,
       "current_subscribers": 102
     },
     "hp05_sleep_soundscapes": {
@@ -36,42 +36,42 @@
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
       "video_count": 200,
-      "current_total_views": 24387,
+      "current_total_views": 24601,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
       "video_count": 170,
-      "current_total_views": 15816,
+      "current_total_views": 15867,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 185,
-      "current_total_views": 33746,
+      "video_count": 186,
+      "current_total_views": 33777,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
       "video_count": 177,
-      "current_total_views": 18506,
+      "current_total_views": 18512,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 173,
-      "current_total_views": 32844,
+      "video_count": 174,
+      "current_total_views": 32938,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 205,
-      "current_total_views": 40664,
+      "video_count": 206,
+      "current_total_views": 40699,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -7519,18 +7519,92 @@
       "watch_minutes": 1,
       "subs_gained": 0,
       "likes": 1
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-06",
+      "views": 40,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-06",
+      "views": 315,
+      "watch_minutes": 29,
+      "subs_gained": 0,
+      "likes": 3
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-06",
+      "views": 96,
+      "watch_minutes": 10,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-06",
+      "views": 219,
+      "watch_minutes": 29,
+      "subs_gained": 1,
+      "likes": 6
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-06",
+      "views": 69,
+      "watch_minutes": 5,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-06",
+      "views": 5,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-06",
+      "views": 9,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-06",
+      "views": 66,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-06",
+      "views": 30,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-06",
+      "views": 39,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-08T11:40:28.896935Z",
+  "last_updated": "2026-11-09T13:35:53.176138Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
-      {
-        "id": "Apxd2d9Kk0o",
-        "title": "A maid of honor who stole the wedding date and got exposed at the reception",
-        "views": 684,
-        "avg_view_pct": 37.59
-      },
       {
         "id": "HyPtdgscXlI",
         "title": "Luxury event planner swaps rival\u2019s VIP guest list with scammers after being denied a celebrity contr",
@@ -7548,18 +7622,6 @@
         "title": "Luxury interior designer frames rival\u2019s client with hidden camera after losing $2",
         "views": 322,
         "avg_view_pct": 35.58
-      },
-      {
-        "id": "VhlhvYGxJuw",
-        "title": "Elite fashion designer ruins rival\u2019s runway with hidden dye after losing celebrity endorsement contr",
-        "views": 312,
-        "avg_view_pct": 83.55
-      },
-      {
-        "id": "pl5lswOhhNo",
-        "title": "I discovered my best friend was selling my designs to a rival brand\u2014my sabotage plan",
-        "views": 302,
-        "avg_view_pct": 29.64
       },
       {
         "id": "VsCe0RdAMAc",
@@ -7584,6 +7646,24 @@
         "title": "A roommate who secretly rented out the apartment on weekends until the landlord found out",
         "views": 239,
         "avg_view_pct": 48.9
+      },
+      {
+        "id": "DtWSTA6HRmI",
+        "title": "Luxury art curator swaps rival\u2019s priceless masterpiece with a perfect replica after losing a museum",
+        "views": 235,
+        "avg_view_pct": 26.46
+      },
+      {
+        "id": "UOzRWOtghiw",
+        "title": "A maid of honor who stole the wedding date and got exposed at the reception",
+        "views": 224,
+        "avg_view_pct": 77.15
+      },
+      {
+        "id": "9eSQG8jBM88",
+        "title": "She Tried to Swap Our Wedding for a Beach Elopement\u2014Watch My Revenge!",
+        "views": 215,
+        "avg_view_pct": 47.21
       }
     ],
     "hp02_court_drama": [
@@ -7600,16 +7680,16 @@
         "avg_view_pct": 73.63
       },
       {
+        "id": "xBDqDhZAUgI",
+        "title": "Caught on Camera: Roommate Tries to Steal $2,000 of Food\u2014Judge Rules in My Favor",
+        "views": 309,
+        "avg_view_pct": 55.32
+      },
+      {
         "id": "z4KkuCKzZq8",
         "title": "A small claims case over a neighbor's fence built two feet into the wrong yard",
         "views": 255,
         "avg_view_pct": 58.51
-      },
-      {
-        "id": "ztFrRb-ExVw",
-        "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 236,
-        "avg_view_pct": 38.21
       },
       {
         "id": "NY-JXwsxpBs",
@@ -7622,12 +7702,6 @@
         "title": "A small claims case over a neighbor's fence built two feet into the wrong yard",
         "views": 158,
         "avg_view_pct": 67.39
-      },
-      {
-        "id": "k-G1fRZP2bk",
-        "title": "A dispute over a wedding photographer who never delivered the photos",
-        "views": 132,
-        "avg_view_pct": 57.440000000000005
       },
       {
         "id": "Ks3mTYgs9YM",
@@ -7646,6 +7720,12 @@
         "title": "A small claims case over a neighbor's fence built two feet into the wrong yard",
         "views": 68,
         "avg_view_pct": 71.88
+      },
+      {
+        "id": "uu4bzHAA7JE",
+        "title": "The courtroom clash where a smart lock\u2019s access log exposed a fabricated burglary alibi",
+        "views": 67,
+        "avg_view_pct": 54.43
       }
     ],
     "hp03_karma_justice": [
@@ -7686,28 +7766,28 @@
         "avg_view_pct": 60.99
       },
       {
-        "id": "UMaNcLLNK3I",
-        "title": "A neighbor who kept stealing parking spots until the HOA got involved",
-        "views": 154,
-        "avg_view_pct": 31.06
-      },
-      {
         "id": "THYiQ059Qf0",
         "title": "She Charged $3,000 for a Wedding Arch\u2014Then the Sky Fell!",
         "views": 143,
         "avg_view_pct": 19.4
       },
       {
-        "id": "9l6cxkirFkk",
-        "title": "An entitled customer who demanded a refund and got caught lying on camera",
-        "views": 121,
-        "avg_view_pct": 46.79
-      },
-      {
         "id": "S0_HXMIHt4M",
         "title": "The snobbish sushi chef who overcharged diners, then saved them from a kitchen grease fire",
         "views": 120,
         "avg_view_pct": 47.18
+      },
+      {
+        "id": "0bH8ytC4gPM",
+        "title": "The overcharging Uber driver who left a passenger stranded, then saved them from a highway accident",
+        "views": 113,
+        "avg_view_pct": 32.5
+      },
+      {
+        "id": "xUZAqSj0Lgw",
+        "title": "The fake charity organizer who swindled donors, then rescued the shelter during a sudden flood",
+        "views": 109,
+        "avg_view_pct": 35.47
       }
     ],
     "hp04_veteran_kindness": [
@@ -7722,6 +7802,12 @@
         "title": "Stranger Gives Veteran a First\u2011Class Seat \u2013 What Happens Next?",
         "views": 1083,
         "avg_view_pct": 64.65
+      },
+      {
+        "id": "KrCxKPFZIiU",
+        "title": "Veteran\u2019s surprise ice\u2011cream gift turns a summer day into a miracle",
+        "views": 1057,
+        "avg_view_pct": 38.79
       },
       {
         "id": "aElGL1Ckmto",
@@ -7754,12 +7840,6 @@
         "avg_view_pct": 64.19
       },
       {
-        "id": "T2hGZ3JlLbo",
-        "title": "A young cashier who noticed a veteran's hat and paid for their groceries",
-        "views": 1011,
-        "avg_view_pct": 58.93999999999999
-      },
-      {
         "id": "ZlZKGV5NQrY",
         "title": "When a veteran's truck dies, a mechanic offers more than help",
         "views": 1011,
@@ -7776,13 +7856,13 @@
       {
         "id": "AzhTcTbBTh0",
         "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 909,
-        "avg_view_pct": 68.46
+        "views": 868,
+        "avg_view_pct": 69.95
       },
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 575,
+        "views": 576,
         "avg_view_pct": 44.52
       },
       {
@@ -7812,14 +7892,8 @@
       {
         "id": "utI_9M7ShFs",
         "title": "The dark true story that inspired Mary Shelley's Frankenstein",
-        "views": 266,
+        "views": 267,
         "avg_view_pct": 36.69
-      },
-      {
-        "id": "uMcArSJOqRs",
-        "title": "Is Hill House a Living Prison for Your Mind?",
-        "views": 236,
-        "avg_view_pct": 46.51
       },
       {
         "id": "guXZS4Y8i-Y",
@@ -7832,6 +7906,12 @@
         "title": "The dark true story that inspired Mary Shelley's Frankenstein",
         "views": 143,
         "avg_view_pct": 72.73
+      },
+      {
+        "id": "S0xHFaPSyUQ",
+        "title": "The Symbolic Role of Food in Gabriel Garc\u00eda M\u00e1rquez\u2019s One Hundred Years of Solitude",
+        "views": 120,
+        "avg_view_pct": 36.63
       }
     ],
     "hp07_senior_longevity": [
@@ -7852,24 +7932,6 @@
         "title": "Can a 5\u2011Minute Daily",
         "views": 159,
         "avg_view_pct": 61.47
-      },
-      {
-        "id": "0RLfcFk0q4I",
-        "title": "The longevity benefits of staying socially connected in later life",
-        "views": 155,
-        "avg_view_pct": 46.13
-      },
-      {
-        "id": "ntPeTiOpNgg",
-        "title": "How a consistent sleep routine supports healthy aging",
-        "views": 150,
-        "avg_view_pct": 65.36
-      },
-      {
-        "id": "4iLmJ716JRA",
-        "title": "The 5\u2011Minute Night Routine That Keeps You Walking Strong for Decades",
-        "views": 140,
-        "avg_view_pct": 50.51
       },
       {
         "id": "tfcyafPfZgY",
@@ -7894,6 +7956,24 @@
         "title": "The value of stretching and light mobility work for older adults",
         "views": 93,
         "avg_view_pct": 55.3
+      },
+      {
+        "id": "tD_W6nMQ19g",
+        "title": "Why a short daily walk after meals supports healthy aging",
+        "views": 86,
+        "avg_view_pct": 46.31
+      },
+      {
+        "id": "ckzAINpWpLU",
+        "title": "Why a short daily walk after meals supports healthy aging",
+        "views": 86,
+        "avg_view_pct": 45.48
+      },
+      {
+        "id": "7dH2etW2C6E",
+        "title": "Why a short daily walk after meals supports healthy aging",
+        "views": 81,
+        "avg_view_pct": 43.55
       }
     ],
     "hp08_english_learning": [
@@ -7996,6 +8076,12 @@
         "avg_view_pct": 17.23
       },
       {
+        "id": "px6BNI-svfM",
+        "title": "What Secrets Unfold When Beads Roll Like Tiny Moons on Marble?",
+        "views": 66,
+        "avg_view_pct": 28.78
+      },
+      {
         "id": "97ZUtcR4Wpg",
         "title": "Satisfying ASMR: Velvet moss slime gliding over chilled marble, gentle rustles and slow undulating r",
         "views": 51,
@@ -8012,12 +8098,6 @@
         "title": "Slicing Sand with a Knife \u2013 The Unexpected ASMR Calm You\u2019ve Never Heard",
         "views": 38,
         "avg_view_pct": 17.72
-      },
-      {
-        "id": "x5wgdnmq3Ik",
-        "title": "Satisfying ASMR: Silky moonlit foam swirls on chilled obsidian, gentle plops and soft sighs",
-        "views": 36,
-        "avg_view_pct": 39.83
       }
     ],
     "ch03_hindu_mythology": [
@@ -8120,12 +8200,6 @@
         "avg_view_pct": 48.91
       },
       {
-        "id": "TBszy4nY4rA",
-        "title": "The Buddhist concept of impermanence (anicca)",
-        "views": 271,
-        "avg_view_pct": 45.9
-      },
-      {
         "id": "8o802hDVN1g",
         "title": "The Buddhist concept of impermanence (anicca)",
         "views": 261,
@@ -8142,6 +8216,12 @@
         "title": "When the shadow refused to follow, why did the monk discover his own light?",
         "views": 232,
         "avg_view_pct": 81.23
+      },
+      {
+        "id": "KpfC_DincO0",
+        "title": "When the wind sang, why did the silent monk smile?",
+        "views": 224,
+        "avg_view_pct": 54.17999999999999
       }
     ]
   }
