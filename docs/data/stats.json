@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 175,
-      "current_total_views": 25373,
+      "video_count": 176,
+      "current_total_views": 25501,
       "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 179,
-      "current_total_views": 28774,
+      "video_count": 180,
+      "current_total_views": 28804,
       "current_subscribers": 15
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 180,
-      "current_total_views": 21282,
+      "video_count": 181,
+      "current_total_views": 21290,
       "current_subscribers": 22
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 160,
-      "current_total_views": 100985,
+      "video_count": 161,
+      "current_total_views": 101106,
       "current_subscribers": 102
     },
     "hp05_sleep_soundscapes": {
@@ -36,42 +36,42 @@
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
       "video_count": 200,
-      "current_total_views": 24601,
+      "current_total_views": 24660,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
-      "video_count": 170,
-      "current_total_views": 15867,
+      "video_count": 171,
+      "current_total_views": 15868,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
       "video_count": 186,
-      "current_total_views": 33777,
+      "current_total_views": 33793,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 177,
-      "current_total_views": 18512,
+      "video_count": 178,
+      "current_total_views": 18517,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 174,
-      "current_total_views": 32938,
+      "video_count": 175,
+      "current_total_views": 32962,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 206,
-      "current_total_views": 40699,
+      "video_count": 207,
+      "current_total_views": 40826,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -7599,10 +7599,90 @@
       "watch_minutes": 3,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-07",
+      "views": 312,
+      "watch_minutes": 34,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-07",
+      "views": 673,
+      "watch_minutes": 81,
+      "subs_gained": 1,
+      "likes": 1
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-07",
+      "views": 50,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-07",
+      "views": 329,
+      "watch_minutes": 34,
+      "subs_gained": 0,
+      "likes": 4
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-07",
+      "views": 191,
+      "watch_minutes": 14,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-07",
+      "views": 37,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-07",
+      "views": 28,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-07",
+      "views": 34,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-07",
+      "views": 51,
+      "watch_minutes": 3,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-07",
+      "views": 21,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-09T13:35:53.176138Z",
+  "last_updated": "2026-11-10T13:13:53.285946Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -7624,10 +7704,10 @@
         "avg_view_pct": 35.58
       },
       {
-        "id": "VsCe0RdAMAc",
-        "title": "A maid of honor who stole the wedding date and got exposed at the reception",
-        "views": 278,
-        "avg_view_pct": 46.99
+        "id": "u3zd-F-6_-U",
+        "title": "I poisoned a florist\u2019s roses to steal a $12K wedding contract\u2014no one suspected a thing",
+        "views": 291,
+        "avg_view_pct": 52.190000000000005
       },
       {
         "id": "izf7Eqj14z0",
@@ -7668,6 +7748,12 @@
     ],
     "hp02_court_drama": [
       {
+        "id": "xBDqDhZAUgI",
+        "title": "Caught on Camera: Roommate Tries to Steal $2,000 of Food\u2014Judge Rules in My Favor",
+        "views": 978,
+        "avg_view_pct": 59.43999999999999
+      },
+      {
         "id": "U_YTkFPguHs",
         "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
         "views": 602,
@@ -7678,12 +7764,6 @@
         "title": "Courtroom showdown where a smart irrigation system's water usage logs bust a false sprinkler\u2011damage",
         "views": 355,
         "avg_view_pct": 73.63
-      },
-      {
-        "id": "xBDqDhZAUgI",
-        "title": "Caught on Camera: Roommate Tries to Steal $2,000 of Food\u2014Judge Rules in My Favor",
-        "views": 309,
-        "avg_view_pct": 55.32
       },
       {
         "id": "z4KkuCKzZq8",
@@ -7772,6 +7852,12 @@
         "avg_view_pct": 19.4
       },
       {
+        "id": "zvovoFump1c",
+        "title": "When a pier collapse saved me from a bike shop\u2019s fake $45 fee",
+        "views": 126,
+        "avg_view_pct": 41.41
+      },
+      {
         "id": "S0_HXMIHt4M",
         "title": "The snobbish sushi chef who overcharged diners, then saved them from a kitchen grease fire",
         "views": 120,
@@ -7782,12 +7868,6 @@
         "title": "The overcharging Uber driver who left a passenger stranded, then saved them from a highway accident",
         "views": 113,
         "avg_view_pct": 32.5
-      },
-      {
-        "id": "xUZAqSj0Lgw",
-        "title": "The fake charity organizer who swindled donors, then rescued the shelter during a sudden flood",
-        "views": 109,
-        "avg_view_pct": 35.47
       }
     ],
     "hp04_veteran_kindness": [
@@ -7806,8 +7886,8 @@
       {
         "id": "KrCxKPFZIiU",
         "title": "Veteran\u2019s surprise ice\u2011cream gift turns a summer day into a miracle",
-        "views": 1057,
-        "avg_view_pct": 38.79
+        "views": 1061,
+        "avg_view_pct": 38.78
       },
       {
         "id": "aElGL1Ckmto",
@@ -7854,15 +7934,9 @@
     ],
     "hp06_literary_analysis": [
       {
-        "id": "AzhTcTbBTh0",
-        "title": "Why The Great Gatsby's ending still divides readers",
-        "views": 868,
-        "avg_view_pct": 69.95
-      },
-      {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 576,
+        "views": 577,
         "avg_view_pct": 44.52
       },
       {
@@ -7874,8 +7948,8 @@
       {
         "id": "vzvyTTxANHw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 334,
-        "avg_view_pct": 133.61
+        "views": 335,
+        "avg_view_pct": 132.81
       },
       {
         "id": "anoQfMEefLw",
@@ -7908,6 +7982,12 @@
         "avg_view_pct": 72.73
       },
       {
+        "id": "AWOgr4gAHuE",
+        "title": "What Gillian Flynn\u2019s Mirrors Reveal About Amy & Nick\u2019s True Selves",
+        "views": 135,
+        "avg_view_pct": 27.49
+      },
+      {
         "id": "S0xHFaPSyUQ",
         "title": "The Symbolic Role of Food in Gabriel Garc\u00eda M\u00e1rquez\u2019s One Hundred Years of Solitude",
         "views": 120,
@@ -7934,12 +8014,6 @@
         "avg_view_pct": 61.47
       },
       {
-        "id": "tfcyafPfZgY",
-        "title": "How a consistent sleep routine supports healthy aging",
-        "views": 114,
-        "avg_view_pct": 38.93
-      },
-      {
         "id": "ZgrCasyw21E",
         "title": "3\u2011Minute Balance Drill That",
         "views": 113,
@@ -7950,12 +8024,6 @@
         "title": "The 15\u2011Minute Weekly Call That Could Extend Your Life",
         "views": 97,
         "avg_view_pct": 29.31
-      },
-      {
-        "id": "YzSoOli52dg",
-        "title": "The value of stretching and light mobility work for older adults",
-        "views": 93,
-        "avg_view_pct": 55.3
       },
       {
         "id": "tD_W6nMQ19g",
@@ -7974,6 +8042,18 @@
         "title": "Why a short daily walk after meals supports healthy aging",
         "views": 81,
         "avg_view_pct": 43.55
+      },
+      {
+        "id": "4N8881bkXM4",
+        "title": "The longevity benefits of staying socially connected in later life",
+        "views": 77,
+        "avg_view_pct": 81.11
+      },
+      {
+        "id": "dfk_qysLuGM",
+        "title": "Can a 4\u2011Minute Probiotic Smoothie Supercharge Your Longevity?",
+        "views": 75,
+        "avg_view_pct": 47.92
       }
     ],
     "hp08_english_learning": [
@@ -8002,22 +8082,16 @@
         "avg_view_pct": 39.55
       },
       {
-        "id": "_ybihsm_N_8",
-        "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
-        "views": 262,
-        "avg_view_pct": 26.57
-      },
-      {
         "id": "nbFq4eHD5ZU",
         "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
         "views": 262,
         "avg_view_pct": 23.64
       },
       {
-        "id": "Zf2NJNpoTL4",
-        "title": "Learn English: The difference between 'make' and 'do' in everyday English",
-        "views": 243,
-        "avg_view_pct": 70.52
+        "id": "_ybihsm_N_8",
+        "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
+        "views": 262,
+        "avg_view_pct": 26.57
       },
       {
         "id": "BBmaY_P6NhA",
@@ -8030,6 +8104,12 @@
         "title": "Learn English: What \u201conce in a blue moon\u201d really means\u2014and how to use it naturally",
         "views": 190,
         "avg_view_pct": 41
+      },
+      {
+        "id": "Zf2NJNpoTL4",
+        "title": "Learn English: The difference between 'make' and 'do' in everyday English",
+        "views": 159,
+        "avg_view_pct": 43.96
       },
       {
         "id": "xSogvQOyIPk",
@@ -8052,16 +8132,10 @@
         "avg_view_pct": 22.52
       },
       {
-        "id": "WI5nLImijl4",
-        "title": "Satisfying ASMR: Colorful slime being stretched and folded",
-        "views": 177,
-        "avg_view_pct": 30.36
-      },
-      {
-        "id": "bgzqnHF9dp8",
-        "title": "Satisfying ASMR: Glass orb cracking in slow motion",
-        "views": 99,
-        "avg_view_pct": 57.15
+        "id": "px6BNI-svfM",
+        "title": "What Secrets Unfold When Beads Roll Like Tiny Moons on Marble?",
+        "views": 100,
+        "avg_view_pct": 27.97
       },
       {
         "id": "BFewSXaHVRI",
@@ -8074,12 +8148,6 @@
         "title": "What Happens When Honey\u2011Comb Soap Crumbles in Slow Motion?",
         "views": 77,
         "avg_view_pct": 17.23
-      },
-      {
-        "id": "px6BNI-svfM",
-        "title": "What Secrets Unfold When Beads Roll Like Tiny Moons on Marble?",
-        "views": 66,
-        "avg_view_pct": 28.78
       },
       {
         "id": "97ZUtcR4Wpg",
@@ -8098,6 +8166,18 @@
         "title": "Slicing Sand with a Knife \u2013 The Unexpected ASMR Calm You\u2019ve Never Heard",
         "views": 38,
         "avg_view_pct": 17.72
+      },
+      {
+        "id": "ci2SNYDQbKk",
+        "title": "Satisfying ASMR: Kinetic sand being cut with a knife",
+        "views": 35,
+        "avg_view_pct": 18.76
+      },
+      {
+        "id": "sb_OmKMuPX0",
+        "title": "What Happens When a Knife Slices Through Kinetic Sand?",
+        "views": 33,
+        "avg_view_pct": 13.23
       }
     ],
     "ch03_hindu_mythology": [
@@ -8110,7 +8190,7 @@
       {
         "id": "zq7vIb8_rPU",
         "title": "Hanuman's leap across the ocean to Lanka",
-        "views": 788,
+        "views": 789,
         "avg_view_pct": 64.86
       },
       {
@@ -8134,8 +8214,8 @@
       {
         "id": "XPnoOUW3Bbs",
         "title": "Uttara\u2019s Vow: How a Young Princess Saved the Pandavas and Shaped the Mahabharata\u2019s End",
-        "views": 208,
-        "avg_view_pct": 34.45
+        "views": 209,
+        "avg_view_pct": 35.58
       },
       {
         "id": "g13CdcAJ-6U",
