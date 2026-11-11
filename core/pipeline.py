@@ -295,7 +295,7 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
     # Original bed synthesized per episode, so no Content ID claims. Off where
     # the source audio is the content (ASMR), or with config["music"] = False.
     music_path = None
-    if config.get("music", not keep_bg_audio):
+    if config.get("music", False):  # off by default: pre-Oct-28 format had no music bed
         music_path = write_music_bed(os.path.join(work_dir, "music.wav"), duration, mood)
     build_final_video(background, narration_path, ass_path, final_path, duration=duration,
                        background_audio=keep_bg_audio,

@@ -10,3 +10,11 @@ output/*
 
 __pycache__/
 *.pyc
+
+README.md
+SETUP.md
+CLAUDE.md
+channel_docs/
+channel_docs_highpay/
+gen_docs_*.js
+niche-video-hunter-project*

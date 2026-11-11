@@ -58,7 +58,7 @@ CONFIG = {
     "tags": ['veteran story', 'kindness', 'feel good story', 'storytime'],
     "niche": "Veteran kindness stories",
     "story_stock_fallback": True,
-    "visual_mode": "ab",  # alternates story/stock daily -- compare in analytics
+    "visual_mode": "stock",  # A/B ended 2026-11-11: story days underperformed
     "art_style": "warm cinematic photorealistic film still, 35mm, shallow depth of field, golden hour, emotional",
     "est_rpm": 7.13,
 }

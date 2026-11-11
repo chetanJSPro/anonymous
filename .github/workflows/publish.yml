@@ -2,13 +2,11 @@ name: Publish niche episodes
 
 on:
   schedule:
-    # One episode/day/channel (was 3/day until 2026-10-30). The budget is what
-    # sets this: Cloudflare's free 10k neurons/day cover about 100 scenes, i.e.
-    # one run of the 10 story channels, and 11 jobs x ~5 min x 30 days only
-    # just fits the private repo's 2,000 free Actions minutes -- 3/day used them
-    # up by 2026-10-29 and every later job was refused. 00:30 UTC is right after
-    # the neuron quota resets at 00:00 UTC.
+    # 3 episodes/day/channel restored 2026-11-11 (the 1/day cut on Oct 30
+    # coincided with views collapsing). Public repo = unlimited Actions minutes.
     - cron: "30 0 * * *"
+    - cron: "30 8 * * *"
+    - cron: "30 16 * * *"
   workflow_dispatch:
     inputs:
       channel:
