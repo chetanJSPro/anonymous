@@ -3,29 +3,29 @@
     "hp01_betrayal_revenge": {
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
-      "video_count": 176,
-      "current_total_views": 25501,
+      "video_count": 177,
+      "current_total_views": 25531,
       "current_subscribers": 26
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 180,
-      "current_total_views": 28804,
+      "video_count": 181,
+      "current_total_views": 28915,
       "current_subscribers": 15
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 181,
-      "current_total_views": 21290,
-      "current_subscribers": 22
+      "video_count": 182,
+      "current_total_views": 22028,
+      "current_subscribers": 26
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 161,
-      "current_total_views": 101106,
+      "video_count": 162,
+      "current_total_views": 101269,
       "current_subscribers": 102
     },
     "hp05_sleep_soundscapes": {
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 200,
-      "current_total_views": 24660,
+      "video_count": 201,
+      "current_total_views": 24702,
       "current_subscribers": 20
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
-      "video_count": 171,
-      "current_total_views": 15868,
+      "video_count": 172,
+      "current_total_views": 15969,
       "current_subscribers": 19
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 186,
-      "current_total_views": 33793,
+      "video_count": 187,
+      "current_total_views": 33797,
       "current_subscribers": 56
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 178,
-      "current_total_views": 18517,
+      "video_count": 179,
+      "current_total_views": 18534,
       "current_subscribers": 10
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 175,
-      "current_total_views": 32962,
+      "video_count": 176,
+      "current_total_views": 33051,
       "current_subscribers": 36
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 207,
-      "current_total_views": 40826,
+      "video_count": 208,
+      "current_total_views": 40835,
       "current_subscribers": 32
     },
     "hp09_kids_cartoon_stories": {
@@ -7679,35 +7679,103 @@
       "watch_minutes": 1,
       "subs_gained": 0,
       "likes": 0
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-08",
+      "views": 403,
+      "watch_minutes": 46,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-08",
+      "views": 29,
+      "watch_minutes": 4,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-08",
+      "views": 10,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-08",
+      "views": 178,
+      "watch_minutes": 16,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-08",
+      "views": 115,
+      "watch_minutes": 7,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-08",
+      "views": 31,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-08",
+      "views": 28,
+      "watch_minutes": 1,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-08",
+      "views": 8,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-08",
+      "views": 79,
+      "watch_minutes": 7,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-08",
+      "views": 31,
+      "watch_minutes": 2,
+      "subs_gained": 0,
+      "likes": 0
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-10T13:13:53.285946Z",
+  "last_updated": "2026-11-11T12:24:45.996487Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
+      {
+        "id": "u3zd-F-6_-U",
+        "title": "I poisoned a florist\u2019s roses to steal a $12K wedding contract\u2014no one suspected a thing",
+        "views": 614,
+        "avg_view_pct": 48.87
+      },
       {
         "id": "HyPtdgscXlI",
         "title": "Luxury event planner swaps rival\u2019s VIP guest list with scammers after being denied a celebrity contr",
         "views": 578,
         "avg_view_pct": 46.48
-      },
-      {
-        "id": "epIf3LndqqY",
-        "title": "Luxury yacht designer rigs rival\u2019s maiden voyage after losing billionaire charter\u2014watch the sabotage",
-        "views": 332,
-        "avg_view_pct": 44.76
-      },
-      {
-        "id": "XzrYHRIyV6Q",
-        "title": "Luxury interior designer frames rival\u2019s client with hidden camera after losing $2",
-        "views": 322,
-        "avg_view_pct": 35.58
-      },
-      {
-        "id": "u3zd-F-6_-U",
-        "title": "I poisoned a florist\u2019s roses to steal a $12K wedding contract\u2014no one suspected a thing",
-        "views": 291,
-        "avg_view_pct": 52.190000000000005
       },
       {
         "id": "izf7Eqj14z0",
@@ -7728,12 +7796,6 @@
         "avg_view_pct": 48.9
       },
       {
-        "id": "DtWSTA6HRmI",
-        "title": "Luxury art curator swaps rival\u2019s priceless masterpiece with a perfect replica after losing a museum",
-        "views": 235,
-        "avg_view_pct": 26.46
-      },
-      {
         "id": "UOzRWOtghiw",
         "title": "A maid of honor who stole the wedding date and got exposed at the reception",
         "views": 224,
@@ -7744,20 +7806,32 @@
         "title": "She Tried to Swap Our Wedding for a Beach Elopement\u2014Watch My Revenge!",
         "views": 215,
         "avg_view_pct": 47.21
+      },
+      {
+        "id": "wjdqa_6vwME",
+        "title": "Luxury perfume mogul poisons rival\u2019s signature scent after being denied exclusive boutique deal",
+        "views": 196,
+        "avg_view_pct": 89.24
+      },
+      {
+        "id": "pHsOI-e94Ms",
+        "title": "Luxury car collector frames rival\u2019s test\u2011drive crash after losing exclusive dealership deal",
+        "views": 186,
+        "avg_view_pct": 53.77000000000001
+      },
+      {
+        "id": "uWHdWEvcQxE",
+        "title": "Did I Just Crash My Mentor",
+        "views": 177,
+        "avg_view_pct": 39.63
       }
     ],
     "hp02_court_drama": [
       {
         "id": "xBDqDhZAUgI",
         "title": "Caught on Camera: Roommate Tries to Steal $2,000 of Food\u2014Judge Rules in My Favor",
-        "views": 978,
-        "avg_view_pct": 59.43999999999999
-      },
-      {
-        "id": "U_YTkFPguHs",
-        "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
-        "views": 602,
-        "avg_view_pct": 69.22
+        "views": 989,
+        "avg_view_pct": 59.209999999999994
       },
       {
         "id": "tTAZP3awiLg",
@@ -7770,12 +7844,6 @@
         "title": "A small claims case over a neighbor's fence built two feet into the wrong yard",
         "views": 255,
         "avg_view_pct": 58.51
-      },
-      {
-        "id": "NY-JXwsxpBs",
-        "title": "Smart Fridge Saves Me From $12,500 Lawsuit\u2014Watch the Verdict!",
-        "views": 164,
-        "avg_view_pct": 29.2
       },
       {
         "id": "0UCcGMTxWlE",
@@ -7806,6 +7874,18 @@
         "title": "The courtroom clash where a smart lock\u2019s access log exposed a fabricated burglary alibi",
         "views": 67,
         "avg_view_pct": 54.43
+      },
+      {
+        "id": "JCcXXDxYnUA",
+        "title": "The courtroom showdown where a smart doorbell video proves a landlord\u2019s fake eviction claim",
+        "views": 62,
+        "avg_view_pct": 57.05
+      },
+      {
+        "id": "wU2UnAjeoIA",
+        "title": "A contractor sued for a bad renovation who had secretly recorded every conversation",
+        "views": 62,
+        "avg_view_pct": 67.44
       }
     ],
     "hp03_karma_justice": [
@@ -7858,16 +7938,16 @@
         "avg_view_pct": 41.41
       },
       {
-        "id": "S0_HXMIHt4M",
-        "title": "The snobbish sushi chef who overcharged diners, then saved them from a kitchen grease fire",
-        "views": 120,
-        "avg_view_pct": 47.18
-      },
-      {
         "id": "0bH8ytC4gPM",
         "title": "The overcharging Uber driver who left a passenger stranded, then saved them from a highway accident",
         "views": 113,
         "avg_view_pct": 32.5
+      },
+      {
+        "id": "xUZAqSj0Lgw",
+        "title": "The fake charity organizer who swindled donors, then rescued the shelter during a sudden flood",
+        "views": 109,
+        "avg_view_pct": 35.47
       }
     ],
     "hp04_veteran_kindness": [
@@ -7886,8 +7966,8 @@
       {
         "id": "KrCxKPFZIiU",
         "title": "Veteran\u2019s surprise ice\u2011cream gift turns a summer day into a miracle",
-        "views": 1061,
-        "avg_view_pct": 38.78
+        "views": 1060,
+        "avg_view_pct": 38.8
       },
       {
         "id": "aElGL1Ckmto",
@@ -7910,7 +7990,7 @@
       {
         "id": "CTaKR12uHVA",
         "title": "A stranger at an airport who gave up a first class seat to a veteran flying home",
-        "views": 1013,
+        "views": 1014,
         "avg_view_pct": 97.7
       },
       {
@@ -7936,19 +8016,19 @@
       {
         "id": "DL-JMVbxrGM",
         "title": "The Secret Language of Silence in Cormac McCarthy\u2019s\u202fNo Country for Old Men",
-        "views": 577,
-        "avg_view_pct": 44.52
+        "views": 535,
+        "avg_view_pct": 45.4
       },
       {
         "id": "CIMeS2kZbkM",
         "title": "The Secret Power of Tattoos in Neil Gaiman\u2019s\u202fAmerican\u202fGods: Identity, Myth, and Transformation",
-        "views": 402,
+        "views": 403,
         "avg_view_pct": 44.71
       },
       {
         "id": "vzvyTTxANHw",
         "title": "The real meaning behind George Orwell's 1984",
-        "views": 335,
+        "views": 336,
         "avg_view_pct": 132.81
       },
       {
@@ -7970,6 +8050,12 @@
         "avg_view_pct": 36.69
       },
       {
+        "id": "AWOgr4gAHuE",
+        "title": "What Gillian Flynn\u2019s Mirrors Reveal About Amy & Nick\u2019s True Selves",
+        "views": 184,
+        "avg_view_pct": 27.72
+      },
+      {
         "id": "guXZS4Y8i-Y",
         "title": "The dark true story that inspired Mary Shelley's Frankenstein",
         "views": 163,
@@ -7980,12 +8066,6 @@
         "title": "The dark true story that inspired Mary Shelley's Frankenstein",
         "views": 143,
         "avg_view_pct": 72.73
-      },
-      {
-        "id": "AWOgr4gAHuE",
-        "title": "What Gillian Flynn\u2019s Mirrors Reveal About Amy & Nick\u2019s True Selves",
-        "views": 135,
-        "avg_view_pct": 27.49
       },
       {
         "id": "S0xHFaPSyUQ",
@@ -8082,16 +8162,16 @@
         "avg_view_pct": 39.55
       },
       {
-        "id": "nbFq4eHD5ZU",
-        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
-        "views": 262,
-        "avg_view_pct": 23.64
-      },
-      {
         "id": "_ybihsm_N_8",
         "title": "Learn English: What \u201cturn a blind eye\u201d really means\u2014and how to use it like a native!",
         "views": 262,
         "avg_view_pct": 26.57
+      },
+      {
+        "id": "nbFq4eHD5ZU",
+        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
+        "views": 262,
+        "avg_view_pct": 23.64
       },
       {
         "id": "BBmaY_P6NhA",
@@ -8106,16 +8186,16 @@
         "avg_view_pct": 41
       },
       {
-        "id": "Zf2NJNpoTL4",
-        "title": "Learn English: The difference between 'make' and 'do' in everyday English",
-        "views": 159,
-        "avg_view_pct": 43.96
-      },
-      {
         "id": "xSogvQOyIPk",
         "title": "Learn English: The phrase 'get the hang of it' and how to use it naturally",
         "views": 150,
         "avg_view_pct": 26.74
+      },
+      {
+        "id": "OQnr9J50a3A",
+        "title": "Learn English: The idiom 'hit the books' and when native speakers use it",
+        "views": 112,
+        "avg_view_pct": 43.21
       }
     ],
     "ch01_ai_asmr": [
@@ -8134,8 +8214,8 @@
       {
         "id": "px6BNI-svfM",
         "title": "What Secrets Unfold When Beads Roll Like Tiny Moons on Marble?",
-        "views": 100,
-        "avg_view_pct": 27.97
+        "views": 102,
+        "avg_view_pct": 28.7
       },
       {
         "id": "BFewSXaHVRI",
@@ -8174,10 +8254,10 @@
         "avg_view_pct": 18.76
       },
       {
-        "id": "sb_OmKMuPX0",
-        "title": "What Happens When a Knife Slices Through Kinetic Sand?",
-        "views": 33,
-        "avg_view_pct": 13.23
+        "id": "HqVFBjxQ3sk",
+        "title": "Satisfying ASMR: Silky whipped cream dolloped onto chilled slate, gentle plops and airy sighs.",
+        "views": 23,
+        "avg_view_pct": 30.23
       }
     ],
     "ch03_hindu_mythology": [
@@ -8244,12 +8324,6 @@
     ],
     "ch06_eastern_philosophy": [
       {
-        "id": "dcEnONQB_LM",
-        "title": "The Tao Te Ching's teaching on softness overcoming hardness",
-        "views": 777,
-        "avg_view_pct": 57.29
-      },
-      {
         "id": "UeHxz9Jnw0g",
         "title": "When the rain fell upward, why did the garden bloom in silence?",
         "views": 450,
@@ -8302,6 +8376,12 @@
         "title": "When the wind sang, why did the silent monk smile?",
         "views": 224,
         "avg_view_pct": 54.17999999999999
+      },
+      {
+        "id": "uRcCHZnS0Sc",
+        "title": "What If a Simple Stone Could End Your Panic?",
+        "views": 216,
+        "avg_view_pct": 71.3
       }
     ]
   }
