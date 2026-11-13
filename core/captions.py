@@ -197,12 +197,22 @@ def write_ass(
     hook_seconds: float = 2.6,
     punchy: bool = True,
     words: list[tuple[str, float, float]] | None = None,
+    legacy: bool = False,
 ) -> Path:
     """Burned-in caption track. `location_label` is optional here (unlike the
     India-pin-specific original) — most anonymous-master niches have no
     location concept, so it's only drawn when a channel config sets one."""
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
+    # legacy=True: the pre-2026-10-28 look (bold Arial, big hook card) that hp04 grew on
+    styles = (f"""Style: Caption,{caption_font},{caption_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H99000000,-1,0,0,0,100,100,0,0,1,4,2,2,70,70,{caption_margin_bottom},1
+Style: Punch,{caption_font},{int(caption_font_size * 1.35)},&H00FFFFFF,&H0000E5FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7,3,5,60,60,0,1
+Style: Hook,{caption_font},{int(caption_font_size * 1.05)},&H0000E5FF,&H000000FF,&H00000000,&HCC000000,-1,0,0,0,100,100,0,0,3,18,0,8,60,60,{location_margin_top + 140},1
+Style: Location,{location_font},{location_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H85000000,-1,0,0,0,100,100,0,0,3,10,0,8,80,80,{location_margin_top},1""" if legacy else
+              f"""Style: Caption,{caption_font},{caption_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H99000000,0,0,0,0,100,100,0,0,1,4,2,2,70,70,{caption_margin_bottom},1
+Style: Punch,{caption_font},{int(caption_font_size * 1.35)},&H00FFFFFF,&H0000E5FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,6,3,2,60,60,{caption_margin_bottom},1
+Style: Hook,{caption_font},{int(caption_font_size * 0.84)},&H0000E5FF,&H000000FF,&H00000000,&HCC000000,0,0,0,0,100,100,0,0,3,14,0,8,60,60,{location_margin_top + 25},1
+Style: Location,{location_font},{location_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H85000000,0,0,0,0,100,100,0,0,3,10,0,8,80,80,{location_margin_top},1""")
     header = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {width}
@@ -212,10 +222,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Caption,{caption_font},{caption_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H99000000,0,0,0,0,100,100,0,0,1,4,2,2,70,70,{caption_margin_bottom},1
-Style: Punch,{caption_font},{int(caption_font_size * 1.35)},&H00FFFFFF,&H0000E5FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,6,3,2,60,60,{caption_margin_bottom},1
-Style: Hook,{caption_font},{int(caption_font_size * 0.84)},&H0000E5FF,&H000000FF,&H00000000,&HCC000000,0,0,0,0,100,100,0,0,3,14,0,8,60,60,{location_margin_top + 25},1
-Style: Location,{location_font},{location_font_size},&H00FFFFFF,&H000000FF,&H00101010,&H85000000,0,0,0,0,100,100,0,0,3,10,0,8,80,80,{location_margin_top},1
+{styles}
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -225,10 +232,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         loc_text = escape_ass("📍 " + location_label)
         events.append(f"Dialogue: 2,{ass_time(0)},{ass_time(duration)},Location,,0,0,0,,{{\\fad(400,400)}}{loc_text}\n")
     if hook_text:
-        hook = escape_ass(wrap_for_ass(hook_text.upper(), max_chars=27))
+        hook = escape_ass(wrap_for_ass(hook_text.upper(), max_chars=22 if legacy else 27))
         events.append(f"Dialogue: 4,{ass_time(0)},{ass_time(min(hook_seconds, duration))},Hook,,0,0,0,,"
                       f"{{\\fad(0,200)\\fscx80\\fscy80\\t(0,150,\\fscx100\\fscy100)}}{hook}\n")
-    if punchy and words:
+    if punchy and words and not legacy:
         events.extend(_word_events(words, duration))
         segments = []
     elif punchy:

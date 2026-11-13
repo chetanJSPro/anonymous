@@ -223,7 +223,9 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
                location_label=config.get("location_label"),
                hook_text=title if (vertical and config.get("hook_card", True)) else None,
                punchy=bool(vertical and config.get("punchy_captions", True)),
-               words=words)
+               words=words,
+               **(dict(caption_font="Arial", caption_font_size=76, caption_margin_bottom=340,
+                       location_font="Arial", legacy=True) if config.get("legacy_style") else {}))
     write_srt(segments, srt_path)
 
     # 3) Visuals — mostly Agnes AI-generated clips (if AGNES_API_KEY is set)
@@ -301,7 +303,8 @@ def run_episode(config, topic=None, upload=False, privacy_status="public"):
                        background_audio=keep_bg_audio,
                        background_audio_volume=float(config.get("background_audio_volume", 1.0)),
                        narration_volume=float(config.get("narration_volume", 1.0)),
-                       intro_sfx_path=intro_sfx, music_path=music_path)
+                       intro_sfx_path=intro_sfx, music_path=music_path,
+                       **({"intro_sfx_volume": 1.4} if config.get("legacy_style") else {}))
     print(f"[pipeline] video assembled: {final_path}")
     return _maybe_upload(config, topic, title, final_path, upload, privacy_status)
 
