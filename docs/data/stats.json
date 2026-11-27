@@ -4,28 +4,28 @@
       "niche": "Betrayal & revenge stories",
       "est_rpm": 12.82,
       "video_count": 199,
-      "current_total_views": 30036,
+      "current_total_views": 30102,
       "current_subscribers": 25
     },
     "hp02_court_drama": {
       "niche": "Court drama stories",
       "est_rpm": 9.03,
-      "video_count": 223,
-      "current_total_views": 40828,
+      "video_count": 226,
+      "current_total_views": 41316,
       "current_subscribers": 17
     },
     "hp03_karma_justice": {
       "niche": "Karma & justice stories",
       "est_rpm": 5.7,
-      "video_count": 225,
-      "current_total_views": 28125,
-      "current_subscribers": 29
+      "video_count": 228,
+      "current_total_views": 29234,
+      "current_subscribers": 30
     },
     "hp04_veteran_kindness": {
       "niche": "Veteran kindness stories",
       "est_rpm": 7.13,
-      "video_count": 198,
-      "current_total_views": 116559,
+      "video_count": 201,
+      "current_total_views": 117852,
       "current_subscribers": 110
     },
     "hp05_sleep_soundscapes": {
@@ -35,43 +35,43 @@
     "hp06_literary_analysis": {
       "niche": "Literary analysis & book reviews",
       "est_rpm": 9.15,
-      "video_count": 244,
-      "current_total_views": 32235,
+      "video_count": 247,
+      "current_total_views": 32335,
       "current_subscribers": 22
     },
     "hp07_senior_longevity": {
       "niche": "Famous business collapses and corporate downfalls",
       "est_rpm": 6.17,
-      "video_count": 210,
-      "current_total_views": 17812,
+      "video_count": 212,
+      "current_total_views": 17912,
       "current_subscribers": 20
     },
     "hp08_english_learning": {
       "niche": "English learning podcast shorts",
       "est_rpm": 11.88,
-      "video_count": 229,
-      "current_total_views": 36080,
+      "video_count": 232,
+      "current_total_views": 36223,
       "current_subscribers": 57
     },
     "ch01_ai_asmr": {
       "niche": "ch01_ai_asmr",
       "est_rpm": null,
-      "video_count": 222,
-      "current_total_views": 23083,
+      "video_count": 225,
+      "current_total_views": 23486,
       "current_subscribers": 12
     },
     "ch03_hindu_mythology": {
       "niche": "ch03_hindu_mythology",
       "est_rpm": null,
-      "video_count": 220,
-      "current_total_views": 40228,
+      "video_count": 222,
+      "current_total_views": 40428,
       "current_subscribers": 38
     },
     "ch06_eastern_philosophy": {
       "niche": "ch06_eastern_philosophy",
       "est_rpm": null,
-      "video_count": 249,
-      "current_total_views": 48650,
+      "video_count": 252,
+      "current_total_views": 49112,
       "current_subscribers": 37
     },
     "hp09_kids_cartoon_stories": {
@@ -8959,10 +8959,90 @@
       "watch_minutes": 69,
       "subs_gained": 2,
       "likes": 4
+    },
+    {
+      "channel": "hp01_betrayal_revenge",
+      "date": "2026-11-24",
+      "views": 5,
+      "watch_minutes": 0,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp02_court_drama",
+      "date": "2026-11-24",
+      "views": 485,
+      "watch_minutes": 29,
+      "subs_gained": 0,
+      "likes": 6
+    },
+    {
+      "channel": "hp03_karma_justice",
+      "date": "2026-11-24",
+      "views": 202,
+      "watch_minutes": 16,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "hp04_veteran_kindness",
+      "date": "2026-11-24",
+      "views": 1441,
+      "watch_minutes": 315,
+      "subs_gained": 1,
+      "likes": 19
+    },
+    {
+      "channel": "hp06_literary_analysis",
+      "date": "2026-11-24",
+      "views": 302,
+      "watch_minutes": 37,
+      "subs_gained": 0,
+      "likes": 1
+    },
+    {
+      "channel": "hp07_senior_longevity",
+      "date": "2026-11-24",
+      "views": 228,
+      "watch_minutes": 43,
+      "subs_gained": 0,
+      "likes": 2
+    },
+    {
+      "channel": "hp08_english_learning",
+      "date": "2026-11-24",
+      "views": 161,
+      "watch_minutes": 8,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch01_ai_asmr",
+      "date": "2026-11-24",
+      "views": 116,
+      "watch_minutes": 4,
+      "subs_gained": 0,
+      "likes": 0
+    },
+    {
+      "channel": "ch03_hindu_mythology",
+      "date": "2026-11-24",
+      "views": 423,
+      "watch_minutes": 41,
+      "subs_gained": 0,
+      "likes": 6
+    },
+    {
+      "channel": "ch06_eastern_philosophy",
+      "date": "2026-11-24",
+      "views": 277,
+      "watch_minutes": 22,
+      "subs_gained": 0,
+      "likes": 1
     }
   ],
   "pilot_start": null,
-  "last_updated": "2026-11-26T14:42:31.817403Z",
+  "last_updated": "2026-11-27T14:40:10.469667Z",
   "top_videos": {
     "hp01_betrayal_revenge": [
       {
@@ -8990,16 +9070,16 @@
         "avg_view_pct": 81.45
       },
       {
+        "id": "dV8e7tFmYwA",
+        "title": "I Hid My Husband\u2019s Cheating Proof Inside a $12,000 Wedding Cake \ud83c\udf82",
+        "views": 264,
+        "avg_view_pct": 58.06
+      },
+      {
         "id": "sbaFfhKEGL0",
         "title": "How I Poisoned a Celebrity Chef\u2019s Signature Dish and Snagged the $50K Contract",
         "views": 263,
         "avg_view_pct": 45.31
-      },
-      {
-        "id": "dV8e7tFmYwA",
-        "title": "I Hid My Husband\u2019s Cheating Proof Inside a $12,000 Wedding Cake \ud83c\udf82",
-        "views": 261,
-        "avg_view_pct": 58.06
       },
       {
         "id": "kIHSTRCTUQw",
@@ -9010,7 +9090,7 @@
       {
         "id": "jPPP9tEBJws",
         "title": "I slipped poison into my rival\u2019s dress\u2014did it really land me the top spot?",
-        "views": 242,
+        "views": 243,
         "avg_view_pct": 53.27
       },
       {
@@ -9030,8 +9110,8 @@
       {
         "id": "v5J3uWAi15o",
         "title": "Judge Destroys $2,800 Sprinkler Claim With One Sensor Screenshot",
-        "views": 1098,
-        "avg_view_pct": 52.93
+        "views": 1103,
+        "avg_view_pct": 52.81
       },
       {
         "id": "X8-se-6sIwM",
@@ -9042,13 +9122,13 @@
       {
         "id": "oZHvJINxsHY",
         "title": "Neighbor sues me for a crash\u2014dashcam video shatters his claim!",
-        "views": 1040,
+        "views": 1039,
         "avg_view_pct": 67.27
       },
       {
         "id": "EGPJcKG4Wm4",
         "title": "Did The GPS Reveal the Mower\u2019s Secret Trail? The Judge\u2019s Shocking Verdict?",
-        "views": 1001,
+        "views": 1002,
         "avg_view_pct": 56.31
       },
       {
@@ -9140,7 +9220,7 @@
       {
         "id": "7b0QVlA14cA",
         "title": "Ice\u2011cream cheat gets a slip\u2011n\u2011slide of karma on the sidewalk!",
-        "views": 175,
+        "views": 177,
         "avg_view_pct": 25.45
       },
       {
@@ -9166,8 +9246,14 @@
       {
         "id": "TVG5dknBnCY",
         "title": "A Free Meal on Route\u202f66 Changes a Veteran\u2019s Life\u2014What He Found Inside the Cup?",
-        "views": 1137,
-        "avg_view_pct": 55.02
+        "views": 1131,
+        "avg_view_pct": 55.11000000000001
+      },
+      {
+        "id": "SEw6L46EPbI",
+        "title": "A Soldier\u2019s Name Sparks a Small\u2011Town Miracle\u2014You Won\u2019t Believe Who Pays His Tuition",
+        "views": 1114,
+        "avg_view_pct": 44.37
       },
       {
         "id": "xYArdd75RMU",
@@ -9196,7 +9282,7 @@
       {
         "id": "NdH19msRsik",
         "title": "Veteran Receives a Shocking Laundromat Gift That Changes Everything",
-        "views": 834,
+        "views": 833,
         "avg_view_pct": 47.07
       },
       {
@@ -9204,12 +9290,6 @@
         "title": "She guessed his veteran past and covered his dog's life\u2011saving surgery\u2014no questions asked",
         "views": 814,
         "avg_view_pct": 48.83
-      },
-      {
-        "id": "WSbWHZ4uF_c",
-        "title": "Veteran walks in with a hidden medal\u2014what surprise does the barber have for him?",
-        "views": 679,
-        "avg_view_pct": 70.15
       }
     ],
     "hp06_literary_analysis": [
@@ -9222,7 +9302,7 @@
       {
         "id": "x-aDlt3FOMM",
         "title": "How a Cigarette Turns Into Bradbury\u2019s Secret Weapon of Rebellion and Memory",
-        "views": 934,
+        "views": 935,
         "avg_view_pct": 63.13999999999999
       },
       {
@@ -9235,7 +9315,7 @@
         "id": "D8guJ7zoLhk",
         "title": "Atwood\u2019s Gilead Trial: How Hidden Words Toppled a Dystopia",
         "views": 583,
-        "avg_view_pct": 33.83
+        "avg_view_pct": 33.63
       },
       {
         "id": "mz5dCSE6gRY",
@@ -9276,10 +9356,10 @@
     ],
     "hp07_senior_longevity": [
       {
-        "id": "yPTDoVDhcIs",
-        "title": "Can a 5\u2011Minute Daily",
-        "views": 159,
-        "avg_view_pct": 61.47
+        "id": "s5TNGs7Nnr4",
+        "title": "Morrisons' 40% Crash: How One Glitch Triggered a Retail Empire's Collapse",
+        "views": 167,
+        "avg_view_pct": 42.71
       },
       {
         "id": "x4IUQMhWdSA",
@@ -9296,7 +9376,7 @@
       {
         "id": "ByZfUGXUq-8",
         "title": "Why Zara's Shanghai flagship vanished after just one season\u3011",
-        "views": 128,
+        "views": 129,
         "avg_view_pct": 41.64
       },
       {
@@ -9314,14 +9394,8 @@
       {
         "id": "_Jhb3-HtJw8",
         "title": "Why Revolut\u2019s $33B Empire Crumbled Overnight After One ECB Order",
-        "views": 95,
+        "views": 96,
         "avg_view_pct": 34.17
-      },
-      {
-        "id": "bymHy5_OEYU",
-        "title": "Why a short daily walk after meals supports healthy aging",
-        "views": 94,
-        "avg_view_pct": 29.849999999999998
       },
       {
         "id": "yQtj6OxGXEw",
@@ -9334,6 +9408,12 @@
         "title": "How a $400M Fake Sales Surge Destroyed Luckin Coffee\u2019s $6B Empire",
         "views": 85,
         "avg_view_pct": 90.02
+      },
+      {
+        "id": "ETE2JDv3VFs",
+        "title": "How a $2\u202fB Run Crushed $250\u202fB in Deposits and Toppled Silicon Valley Bank",
+        "views": 81,
+        "avg_view_pct": 52.47999999999999
       }
     ],
     "hp08_english_learning": [
@@ -9364,13 +9444,13 @@
       {
         "id": "9kuZi2qjL_A",
         "title": "What Does \u201cHit the Books\u201d Really Mean? \ud83e\udd14",
-        "views": 89,
+        "views": 90,
         "avg_view_pct": 380.72
       },
       {
         "id": "GZ5FLjPofvs",
         "title": "The secret word that makes you sound genuinely excited about the future!",
-        "views": 89,
+        "views": 88,
         "avg_view_pct": 212.41
       },
       {
@@ -9380,29 +9460,29 @@
         "avg_view_pct": 32.61
       },
       {
+        "id": "LTWM_6oHD50",
+        "title": "How to Use \u201cSave the Day\u201d Like a Native Speaker\u2014and Wow Everyone!",
+        "views": 83,
+        "avg_view_pct": 53.290000000000006
+      },
+      {
         "id": "0ENC8THOmTo",
         "title": "What does \u201cgo the extra mile\u201d really mean? Discover the secret behind this idiom!",
-        "views": 77,
+        "views": 75,
         "avg_view_pct": 36.31
       },
       {
         "id": "ndLjT2XM_Fg",
         "title": "What Does \u201cBurn the Midnight Oil\u201d Really Mean? Find Out!",
-        "views": 69,
-        "avg_view_pct": 35.35
-      },
-      {
-        "id": "0R_b5zyQOTk",
-        "title": "What does \u201cfly off the handle\u201d actually mean? Find out the surprising origin!",
-        "views": 68,
-        "avg_view_pct": 46.54
+        "views": 70,
+        "avg_view_pct": 38.91
       }
     ],
     "ch01_ai_asmr": [
       {
         "id": "3MK9veuS9mg",
         "title": "Mica Powder Turns Glass into a Mini\u2011Galaxy \u2013 You Won\u2019t Believe the Sound!",
-        "views": 1112,
+        "views": 1113,
         "avg_view_pct": 27.55
       },
       {
@@ -9414,14 +9494,14 @@
       {
         "id": "329skSJyQdY",
         "title": "What\u2019s the hidden sound when soap, slime, and kinetic sand collide?",
-        "views": 525,
-        "avg_view_pct": 50.32
+        "views": 540,
+        "avg_view_pct": 49.44
       },
       {
         "id": "hTdb85vuhNk",
         "title": "What magic unfolds when ivory soap meets glowing cobalt slime?",
-        "views": 237,
-        "avg_view_pct": 42.06
+        "views": 231,
+        "avg_view_pct": 28.800000000000004
       },
       {
         "id": "WU60O1KXo-s",
@@ -9432,8 +9512,8 @@
       {
         "id": "1853uRC4gFg",
         "title": "What secret does a teal droplet reveal on a marble surface?",
-        "views": 175,
-        "avg_view_pct": 40.78
+        "views": 173,
+        "avg_view_pct": 41.8
       },
       {
         "id": "in8wzCX-8jM",
@@ -9464,8 +9544,8 @@
       {
         "id": "gbnOXRYGY1Q",
         "title": "How a secret chant saved a cursed prince from a deadly serpent bite?",
-        "views": 770,
-        "avg_view_pct": 49.05
+        "views": 767,
+        "avg_view_pct": 49.12
       },
       {
         "id": "ZpuRSn90r6M",
@@ -9476,8 +9556,8 @@
       {
         "id": "7FxRnw67pc0",
         "title": "How a newborn as massive as a hill became Bhima, the fiercest Pandava warrior?",
-        "views": 594,
-        "avg_view_pct": 99.03
+        "views": 596,
+        "avg_view_pct": 98.79
       },
       {
         "id": "l9IVG1ECMxM",
@@ -9488,8 +9568,8 @@
       {
         "id": "YZ0U2VckiwY",
         "title": "Yudhishthira\u2019s Secret Vow That Saved a Kingdom\u2014What He Swore to Dharma?",
-        "views": 519,
-        "avg_view_pct": 45.97
+        "views": 520,
+        "avg_view_pct": 45.78
       },
       {
         "id": "SChe9Um634I",
@@ -9556,8 +9636,8 @@
       {
         "id": "i3G5kliD2CI",
         "title": "The Stone That Said \u201cI\u2019m Weightless\u201d \u2013 What the Monk Learned About Our Hidden Burdens",
-        "views": 384,
-        "avg_view_pct": 64.15
+        "views": 408,
+        "avg_view_pct": 65.1
       },
       {
         "id": "ymF_CV4iNxk",
